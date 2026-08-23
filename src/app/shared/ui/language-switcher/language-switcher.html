@@ -1,0 +1,15 @@
+<button
+  type="button"
+  ngMenuTrigger
+  [menu]="localeMenu"
+  i18n-aria-label="Purpose of the language menu button|@@languageSwitcher.trigger"
+  aria-label="Cambiar idioma"
+>
+  {{ currentLabel() }}
+</button>
+
+<div ngMenu #localeMenu="ngMenu" (itemSelected)="switchTo($event)">
+  @for (locale of locales; track locale) {
+    <button type="button" ngMenuItem [value]="locale">{{ labelFor(locale) }}</button>
+  }
+</div>
