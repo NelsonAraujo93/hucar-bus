@@ -9,7 +9,9 @@ on:
 # Cancel superseded runs on the same branch/PR.
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  # Never cancel a run on main: it may be partway through a release, and
+  # interrupting semantic-release between tagging and publishing is messy.
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 permissions:
   contents: read
@@ -69,3 +71,37 @@ jobs:
         # Skipped automatically on forks, where the secret is unavailable.
         if: ${{ !cancelled() && env.SONAR_TOKEN != '' }}
         uses: SonarSource/sonarqube-scan-action@v7
+
+  release:
+    name: Semantic release
+    # A job dependency rather than a cross-workflow trigger. The previous
+    # release.yml used `workflow_run`, which runs in the default branch's
+    # context: GITHUB_REF was refs/heads/dev, so semantic-release saw a branch
+    # it is not configured to publish from, declined, and exited 0. A green job
+    # that published nothing. Checking out `ref: main` did not help, because the
+    # branch is read from the CI environment, not the working tree.
+    needs: quality
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # create tags and GitHub Releases
+      issues: write # comment on released issues
+      pull-requests: write # comment on released PRs
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # semantic-release needs full history to find the last tag.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
