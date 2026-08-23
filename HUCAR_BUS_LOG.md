@@ -72,3 +72,84 @@ left unchanged, Sonar reported 0% coverage while CI stayed green.
 2. Fallback locale for an unmatched `Accept-Language`?
 3. Must the client edit copy without a redeploy?
 4. Is Instagram in scope?
+
+## 2026-08-23 — Phase 1: i18n foundation
+
+### Locale decisions
+
+- `es-ES` is the source locale at `/es/`; `en-GB` at `/en/`. Build-time via
+  `@angular/localize`, two builds and one deploy, XLIFF 2.0.
+- **The fallback locale is `en-GB`, not Spanish.** This contradicts the plan's
+  decisions table and its definition of done, which expected a German browser to
+  land on `/es/`. Nelson's call: the English-speaking market is the larger share
+  of customers, so an unrecognised browser language is more likely to be an
+  English speaker. **The definition of done should now read `/en/` for that
+  case.**
+- `sourceLocale` remains `es-ES`, which is independent of the fallback. Copy is
+  therefore authored in Spanish and translated into English — already visible in
+  the switcher, whose source string is `Cambiar idioma`. **Still open:** whether
+  authoring should flip to English now that the primary audience is English.
+  Cheap to change today, expensive once Phase 2 has copy in it.
+
+### T1 spike result
+
+Vercel Routing Middleware **does** run on this project's pure static Angular
+output. No `vercel.json` fallback was needed and the plan stood unchanged. The
+matcher is scoped to `/` only; `/es/`, `/en/` and static assets pass through.
+
+Verified at the edge: `en-GB` → `/en/`, `es-ES` → `/es/`, `de-DE` → `/en/`,
+cookie beats header, q-values beat header order, query strings preserved.
+
+### Actual output paths
+
+```
+dist/hucar-bus/browser/es/index.html
+dist/hucar-bus/browser/en/index.html
+```
+
+`browser/` root contains **no** `index.html`. Nothing is served at `/`, which
+makes the middleware load-bearing infrastructure rather than a convenience.
+
+### Discovered, contradicting or absent from the plan
+
+- **`head.querySelector('link[rel="canonical"]')` fails silently during
+  prerendering.** The element was present in the DOM at render time but never
+  reached the serialized HTML, while an identical plain `appendChild` survived.
+  There is no error; the tags simply do not exist. Tags are now addressed by
+  deterministic id via `getElementById`. This is why the T11 assertion checks
+  for canonical and hreflang, not just for the files.
+- **Nothing can be served from the domain root.** Localized builds place every
+  asset under `/es/` and `/en/`. A rewrite patches `/favicon.ico`, but
+  `robots.txt` is only honoured at `/robots.txt` and a crawler will never look
+  in `/es/`. Neither it nor `sitemap.xml` exists yet; both will need the same
+  treatment when they do.
+- **Unmatched routes now return 404**, where the pre-i18n build served a 200 SPA
+  fallback. Correct for a prerendered site, but every route must be prerendered
+  — a purely client-side route added later would 404 on direct navigation.
+- **`<html lang>` needed no work.** Angular already emits `lang="es-ES"` and
+  `lang="en-GB"` per build, answering T9's open question.
+- **`ng lint` covered only `src/**`**, so `middleware.ts` — production edge code
+  — was entirely unlinted. Proven with a deliberate `any` that passed. Patterns
+  now include root-level TypeScript.
+- **`lint-staged` covered no `.js`/`.mjs`**, so config files skipped pre-commit
+  formatting and only failed later in CI.
+
+### Coverage
+
+97.14% branches against an 80% gate, 100% statements, lines and functions. The
+two uncovered branches are a defensive null-`location` guard and one branch v8
+attributes to Angular's compiled template output. Neither is worth a synthetic
+test. Every hand-authored i18n file is at 100% branches.
+
+Note the denominators collapsed when the Angular scaffold was deleted — from 55
+statements to 8 — before recovering to 153 as real logic landed. The gate has
+little slack on a small codebase.
+
+### Still open
+
+- Phase 1's definition of done is otherwise met, but **T10's language-switch
+  persistence has not been verified end to end in a browser** — the cookie and
+  navigation are unit tested, not click tested.
+- The release pipeline still has not published a release. Phase 1 contains
+  `feat:` commits, so merging it to `main` will cut the first version and prove
+  the last untested link in the chain.
