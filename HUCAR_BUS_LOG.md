@@ -189,3 +189,35 @@ partway through tagging and publishing.
 
 **Lesson.** A green release job proves nothing. The check that matters is
 whether a tag and Release actually exist.
+
+### Two further release failures
+
+Moving the job onto `main` was necessary but not sufficient. Two more problems
+followed, and only the third diagnosis was correct.
+
+**Wrong diagnosis.** With the job now running, `semantic-release` failed and the
+run logs were not readable without auth. The ruleset requires a pull request on
+`main` with no bypass, so the failure was attributed to `EGITNOPERMISSION` — the
+startup dry-run push being refused. A write-enabled deploy key and a
+`Deploy keys` bypass were added on that basis. **The push was never reached, so
+none of that was the cause.** It may still be needed the first time a release
+gets far enough to push a tag; that remains unproven.
+
+A second mistake compounded it: `bypass_actors` is omitted entirely from
+unauthenticated API responses, and reading the absent key as an empty list
+produced repeated false reports that the bypass had not saved. It had.
+
+**Actual cause.** `conventional-changelog-conventionalcommits@10` requires
+`conventional-changelog-writer@9`, but `@semantic-release/release-notes-generator`
+depends on writer `^8` in every published version, including `15.0.0-beta.1`.
+Commit analysis was never affected — it parsed all 35 commits and resolved
+`1.0.0` correctly — but rendering the notes died on a missing Handlebars helper.
+The preset is pinned to `9.3.1`, which the error message itself recommends.
+
+Verified before merging, rather than after: `semantic-release --dry-run --no-ci`
+now completes `generateNotes` and renders the full `1.0.0` notes.
+
+**Lesson, sharper than the last one.** Three failures, three different causes,
+and the log was readable the whole time. Inferring from configuration shape
+instead of reading the error produced one correct diagnosis and one wrong one
+that cost two rounds of unnecessary setup.
