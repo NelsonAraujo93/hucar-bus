@@ -152,9 +152,11 @@ little slack on a small codebase.
 
 ### Still open
 
-- Phase 1's definition of done is otherwise met, but **T10's language-switch
-  persistence has not been verified end to end in a browser** — the cookie and
-  navigation are unit tested, not click tested.
+- **Phase 1's definition of done is met in full.** Language-switch persistence
+  was manually verified by Nelson on 2026-08-23: after switching, the choice
+  held across separate tabs and separate windows. That exercises the whole
+  round trip — the cookie written by `switchTo`, and the middleware reading it
+  back on a fresh request and honouring it over `Accept-Language`.
 - The release pipeline still has not published a release. Phase 1 contains
   `feat:` commits, so merging it to `main` will cut the first version and prove
   the last untested link in the chain.
