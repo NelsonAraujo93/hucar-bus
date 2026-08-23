@@ -1,22 +1,38 @@
-// Phase 1 / T1 spike.
-//
-// Purpose: prove that Vercel Routing Middleware actually executes for this
-// project, which produces a pure static Angular output with no framework
-// server. Everything from T5 onward (Accept-Language negotiation, cookie
-// override, the language switcher) depends on this working.
-//
-// This file is deliberately trivial and throwaway. If the spike passes it is
-// replaced by real negotiation logic; if it fails we fall back to vercel.json
-// redirects with `has` conditions on the accept-language header.
-//
-// Note: /es/ does not exist yet -- @angular/localize has not been configured.
-// A 404 after the redirect is expected and fine. The only question this spike
-// answers is whether the 307 fires at the edge at all.
+import { readLocaleCookie } from './src/shared/i18n/locale-cookie';
+import { negotiateLocale } from './src/shared/i18n/negotiate-locale';
 
+/**
+ * Only the bare root is negotiated. /es/..., /en/... and every static asset
+ * must pass through untouched -- intercepting them would break asset loading
+ * and trap anyone who has already chosen a locale.
+ */
 export const config = {
   matcher: '/',
 };
 
 export default function middleware(request: Request): Response {
-  return Response.redirect(new URL('/es/', request.url), 307);
+  const locale = negotiateLocale(
+    request.headers.get('accept-language'),
+    readLocaleCookie(request.headers.get('cookie')),
+  );
+
+  // Preserve the query string so campaign parameters on links to the bare
+  // root survive the redirect.
+  const { search } = new URL(request.url);
+
+  return new Response(null, {
+    status: 307,
+    headers: {
+      // 307, never 308: the target is content-negotiated and may legitimately
+      // differ between requests. Browsers cache a permanent redirect very
+      // aggressively and it is painful to undo.
+      location: `/${locale}/${search}`,
+      // The response body depends on both inputs, so shared caches must key on
+      // them. Cookie is included as well as Accept-Language because an explicit
+      // choice overrides the browser's -- without it, one visitor's chosen
+      // locale could be served to another.
+      vary: 'Accept-Language, Cookie',
+      'cache-control': 'no-store',
+    },
+  });
 }
