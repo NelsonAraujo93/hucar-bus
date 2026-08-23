@@ -29,7 +29,7 @@ interface RankedTag {
  * `en-GB`, `en_US` and `EN` all resolve to `en`. Returns null for anything
  * unsupported, including the `*` wildcard.
  */
-function toSupportedLocale(tag: string): SupportedLocale | null {
+export function toSupportedLocale(tag: string): SupportedLocale | null {
   const primary = tag.trim().toLowerCase().split(/[-_]/)[0];
   return SUPPORTED_LOCALES.find((locale) => locale === primary) ?? null;
 }
