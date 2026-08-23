@@ -18,6 +18,7 @@
       }
     ],
     "import-notation": null,
+    "no-empty-source": null,
     "selector-class-pattern": null
   },
   "ignoreFiles": ["dist/**/*", "coverage/**/*", "node_modules/**/*"]
