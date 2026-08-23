@@ -39,7 +39,30 @@ module.exports = defineConfig([
   {
     files: ['**/*.html'],
     extends: [angular.configs.templateRecommended, angular.configs.templateAccessibility],
-    rules: {},
+    rules: {
+      // Extraction only picks up text carrying an i18n attribute, so unmarked
+      // copy ships untranslated with nothing to warn you. This turns that
+      // invisible failure into a build error.
+      '@angular-eslint/template/i18n': [
+        'error',
+        {
+          checkId: false,
+          checkText: true,
+          checkAttributes: true,
+          // Observed on the Angular scaffold: SVG geometry and link relations
+          // are machine values, not copy. Extend this list as others surface.
+          ignoreAttributes: ['d', 'fill-rule', 'clip-rule', 'rel'],
+        },
+      ],
+    },
+  },
+  {
+    // index.html is the app shell, not an Angular template -- Angular's i18n
+    // pipeline never processes it, so marking it up would achieve nothing.
+    files: ['src/index.html'],
+    rules: {
+      '@angular-eslint/template/i18n': 'off',
+    },
   },
   // Must stay last: turns off every ESLint rule that would fight Prettier.
   eslintConfigPrettier,
