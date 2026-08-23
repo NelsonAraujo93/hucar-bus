@@ -18,6 +18,10 @@ jobs:
   quality:
     name: Lint, test & build
     runs-on: ubuntu-latest
+    # Job-level, not step-level: a step's own `env:` block is not in scope for
+    # that step's `if:`, so the scan step could never see its own token.
+    env:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     steps:
       - uses: actions/checkout@v5
         with:
@@ -61,6 +65,4 @@ jobs:
       - name: SonarQube Cloud scan
         # Skipped automatically on forks, where the secret is unavailable.
         if: ${{ !cancelled() && env.SONAR_TOKEN != '' }}
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         uses: SonarSource/sonarqube-scan-action@v6
