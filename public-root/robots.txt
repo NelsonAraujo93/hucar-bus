@@ -1,0 +1,4 @@
+# Both locales are indexable. Which one a crawler is shown at / is decided by
+# the routing middleware; hreflang alternates in each page point at the rest.
+User-agent: *
+Allow: /

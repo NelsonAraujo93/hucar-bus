@@ -118,11 +118,16 @@ makes the middleware load-bearing infrastructure rather than a convenience.
   There is no error; the tags simply do not exist. Tags are now addressed by
   deterministic id via `getElementById`. This is why the T11 assertion checks
   for canonical and hreflang, not just for the files.
-- **Nothing can be served from the domain root.** Localized builds place every
-  asset under `/es/` and `/en/`. A rewrite patches `/favicon.ico`, but
-  `robots.txt` is only honoured at `/robots.txt` and a crawler will never look
-  in `/es/`. Neither it nor `sitemap.xml` exists yet; both will need the same
-  treatment when they do.
+- **Nothing could be served from the domain root.** Localized builds place
+  every asset under `/es/` and `/en/`, so the output root held only those two
+  directories. `robots.txt` is only honoured at `/robots.txt` and a crawler will
+  never look in `/es/`. **Solved:** `public-root/` is copied over the build
+  output root by `scripts/copy-root-assets.mjs`, wired into `npm run build`.
+  Anything dropped in that folder lands at the domain root, `sitemap.xml`
+  included when it exists. `favicon.ico` moved there and `src/index.html` now
+  references it absolutely, since a relative href resolves against
+  `<base href="/es/">`. The `vercel.json` rewrite that patched this is gone, and
+  the T11 assertion fails if the root files go missing.
 - **Unmatched routes now return 404**, where the pre-i18n build served a 200 SPA
   fallback. Correct for a prerendered site, but every route must be prerendered
   — a purely client-side route added later would 404 on direct navigation.

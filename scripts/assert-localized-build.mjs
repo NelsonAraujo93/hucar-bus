@@ -14,7 +14,21 @@ const EXPECTED = [
   { subPath: 'en', tag: 'en-GB' },
 ];
 
+/**
+ * Files that must be served from the domain root. Localized builds place
+ * everything under /es/ and /en/, so these only exist because public-root/ is
+ * copied over the output root -- if that step is dropped they vanish silently.
+ */
+const ROOT_FILES = ['robots.txt', 'favicon.ico'];
+
 const failures = [];
+
+for (const name of ROOT_FILES) {
+  const file = join(BROWSER_DIR, name);
+  if (!existsSync(file)) {
+    failures.push(`${file} is missing -- it must be served from the domain root`);
+  }
+}
 
 for (const { subPath, tag } of EXPECTED) {
   const file = join(BROWSER_DIR, subPath, 'index.html');
@@ -55,5 +69,6 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `Localized build OK: ${EXPECTED.map((e) => e.subPath).join(', ')} prerendered with canonical and hreflang tags.`,
+  `Localized build OK: ${EXPECTED.map((e) => e.subPath).join(', ')} prerendered with canonical ` +
+    `and hreflang tags; root files present (${ROOT_FILES.join(', ')}).`,
 );
