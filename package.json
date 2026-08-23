@@ -10,6 +10,9 @@
       "stylelint --fix",
       "prettier --write"
     ],
+    "*.{js,mjs}": [
+      "prettier --write"
+    ],
     "*.{json,md,yml}": [
       "prettier --write"
     ]
