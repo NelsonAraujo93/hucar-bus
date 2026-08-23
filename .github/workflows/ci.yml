@@ -92,6 +92,16 @@ jobs:
         with:
           # semantic-release needs full history to find the last tag.
           fetch-depth: 0
+          # semantic-release dry-run pushes to main before doing any work, to
+          # verify it can write. The ruleset requires a pull request for any
+          # update to main, and GITHUB_TOKEN acts as github-actions[bot], which
+          # cannot be granted a ruleset bypass on a personal repository. A
+          # deploy key can: it is listed under "Deploy keys" in the bypass list
+          # and is scoped to this repository alone.
+          #
+          # This sets the remote to SSH so git pushes use the key. The GitHub
+          # API calls that create the Release still use GITHUB_TOKEN below.
+          ssh-key: ${{ secrets.RELEASE_DEPLOY_KEY }}
 
       - uses: actions/setup-node@v5
         with:
