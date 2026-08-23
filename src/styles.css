@@ -1,3 +1,105 @@
-/* You can add global styles to this file, and also import other style files */
-
+/* Self-hosted fonts. The design loads these from the Google CDN, which would
+   transmit visitor IPs to Google on every page load without consent -- not
+   acceptable for an EU client, and it would block font loading behind cookie
+   consent. Latin subsets only; the site ships es-ES and en-GB. */
+@import '@fontsource/anton/latin-400.css';
+@import '@fontsource/poppins/latin-400.css';
+@import '@fontsource/poppins/latin-500.css';
+@import '@fontsource/poppins/latin-600.css';
+@import '@fontsource/poppins/latin-700.css';
 @import 'tailwindcss';
+
+@theme {
+  /* Palette. Names follow the design handoff, which disagrees with
+     HUCAR_BUS_DESIGN.md on two labels for identical hexes. */
+  --color-sun-yellow: #f5c518;
+  --color-sunset-orange: #f0882a;
+  --color-lava-red: #e04e1a;
+  --color-ocean-teal: #2bbcd4;
+  --color-brand-blue: #073396;
+  --color-ink: #1a1a1a;
+  --color-ink-muted: #4a4a4a;
+  --color-sand: #f5e6c0;
+  --color-sand-light: #fdf4e3;
+  --color-sand-lighter: #fff4d9;
+  --color-cream: #fdf9ec;
+  --color-border: #e5e0d5;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-hover: #1fb357;
+  --font-display: 'Anton', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+
+  /* Radius ladder, named by value so nothing semantic is invented. */
+  --radius-4: 4px;
+  --radius-8: 8px;
+  --radius-10: 10px;
+  --radius-12: 12px;
+  --radius-14: 14px;
+  --radius-16: 16px;
+  --radius-20: 20px;
+  --radius-full: 999px;
+  --radius-circle: 50%;
+
+  /* Motion. */
+  --duration-micro: 0.15s;
+  --duration-transform: 0.2s;
+  --duration-card: 0.25s;
+  --duration-image: 0.35s;
+  --duration-carousel: 0.5s;
+  --ease-carousel: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@theme {
+  /* Layout. */
+  --section-pad-airy: 96px;
+  --section-pad-compact: 64px;
+  --container-max: 1152px;
+  --container-pad: 32px;
+
+  /* The design specifies focus styling for inputs only. Every other
+     interactive element has hover styling and nothing else, which fails
+     WCAG 2.4.7 and makes the site unusable by keyboard. */
+  --ring-focus: 0 0 0 3px rgb(245 197 24 / 45%);
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: #fff;
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* focus-visible rather than focus, so pointer users never see the ring. */
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--ring-focus);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
