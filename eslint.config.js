@@ -27,7 +27,9 @@ module.exports = defineConfig([
       '@angular-eslint/component-selector': [
         'error',
         {
-          type: 'element',
+          // Attribute selectors are allowed so primitives can be applied to a
+          // real <button> or <a> rather than wrapping one.
+          type: ['element', 'attribute'],
           prefix: 'hb',
           style: 'kebab-case',
         },
@@ -51,7 +53,7 @@ module.exports = defineConfig([
           checkAttributes: true,
           // Observed on the Angular scaffold: SVG geometry and link relations
           // are machine values, not copy. Extend this list as others surface.
-          ignoreAttributes: ['d', 'fill-rule', 'clip-rule', 'rel'],
+          ignoreAttributes: ['d', 'fill-rule', 'clip-rule', 'rel', 'data-testid'],
         },
       ],
     },

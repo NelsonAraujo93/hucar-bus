@@ -1,0 +1,7 @@
+@if (pending()) {
+  <span class="hb-button__spinner" aria-hidden="true"></span>
+} @else {
+  <ng-content select="[hb-button-icon]" />
+}
+
+<ng-content />
