@@ -53,7 +53,15 @@ module.exports = defineConfig([
           checkAttributes: true,
           // Observed on the Angular scaffold: SVG geometry and link relations
           // are machine values, not copy. Extend this list as others surface.
-          ignoreAttributes: ['d', 'fill-rule', 'clip-rule', 'rel', 'data-testid'],
+          ignoreAttributes: [
+            'd',
+            'fill-rule',
+            'clip-rule',
+            'rel',
+            'data-testid',
+            'stroke-linecap',
+            'stroke-linejoin',
+          ],
         },
       ],
     },
