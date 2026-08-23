@@ -1,0 +1,25 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "rules": {
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "theme",
+          "source",
+          "utility",
+          "variant",
+          "custom-variant",
+          "apply",
+          "reference",
+          "config",
+          "plugin"
+        ]
+      }
+    ],
+    "import-notation": null,
+    "no-empty-source": null,
+    "selector-class-pattern": null
+  },
+  "ignoreFiles": ["dist/**/*", "coverage/**/*", "node_modules/**/*"]
+}
