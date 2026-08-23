@@ -54,6 +54,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Verify localized build output
+        run: npm run verify:build
+
       - name: Upload coverage artifact
         if: always()
         uses: actions/upload-artifact@v6

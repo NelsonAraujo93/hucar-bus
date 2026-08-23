@@ -13,6 +13,18 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "hb",
+      "i18n": {
+        "sourceLocale": {
+          "code": "es-ES",
+          "subPath": "es"
+        },
+        "locales": {
+          "en-GB": {
+            "translation": "src/locale/messages.en-GB.xlf",
+            "subPath": "en"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular/build:application",
@@ -33,7 +45,9 @@
             },
             "ssr": {
               "entry": "src/server.ts"
-            }
+            },
+            "polyfills": ["@angular/localize/init"],
+            "localize": true
           },
           "configurations": {
             "production": {
@@ -49,7 +63,8 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "i18nMissingTranslation": "error"
             },
             "development": {
               "optimization": false,
@@ -95,7 +110,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+            "lintFilePatterns": ["*.ts", "src/**/*.ts", "src/**/*.html"]
           }
         }
       }
