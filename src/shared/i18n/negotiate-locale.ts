@@ -14,6 +14,16 @@ export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
  */
 export const FALLBACK_LOCALE: SupportedLocale = 'en';
 
+/**
+ * The full BCP 47 tag for each locale, matching the codes in angular.json.
+ * Used wherever a bare `es`/`en` is not specific enough -- hreflang, og:locale
+ * and the html lang attribute all want the regional form.
+ */
+export const LOCALE_TAGS: Record<SupportedLocale, string> = {
+  es: 'es-ES',
+  en: 'en-GB',
+};
+
 /** Name of the cookie holding an explicit user choice. */
 export const LOCALE_COOKIE = 'hb_locale';
 
