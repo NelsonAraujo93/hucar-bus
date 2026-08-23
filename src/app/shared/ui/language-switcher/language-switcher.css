@@ -1,0 +1,57 @@
+.switcher {
+  display: inline-flex;
+  gap: 2px;
+  align-items: center;
+  padding: 3px;
+  background: var(--color-sand-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+.switcher__option {
+  display: inline-flex;
+  min-width: 38px;
+  min-height: 30px;
+  padding: 5px 10px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  color: var(--color-ink-muted);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--duration-micro) ease;
+}
+
+.switcher__option.is-active {
+  background: var(--color-sun-yellow);
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+/* Dark tone, for the footer and the Instagram section. */
+:host([data-tone='dark']) .switcher {
+  background: rgb(255 255 255 / 8%);
+  border-color: rgb(255 255 255 / 14%);
+}
+
+:host([data-tone='dark']) .switcher__option {
+  color: rgb(255 255 255 / 75%);
+}
+
+:host([data-tone='dark']) .switcher__option.is-active {
+  color: var(--color-ink);
+}
+
+/* Full width for the mobile drawer. */
+:host(.is-full),
+:host(.is-full) .switcher {
+  width: 100%;
+}
+
+:host(.is-full) .switcher__option {
+  flex: 1;
+}
