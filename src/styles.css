@@ -60,8 +60,7 @@
 
 @theme {
   /* Layout. */
-  --section-pad-airy: 96px;
-  --section-pad-compact: 64px;
+  --section-pad: 96px;
   --container-max: 1152px;
   --container-pad: 32px;
 
@@ -80,6 +79,28 @@
 
   html {
     scroll-behavior: smooth;
+
+    /* Clears the fixed navbar so anchored headings are not hidden under it.
+       The design uses 72px; the handoff README says 64px, and the HTML wins. */
+    scroll-padding-top: 72px;
+  }
+
+  /* Section padding and gutters step down by breakpoint. Both ladders come
+     from the responsive preview, which supersedes the README's single
+     96/64 pair and fixed 32px gutter. Breakpoints match Tailwind's md and lg
+     exactly, so utilities and these tokens agree. */
+  @media (width < 1024px) {
+    :root {
+      --section-pad: 80px;
+      --container-pad: 24px;
+    }
+  }
+
+  @media (width < 768px) {
+    :root {
+      --section-pad: 64px;
+      --container-pad: 16px;
+    }
   }
 
   body {
