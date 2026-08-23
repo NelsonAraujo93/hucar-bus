@@ -160,3 +160,32 @@ little slack on a small codebase.
 - The release pipeline still has not published a release. Phase 1 contains
   `feat:` commits, so merging it to `main` will cut the first version and prove
   the last untested link in the chain.
+
+## 2026-08-23 — Release pipeline fix
+
+The first merge to `main` with `feat:` commits produced a green Release run that
+published nothing: 0 tags, 0 releases, every step successful.
+
+**Cause.** `release.yml` triggered on `workflow_run`, which executes in the
+default branch's context. `GITHUB_REF` was therefore `refs/heads/dev`, and
+`semantic-release` reads the current branch from the CI environment rather than
+from the working tree. With `.releaserc.json` set to `"branches": ["main"]`, it
+saw a branch it is not configured to publish from, declined, and exited 0.
+Checking out `ref: main` did not help — that changes the files, not the branch
+the CI environment reports.
+
+This also explains the earlier empty run, which was misread at the time as
+"correctly decided there was nothing to release". It never reached commit
+analysis at all.
+
+**Fix.** The release job moved into `ci.yml` with `needs: quality` and a guard
+on `github.ref == 'refs/heads/main'`. `GITHUB_REF` is then genuinely
+`refs/heads/main`. The CI-must-pass gate becomes a native job dependency, which
+is stronger than the cross-workflow trigger it replaces, and `release.yml` is
+deleted.
+
+`cancel-in-progress` is now false on `main`, so a run cannot be cancelled
+partway through tagging and publishing.
+
+**Lesson.** A green release job proves nothing. The check that matters is
+whether a tag and Release actually exist.
