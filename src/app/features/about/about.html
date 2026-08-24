@@ -1,0 +1,61 @@
+<section class="about" id="nosotros">
+  <div class="about__inner">
+    <div class="about__copy">
+      <p class="about__eyebrow" i18n="Section eyebrow|@@about.eyebrow">Sobre Nosotros</p>
+
+      <h2 class="about__title">
+        <span class="about__title-line" i18n="Heading, first line|@@about.title.first"
+          >Una familia al</span
+        >
+        <span class="about__title-line" i18n="Heading, second line|@@about.title.second"
+          >volante desde {{ config.foundedYear }}</span
+        >
+      </h2>
+
+      <p class="about__paragraph" i18n="About, first paragraph|@@about.paragraph.first">
+        En Hucar Bus somos una empresa familiar nacida en Lanzarote, con más de una década moviendo
+        a vecinos y visitantes por toda la isla. Nuestra flota de minibuses es moderna, segura y
+        cómoda, y cada viaje se conduce con el mismo cuidado que tendríamos con la familia.
+      </p>
+
+      <p class="about__paragraph" i18n="About, second paragraph|@@about.paragraph.second">
+        Desde un traslado al aeropuerto a primera hora hasta una ruta privada por el Timanfaya, nos
+        adaptamos a lo que necesites — siempre con trato personal y puntualidad canaria.
+      </p>
+
+      <ul class="about__stats">
+        @for (stat of stats(); track stat.label) {
+          <li class="stat">
+            <span class="stat__value">{{ stat.value }}</span>
+            <span class="stat__label">{{ stat.label }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="about__media">
+      <!-- Awaiting a real fleet photograph. The client images live in the design
+           export and exceed the file-read limit, so they cannot be pulled here;
+           they need exporting to disk. Deliberately not the design's dev-only
+           PlaceholderImage, which the handoff says never to port. -->
+      <div
+        class="about__photo"
+        role="img"
+        i18n-aria-label="Placeholder for the fleet photograph|@@about.photo.alt"
+        aria-label="Fotografía de la flota, pendiente"
+      ></div>
+
+      <div class="about__badge">
+        <span class="about__badge-icon" aria-hidden="true">
+          <hb-icon name="pin" [size]="22" color="#fff" />
+        </span>
+        <span class="about__badge-text">
+          <span class="about__badge-label" i18n="Label above the base location|@@about.base.label"
+            >Base</span
+          >
+          <span class="about__badge-value">{{ config.addressShort }}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>

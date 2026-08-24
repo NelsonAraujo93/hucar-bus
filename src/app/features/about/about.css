@@ -1,0 +1,200 @@
+.about {
+  padding: var(--section-pad) var(--container-pad);
+  background: var(--color-sand);
+}
+
+.about__inner {
+  display: grid;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  gap: 72px;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+}
+
+.about__eyebrow {
+  margin: 0 0 12px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  /* Lava red here, not the orange used by every other eyebrow. */
+  color: var(--color-lava-red);
+}
+
+.about__eyebrow::before,
+.about__eyebrow::after {
+  content: '·';
+}
+
+.about__eyebrow::before {
+  margin-right: 8px;
+}
+
+.about__eyebrow::after {
+  margin-left: 8px;
+}
+
+.about__title {
+  margin: 0 0 24px;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 7vw, 52px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
+.about__title-line {
+  display: block;
+}
+
+.about__paragraph {
+  margin: 0 0 20px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-ink-muted);
+}
+
+.about__paragraph:last-of-type {
+  margin-bottom: 32px;
+}
+
+.about__stats {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 12px;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.stat {
+  display: flex;
+  min-width: 140px;
+  padding: 14px 20px;
+  gap: 2px;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid rgb(43 188 212 / 30%);
+  border-radius: var(--radius-12);
+}
+
+.stat__value {
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1;
+  color: var(--color-ocean-teal);
+}
+
+.stat__label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-ink-muted);
+}
+
+.about__media {
+  position: relative;
+}
+
+.about__photo {
+  aspect-ratio: 4 / 5;
+  background: linear-gradient(160deg, #f5c518 0%, #f0882a 45%, #e04e1a 100%);
+  border-radius: var(--radius-16);
+}
+
+.about__badge {
+  position: absolute;
+  bottom: -24px;
+  left: -24px;
+  display: flex;
+  padding: 16px 20px;
+  gap: 12px;
+  align-items: center;
+  background: #fff;
+  border-radius: var(--radius-12);
+  box-shadow: var(--shadow-float-card);
+}
+
+.about__badge-icon {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-ocean-teal);
+  border-radius: var(--radius-10);
+}
+
+.about__badge-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.about__badge-value {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+@media (width < 1024px) {
+  .about__inner {
+    gap: 48px;
+    grid-template-columns: 1fr;
+  }
+
+  .about__photo {
+    aspect-ratio: 4 / 3;
+  }
+
+  .about__media {
+    margin-bottom: 32px;
+  }
+}
+
+@media (width < 768px) {
+  .about__inner {
+    gap: 40px;
+  }
+
+  .about__title-line {
+    display: inline;
+  }
+
+  .about__title-line + .about__title-line::before {
+    content: ' ';
+  }
+
+  .about__paragraph {
+    font-size: 15px;
+  }
+
+  .stat {
+    min-width: 0;
+    flex: 1 1 30%;
+  }
+
+  .stat__value {
+    font-size: 24px;
+  }
+
+  .stat__label {
+    font-size: 12px;
+  }
+
+  /* Pulled inside the frame: at -24px the badge overflows a narrow viewport. */
+  .about__badge {
+    left: 12px;
+  }
+}

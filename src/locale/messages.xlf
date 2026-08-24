@@ -46,18 +46,108 @@
         <source>Contacto</source>
       </segment>
     </unit>
+    <unit id="about.eyebrow">
+      <notes>
+        <note category="location">src/app/features/about/about.html:4,7</note>
+        <note category="meaning">Section eyebrow</note>
+      </notes>
+      <segment>
+        <source>Sobre Nosotros</source>
+      </segment>
+    </unit>
+    <unit id="about.title.first">
+      <notes>
+        <note category="location">src/app/features/about/about.html:8,10</note>
+        <note category="meaning">Heading, first line</note>
+      </notes>
+      <segment>
+        <source>Una familia al</source>
+      </segment>
+    </unit>
+    <unit id="about.title.second">
+      <notes>
+        <note category="location">src/app/features/about/about.html:11,13</note>
+        <note category="meaning">Heading, second line</note>
+      </notes>
+      <segment>
+        <source>volante desde <ph id="0" equiv="INTERPOLATION" disp="{{ config.foundedYear }}"/></source>
+      </segment>
+    </unit>
+    <unit id="about.paragraph.first">
+      <notes>
+        <note category="location">src/app/features/about/about.html:16,21</note>
+        <note category="meaning">About, first paragraph</note>
+      </notes>
+      <segment>
+        <source> En Hucar Bus somos una empresa familiar nacida en Lanzarote, con más de una década moviendo a vecinos y visitantes por toda la isla. Nuestra flota de minibuses es moderna, segura y cómoda, y cada viaje se conduce con el mismo cuidado que tendríamos con la familia. </source>
+      </segment>
+    </unit>
+    <unit id="about.paragraph.second">
+      <notes>
+        <note category="location">src/app/features/about/about.html:22,27</note>
+        <note category="meaning">About, second paragraph</note>
+      </notes>
+      <segment>
+        <source> Desde un traslado al aeropuerto a primera hora hasta una ruta privada por el Timanfaya, nos adaptamos a lo que necesites — siempre con trato personal y puntualidad canaria. </source>
+      </segment>
+    </unit>
+    <unit id="about.photo.alt">
+      <notes>
+        <note category="location">src/app/features/about/about.html:45,49</note>
+        <note category="meaning">Placeholder for the fleet photograph</note>
+      </notes>
+      <segment>
+        <source>Fotografía de la flota, pendiente</source>
+      </segment>
+    </unit>
+    <unit id="about.base.label">
+      <notes>
+        <note category="location">src/app/features/about/about.html:54,56</note>
+        <note category="meaning">Label above the base location</note>
+      </notes>
+      <segment>
+        <source>Base</source>
+      </segment>
+    </unit>
+    <unit id="about.stats.years">
+      <notes>
+        <note category="location">src/app/features/about/about.ts:36</note>
+        <note category="meaning">Stat label</note>
+      </notes>
+      <segment>
+        <source>años de experiencia</source>
+      </segment>
+    </unit>
+    <unit id="about.stats.availability">
+      <notes>
+        <note category="location">src/app/features/about/about.ts:40</note>
+        <note category="meaning">Stat label</note>
+      </notes>
+      <segment>
+        <source>disponibilidad</source>
+      </segment>
+    </unit>
+    <unit id="about.stats.rating">
+      <notes>
+        <note category="location">src/app/features/about/about.ts:44</note>
+        <note category="meaning">Stat label</note>
+      </notes>
+      <segment>
+        <source>valoración media</source>
+      </segment>
+    </unit>
     <unit id="footer.tagline">
       <notes>
-        <note category="location">src/app/features/footer/footer.html:8,11</note>
+        <note category="location">src/app/features/footer/footer.html:8,12</note>
         <note category="meaning">Footer strapline</note>
       </notes>
       <segment>
-        <source> Traslados, excursiones y servicio privado en Lanzarote. Familia al volante desde 2014. </source>
+        <source> Traslados, excursiones y servicio privado en Lanzarote. Familia al volante desde <ph id="0" equiv="INTERPOLATION" disp="{{ config.foundedYear }}"/>. </source>
       </segment>
     </unit>
     <unit id="footer.social.instagram">
       <notes>
-        <note category="location">src/app/features/footer/footer.html:16,19</note>
+        <note category="location">src/app/features/footer/footer.html:17,20</note>
         <note category="meaning">Link to the Instagram profile</note>
       </notes>
       <segment>
@@ -66,7 +156,7 @@
     </unit>
     <unit id="footer.nav.label">
       <notes>
-        <note category="location">src/app/features/footer/footer.html:34,36</note>
+        <note category="location">src/app/features/footer/footer.html:35,37</note>
         <note category="meaning">Footer navigation</note>
       </notes>
       <segment>
@@ -75,7 +165,7 @@
     </unit>
     <unit id="footer.nav.heading">
       <notes>
-        <note category="location">src/app/features/footer/footer.html:37,39</note>
+        <note category="location">src/app/features/footer/footer.html:38,40</note>
         <note category="meaning">Footer column heading</note>
       </notes>
       <segment>
@@ -84,7 +174,7 @@
     </unit>
     <unit id="footer.contact.heading">
       <notes>
-        <note category="location">src/app/features/footer/footer.html:46,48</note>
+        <note category="location">src/app/features/footer/footer.html:47,49</note>
         <note category="meaning">Footer column heading</note>
       </notes>
       <segment>
@@ -93,7 +183,7 @@
     </unit>
     <unit id="footer.copyright">
       <notes>
-        <note category="location">src/app/features/footer/footer.html:63,65</note>
+        <note category="location">src/app/features/footer/footer.html:64,66</note>
         <note category="meaning">Copyright notice</note>
       </notes>
       <segment>

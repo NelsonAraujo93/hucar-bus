@@ -45,8 +45,8 @@
     </unit>
     <unit id="footer.tagline">
       <segment state="translated">
-        <source>Traslados, excursiones y servicio privado en Lanzarote. Familia al volante desde 2014.</source>
-        <target>Transfers, excursions and private hire in Lanzarote. A family behind the wheel since 2014.</target>
+        <source>Traslados, excursiones y servicio privado en Lanzarote. Familia al volante desde <ph id="0" equiv="INTERPOLATION" disp="{{ config.foundedYear }}"/>.</source>
+        <target>Transfers, excursions and private hire in Lanzarote. A family behind the wheel since <ph id="0" equiv="INTERPOLATION" disp="{{ config.foundedYear }}"/>.</target>
       </segment>
     </unit>
     <unit id="footer.social.instagram">
@@ -221,6 +221,66 @@
       <segment state="translated">
         <source>¿Necesitas algo diferente? Diseñamos el trayecto a tu medida.</source>
         <target>Need something different? We’ll build the route around you.</target>
+      </segment>
+    </unit>
+    <unit id="about.eyebrow">
+      <segment state="translated">
+        <source>Sobre Nosotros</source>
+        <target>About Us</target>
+      </segment>
+    </unit>
+    <unit id="about.title.first">
+      <segment state="translated">
+        <source>Una familia al</source>
+        <target>A family behind</target>
+      </segment>
+    </unit>
+    <unit id="about.title.second">
+      <segment state="translated">
+        <source>volante desde <ph id="0" equiv="INTERPOLATION" disp="{{ config.foundedYear }}"/></source>
+        <target>the wheel since <ph id="0" equiv="INTERPOLATION" disp="{{ config.foundedYear }}"/></target>
+      </segment>
+    </unit>
+    <unit id="about.paragraph.first">
+      <segment state="translated">
+        <source>En Hucar Bus somos una empresa familiar nacida en Lanzarote, con más de una década moviendo a vecinos y visitantes por toda la isla. Nuestra flota de minibuses es moderna, segura y cómoda, y cada viaje se conduce con el mismo cuidado que tendríamos con la familia.</source>
+        <target>Hucar Bus is a family business born in Lanzarote, with over a decade moving neighbours and visitors across the island. Our minibus fleet is modern, safe and comfortable, and every journey is driven with the same care we’d give our own family.</target>
+      </segment>
+    </unit>
+    <unit id="about.paragraph.second">
+      <segment state="translated">
+        <source>Desde un traslado al aeropuerto a primera hora hasta una ruta privada por el Timanfaya, nos adaptamos a lo que necesites — siempre con trato personal y puntualidad canaria.</source>
+        <target>From an early-morning airport run to a private route through Timanfaya, we adapt to whatever you need — always with a personal touch and Canarian punctuality.</target>
+      </segment>
+    </unit>
+    <unit id="about.photo.alt">
+      <segment state="translated">
+        <source>Fotografía de la flota, pendiente</source>
+        <target>Fleet photograph, pending</target>
+      </segment>
+    </unit>
+    <unit id="about.base.label">
+      <segment state="translated">
+        <source>Base</source>
+        <target>Based in</target>
+      </segment>
+    </unit>
+    <unit id="about.stats.years">
+      <segment state="translated">
+        <source>años de experiencia</source>
+        <target>years of experience</target>
+      </segment>
+    </unit>
+    <unit id="about.stats.availability">
+      <segment state="translated">
+        <source>disponibilidad</source>
+        <target>availability</target>
+      </segment>
+    </unit>
+    <unit id="about.stats.rating">
+      <segment state="translated">
+        <source>valoración media</source>
+        <target>average rating</target>
       </segment>
     </unit>
   </file>
