@@ -29,6 +29,17 @@ const CHECKS = [
 ];
 
 let server;
+let output = '';
+
+/**
+ * Diagnostics only. The readiness check deliberately does not read this: Vite
+ * bolds the port number, so the URL line contains an escape sequence between
+ * "localhost:" and the port and a literal substring match never fires. That is
+ * invisible locally, where piped stdio disables colour, and breaks in CI, where
+ * FORCE_COLOR is set.
+ */
+const ANSI = new RegExp(String.fromCharCode(27) + '\\[[0-9;]*[a-zA-Z]', 'g');
+const plainOutput = () => output.replace(ANSI, '');
 
 function shutdown() {
   if (server && server.exitCode === null) {
@@ -42,28 +53,29 @@ process.on('SIGINT', () => {
   process.exit(130);
 });
 
-function waitForServer() {
-  return new Promise((resolve, reject) => {
-    let output = '';
-    const timer = setTimeout(() => {
-      reject(new Error(`dev server did not start within ${STARTUP_TIMEOUT_MS}ms\n${output}`));
-    }, STARTUP_TIMEOUT_MS);
+/**
+ * Waits by asking the server for a response, not by reading what it printed.
+ * Output formatting is not a contract; a listening socket is.
+ */
+async function waitForServer() {
+  const deadline = Date.now() + STARTUP_TIMEOUT_MS;
 
-    const onData = (chunk) => {
-      output += chunk.toString();
-      if (output.includes(`localhost:${PORT}`)) {
-        clearTimeout(timer);
-        resolve();
-      }
-    };
+  while (Date.now() < deadline) {
+    if (server.exitCode !== null) {
+      throw new Error(`dev server exited early with code ${server.exitCode}\n${plainOutput()}`);
+    }
 
-    server.stdout.on('data', onData);
-    server.stderr.on('data', onData);
-    server.on('exit', (code) => {
-      clearTimeout(timer);
-      reject(new Error(`dev server exited early with code ${code}\n${output}`));
-    });
-  });
+    try {
+      await fetch(`http://localhost:${PORT}/`, { signal: AbortSignal.timeout(2_000) });
+      return;
+    } catch {
+      // Not listening yet.
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
+  }
+
+  throw new Error(`dev server did not start within ${STARTUP_TIMEOUT_MS}ms\n${plainOutput()}`);
 }
 
 async function probe(check) {
@@ -96,6 +108,12 @@ const cli = createRequire(import.meta.url).resolve('@angular/cli/bin/ng.js');
 server = spawn(process.execPath, [cli, 'serve', '--port', String(PORT)], {
   stdio: ['ignore', 'pipe', 'pipe'],
 });
+
+const capture = (chunk) => {
+  output += chunk.toString();
+};
+server.stdout.on('data', capture);
+server.stderr.on('data', capture);
 
 try {
   await waitForServer();
