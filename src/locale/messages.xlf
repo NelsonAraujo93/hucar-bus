@@ -91,18 +91,9 @@
         <source> Desde un traslado al aeropuerto a primera hora hasta una ruta privada por el Timanfaya, nos adaptamos a lo que necesites — siempre con trato personal y puntualidad canaria. </source>
       </segment>
     </unit>
-    <unit id="about.photo.alt">
-      <notes>
-        <note category="location">src/app/features/about/about.html:45,49</note>
-        <note category="meaning">Placeholder for the fleet photograph</note>
-      </notes>
-      <segment>
-        <source>Fotografía de la flota, pendiente</source>
-      </segment>
-    </unit>
     <unit id="about.base.label">
       <notes>
-        <note category="location">src/app/features/about/about.html:54,56</note>
+        <note category="location">src/app/features/about/about.html:46,48</note>
         <note category="meaning">Label above the base location</note>
       </notes>
       <segment>
@@ -111,7 +102,7 @@
     </unit>
     <unit id="about.stats.years">
       <notes>
-        <note category="location">src/app/features/about/about.ts:36</note>
+        <note category="location">src/app/features/about/about.ts:37</note>
         <note category="meaning">Stat label</note>
       </notes>
       <segment>
@@ -120,7 +111,7 @@
     </unit>
     <unit id="about.stats.availability">
       <notes>
-        <note category="location">src/app/features/about/about.ts:40</note>
+        <note category="location">src/app/features/about/about.ts:41</note>
         <note category="meaning">Stat label</note>
       </notes>
       <segment>
@@ -129,11 +120,209 @@
     </unit>
     <unit id="about.stats.rating">
       <notes>
-        <note category="location">src/app/features/about/about.ts:44</note>
+        <note category="location">src/app/features/about/about.ts:45</note>
         <note category="meaning">Stat label</note>
       </notes>
       <segment>
         <source>valoración media</source>
+      </segment>
+    </unit>
+    <unit id="contact.eyebrow">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:5,6</note>
+        <note category="meaning">Section eyebrow</note>
+      </notes>
+      <segment>
+        <source>Contacto</source>
+      </segment>
+    </unit>
+    <unit id="contact.title">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:7,8</note>
+        <note category="meaning">Section heading</note>
+      </notes>
+      <segment>
+        <source>Contáctanos</source>
+      </segment>
+    </unit>
+    <unit id="contact.subtitle">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:9,13</note>
+        <note category="meaning">Section supporting line</note>
+      </notes>
+      <segment>
+        <source>Escríbenos y te respondemos en menos de 24 horas — normalmente en minutos.</source>
+      </segment>
+    </unit>
+    <unit id="contact.sent.title">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:19,21</note>
+        <note category="meaning">Success heading</note>
+      </notes>
+      <segment>
+        <source> ¡Mensaje enviado! </source>
+      </segment>
+    </unit>
+    <unit id="contact.sent.body">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:22,24</note>
+        <note category="meaning">Success body</note>
+      </notes>
+      <segment>
+        <source> Te responderemos en breve. </source>
+      </segment>
+    </unit>
+    <unit id="contact.sent.again">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:30,33</note>
+        <note category="meaning">Reset the form after sending</note>
+      </notes>
+      <segment>
+        <source> Enviar otro </source>
+      </segment>
+    </unit>
+    <unit id="contact.error.title">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:40,42</note>
+        <note category="meaning">Failure heading</note>
+      </notes>
+      <segment>
+        <source> No se pudo enviar </source>
+      </segment>
+    </unit>
+    <unit id="contact.error.body">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:43,45</note>
+        <note category="meaning">Failure body</note>
+      </notes>
+      <segment>
+        <source> Inténtalo de nuevo o escríbenos por WhatsApp. </source>
+      </segment>
+    </unit>
+    <unit id="contact.error.retry">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:51,54</note>
+        <note category="meaning">Retry after a failed send</note>
+      </notes>
+      <segment>
+        <source> Reintentar </source>
+      </segment>
+    </unit>
+    <unit id="contact.field.name">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:60,62</note>
+        <note category="meaning">Form field label</note>
+      </notes>
+      <segment>
+        <source>Nombre</source>
+      </segment>
+    </unit>
+    <unit id="contact.field.email">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:67,69</note>
+        <note category="meaning">Form field label</note>
+      </notes>
+      <segment>
+        <source>Email</source>
+      </segment>
+    </unit>
+    <unit id="contact.field.phone">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:82,84</note>
+        <note category="meaning">Form field label</note>
+      </notes>
+      <segment>
+        <source>Teléfono</source>
+      </segment>
+    </unit>
+    <unit id="contact.field.optional">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:86,89</note>
+        <note category="meaning">Marks a field as optional</note>
+      </notes>
+      <segment>
+        <source>· opcional</source>
+      </segment>
+    </unit>
+    <unit id="contact.field.subject">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:94,96</note>
+        <note category="meaning">Form field label</note>
+      </notes>
+      <segment>
+        <source>Asunto</source>
+      </segment>
+    </unit>
+    <unit id="contact.field.message">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:108,110</note>
+        <note category="meaning">Form field label</note>
+      </notes>
+      <segment>
+        <source>Mensaje</source>
+      </segment>
+    </unit>
+    <unit id="contact.submit">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:131,133</note>
+        <note category="meaning">Form submit button</note>
+      </notes>
+      <segment>
+        <source> Enviar Mensaje </source>
+      </segment>
+    </unit>
+    <unit id="contact.rows.phone">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:146,148</note>
+        <note category="meaning">Contact detail label</note>
+      </notes>
+      <segment>
+        <source>Teléfono</source>
+      </segment>
+    </unit>
+    <unit id="contact.rows.email">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:156,157</note>
+        <note category="meaning">Contact detail label</note>
+      </notes>
+      <segment>
+        <source>Email</source>
+      </segment>
+    </unit>
+    <unit id="contact.rows.base">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:165,166</note>
+        <note category="meaning">Contact detail label</note>
+      </notes>
+      <segment>
+        <source>Base</source>
+      </segment>
+    </unit>
+    <unit id="contact.rows.hours">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:175,177</note>
+        <note category="meaning">Contact detail label</note>
+      </notes>
+      <segment>
+        <source>Horario</source>
+      </segment>
+    </unit>
+    <unit id="contact.hours.value">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:178,181</note>
+        <note category="meaning">Opening hours</note>
+      </notes>
+      <segment>
+        <source>Lun–Dom · 24/7 disponibilidad</source>
+      </segment>
+    </unit>
+    <unit id="contact.whatsapp">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:186,189</note>
+        <note category="meaning">WhatsApp call to action</note>
+      </notes>
+      <segment>
+        <source>Escríbenos por WhatsApp</source>
       </segment>
     </unit>
     <unit id="footer.tagline">

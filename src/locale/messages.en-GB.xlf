@@ -277,5 +277,137 @@
         <target>average rating</target>
       </segment>
     </unit>
+    <unit id="contact.eyebrow">
+      <segment state="translated">
+        <source>Contacto</source>
+        <target>Contact</target>
+      </segment>
+    </unit>
+    <unit id="contact.title">
+      <segment state="translated">
+        <source>Contáctanos</source>
+        <target>Get in Touch</target>
+      </segment>
+    </unit>
+    <unit id="contact.subtitle">
+      <segment state="translated">
+        <source>Escríbenos y te respondemos en menos de 24 horas — normalmente en minutos.</source>
+        <target>Write to us and we’ll reply within 24 hours — usually within minutes.</target>
+      </segment>
+    </unit>
+    <unit id="contact.sent.title">
+      <segment state="translated">
+        <source>¡Mensaje enviado!</source>
+        <target>Message sent!</target>
+      </segment>
+    </unit>
+    <unit id="contact.sent.body">
+      <segment state="translated">
+        <source>Te responderemos en breve.</source>
+        <target>We’ll get back to you shortly.</target>
+      </segment>
+    </unit>
+    <unit id="contact.sent.again">
+      <segment state="translated">
+        <source>Enviar otro</source>
+        <target>Send another</target>
+      </segment>
+    </unit>
+    <unit id="contact.error.title">
+      <segment state="translated">
+        <source>No se pudo enviar</source>
+        <target>Couldn’t send</target>
+      </segment>
+    </unit>
+    <unit id="contact.error.body">
+      <segment state="translated">
+        <source>Inténtalo de nuevo o escríbenos por WhatsApp.</source>
+        <target>Try again, or message us on WhatsApp.</target>
+      </segment>
+    </unit>
+    <unit id="contact.error.retry">
+      <segment state="translated">
+        <source>Reintentar</source>
+        <target>Try again</target>
+      </segment>
+    </unit>
+    <unit id="contact.field.name">
+      <segment state="translated">
+        <source>Nombre</source>
+        <target>Name</target>
+      </segment>
+    </unit>
+    <unit id="contact.field.email">
+      <segment state="translated">
+        <source>Email</source>
+        <target>Email</target>
+      </segment>
+    </unit>
+    <unit id="contact.field.phone">
+      <segment state="translated">
+        <source>Teléfono</source>
+        <target>Phone</target>
+      </segment>
+    </unit>
+    <unit id="contact.field.optional">
+      <segment state="translated">
+        <source>· opcional</source>
+        <target>· optional</target>
+      </segment>
+    </unit>
+    <unit id="contact.field.subject">
+      <segment state="translated">
+        <source>Asunto</source>
+        <target>Subject</target>
+      </segment>
+    </unit>
+    <unit id="contact.field.message">
+      <segment state="translated">
+        <source>Mensaje</source>
+        <target>Message</target>
+      </segment>
+    </unit>
+    <unit id="contact.submit">
+      <segment state="translated">
+        <source>Enviar Mensaje</source>
+        <target>Send Message</target>
+      </segment>
+    </unit>
+    <unit id="contact.rows.phone">
+      <segment state="translated">
+        <source>Teléfono</source>
+        <target>Phone</target>
+      </segment>
+    </unit>
+    <unit id="contact.rows.email">
+      <segment state="translated">
+        <source>Email</source>
+        <target>Email</target>
+      </segment>
+    </unit>
+    <unit id="contact.rows.base">
+      <segment state="translated">
+        <source>Base</source>
+        <target>Based in</target>
+      </segment>
+    </unit>
+    <unit id="contact.rows.hours">
+      <segment state="translated">
+        <source>Horario</source>
+        <target>Hours</target>
+      </segment>
+    </unit>
+    <unit id="contact.hours.value">
+      <segment state="translated">
+        <source>Lun–Dom · 24/7 disponibilidad</source>
+        <target>Mon–Sun · available 24/7</target>
+      </segment>
+    </unit>
+    <unit id="contact.whatsapp">
+      <segment state="translated">
+        <source>Escríbenos por WhatsApp</source>
+        <target>Message us on WhatsApp</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
