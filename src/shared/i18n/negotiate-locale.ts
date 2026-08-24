@@ -20,7 +20,7 @@ export const FALLBACK_LOCALE: SupportedLocale = 'en';
  * and the html lang attribute all want the regional form.
  */
 export const LOCALE_TAGS: Record<SupportedLocale, string> = {
-  es: 'es-ES',
+  es: 'es',
   en: 'en-GB',
 };
 
