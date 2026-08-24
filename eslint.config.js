@@ -63,6 +63,8 @@ module.exports = defineConfig([
             'stroke-linejoin',
             'preserveAspectRatio',
             'focusable',
+            'srcset',
+            'sizes',
             // Test hooks.
             'data-testid',
             // Component inputs and ARIA plumbing, which are never prose.

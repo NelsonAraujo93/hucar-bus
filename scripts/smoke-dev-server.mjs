@@ -23,7 +23,7 @@ const REQUEST_TIMEOUT_MS = 20_000;
 const CHECKS = [
   { path: '/', status: 200, type: 'text/html', body: '<hb-root' },
   { path: '/ui', status: 200, type: 'text/html', body: '<hb-root' },
-  { path: '/logo.jpeg', status: 200, type: 'image/jpeg' },
+  { path: '/img/logo-256.webp', status: 200, type: 'image/webp' },
   { path: '/favicon.ico', status: 200 },
   { path: '/robots.txt', status: 200, type: 'text/plain', body: 'User-agent' },
 ];

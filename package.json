@@ -28,6 +28,7 @@
     "lint:styles": "stylelint \"src/**/*.css\"",
     "verify:tokens": "node scripts/assert-tokens.mjs",
     "i18n:extract": "ng extract-i18n --format xlf2 --output-path src/locale",
+    "images": "node scripts/generate-images.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test:ci": "ng test --no-watch --coverage",
