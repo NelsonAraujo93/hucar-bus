@@ -31,7 +31,7 @@
         <target>Contact</target>
       </segment>
     </unit>
-    <unit id="nav.cta">
+    <unit id="cta.contact">
       <segment state="translated">
         <source>Contactar</source>
         <target>Get in Touch</target>
@@ -95,6 +95,36 @@
       <segment state="translated">
         <source>Hucar Bus Lanzarote Turismo</source>
         <target>Hucar Bus Lanzarote Turismo</target>
+      </segment>
+    </unit>
+    <unit id="hero.badge">
+      <segment state="translated">
+        <source>Lanzarote · Islas Canarias</source>
+        <target>Lanzarote · Canary Islands</target>
+      </segment>
+    </unit>
+    <unit id="hero.title.first">
+      <segment state="translated">
+        <source>Tu transporte de confianza</source>
+        <target>Your trusted ride</target>
+      </segment>
+    </unit>
+    <unit id="hero.title.second">
+      <segment state="translated">
+        <source>en Lanzarote</source>
+        <target>in Lanzarote</target>
+      </segment>
+    </unit>
+    <unit id="hero.subtitle">
+      <segment state="translated">
+        <source>Traslados al aeropuerto, excursiones y servicios privados con la mejor atención.</source>
+        <target>Airport transfers, island excursions and private hire — with the care of a local family firm.</target>
+      </segment>
+    </unit>
+    <unit id="hero.scroll">
+      <segment state="translated">
+        <source>Bajar a servicios</source>
+        <target>Scroll to services</target>
       </segment>
     </unit>
   </file>

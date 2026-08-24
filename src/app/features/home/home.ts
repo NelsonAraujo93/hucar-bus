@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/cor
 import { SPY_IDS } from '../../core/navigation/nav-items';
 import { ScrollSpy } from '../../core/navigation/scroll-spy';
 import { Footer } from '../footer/footer';
+import { Hero } from '../hero/hero';
 import { Navbar } from '../navbar/navbar';
 
 /**
@@ -13,7 +14,7 @@ import { Navbar } from '../navbar/navbar';
  */
 @Component({
   selector: 'hb-home',
-  imports: [Footer, Navbar],
+  imports: [Footer, Hero, Navbar],
   templateUrl: './home.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

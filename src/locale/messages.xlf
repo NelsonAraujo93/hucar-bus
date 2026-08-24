@@ -100,20 +100,66 @@
         <source>© <ph id="0" equiv="INTERPOLATION" disp="{{ year }}"/> Hucar Bus. Todos los derechos reservados.</source>
       </segment>
     </unit>
-    <unit id="nav.cta">
+    <unit id="hero.badge">
       <notes>
-        <note category="location">src/app/features/navbar/navbar.html:23,26</note>
-        <note category="location">src/app/features/navbar/navbar.html:36,40</note>
-        <note category="location">src/app/features/navbar/navbar.html:82,85</note>
+        <note category="location">src/app/features/hero/hero.html:25,29</note>
+        <note category="meaning">Location badge above the headline</note>
+      </notes>
+      <segment>
+        <source>Lanzarote · Islas Canarias</source>
+      </segment>
+    </unit>
+    <unit id="hero.title.first">
+      <notes>
+        <note category="location">src/app/features/hero/hero.html:30,32</note>
+        <note category="meaning">Headline, first line</note>
+      </notes>
+      <segment>
+        <source>Tu transporte de confianza</source>
+      </segment>
+    </unit>
+    <unit id="hero.title.second">
+      <notes>
+        <note category="location">src/app/features/hero/hero.html:33,37</note>
+        <note category="meaning">Headline, second line</note>
+      </notes>
+      <segment>
+        <source>en Lanzarote</source>
+      </segment>
+    </unit>
+    <unit id="hero.subtitle">
+      <notes>
+        <note category="location">src/app/features/hero/hero.html:38,42</note>
+        <note category="meaning">Supporting line under the headline</note>
+      </notes>
+      <segment>
+        <source> Traslados al aeropuerto, excursiones y servicios privados con la mejor atención. </source>
+      </segment>
+    </unit>
+    <unit id="cta.contact">
+      <notes>
+        <note category="location">src/app/features/hero/hero.html:43,46</note>
+        <note category="location">src/app/features/navbar/navbar.html:24,28</note>
+        <note category="location">src/app/features/navbar/navbar.html:38,42</note>
+        <note category="location">src/app/features/navbar/navbar.html:84,87</note>
         <note category="meaning">Primary call to action</note>
       </notes>
       <segment>
         <source>Contactar</source>
       </segment>
     </unit>
+    <unit id="hero.scroll">
+      <notes>
+        <note category="location">src/app/features/hero/hero.html:57,59</note>
+        <note category="meaning">Label for the scroll-down chevron</note>
+      </notes>
+      <segment>
+        <source>Bajar a servicios</source>
+      </segment>
+    </unit>
     <unit id="nav.menu">
       <notes>
-        <note category="location">src/app/features/navbar/navbar.html:46,48</note>
+        <note category="location">src/app/features/navbar/navbar.html:48,50</note>
         <note category="meaning">Label for the menu button</note>
       </notes>
       <segment>

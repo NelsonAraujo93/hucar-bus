@@ -1,0 +1,177 @@
+.hero {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  /* Scrim over the sunset gradient. Both stops are verbatim from the design. */
+  background:
+    linear-gradient(
+      180deg,
+      rgb(26 26 26 / 0%) 0%,
+      rgb(26 26 26 / 15%) 55%,
+      rgb(26 26 26 / 75%) 100%
+    ),
+    linear-gradient(180deg, #f5c518 0%, #f0882a 35%, #e04e1a 65%, #1a1a1a 100%);
+}
+
+.hero__ridge {
+  position: absolute;
+  inset: auto 0 0;
+  width: 100%;
+  height: 320px;
+  opacity: 0.55;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  padding: 120px 32px 80px;
+  text-align: center;
+}
+
+.hero__badge {
+  display: inline-flex;
+  margin: 0 0 28px;
+  padding: 6px 14px;
+  gap: 8px;
+  align-items: center;
+  background: rgb(255 255 255 / 12%);
+  border: 1px solid rgb(255 255 255 / 20%);
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(8px);
+  font-family: var(--font-body);
+  font-size: 13px;
+
+  /* Uppercased here rather than in the source string, so screen readers do not
+     spell it out and translators review normal casing. */
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.hero__badge-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-sun-yellow);
+  border-radius: var(--radius-circle);
+}
+
+.hero__title {
+  margin: 0 0 24px;
+  font-family: var(--font-display);
+  font-size: clamp(32px, 8.5vw, 72px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 2px 20px rgb(0 0 0 / 30%);
+}
+
+/* The line break lives in the layout, not inside a translated string: a break
+   that falls well in Spanish falls wrong in English. */
+.hero__title-line {
+  display: block;
+}
+
+.hero__subtitle {
+  max-width: 640px;
+  margin: 0 auto 40px;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgb(255 255 255 / 92%);
+}
+
+.hero__actions {
+  display: flex;
+  margin: 0 auto;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+
+  /* Centring is repeated in the keyframe, so the chevron stays centred both
+     while animating and when reduced motion disables the animation. */
+  transform: translateX(-50%);
+  color: #fff;
+  opacity: 0.7;
+  animation: hucar-bounce 2s ease-in-out infinite;
+}
+
+@media (width < 1024px) {
+  .hero {
+    min-height: 92vh;
+  }
+
+  .hero__ridge {
+    height: 240px;
+  }
+
+  .hero__content {
+    padding: 112px 32px 72px;
+  }
+
+  .hero__subtitle {
+    margin-bottom: 36px;
+    font-size: 17px;
+  }
+}
+
+@media (width < 768px) {
+  .hero {
+    /* svh keeps the chevron clear of mobile browser chrome. */
+    min-height: 100svh;
+  }
+
+  .hero__ridge {
+    height: 180px;
+  }
+
+  .hero__content {
+    padding: 96px 20px 88px;
+  }
+
+  .hero__badge {
+    margin-bottom: 20px;
+    font-size: 11px;
+  }
+
+  .hero__subtitle {
+    margin-bottom: 28px;
+    font-size: 15px;
+  }
+
+  /* One line on mobile, where two would leave an awkward orphan. */
+  .hero__title-line {
+    display: inline;
+  }
+
+  .hero__title-line + .hero__title-line::before {
+    content: ' ';
+  }
+
+  .hero__actions {
+    max-width: 320px;
+    gap: 12px;
+    flex-direction: column;
+  }
+
+  .hero__actions > * {
+    width: 100%;
+  }
+
+  .hero__scroll {
+    bottom: 20px;
+  }
+}
