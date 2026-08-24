@@ -64,7 +64,13 @@
                 }
               ],
               "outputHashing": "all",
-              "i18nMissingTranslation": "error"
+              "i18nMissingTranslation": "error",
+              "fileReplacements": [
+                {
+                  "replace": "src/app/app.routes.ts",
+                  "with": "src/app/app.routes.prod.ts"
+                }
+              ]
             },
             "development": {
               "optimization": false,

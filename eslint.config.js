@@ -74,6 +74,14 @@ module.exports = defineConfig([
       '@angular-eslint/template/i18n': 'off',
     },
   },
+  {
+    // The UI gallery is a development-only tool that never reaches production,
+    // so its labels must not enter a translation file.
+    files: ['src/app/features/ui-gallery/*.html'],
+    rules: {
+      '@angular-eslint/template/i18n': 'off',
+    },
+  },
   // Must stay last: turns off every ESLint rule that would fight Prettier.
   eslintConfigPrettier,
 ]);

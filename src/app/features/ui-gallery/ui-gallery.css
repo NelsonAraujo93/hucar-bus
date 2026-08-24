@@ -1,0 +1,139 @@
+.gallery {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+  font-family: var(--font-body);
+}
+
+.gallery__head h1 {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 34px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+
+.gallery__head p {
+  margin: 0 0 40px;
+  color: var(--color-ink-muted);
+  font-size: 14px;
+}
+
+.group {
+  padding: 28px;
+  margin-bottom: 24px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-16);
+}
+
+.group--dark {
+  background: var(--color-ink);
+}
+
+.group--dark h2 {
+  color: rgb(255 255 255 / 70%);
+}
+
+.group h2 {
+  margin: 0 0 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.row--stacked {
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.row__label {
+  min-width: 64px;
+  font-size: 11px;
+  color: var(--color-ink-muted);
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 11px;
+}
+
+.swatch__chip {
+  height: 48px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-8);
+}
+
+.swatch__box,
+.swatch__radius {
+  height: 48px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-8);
+}
+
+.swatch__radius {
+  background: var(--color-sand);
+}
+
+.icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 18px;
+}
+
+.icons__cell {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  font-size: 10px;
+  text-align: center;
+}
+
+.type-display {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-size: 52px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+
+.type-body {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-ink-muted);
+}
+
+hr {
+  margin: 28px 0;
+  border: none;
+  border-top: 1px solid var(--color-border);
+}
+
+code {
+  font-family: ui-monospace, monospace;
+  color: var(--color-ink-muted);
+}
