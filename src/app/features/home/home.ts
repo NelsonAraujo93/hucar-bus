@@ -1,15 +1,26 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { SPY_IDS } from '../../core/navigation/nav-items';
+import { ScrollSpy } from '../../core/navigation/scroll-spy';
+import { Footer } from '../footer/footer';
+import { Navbar } from '../navbar/navbar';
 
 /**
  * The single page.
  *
- * Deliberately empty in Phase 2: the eight sections it will compose belong to
- * Phase 3. It exists now so the '' route matches -- without it the router
- * matches nothing and the dev server returns 404 for the whole site.
+ * Composes the sections and owns the scroll spy, which the navbar reads. The
+ * remaining sections -- hero, services, about, reviews, instagram, contact and
+ * the WhatsApp float -- arrive in later steps of this phase.
  */
 @Component({
   selector: 'hb-home',
+  imports: [Footer, Navbar],
   templateUrl: './home.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Home {}
+export class Home implements OnInit {
+  private readonly scrollSpy = inject(ScrollSpy);
+
+  ngOnInit(): void {
+    this.scrollSpy.start(SPY_IDS);
+  }
+}

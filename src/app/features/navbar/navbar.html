@@ -1,0 +1,92 @@
+<nav class="nav" [class.is-scrolled]="scrolled()">
+  <div class="nav__inner">
+    <hb-logo />
+
+    <!-- Desktop: links, switcher, CTA -->
+    <div class="nav__desktop">
+      <ul class="nav__links">
+        @for (item of items; track item.id) {
+          <li>
+            <a
+              class="nav__link"
+              [class.is-active]="activeId() === item.id"
+              [href]="'#' + item.id"
+              [attr.aria-current]="activeId() === item.id ? 'true' : null"
+              >{{ item.label }}</a
+            >
+          </li>
+        }
+      </ul>
+
+      <hb-language-switcher />
+
+      <a hb-button size="sm" href="#contacto" i18n="Primary call to action|@@nav.cta">Contactar</a>
+    </div>
+
+    <!-- Tablet and mobile: switcher, CTA on tablet only, hamburger -->
+    <div class="nav__compact">
+      <hb-language-switcher />
+
+      <a
+        class="nav__compact-cta"
+        hb-button
+        size="sm"
+        href="#contacto"
+        i18n="Primary call to action|@@nav.cta"
+        >Contactar</a
+      >
+
+      <button
+        class="nav__toggle"
+        type="button"
+        [attr.aria-expanded]="expanded()"
+        aria-controls="nav-drawer"
+        i18n-aria-label="Label for the menu button|@@nav.menu"
+        aria-label="Menú"
+        (click)="toggle()"
+      >
+        <hb-icon [name]="open() ? 'menu-close' : 'menu'" [size]="26" />
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="nav__drawer"
+    id="nav-drawer"
+    [class.is-open]="open()"
+    [attr.inert]="open() ? null : ''"
+  >
+    <div class="nav__drawer-inner">
+      @for (item of items; track item.id) {
+        <a
+          class="nav__drawer-link"
+          [class.is-active]="activeId() === item.id"
+          [href]="'#' + item.id"
+          [attr.aria-current]="activeId() === item.id ? 'true' : null"
+          (click)="close()"
+        >
+          <span class="nav__drawer-marker" aria-hidden="true"></span>
+          {{ item.label }}
+        </a>
+      }
+
+      <div class="nav__drawer-actions">
+        <hb-language-switcher class="nav__drawer-switcher" [full]="true" />
+
+        <a
+          hb-button
+          [full]="true"
+          href="#contacto"
+          (click)="close()"
+          i18n="Primary call to action|@@nav.cta"
+          >Contactar</a
+        >
+
+        <a hb-button variant="whatsapp" [full]="true" [href]="config.whatsappUrl">
+          <hb-icon hb-button-icon name="whatsapp" [size]="18" />
+          {{ brand.whatsapp }}
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

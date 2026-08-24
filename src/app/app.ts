@@ -1,10 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SeoService } from './core/seo/seo.service';
-import { LanguageSwitcher } from './shared/ui/language-switcher/language-switcher';
 
 @Component({
-  imports: [RouterOutlet, LanguageSwitcher],
+  imports: [RouterOutlet],
   selector: 'hb-root',
   styleUrl: './app.css',
   templateUrl: './app.html',

@@ -54,13 +54,22 @@ module.exports = defineConfig([
           // Observed on the Angular scaffold: SVG geometry and link relations
           // are machine values, not copy. Extend this list as others surface.
           ignoreAttributes: [
+            // SVG geometry and link relations are machine values, not copy.
             'd',
             'fill-rule',
             'clip-rule',
             'rel',
-            'data-testid',
             'stroke-linecap',
             'stroke-linejoin',
+            // Test hooks.
+            'data-testid',
+            // Component inputs and ARIA plumbing, which are never prose.
+            'size',
+            'variant',
+            'tone',
+            'eyebrowTone',
+            'name',
+            'aria-controls',
           ],
         },
       ],

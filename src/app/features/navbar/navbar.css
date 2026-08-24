@@ -1,0 +1,180 @@
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 40;
+  height: 64px;
+  background: rgb(255 255 255 / 90%);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgb(229 224 213 / 60%);
+  transition: box-shadow var(--duration-card) ease;
+}
+
+.nav.is-scrolled {
+  box-shadow: var(--shadow-nav-scrolled);
+}
+
+.nav__inner {
+  display: flex;
+  max-width: var(--container-max);
+  height: 100%;
+  margin: 0 auto;
+  padding-inline: var(--container-pad);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__desktop {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.nav__links {
+  display: flex;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav__link {
+  position: relative;
+  padding-bottom: 4px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-ink-muted);
+  text-decoration: none;
+  transition: color var(--duration-micro);
+}
+
+.nav__link.is-active {
+  color: var(--color-ink);
+}
+
+.nav__link.is-active::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 -2px;
+  height: 3px;
+  background: var(--color-sun-yellow);
+  border-radius: 2px;
+}
+
+.nav__compact {
+  display: none;
+  gap: 8px;
+  align-items: center;
+}
+
+.nav__toggle {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-12);
+  cursor: pointer;
+  color: var(--color-ink);
+}
+
+.nav__drawer {
+  position: fixed;
+  inset: 64px 0 auto;
+  max-height: 0;
+  overflow: hidden;
+  background: rgb(255 255 255 / 98%);
+  backdrop-filter: blur(12px);
+  transition: max-height 0.32s var(--ease-carousel);
+}
+
+.nav__drawer.is-open {
+  max-height: 460px;
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 18px 40px rgb(0 0 0 / 12%);
+}
+
+.nav__drawer-inner {
+  display: flex;
+  padding: 8px 16px 20px;
+  flex-direction: column;
+}
+
+.nav__drawer-link {
+  display: flex;
+  min-height: 48px;
+  padding: 14px 8px;
+  gap: 10px;
+  align-items: center;
+  border-bottom: 1px solid rgb(229 224 213 / 70%);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-ink-muted);
+  text-decoration: none;
+}
+
+.nav__drawer-link.is-active {
+  color: var(--color-ink);
+}
+
+/* Reserved even when inactive so labels do not shift as the active item moves. */
+.nav__drawer-marker {
+  width: 4px;
+  height: 18px;
+  border-radius: 2px;
+  background: transparent;
+}
+
+.nav__drawer-link.is-active .nav__drawer-marker {
+  background: var(--color-sun-yellow);
+}
+
+.nav__drawer-actions {
+  display: flex;
+  margin-top: 16px;
+  gap: 10px;
+  flex-direction: column;
+}
+
+/* Tablet and mobile share the compact bar; only the CTA placement differs. */
+@media (width < 1024px) {
+  .nav {
+    height: 60px;
+  }
+
+  .nav__desktop {
+    display: none;
+  }
+
+  .nav__compact {
+    display: flex;
+  }
+
+  .nav__drawer {
+    inset-block-start: 60px;
+  }
+}
+
+/* Below 768px the inline CTA gives way to the one inside the drawer, and the
+   switcher appears full-width there instead. */
+@media (width < 768px) {
+  .nav__compact-cta {
+    display: none;
+  }
+}
+
+@media (width >= 768px) {
+  .nav__drawer-switcher {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav__drawer {
+    transition: none;
+  }
+}

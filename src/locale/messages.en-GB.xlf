@@ -1,13 +1,100 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="es" trgLang="en-GB">
   <file id="ngi18n" original="ng.template">
+    <unit id="nav.servicios">
+      <segment state="translated">
+        <source>Servicios</source>
+        <target>Services</target>
+      </segment>
+    </unit>
+    <unit id="nav.nosotros">
+      <segment state="translated">
+        <source>Sobre Nosotros</source>
+        <target>About Us</target>
+      </segment>
+    </unit>
+    <unit id="nav.opiniones">
+      <segment state="translated">
+        <source>Opiniones</source>
+        <target>Reviews</target>
+      </segment>
+    </unit>
+    <unit id="nav.instagram">
+      <segment state="translated">
+        <source>Instagram</source>
+        <target>Instagram</target>
+      </segment>
+    </unit>
+    <unit id="nav.contacto">
+      <segment state="translated">
+        <source>Contacto</source>
+        <target>Contact</target>
+      </segment>
+    </unit>
+    <unit id="nav.cta">
+      <segment state="translated">
+        <source>Contactar</source>
+        <target>Get in Touch</target>
+      </segment>
+    </unit>
+    <unit id="nav.menu">
+      <segment state="translated">
+        <source>Menú</source>
+        <target>Menu</target>
+      </segment>
+    </unit>
+    <unit id="footer.tagline">
+      <segment state="translated">
+        <source>Traslados, excursiones y servicio privado en Lanzarote. Familia al volante desde 2014.</source>
+        <target>Transfers, excursions and private hire in Lanzarote. A family behind the wheel since 2014.</target>
+      </segment>
+    </unit>
+    <unit id="footer.social.instagram">
+      <segment state="translated">
+        <source>Instagram</source>
+        <target>Instagram</target>
+      </segment>
+    </unit>
+    <unit id="footer.nav.label">
+      <segment state="translated">
+        <source>Navegación</source>
+        <target>Navigation</target>
+      </segment>
+    </unit>
+    <unit id="footer.nav.heading">
+      <segment state="translated">
+        <source>Navegación</source>
+        <target>Navigation</target>
+      </segment>
+    </unit>
+    <unit id="footer.contact.heading">
+      <segment state="translated">
+        <source>Contacto</source>
+        <target>Contact</target>
+      </segment>
+    </unit>
+    <unit id="footer.copyright">
+      <segment state="translated">
+        <source>© <ph id="0" equiv="INTERPOLATION" disp="{{ year }}"/> Hucar Bus. Todos los derechos reservados.</source>
+        <target>© <ph id="0" equiv="INTERPOLATION" disp="{{ year }}"/> Hucar Bus. All rights reserved.</target>
+      </segment>
+    </unit>
     <unit id="languageSwitcher.group">
-      <notes>
-        <note category="meaning">Purpose of the language control</note>
-      </notes>
       <segment state="translated">
         <source>Idioma</source>
         <target>Language</target>
+      </segment>
+    </unit>
+    <unit id="logo.alt.nav">
+      <segment state="translated">
+        <source>Hucar Bus</source>
+        <target>Hucar Bus</target>
+      </segment>
+    </unit>
+    <unit id="logo.alt.footer">
+      <segment state="translated">
+        <source>Hucar Bus Lanzarote Turismo</source>
+        <target>Hucar Bus Lanzarote Turismo</target>
       </segment>
     </unit>
   </file>
