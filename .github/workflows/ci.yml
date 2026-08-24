@@ -50,6 +50,9 @@ jobs:
       - name: Lint styles
         run: npm run lint:styles
 
+      - name: Verify design tokens
+        run: npm run verify:tokens
+
       - name: Unit tests with coverage
         run: npm run test:ci
 

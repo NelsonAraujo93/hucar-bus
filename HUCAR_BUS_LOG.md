@@ -221,3 +221,92 @@ now completes `generateNotes` and renders the full `1.0.0` notes.
 and the log was readable the whole time. Inferring from configuration shape
 instead of reading the error produced one correct diagnosis and one wrong one
 that cost two rounds of unnecessary setup.
+
+## 2026-08-24 — Phase 2: design system
+
+Tokens, fonts, motion, focus and the shared primitives. No sections: the plan is
+explicit that a section built on half-finished primitives has to be rebuilt.
+
+### Delivered
+
+Self-hosted Anton and Poppins, the full token set as Tailwind v4 `@theme`, base
+layer, a focus-visible ring the design omits entirely, both keyframes, and five
+primitives — `Button`, `SectionHeader`, `Icon` (20), `Logo` and the rebuilt
+`LanguageSwitcher`. A development-only `/ui` gallery renders every one of them in
+every variant. 112 tests, 100% statements.
+
+### Getting the design out of Claude Design
+
+The project could not be read at first: `DesignSync` serves only design-system
+projects and this is a regular design project, so it 404s regardless of login,
+and the web URL 403s. It became readable after Nelson switched accounts. Images
+must still be pulled one file at a time as base64 and decoded locally.
+
+### Where the plan and README were wrong
+
+The design source contradicted the written handoff repeatedly. The README's own
+rule — the HTML wins — settled each one.
+
+- `@fontsource-variable/poppins` does not exist. Poppins has no variable build.
+- `--teal-hover` (#24A3B8) is missing from the plan's token list but the teal
+  button needs it.
+- There are twenty icons, not nineteen: `MenuIcon` is undocumented.
+- Instagram is `stroke-width: 1.8`, not the 2 its README grouping implies.
+- `scroll-padding-top` is 72px in the HTML; both documents say 64.
+- Section padding is a three-step ladder (96/80/64) with stepping gutters
+  (32/24/16), not the airy/compact pair with a fixed 32px gutter.
+- The hamburger appears at tablet too, not only below 768.
+- `uploads/new-logo.jpeg` is byte-identical to `assets/logo.jpeg`. There is still
+  no vector or transparent logo.
+- The logo's background is #FBFBFB, not white, and has no alpha channel, so the
+  footer card matches that off-white rather than #FFFFFF.
+
+### Decisions
+
+- **Reviews and Instagram ship as lorem ipsum placeholders**, not fabricated
+  testimonials or invented like counts. This removes the EU Omnibus Directive
+  exposure entirely. APIs get wired later.
+- **The language switcher is a segmented ES / EN pill**, rendered as anchors
+  rather than the design's buttons. Each locale is a separate URL and bundle, so
+  links are what actually happens: crawlable, consistent with the hreflang tags,
+  and working without JavaScript. `aria-current`, not `aria-pressed`.
+- **The source locale is now `es`, not `es-ES`.** Angular ships no `es-ES` data
+  because the base `es` already is European Spanish — EUR, 1.234,56, 24-hour
+  clock — so every build warned while resolving exactly the right data. hreflang
+  follows to `es`; `og:locale` cannot, since Open Graph requires
+  language_TERRITORY, and keeps `es_ES`.
+- **Copy is authored in Spanish and translated into English.** Settled.
+
+### Found in the export, not the plan
+
+`i18n.jsx` contains complete English translations of every string in all eight
+sections. The README still lists "who writes the English translations?" as an
+open client question; it is answered. Phase 3 is transcription, not translation.
+
+The prototype switches language at runtime via localStorage and React state.
+This project compiles a bundle per locale. The visual design ports; `useT()` and
+the `I18N` object do not, and every string becomes a `$localize` tag with an
+explicit `@@` id.
+
+### Two bugs of our own making
+
+Moving `favicon.ico` into `public-root/` broke the dev server: that directory
+reaches production through a post-build copy that `ng serve` never runs. At the
+same time there was no route for `''`, which had never mattered because the
+prerenderer emits a shell regardless. Together the dev server returned 404 for
+everything except `/ui`.
+
+Neither was caught, because every check in this repository inspects the
+production build. Nothing exercises `ng serve` — which is what development
+actually uses. Worth closing before Phase 3.
+
+### Still open
+
+- `robots.txt` exists; `sitemap.xml` does not. `public-root/` is ready for it.
+- The logo is 148KB for a mark rendered 68px wide. T10's image pipeline.
+- Font preloading is not implemented: Angular content-hashes the filenames, so a
+  static preload link cannot target them. `font-display: swap` is set.
+- `@angular/aria` has no importers since the switcher was rebuilt. Kept for the
+  Phase 3 mobile drawer.
+- `HUCAR_BUS_DESIGN.md` does not exist in this repository, so T14's instruction
+  to update its token names could not be carried out.

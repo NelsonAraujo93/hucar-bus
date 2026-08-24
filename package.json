@@ -26,6 +26,7 @@
     "serve:ssr:hucar-bus": "node dist/hucar-bus/server/server.mjs",
     "lint": "ng lint",
     "lint:styles": "stylelint \"src/**/*.css\"",
+    "verify:tokens": "node scripts/assert-tokens.mjs",
     "i18n:extract": "ng extract-i18n --format xlf2 --output-path src/locale",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
