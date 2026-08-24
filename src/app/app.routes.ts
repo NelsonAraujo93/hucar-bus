@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { Home } from './features/home/home';
 
 /**
  * Development routes.
@@ -9,6 +10,10 @@ import { Routes } from '@angular/router';
  * automatically, so "unreachable" would not be good enough.
  */
 export const routes: Routes = [
+  {
+    path: '',
+    component: Home,
+  },
   {
     path: 'ui',
     loadComponent: () => import('./features/ui-gallery/ui-gallery').then((m) => m.UiGallery),
