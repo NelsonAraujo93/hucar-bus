@@ -1,0 +1,125 @@
+:host {
+  position: relative;
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-button-rest);
+  transition: all var(--duration-transform) ease;
+}
+
+/* Sizes. */
+:host([data-size='sm']) {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+:host([data-size='md']) {
+  padding: 14px 28px;
+  font-size: 15px;
+}
+
+:host([data-size='lg']) {
+  padding: 16px 32px;
+  font-size: 16px;
+}
+
+/* Variants. */
+:host([data-variant='yellow']) {
+  background: var(--color-sun-yellow);
+  color: var(--color-ink);
+}
+
+:host([data-variant='yellow']:hover) {
+  background: var(--color-sunset-orange);
+}
+
+:host([data-variant='whatsapp']) {
+  background: var(--color-whatsapp);
+  color: #fff;
+}
+
+:host([data-variant='whatsapp']:hover) {
+  background: var(--color-whatsapp-hover);
+}
+
+:host([data-variant='teal']) {
+  background: var(--color-ocean-teal);
+  color: #fff;
+}
+
+:host([data-variant='teal']:hover) {
+  background: var(--color-teal-hover);
+}
+
+:host([data-variant='ghost']) {
+  background: transparent;
+  border: 2px solid var(--color-ink);
+  color: var(--color-ink);
+}
+
+:host([data-variant='ghost']:hover) {
+  background: var(--color-ink);
+  color: #fff;
+}
+
+:host(:hover) {
+  box-shadow: var(--shadow-button-hover);
+  transform: translateY(-1px);
+}
+
+:host(.is-full) {
+  width: 100%;
+}
+
+/* Disabled and pending. Neither exists in the design; the contact form needs
+   both. Anchors have no native disabled state, hence aria-disabled above. */
+:host(:disabled),
+:host(.is-pending) {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+  box-shadow: var(--shadow-button-rest);
+}
+
+.hb-button__spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentcolor;
+  border-top-color: transparent;
+  border-radius: var(--radius-circle);
+  animation: hb-button-spin 0.6s linear infinite;
+}
+
+@keyframes hb-button-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/* sm is about 34px tall, below the 44px touch minimum. Extend the hit area on
+   coarse pointers without changing the visual size. */
+@media (pointer: coarse) {
+  :host::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    top: 50%;
+    height: 44px;
+    transform: translateY(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :host(:hover) {
+    transform: none;
+  }
+}

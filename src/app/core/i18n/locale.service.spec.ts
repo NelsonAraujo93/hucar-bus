@@ -104,6 +104,45 @@ describe('LocaleService', () => {
     });
   });
 
+  describe('pathFor', () => {
+    it('rewrites the current path into the target locale', () => {
+      const { service } = configure({
+        localeId: 'es-ES',
+        platformId: 'browser',
+        location: makeLocation('/es/contacto', '?ref=email', '#form'),
+      });
+      expect(service.pathFor('en')).toBe('/en/contacto?ref=email#form');
+    });
+
+    it('falls back to the locale root when there is no window', () => {
+      // This is the prerendering path: a document with no browsing context.
+      const { service } = configure({
+        localeId: 'es-ES',
+        platformId: 'server',
+        location: null,
+      });
+      expect(service.pathFor('en')).toBe('/en/');
+    });
+  });
+
+  describe('persist', () => {
+    it('writes the cookie without navigating', () => {
+      const location = makeLocation('/es/');
+      const { service, cookiesWritten } = configure({
+        localeId: 'es-ES',
+        platformId: 'browser',
+        location,
+      });
+
+      service.persist('en');
+
+      expect(cookiesWritten).toHaveLength(1);
+      expect(cookiesWritten[0]).toContain('hb_locale=en');
+      // The anchor's href performs the navigation, not this.
+      expect(location.assigned).toEqual([]);
+    });
+  });
+
   describe('switchTo', () => {
     it('writes the cookie and navigates to the equivalent path', () => {
       const location = makeLocation('/es/servicios');

@@ -45,3 +45,7 @@ Thumbs.db
 
 # Claude Code workspace
 .claude/
+
+# Client design handoff: photos, unreleased assets and placeholder review copy.
+# This repository is public and deploys automatically -- keep it out.
+design_handoff_hucar_bus_site/

@@ -1,0 +1,21 @@
+<a class="logo__link" href="#top">
+  @if (variant() === 'footer') {
+    <img
+      class="logo__image"
+      src="/logo.jpeg"
+      i18n-alt="Alt text for the brand logo|@@logo.alt.footer"
+      alt="Hucar Bus Lanzarote Turismo"
+      [width]="width()"
+      [height]="height()"
+    />
+  } @else {
+    <img
+      class="logo__image"
+      src="/logo.jpeg"
+      i18n-alt="Alt text for the brand logo|@@logo.alt.nav"
+      alt="Hucar Bus"
+      [width]="width()"
+      [height]="height()"
+    />
+  }
+</a>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="es-ES" trgLang="en-GB">
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="es" trgLang="en-GB">
   <file id="ngi18n" original="ng.template">
-    <unit id="languageSwitcher.trigger">
+    <unit id="languageSwitcher.group">
       <notes>
-        <note category="meaning">Purpose of the language menu button</note>
+        <note category="meaning">Purpose of the language control</note>
       </notes>
       <segment state="translated">
-        <source>Cambiar idioma</source>
-        <target>Change language</target>
+        <source>Idioma</source>
+        <target>Language</target>
       </segment>
     </unit>
   </file>

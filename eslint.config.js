@@ -27,7 +27,9 @@ module.exports = defineConfig([
       '@angular-eslint/component-selector': [
         'error',
         {
-          type: 'element',
+          // Attribute selectors are allowed so primitives can be applied to a
+          // real <button> or <a> rather than wrapping one.
+          type: ['element', 'attribute'],
           prefix: 'hb',
           style: 'kebab-case',
         },
@@ -51,7 +53,15 @@ module.exports = defineConfig([
           checkAttributes: true,
           // Observed on the Angular scaffold: SVG geometry and link relations
           // are machine values, not copy. Extend this list as others surface.
-          ignoreAttributes: ['d', 'fill-rule', 'clip-rule', 'rel'],
+          ignoreAttributes: [
+            'd',
+            'fill-rule',
+            'clip-rule',
+            'rel',
+            'data-testid',
+            'stroke-linecap',
+            'stroke-linejoin',
+          ],
         },
       ],
     },
@@ -60,6 +70,14 @@ module.exports = defineConfig([
     // index.html is the app shell, not an Angular template -- Angular's i18n
     // pipeline never processes it, so marking it up would achieve nothing.
     files: ['src/index.html'],
+    rules: {
+      '@angular-eslint/template/i18n': 'off',
+    },
+  },
+  {
+    // The UI gallery is a development-only tool that never reaches production,
+    // so its labels must not enter a translation file.
+    files: ['src/app/features/ui-gallery/*.html'],
     rules: {
       '@angular-eslint/template/i18n': 'off',
     },

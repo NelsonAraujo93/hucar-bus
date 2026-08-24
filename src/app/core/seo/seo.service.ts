@@ -6,9 +6,17 @@ import { LocaleService } from '../i18n/locale.service';
 import { SUPPORTED_LOCALES } from '../i18n/locale.tokens';
 import { SITE_ORIGIN } from './seo.tokens';
 
-/** Open Graph writes locales with an underscore: es_ES rather than es-ES. */
+/**
+ * Open Graph requires the language_TERRITORY form, so it cannot simply mirror
+ * the hreflang tags: hreflang is "es", but og:locale must still be "es_ES".
+ */
+const OPEN_GRAPH_LOCALES: Record<SupportedLocale, string> = {
+  es: 'es_ES',
+  en: 'en_GB',
+};
+
 function toOpenGraphLocale(locale: SupportedLocale): string {
-  return LOCALE_TAGS[locale].replace('-', '_');
+  return OPEN_GRAPH_LOCALES[locale];
 }
 
 @Injectable({ providedIn: 'root' })

@@ -10,7 +10,7 @@ import { join } from 'node:path';
 const BROWSER_DIR = join('dist', 'hucar-bus', 'browser');
 
 const EXPECTED = [
-  { subPath: 'es', tag: 'es-ES' },
+  { subPath: 'es', tag: 'es' },
   { subPath: 'en', tag: 'en-GB' },
 ];
 

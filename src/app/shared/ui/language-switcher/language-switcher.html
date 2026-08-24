@@ -1,15 +1,19 @@
-<button
-  type="button"
-  ngMenuTrigger
-  [menu]="localeMenu"
-  i18n-aria-label="Purpose of the language menu button|@@languageSwitcher.trigger"
-  aria-label="Cambiar idioma"
+<div
+  class="switcher"
+  role="group"
+  i18n-aria-label="Purpose of the language control|@@languageSwitcher.group"
+  aria-label="Idioma"
 >
-  {{ currentLabel() }}
-</button>
-
-<div ngMenu #localeMenu="ngMenu" (itemSelected)="switchTo($event)">
-  @for (locale of locales; track locale) {
-    <button type="button" ngMenuItem [value]="locale">{{ labelFor(locale) }}</button>
+  @for (option of options(); track option.code) {
+    <a
+      class="switcher__option"
+      [class.is-active]="option.active"
+      [href]="option.href"
+      [attr.hreflang]="option.code"
+      [attr.title]="option.name"
+      [attr.aria-current]="option.active ? 'true' : null"
+      (click)="persist(option.code)"
+      >{{ option.label }}</a
+    >
   }
 </div>
