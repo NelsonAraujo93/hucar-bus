@@ -34,16 +34,8 @@
     </div>
 
     <div class="about__media">
-      <!-- Awaiting a real fleet photograph. The client images live in the design
-           export and exceed the file-read limit, so they cannot be pulled here;
-           they need exporting to disk. Deliberately not the design's dev-only
-           PlaceholderImage, which the handoff says never to port. -->
-      <div
-        class="about__photo"
-        role="img"
-        i18n-aria-label="Placeholder for the fleet photograph|@@about.photo.alt"
-        aria-label="Fotografía de la flota, pendiente"
-      ></div>
+      <!-- Awaiting a real fleet photograph. -->
+      <hb-image-placeholder class="about__photo" tone="sunset" />
 
       <div class="about__badge">
         <span class="about__badge-icon" aria-hidden="true">

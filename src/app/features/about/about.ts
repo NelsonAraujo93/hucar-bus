@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { SITE_CONFIG } from '../../core/config/site.config';
 import { Icon } from '../../shared/ui/icon/icon';
+import { ImagePlaceholder } from '../../shared/ui/image-placeholder/image-placeholder';
 
 interface Stat {
   readonly value: string;
@@ -16,7 +17,7 @@ interface Stat {
  */
 @Component({
   selector: 'hb-about',
-  imports: [Icon],
+  imports: [Icon, ImagePlaceholder],
   templateUrl: './about.html',
   styleUrl: './about.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

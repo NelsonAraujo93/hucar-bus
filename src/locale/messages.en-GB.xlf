@@ -253,12 +253,6 @@
         <target>From an early-morning airport run to a private route through Timanfaya, we adapt to whatever you need — always with a personal touch and Canarian punctuality.</target>
       </segment>
     </unit>
-    <unit id="about.photo.alt">
-      <segment state="translated">
-        <source>Fotografía de la flota, pendiente</source>
-        <target>Fleet photograph, pending</target>
-      </segment>
-    </unit>
     <unit id="about.base.label">
       <segment state="translated">
         <source>Base</source>

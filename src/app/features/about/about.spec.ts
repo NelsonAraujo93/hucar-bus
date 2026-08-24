@@ -89,11 +89,14 @@ describe('About', () => {
     });
   });
 
-  it('labels the photo placeholder, so the slot is announced rather than silent', async () => {
+  it('keeps the photo placeholder out of the accessibility tree', async () => {
+    // It conveys nothing until a real photograph with real alt text lands.
+    // Announcing "photograph pending" would expose a build detail to visitors.
     const host = await render();
     const photo = host.querySelector('.about__photo');
-    expect(photo?.getAttribute('role')).toBe('img');
-    expect(photo?.getAttribute('aria-label')).toBeTruthy();
+    expect(photo).toBeTruthy();
+    expect(photo?.getAttribute('aria-hidden')).toBe('true');
+    expect(photo?.getAttribute('role')).toBeNull();
   });
 
   it('hides the badge icon, which the adjacent text already names', async () => {
