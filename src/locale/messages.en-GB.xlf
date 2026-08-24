@@ -127,5 +127,101 @@
         <target>Scroll to services</target>
       </segment>
     </unit>
+    <unit id="services.eyebrow">
+      <segment state="translated">
+        <source>Servicios</source>
+        <target>Services</target>
+      </segment>
+    </unit>
+    <unit id="services.title">
+      <segment state="translated">
+        <source>Nuestros Servicios</source>
+        <target>What We Do</target>
+      </segment>
+    </unit>
+    <unit id="services.subtitle">
+      <segment state="translated">
+        <source>Soluciones de transporte para cada necesidad, siempre con puntualidad y cuidado.</source>
+        <target>Transport for every occasion, always on time and looked after.</target>
+      </segment>
+    </unit>
+    <unit id="services.cta">
+      <segment state="translated">
+        <source>Consultar</source>
+        <target>Enquire</target>
+      </segment>
+    </unit>
+    <unit id="services.airport.title">
+      <segment state="translated">
+        <source>Traslados Aeropuerto</source>
+        <target>Airport Transfers</target>
+      </segment>
+    </unit>
+    <unit id="services.airport.body">
+      <segment state="translated">
+        <source>Servicio puerta a puerta desde y hacia el aeropuerto de Lanzarote, 24/7.</source>
+        <target>Door-to-door service to and from Lanzarote airport, 24/7.</target>
+      </segment>
+    </unit>
+    <unit id="services.excursions.title">
+      <segment state="translated">
+        <source>Excursiones en Grupo</source>
+        <target>Group Excursions</target>
+      </segment>
+    </unit>
+    <unit id="services.excursions.body">
+      <segment state="translated">
+        <source>Descubre los mejores rincones de la isla con nuestros guías locales.</source>
+        <target>Discover the best corners of the island with our local guides.</target>
+      </segment>
+    </unit>
+    <unit id="services.private.title">
+      <segment state="translated">
+        <source>Alquiler Privado</source>
+        <target>Private Hire</target>
+      </segment>
+    </unit>
+    <unit id="services.private.body">
+      <segment state="translated">
+        <source>Vehículos con conductor para eventos, bodas y ocasiones especiales.</source>
+        <target>Chauffeured vehicles for events, weddings and special occasions.</target>
+      </segment>
+    </unit>
+    <unit id="services.hotel.title">
+      <segment state="translated">
+        <source>Traslados Hotel</source>
+        <target>Hotel Transfers</target>
+      </segment>
+    </unit>
+    <unit id="services.hotel.body">
+      <segment state="translated">
+        <source>Conexiones cómodas entre hoteles y puntos de interés de la isla.</source>
+        <target>Easy connections between hotels and the island’s highlights.</target>
+      </segment>
+    </unit>
+    <unit id="services.tours.title">
+      <segment state="translated">
+        <source>Tours por la Isla</source>
+        <target>Island Tours</target>
+      </segment>
+    </unit>
+    <unit id="services.tours.body">
+      <segment state="translated">
+        <source>Rutas panorámicas por los paisajes volcánicos de Lanzarote.</source>
+        <target>Scenic routes across the volcanic landscapes of Lanzarote.</target>
+      </segment>
+    </unit>
+    <unit id="services.custom.title">
+      <segment state="translated">
+        <source>Servicio a Medida</source>
+        <target>Tailor-Made</target>
+      </segment>
+    </unit>
+    <unit id="services.custom.body">
+      <segment state="translated">
+        <source>¿Necesitas algo diferente? Diseñamos el trayecto a tu medida.</source>
+        <target>Need something different? We’ll build the route around you.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

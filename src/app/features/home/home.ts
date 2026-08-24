@@ -4,6 +4,7 @@ import { ScrollSpy } from '../../core/navigation/scroll-spy';
 import { Footer } from '../footer/footer';
 import { Hero } from '../hero/hero';
 import { Navbar } from '../navbar/navbar';
+import { Services } from '../services/services';
 
 /**
  * The single page.
@@ -14,7 +15,7 @@ import { Navbar } from '../navbar/navbar';
  */
 @Component({
   selector: 'hb-home',
-  imports: [Footer, Hero, Navbar],
+  imports: [Footer, Hero, Navbar, Services],
   templateUrl: './home.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

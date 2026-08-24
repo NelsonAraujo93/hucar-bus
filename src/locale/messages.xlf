@@ -166,6 +166,150 @@
         <source>Menú</source>
       </segment>
     </unit>
+    <unit id="services.airport.title">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:24</note>
+        <note category="meaning">Service name</note>
+      </notes>
+      <segment>
+        <source>Traslados Aeropuerto</source>
+      </segment>
+    </unit>
+    <unit id="services.airport.body">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:25</note>
+        <note category="meaning">Service description</note>
+      </notes>
+      <segment>
+        <source>Servicio puerta a puerta desde y hacia el aeropuerto de Lanzarote, 24/7.</source>
+      </segment>
+    </unit>
+    <unit id="services.excursions.title">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:29</note>
+        <note category="meaning">Service name</note>
+      </notes>
+      <segment>
+        <source>Excursiones en Grupo</source>
+      </segment>
+    </unit>
+    <unit id="services.excursions.body">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:30</note>
+        <note category="meaning">Service description</note>
+      </notes>
+      <segment>
+        <source>Descubre los mejores rincones de la isla con nuestros guías locales.</source>
+      </segment>
+    </unit>
+    <unit id="services.private.title">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:34</note>
+        <note category="meaning">Service name</note>
+      </notes>
+      <segment>
+        <source>Alquiler Privado</source>
+      </segment>
+    </unit>
+    <unit id="services.private.body">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:35</note>
+        <note category="meaning">Service description</note>
+      </notes>
+      <segment>
+        <source>Vehículos con conductor para eventos, bodas y ocasiones especiales.</source>
+      </segment>
+    </unit>
+    <unit id="services.hotel.title">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:39</note>
+        <note category="meaning">Service name</note>
+      </notes>
+      <segment>
+        <source>Traslados Hotel</source>
+      </segment>
+    </unit>
+    <unit id="services.hotel.body">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:40</note>
+        <note category="meaning">Service description</note>
+      </notes>
+      <segment>
+        <source>Conexiones cómodas entre hoteles y puntos de interés de la isla.</source>
+      </segment>
+    </unit>
+    <unit id="services.tours.title">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:44</note>
+        <note category="meaning">Service name</note>
+      </notes>
+      <segment>
+        <source>Tours por la Isla</source>
+      </segment>
+    </unit>
+    <unit id="services.tours.body">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:45</note>
+        <note category="meaning">Service description</note>
+      </notes>
+      <segment>
+        <source>Rutas panorámicas por los paisajes volcánicos de Lanzarote.</source>
+      </segment>
+    </unit>
+    <unit id="services.custom.title">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:49</note>
+        <note category="meaning">Service name</note>
+      </notes>
+      <segment>
+        <source>Servicio a Medida</source>
+      </segment>
+    </unit>
+    <unit id="services.custom.body">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:50</note>
+        <note category="meaning">Service description</note>
+      </notes>
+      <segment>
+        <source>¿Necesitas algo diferente? Diseñamos el trayecto a tu medida.</source>
+      </segment>
+    </unit>
+    <unit id="services.eyebrow">
+      <notes>
+        <note category="location">src/app/features/services/services.html:5,6</note>
+        <note category="meaning">Section eyebrow</note>
+      </notes>
+      <segment>
+        <source>Servicios</source>
+      </segment>
+    </unit>
+    <unit id="services.title">
+      <notes>
+        <note category="location">src/app/features/services/services.html:7,8</note>
+        <note category="meaning">Section heading</note>
+      </notes>
+      <segment>
+        <source>Nuestros Servicios</source>
+      </segment>
+    </unit>
+    <unit id="services.subtitle">
+      <notes>
+        <note category="location">src/app/features/services/services.html:9,13</note>
+        <note category="meaning">Section supporting line</note>
+      </notes>
+      <segment>
+        <source>Soluciones de transporte para cada necesidad, siempre con puntualidad y cuidado.</source>
+      </segment>
+    </unit>
+    <unit id="services.cta">
+      <notes>
+        <note category="location">src/app/features/services/services.html:28,29</note>
+        <note category="meaning">Call to action on a service card</note>
+      </notes>
+      <segment>
+        <source>Consultar</source>
+      </segment>
+    </unit>
     <unit id="languageSwitcher.group">
       <notes>
         <note category="location">src/app/shared/ui/language-switcher/language-switcher.html:6,9</note>

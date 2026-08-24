@@ -1,0 +1,37 @@
+<section class="services" id="servicios">
+  <div class="services__inner">
+    <hb-section-header
+      i18n-eyebrow="Section eyebrow|@@services.eyebrow"
+      eyebrow="Servicios"
+      i18n-title="Section heading|@@services.title"
+      title="Nuestros Servicios"
+      i18n-subtitle="Section supporting line|@@services.subtitle"
+      subtitle="Soluciones de transporte para cada necesidad, siempre con puntualidad y cuidado."
+    />
+
+    <ul class="services__grid">
+      @for (service of items; track service.title) {
+        <li class="service-card">
+          <span class="service-card__icon" aria-hidden="true">
+            <hb-icon [name]="service.icon" [size]="32" />
+          </span>
+
+          <h3 class="service-card__title">{{ service.title }}</h3>
+          <p class="service-card__body">{{ service.body }}</p>
+
+          <span class="service-card__cta">
+            <!-- The link covers the whole card via a stretched pseudo-element,
+                 so the card is clickable while focus and the accessible name
+                 stay on one control. Wrapping the card in an anchor instead
+                 would announce the entire card as the link's name. -->
+            <a class="service-card__link" href="#contacto">
+              <span i18n="Call to action on a service card|@@services.cta">Consultar</span>
+              <span class="visually-hidden">{{ service.title }}</span>
+            </a>
+            <span class="service-card__arrow" aria-hidden="true">→</span>
+          </span>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
