@@ -32,6 +32,7 @@
     "format:check": "prettier --check .",
     "test:ci": "ng test --no-watch --coverage",
     "verify:build": "node scripts/assert-localized-build.mjs",
+    "smoke:dev": "node scripts/smoke-dev-server.mjs",
     "prepare": "husky"
   },
   "private": true,

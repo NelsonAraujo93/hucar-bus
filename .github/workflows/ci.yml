@@ -62,6 +62,9 @@ jobs:
       - name: Verify localized build output
         run: npm run verify:build
 
+      - name: Smoke test the dev server
+        run: npm run smoke:dev
+
       - name: Upload coverage artifact
         if: always()
         uses: actions/upload-artifact@v6
