@@ -600,7 +600,7 @@
     </unit>
     <unit id="logo.alt.footer">
       <notes>
-        <note category="location">src/app/shared/ui/logo/logo.html:7,10</note>
+        <note category="location">src/app/shared/ui/logo/logo.html:12,15</note>
         <note category="meaning">Alt text for the brand logo</note>
       </notes>
       <segment>
@@ -609,7 +609,7 @@
     </unit>
     <unit id="logo.alt.nav">
       <notes>
-        <note category="location">src/app/shared/ui/logo/logo.html:16,19</note>
+        <note category="location">src/app/shared/ui/logo/logo.html:21,23</note>
         <note category="meaning">Alt text for the brand logo</note>
       </notes>
       <segment>

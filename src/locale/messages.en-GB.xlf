@@ -409,5 +409,47 @@
         <target>Message us on WhatsApp</target>
       </segment>
     </unit>
+    <unit id="reviews.eyebrow">
+      <segment state="translated">
+        <source>Opiniones</source>
+        <target>Reviews</target>
+      </segment>
+    </unit>
+    <unit id="reviews.title">
+      <segment state="translated">
+        <source>Lo que dicen nuestros clientes</source>
+        <target>What our customers say</target>
+      </segment>
+    </unit>
+    <unit id="reviews.count.suffix">
+      <segment state="translated">
+        <source>opiniones en Google</source>
+        <target>reviews on Google</target>
+      </segment>
+    </unit>
+    <unit id="reviews.carousel.label">
+      <segment state="translated">
+        <source>Opiniones de clientes</source>
+        <target>Customer reviews</target>
+      </segment>
+    </unit>
+    <unit id="reviews.previous">
+      <segment state="translated">
+        <source>Opiniones anteriores</source>
+        <target>Previous reviews</target>
+      </segment>
+    </unit>
+    <unit id="reviews.next">
+      <segment state="translated">
+        <source>Siguientes opiniones</source>
+        <target>Next reviews</target>
+      </segment>
+    </unit>
+    <unit id="reviews.goto">
+      <segment state="translated">
+        <source>Ir a la opinión</source>
+        <target>Go to review</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
