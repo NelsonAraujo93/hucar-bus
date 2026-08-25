@@ -1,0 +1,68 @@
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__columns">
+      <div class="footer__brand">
+        <hb-logo variant="footer" />
+
+        <p class="footer__tagline" i18n="Footer strapline|@@footer.tagline">
+          Traslados, excursiones y servicio privado en Lanzarote. Familia al volante desde
+          {{ config.foundedYear }}.
+        </p>
+
+        <div class="footer__social">
+          <a
+            class="footer__social-link"
+            [href]="config.instagramUrl"
+            i18n-aria-label="Link to the Instagram profile|@@footer.social.instagram"
+            aria-label="Instagram"
+          >
+            <hb-icon name="instagram" [size]="18" />
+          </a>
+
+          <a
+            class="footer__social-link"
+            [href]="config.whatsappUrl"
+            [attr.aria-label]="brand.whatsapp"
+          >
+            <hb-icon name="whatsapp" [size]="18" />
+          </a>
+        </div>
+      </div>
+
+      <nav
+        class="footer__column"
+        i18n-aria-label="Footer navigation|@@footer.nav.label"
+        aria-label="Navegación"
+      >
+        <h2 class="footer__heading" i18n="Footer column heading|@@footer.nav.heading">
+          Navegación
+        </h2>
+        @for (item of items; track item.id) {
+          <a class="footer__link" [href]="'#' + item.id">{{ item.label }}</a>
+        }
+      </nav>
+
+      <div class="footer__column">
+        <h2 class="footer__heading" i18n="Footer column heading|@@footer.contact.heading">
+          Contacto
+        </h2>
+        <div class="footer__contact">
+          <a class="footer__link" [href]="config.phoneHref">{{ config.phone }}</a>
+          <a class="footer__link" [href]="'mailto:' + config.email">{{ config.email }}</a>
+          <span class="footer__value">{{ config.addressShort }}</span>
+          <div class="footer__switcher"><hb-language-switcher tone="dark" /></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Legal links are deliberately absent. The design has "Política de
+         Privacidad" and "Términos" as dead # links; an EU site needs both pages
+         for real, and a link that goes nowhere is worse than no link. They
+         return once the pages exist. -->
+    <div class="footer__legal">
+      <span i18n="Copyright notice|@@footer.copyright"
+        >© {{ year }} Hucar Bus. Todos los derechos reservados.</span
+      >
+    </div>
+  </div>
+</footer>

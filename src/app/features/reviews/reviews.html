@@ -1,0 +1,102 @@
+@if (reviews().length > 0) {
+  <section class="reviews" id="opiniones">
+    <div class="reviews__inner">
+      <hb-section-header
+        i18n-eyebrow="Section eyebrow|@@reviews.eyebrow"
+        eyebrow="Opiniones"
+        i18n-title="Section heading|@@reviews.title"
+        title="Lo que dicen nuestros clientes"
+      />
+
+      @if (summary(); as rating) {
+        <p class="rating">
+          <hb-icon name="google" [size]="24" />
+          <span class="rating__divider" aria-hidden="true"></span>
+          <span class="rating__average">{{ rating.average }}</span>
+          <span class="rating__stars" aria-hidden="true">
+            @for (star of [1, 2, 3, 4, 5]; track star) {
+              <hb-icon name="star" [size]="18" />
+            }
+          </span>
+          <span class="rating__count"
+            >{{ rating.count }}
+            <span i18n="Suffix after the review count|@@reviews.count.suffix"
+              >opiniones en Google</span
+            ></span
+          >
+        </p>
+      }
+
+      <div
+        class="carousel"
+        role="region"
+        tabindex="0"
+        i18n-aria-label="Label for the reviews carousel|@@reviews.carousel.label"
+        aria-label="Opiniones de clientes"
+        (keydown)="onKeydown($event)"
+        (touchstart)="onTouchStart($event)"
+        (touchend)="onTouchEnd($event)"
+      >
+        <div class="carousel__viewport">
+          <ul class="carousel__track" [style.--index]="offset()">
+            @for (review of reviews(); track review.name) {
+              <li class="review">
+                <span class="review__stars" aria-hidden="true">
+                  @for (star of [1, 2, 3, 4, 5]; track star) {
+                    <hb-icon name="star" [size]="16" />
+                  }
+                </span>
+                <blockquote class="review__quote">{{ review.text }}</blockquote>
+                <div class="review__author">
+                  <span class="review__avatar" aria-hidden="true">{{ review.name.charAt(0) }}</span>
+                  <span class="review__meta">
+                    <span class="review__name">{{ review.name }}</span>
+                    <span class="review__when">{{ review.when }}</span>
+                  </span>
+                </div>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <div class="carousel__controls">
+          <button
+            class="carousel__arrow"
+            type="button"
+            [disabled]="atStart()"
+            (click)="previous()"
+            i18n-aria-label="Previous reviews|@@reviews.previous"
+            aria-label="Opiniones anteriores"
+          >
+            <hb-icon name="chevron-left" [size]="20" color="#1A1A1A" />
+          </button>
+
+          <span class="carousel__dots">
+            @for (review of reviews(); track review.name; let i = $index) {
+              <button
+                class="carousel__dot"
+                type="button"
+                [class.is-active]="i === +offset()"
+                [attr.aria-current]="i === +offset() ? 'true' : null"
+                (click)="goTo(i)"
+                i18n-aria-label="Jump to a review|@@reviews.goto"
+                aria-label="Ir a la opinión"
+              ></button>
+            }
+          </span>
+
+          <button
+            class="carousel__arrow"
+            type="button"
+            [disabled]="atEnd()"
+            (click)="next()"
+            i18n-aria-label="Next reviews|@@reviews.next"
+            aria-label="Siguientes opiniones"
+          >
+            <hb-icon name="chevron-right" [size]="20" color="#1A1A1A" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+}

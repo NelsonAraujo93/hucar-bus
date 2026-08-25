@@ -30,6 +30,12 @@
   margin-left: 8px;
 }
 
+@media (width < 768px) {
+  .eyebrow {
+    font-size: 12px;
+  }
+}
+
 .eyebrow-lava-red .eyebrow {
   color: var(--color-lava-red);
 }
@@ -41,7 +47,10 @@
   /* Uppercased in CSS, not in the source string: screen readers may spell out
      capitalised words, and translators should review normal sentence case. */
   text-transform: uppercase;
-  font-size: clamp(36px, 5vw, 52px);
+
+  /* The responsive design uses a lower floor and steeper scaling than the
+     handoff README's clamp(36px, 5vw, 52px); the source wins. */
+  font-size: clamp(28px, 7vw, 52px);
   font-weight: 400;
   letter-spacing: 0.5px;
   line-height: 1.1;

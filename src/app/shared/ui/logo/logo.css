@@ -7,7 +7,7 @@
 
 .logo__image {
   display: block;
-  width: auto;
+  width: 60px;
 }
 
 /* The card exists because the asset is an opaque JPEG and cannot sit directly

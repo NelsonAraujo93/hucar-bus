@@ -1,4 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Instagram } from '../instagram/instagram';
+import { INSTAGRAM_FIXTURE } from '../instagram/instagram.fixture';
+import { Reviews } from '../reviews/reviews';
+import { REVIEW_FIXTURE, REVIEW_SUMMARY_FIXTURE } from '../reviews/reviews.fixture';
 import { Button, type ButtonSize, type ButtonVariant } from '../../shared/ui/button/button';
 import { Icon, type IconName } from '../../shared/ui/icon/icon';
 import { LanguageSwitcher } from '../../shared/ui/language-switcher/language-switcher';
@@ -20,12 +24,20 @@ interface Swatch {
  */
 @Component({
   selector: 'hb-ui-gallery',
-  imports: [Button, Icon, LanguageSwitcher, Logo, SectionHeader],
+  imports: [Button, Icon, Instagram, LanguageSwitcher, Logo, Reviews, SectionHeader],
   templateUrl: './ui-gallery.html',
   styleUrl: './ui-gallery.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UiGallery {
+  /**
+   * Invented review content, rendered only here. The production build excludes
+   * this route entirely, so the fixture cannot reach a deployed bundle.
+   */
+  protected readonly instagramFixture = INSTAGRAM_FIXTURE;
+  protected readonly reviewFixture = REVIEW_FIXTURE;
+  protected readonly reviewSummaryFixture = REVIEW_SUMMARY_FIXTURE;
+
   protected readonly buttonVariants: readonly ButtonVariant[] = [
     'yellow',
     'whatsapp',

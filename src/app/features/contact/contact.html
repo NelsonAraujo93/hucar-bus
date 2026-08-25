@@ -1,0 +1,194 @@
+<section class="contact" id="contacto">
+  <div class="contact__inner">
+    <hb-section-header
+      i18n-eyebrow="Section eyebrow|@@contact.eyebrow"
+      eyebrow="Contacto"
+      i18n-title="Section heading|@@contact.title"
+      title="Contáctanos"
+      i18n-subtitle="Section supporting line|@@contact.subtitle"
+      subtitle="Escríbenos y te respondemos en menos de 24 horas — normalmente en minutos."
+    />
+
+    <div class="contact__grid">
+      <div class="contact__card">
+        @switch (status()) {
+          @case ('sent') {
+            <div class="outcome">
+              <span class="outcome__mark outcome__mark--ok" aria-hidden="true">✓</span>
+              <h3 class="outcome__title" i18n="Success heading|@@contact.sent.title">
+                ¡Mensaje enviado!
+              </h3>
+              <p class="outcome__body" i18n="Success body|@@contact.sent.body">
+                Te responderemos en breve.
+              </p>
+              <button
+                class="outcome__again"
+                type="button"
+                (click)="reset()"
+                i18n="Reset the form after sending|@@contact.sent.again"
+              >
+                Enviar otro
+              </button>
+            </div>
+          }
+          @case ('error') {
+            <!-- Not in the design. A form that can fail needs somewhere to say
+                 so, and WhatsApp is the obvious fallback for this business. -->
+            <div class="outcome" role="alert">
+              <span class="outcome__mark outcome__mark--error" aria-hidden="true">!</span>
+              <h3 class="outcome__title" i18n="Failure heading|@@contact.error.title">
+                No se pudo enviar
+              </h3>
+              <p class="outcome__body" i18n="Failure body|@@contact.error.body">
+                Inténtalo de nuevo o escríbenos por WhatsApp.
+              </p>
+              <button
+                class="outcome__again"
+                type="button"
+                (click)="reset()"
+                i18n="Retry after a failed send|@@contact.error.retry"
+              >
+                Reintentar
+              </button>
+            </div>
+          }
+          @default {
+            <form class="form" novalidate (submit)="onSubmit($event)">
+              <div class="form__row">
+                <p class="field">
+                  <label class="field__label" for="contact-name"
+                    ><span i18n="Form field label|@@contact.field.name">Nombre</span></label
+                  >
+                  <input class="field__input" id="contact-name" name="name" type="text" required />
+                </p>
+
+                <p class="field">
+                  <label class="field__label" for="contact-email"
+                    ><span i18n="Form field label|@@contact.field.email">Email</span></label
+                  >
+                  <input
+                    class="field__input"
+                    id="contact-email"
+                    name="email"
+                    type="email"
+                    required
+                  />
+                </p>
+              </div>
+
+              <div class="form__row">
+                <p class="field">
+                  <label class="field__label" for="contact-phone">
+                    <span i18n="Form field label|@@contact.field.phone">Teléfono</span>
+                    <span
+                      class="field__optional"
+                      i18n="Marks a field as optional|@@contact.field.optional"
+                      >· opcional</span
+                    >
+                  </label>
+                  <input class="field__input" id="contact-phone" name="phone" type="tel" />
+                </p>
+
+                <p class="field">
+                  <label class="field__label" for="contact-subject"
+                    ><span i18n="Form field label|@@contact.field.subject">Asunto</span></label
+                  >
+                  <input
+                    class="field__input"
+                    id="contact-subject"
+                    name="subject"
+                    type="text"
+                    required
+                  />
+                </p>
+              </div>
+
+              <p class="field">
+                <label class="field__label" for="contact-message"
+                  ><span i18n="Form field label|@@contact.field.message">Mensaje</span></label
+                >
+                <textarea
+                  class="field__input field__input--area"
+                  id="contact-message"
+                  name="message"
+                  rows="4"
+                  required
+                ></textarea>
+              </p>
+
+              <!-- Captcha slot. Left empty on purpose: the design mocks the
+                   hCaptcha widget with a fake checkbox, and imitating a security
+                   control is worse than showing nothing. Phase 4 mounts the real
+                   widget here. -->
+
+              <button
+                hb-button
+                type="submit"
+                [full]="true"
+                [pending]="status() === 'pending'"
+                i18n="Form submit button|@@contact.submit"
+              >
+                Enviar Mensaje
+              </button>
+            </form>
+          }
+        }
+      </div>
+
+      <div class="contact__info">
+        <ul class="rows">
+          <li class="row">
+            <span class="row__icon" aria-hidden="true"
+              ><hb-icon name="phone" [size]="20" color="#2BBCD4"
+            /></span>
+            <span class="row__text">
+              <span class="row__label" i18n="Contact detail label|@@contact.rows.phone"
+                >Teléfono</span
+              >
+              <a class="row__value" [href]="config.phoneHref">{{ config.phone }}</a>
+            </span>
+          </li>
+          <li class="row">
+            <span class="row__icon" aria-hidden="true"
+              ><hb-icon name="mail" [size]="20" color="#2BBCD4"
+            /></span>
+            <span class="row__text">
+              <span class="row__label" i18n="Contact detail label|@@contact.rows.email">Email</span>
+              <a class="row__value" [href]="'mailto:' + config.email">{{ config.email }}</a>
+            </span>
+          </li>
+          <li class="row">
+            <span class="row__icon" aria-hidden="true"
+              ><hb-icon name="pin" [size]="20" color="#2BBCD4"
+            /></span>
+            <span class="row__text">
+              <span class="row__label" i18n="Contact detail label|@@contact.rows.base">Base</span>
+              <span class="row__value">{{ config.address }}</span>
+            </span>
+          </li>
+          <li class="row">
+            <span class="row__icon" aria-hidden="true"
+              ><hb-icon name="clock" [size]="20" color="#2BBCD4"
+            /></span>
+            <span class="row__text">
+              <span class="row__label" i18n="Contact detail label|@@contact.rows.hours"
+                >Horario</span
+              >
+              <span class="row__value" i18n="Opening hours|@@contact.hours.value"
+                >Lun–Dom · 24/7 disponibilidad</span
+              >
+            </span>
+          </li>
+        </ul>
+
+        <a hb-button variant="whatsapp" size="lg" [full]="true" [href]="config.whatsappUrl">
+          <hb-icon hb-button-icon name="whatsapp" [size]="20" />
+          <span i18n="WhatsApp call to action|@@contact.whatsapp">Escríbenos por WhatsApp</span>
+        </a>
+
+        <!-- Awaiting a real embedded map centred on Arrecife. -->
+        <hb-image-placeholder class="contact__map" tone="ocean" />
+      </div>
+    </div>
+  </div>
+</section>

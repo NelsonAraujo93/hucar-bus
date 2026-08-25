@@ -1,0 +1,147 @@
+.services {
+  padding: var(--section-pad) var(--container-pad);
+  background: #fff;
+}
+
+.services__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.services__grid {
+  display: grid;
+  margin: 56px 0 0;
+  padding: 0;
+  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  list-style: none;
+}
+
+.service-card {
+  position: relative;
+  padding: 28px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-16);
+  box-shadow: var(--shadow-card-rest);
+  transition: all var(--duration-card) ease;
+}
+
+/* focus-within matters as much as hover: a keyboard user tabbing to the link
+   should see the same affordance a pointer user gets. */
+.service-card:hover,
+.service-card:focus-within {
+  border-color: var(--color-sun-yellow);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+}
+
+.service-card__icon {
+  display: flex;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-sand-light);
+  border-radius: var(--radius-12);
+  transition: background var(--duration-card);
+}
+
+.service-card:hover .service-card__icon,
+.service-card:focus-within .service-card__icon {
+  background: var(--color-sand-lighter);
+}
+
+.service-card__title {
+  margin: 0 0 10px;
+  font-family: var(--font-body);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-ink);
+}
+
+.service-card__body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--color-ink-muted);
+}
+
+.service-card__cta {
+  display: flex;
+  margin-top: 20px;
+  gap: 6px;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+  transition: color var(--duration-card);
+}
+
+.service-card__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Stretches the link over the whole card without moving focus off it. */
+.service-card__link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.service-card:hover .service-card__cta,
+.service-card:focus-within .service-card__cta {
+  color: var(--color-lava-red);
+}
+
+.service-card__arrow {
+  transition: transform var(--duration-card);
+}
+
+.service-card:hover .service-card__arrow,
+.service-card:focus-within .service-card__arrow {
+  transform: translateX(4px);
+}
+
+@media (width < 1024px) {
+  .services__grid {
+    margin-top: 48px;
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width < 768px) {
+  .services__grid {
+    margin-top: 36px;
+    gap: 16px;
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    padding: 22px;
+  }
+
+  .service-card__title {
+    font-size: 19px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card:hover,
+  .service-card:focus-within {
+    transform: none;
+  }
+
+  .service-card:hover .service-card__arrow,
+  .service-card:focus-within .service-card__arrow {
+    transform: none;
+  }
+}

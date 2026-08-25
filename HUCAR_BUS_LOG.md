@@ -310,3 +310,93 @@ actually uses. Worth closing before Phase 3.
   Phase 3 mobile drawer.
 - `HUCAR_BUS_DESIGN.md` does not exist in this repository, so T14's instruction
   to update its token names could not be carried out.
+
+## 2026-08-25 — Phase 3: page sections
+
+Navbar, Hero, Services, About, Contact, Footer and the WhatsApp float compose the
+page in both locales. Reviews and Instagram are built but withheld. 224 tests.
+
+### The translation discipline held
+
+Roughly a hundred units, English written in the same commit as every section, as
+the plan demands. `i18nMissingTranslation: "error"` never once blocked a build,
+because the English never lagged. The drafted English is taken from the design
+export's own `i18n.jsx` where it exists, and is **provisional pending client
+review** — it is placeholder marketing copy, not signed-off text.
+
+### What is deliberately not on the page
+
+- **Reviews.** The five testimonials, the 4.8 average and "120+" are invented.
+  The component takes reviews as an input and renders _nothing_ when given none,
+  so it cannot publish on its own. The fixture lives in `reviews.fixture.ts`,
+  reachable only from `/ui`, which the production build excludes. Verified: none
+  of the five names, and no "opiniones en Google", appears in the output.
+- **Instagram.** Scope is still undecided. Like counts are dropped as invented.
+  Captions are withheld: the design names Famara, Papagayo and Timanfaya, but
+  nobody has confirmed the supplied photographs show those places.
+- **Footer legal links.** Omitted rather than shipped dead.
+
+### One thing that is on the page and should not stay
+
+**`4.8★` renders in the About stats.** Nelson chose to ship the mock for now.
+It is the same fabricated rating the Reviews section cannot publish, so it must
+be confirmed or removed before `main` deploys. This is the single exception to
+the phase's "no fabricated content in the built output" criterion.
+
+### Decisions
+
+- "Consultar" anchors to `#contacto`; the WhatsApp version with a prefilled
+  message naming the service comes later.
+- The contact form has four states, not the design's two. `pending` and `error`
+  were designed now rather than under deadline in Phase 4.
+- The captcha slot is left empty. Imitating a security control is worse than
+  showing nothing: a visitor could believe they had completed it.
+- Image slots are tone blocks until the photographs arrive.
+
+### What the design source settled that the plan called undesigned
+
+The plan lists the mobile drawer and the language-switcher placement as needing
+a design pass. `sections.jsx` specifies both in full — 60px compact bar, drawer
+`max-height` 0 to 460 over `.32s`, 48px rows, a 4px active marker, both CTAs
+inside; and a switcher slot at every breakpoint including full-width in the
+drawer and dark-toned in the footer. Nothing was invented.
+
+Two Phase 2 values were wrong against that source and are corrected: section
+headings are `clamp(28px, 7vw, 52px)`, and the eyebrow steps to 12px on mobile.
+
+### Images
+
+`npm run images` generates AVIF, WebP and JPEG at the widths the layout asks
+for. The logo went from 148,827 bytes at 1383×1112 to 8,304 bytes of AVIF — 94%
+smaller — for a mark rendered 68px wide. Generation is manual and its output
+committed, so the production build never depends on ImageMagick being present in
+the deploy environment.
+
+**Client photographs are still not on disk.** They exceed the design tooling's
+file-read limit and must be exported to
+`design_handoff_hucar_bus_site/uploads/`. Export originals at full size: the
+pipeline needs the resolution for 2× displays and downscaling first throws away
+information that cannot be recovered.
+
+### Two defects found by composing
+
+Linking to a section that is not rendered gives a visitor a nav item that
+silently does nothing. Navigation now follows `COMPOSED_NAV_IDS`.
+
+Extraction only sees components the production graph reaches. `logo.alt.*` was
+invisible until `Logo` was composed, and the Reviews and Instagram strings are
+still absent from `messages.xlf` for the same reason. Their English is written
+regardless, so the translations are in place the day those sections join.
+
+### Still open, blocking Phase 4 or a production merge
+
+1. **Confirm or remove `4.8★`** before `main` deploys
+2. Real Google reviews — API or confirmed real text
+3. Client review of the drafted English
+4. What the photographs actually show, before anything is captioned
+5. Nine square photos for the grid, or approval to crop
+6. Instagram scope
+7. Real phone, WhatsApp number, email, address
+8. Vector or transparent logo — the current one is an opaque JPEG
+9. Privacy policy and terms copy, plus the cookie banner an EU site needs
+10. Confirm "desde 2014", "10+", "24/7"

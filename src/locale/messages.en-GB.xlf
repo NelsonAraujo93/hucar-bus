@@ -1,13 +1,478 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="es" trgLang="en-GB">
   <file id="ngi18n" original="ng.template">
+    <unit id="nav.servicios">
+      <segment state="translated">
+        <source>Servicios</source>
+        <target>Services</target>
+      </segment>
+    </unit>
+    <unit id="nav.nosotros">
+      <segment state="translated">
+        <source>Sobre Nosotros</source>
+        <target>About Us</target>
+      </segment>
+    </unit>
+    <unit id="nav.opiniones">
+      <segment state="translated">
+        <source>Opiniones</source>
+        <target>Reviews</target>
+      </segment>
+    </unit>
+    <unit id="nav.instagram">
+      <segment state="translated">
+        <source>Instagram</source>
+        <target>Instagram</target>
+      </segment>
+    </unit>
+    <unit id="nav.contacto">
+      <segment state="translated">
+        <source>Contacto</source>
+        <target>Contact</target>
+      </segment>
+    </unit>
+    <unit id="cta.contact">
+      <segment state="translated">
+        <source>Contactar</source>
+        <target>Get in Touch</target>
+      </segment>
+    </unit>
+    <unit id="nav.menu">
+      <segment state="translated">
+        <source>Menú</source>
+        <target>Menu</target>
+      </segment>
+    </unit>
+    <unit id="footer.tagline">
+      <segment state="translated">
+        <source>Traslados, excursiones y servicio privado en Lanzarote. Familia al volante desde <ph id="0" equiv="INTERPOLATION" disp="{{ config.foundedYear }}"/>.</source>
+        <target>Transfers, excursions and private hire in Lanzarote. A family behind the wheel since <ph id="0" equiv="INTERPOLATION" disp="{{ config.foundedYear }}"/>.</target>
+      </segment>
+    </unit>
+    <unit id="footer.social.instagram">
+      <segment state="translated">
+        <source>Instagram</source>
+        <target>Instagram</target>
+      </segment>
+    </unit>
+    <unit id="footer.nav.label">
+      <segment state="translated">
+        <source>Navegación</source>
+        <target>Navigation</target>
+      </segment>
+    </unit>
+    <unit id="footer.nav.heading">
+      <segment state="translated">
+        <source>Navegación</source>
+        <target>Navigation</target>
+      </segment>
+    </unit>
+    <unit id="footer.contact.heading">
+      <segment state="translated">
+        <source>Contacto</source>
+        <target>Contact</target>
+      </segment>
+    </unit>
+    <unit id="footer.copyright">
+      <segment state="translated">
+        <source>© <ph id="0" equiv="INTERPOLATION" disp="{{ year }}"/> Hucar Bus. Todos los derechos reservados.</source>
+        <target>© <ph id="0" equiv="INTERPOLATION" disp="{{ year }}"/> Hucar Bus. All rights reserved.</target>
+      </segment>
+    </unit>
     <unit id="languageSwitcher.group">
-      <notes>
-        <note category="meaning">Purpose of the language control</note>
-      </notes>
       <segment state="translated">
         <source>Idioma</source>
         <target>Language</target>
+      </segment>
+    </unit>
+    <unit id="logo.alt.nav">
+      <segment state="translated">
+        <source>Hucar Bus</source>
+        <target>Hucar Bus</target>
+      </segment>
+    </unit>
+    <unit id="logo.alt.footer">
+      <segment state="translated">
+        <source>Hucar Bus Lanzarote Turismo</source>
+        <target>Hucar Bus Lanzarote Turismo</target>
+      </segment>
+    </unit>
+    <unit id="hero.badge">
+      <segment state="translated">
+        <source>Lanzarote · Islas Canarias</source>
+        <target>Lanzarote · Canary Islands</target>
+      </segment>
+    </unit>
+    <unit id="hero.title.first">
+      <segment state="translated">
+        <source>Tu transporte de confianza</source>
+        <target>Your trusted ride</target>
+      </segment>
+    </unit>
+    <unit id="hero.title.second">
+      <segment state="translated">
+        <source>en Lanzarote</source>
+        <target>in Lanzarote</target>
+      </segment>
+    </unit>
+    <unit id="hero.subtitle">
+      <segment state="translated">
+        <source>Traslados al aeropuerto, excursiones y servicios privados con la mejor atención.</source>
+        <target>Airport transfers, island excursions and private hire — with the care of a local family firm.</target>
+      </segment>
+    </unit>
+    <unit id="hero.scroll">
+      <segment state="translated">
+        <source>Bajar a servicios</source>
+        <target>Scroll to services</target>
+      </segment>
+    </unit>
+    <unit id="services.eyebrow">
+      <segment state="translated">
+        <source>Servicios</source>
+        <target>Services</target>
+      </segment>
+    </unit>
+    <unit id="services.title">
+      <segment state="translated">
+        <source>Nuestros Servicios</source>
+        <target>What We Do</target>
+      </segment>
+    </unit>
+    <unit id="services.subtitle">
+      <segment state="translated">
+        <source>Soluciones de transporte para cada necesidad, siempre con puntualidad y cuidado.</source>
+        <target>Transport for every occasion, always on time and looked after.</target>
+      </segment>
+    </unit>
+    <unit id="services.cta">
+      <segment state="translated">
+        <source>Consultar</source>
+        <target>Enquire</target>
+      </segment>
+    </unit>
+    <unit id="services.airport.title">
+      <segment state="translated">
+        <source>Traslados Aeropuerto</source>
+        <target>Airport Transfers</target>
+      </segment>
+    </unit>
+    <unit id="services.airport.body">
+      <segment state="translated">
+        <source>Servicio puerta a puerta desde y hacia el aeropuerto de Lanzarote, 24/7.</source>
+        <target>Door-to-door service to and from Lanzarote airport, 24/7.</target>
+      </segment>
+    </unit>
+    <unit id="services.excursions.title">
+      <segment state="translated">
+        <source>Excursiones en Grupo</source>
+        <target>Group Excursions</target>
+      </segment>
+    </unit>
+    <unit id="services.excursions.body">
+      <segment state="translated">
+        <source>Descubre los mejores rincones de la isla con nuestros guías locales.</source>
+        <target>Discover the best corners of the island with our local guides.</target>
+      </segment>
+    </unit>
+    <unit id="services.private.title">
+      <segment state="translated">
+        <source>Alquiler Privado</source>
+        <target>Private Hire</target>
+      </segment>
+    </unit>
+    <unit id="services.private.body">
+      <segment state="translated">
+        <source>Vehículos con conductor para eventos, bodas y ocasiones especiales.</source>
+        <target>Chauffeured vehicles for events, weddings and special occasions.</target>
+      </segment>
+    </unit>
+    <unit id="services.hotel.title">
+      <segment state="translated">
+        <source>Traslados Hotel</source>
+        <target>Hotel Transfers</target>
+      </segment>
+    </unit>
+    <unit id="services.hotel.body">
+      <segment state="translated">
+        <source>Conexiones cómodas entre hoteles y puntos de interés de la isla.</source>
+        <target>Easy connections between hotels and the island’s highlights.</target>
+      </segment>
+    </unit>
+    <unit id="services.tours.title">
+      <segment state="translated">
+        <source>Tours por la Isla</source>
+        <target>Island Tours</target>
+      </segment>
+    </unit>
+    <unit id="services.tours.body">
+      <segment state="translated">
+        <source>Rutas panorámicas por los paisajes volcánicos de Lanzarote.</source>
+        <target>Scenic routes across the volcanic landscapes of Lanzarote.</target>
+      </segment>
+    </unit>
+    <unit id="services.custom.title">
+      <segment state="translated">
+        <source>Servicio a Medida</source>
+        <target>Tailor-Made</target>
+      </segment>
+    </unit>
+    <unit id="services.custom.body">
+      <segment state="translated">
+        <source>¿Necesitas algo diferente? Diseñamos el trayecto a tu medida.</source>
+        <target>Need something different? We’ll build the route around you.</target>
+      </segment>
+    </unit>
+    <unit id="about.eyebrow">
+      <segment state="translated">
+        <source>Sobre Nosotros</source>
+        <target>About Us</target>
+      </segment>
+    </unit>
+    <unit id="about.title.first">
+      <segment state="translated">
+        <source>Una familia al</source>
+        <target>A family behind</target>
+      </segment>
+    </unit>
+    <unit id="about.title.second">
+      <segment state="translated">
+        <source>volante desde <ph id="0" equiv="INTERPOLATION" disp="{{ config.foundedYear }}"/></source>
+        <target>the wheel since <ph id="0" equiv="INTERPOLATION" disp="{{ config.foundedYear }}"/></target>
+      </segment>
+    </unit>
+    <unit id="about.paragraph.first">
+      <segment state="translated">
+        <source>En Hucar Bus somos una empresa familiar nacida en Lanzarote, con más de una década moviendo a vecinos y visitantes por toda la isla. Nuestra flota de minibuses es moderna, segura y cómoda, y cada viaje se conduce con el mismo cuidado que tendríamos con la familia.</source>
+        <target>Hucar Bus is a family business born in Lanzarote, with over a decade moving neighbours and visitors across the island. Our minibus fleet is modern, safe and comfortable, and every journey is driven with the same care we’d give our own family.</target>
+      </segment>
+    </unit>
+    <unit id="about.paragraph.second">
+      <segment state="translated">
+        <source>Desde un traslado al aeropuerto a primera hora hasta una ruta privada por el Timanfaya, nos adaptamos a lo que necesites — siempre con trato personal y puntualidad canaria.</source>
+        <target>From an early-morning airport run to a private route through Timanfaya, we adapt to whatever you need — always with a personal touch and Canarian punctuality.</target>
+      </segment>
+    </unit>
+    <unit id="about.base.label">
+      <segment state="translated">
+        <source>Base</source>
+        <target>Based in</target>
+      </segment>
+    </unit>
+    <unit id="about.stats.years">
+      <segment state="translated">
+        <source>años de experiencia</source>
+        <target>years of experience</target>
+      </segment>
+    </unit>
+    <unit id="about.stats.availability">
+      <segment state="translated">
+        <source>disponibilidad</source>
+        <target>availability</target>
+      </segment>
+    </unit>
+    <unit id="about.stats.rating">
+      <segment state="translated">
+        <source>valoración media</source>
+        <target>average rating</target>
+      </segment>
+    </unit>
+    <unit id="contact.eyebrow">
+      <segment state="translated">
+        <source>Contacto</source>
+        <target>Contact</target>
+      </segment>
+    </unit>
+    <unit id="contact.title">
+      <segment state="translated">
+        <source>Contáctanos</source>
+        <target>Get in Touch</target>
+      </segment>
+    </unit>
+    <unit id="contact.subtitle">
+      <segment state="translated">
+        <source>Escríbenos y te respondemos en menos de 24 horas — normalmente en minutos.</source>
+        <target>Write to us and we’ll reply within 24 hours — usually within minutes.</target>
+      </segment>
+    </unit>
+    <unit id="contact.sent.title">
+      <segment state="translated">
+        <source>¡Mensaje enviado!</source>
+        <target>Message sent!</target>
+      </segment>
+    </unit>
+    <unit id="contact.sent.body">
+      <segment state="translated">
+        <source>Te responderemos en breve.</source>
+        <target>We’ll get back to you shortly.</target>
+      </segment>
+    </unit>
+    <unit id="contact.sent.again">
+      <segment state="translated">
+        <source>Enviar otro</source>
+        <target>Send another</target>
+      </segment>
+    </unit>
+    <unit id="contact.error.title">
+      <segment state="translated">
+        <source>No se pudo enviar</source>
+        <target>Couldn’t send</target>
+      </segment>
+    </unit>
+    <unit id="contact.error.body">
+      <segment state="translated">
+        <source>Inténtalo de nuevo o escríbenos por WhatsApp.</source>
+        <target>Try again, or message us on WhatsApp.</target>
+      </segment>
+    </unit>
+    <unit id="contact.error.retry">
+      <segment state="translated">
+        <source>Reintentar</source>
+        <target>Try again</target>
+      </segment>
+    </unit>
+    <unit id="contact.field.name">
+      <segment state="translated">
+        <source>Nombre</source>
+        <target>Name</target>
+      </segment>
+    </unit>
+    <unit id="contact.field.email">
+      <segment state="translated">
+        <source>Email</source>
+        <target>Email</target>
+      </segment>
+    </unit>
+    <unit id="contact.field.phone">
+      <segment state="translated">
+        <source>Teléfono</source>
+        <target>Phone</target>
+      </segment>
+    </unit>
+    <unit id="contact.field.optional">
+      <segment state="translated">
+        <source>· opcional</source>
+        <target>· optional</target>
+      </segment>
+    </unit>
+    <unit id="contact.field.subject">
+      <segment state="translated">
+        <source>Asunto</source>
+        <target>Subject</target>
+      </segment>
+    </unit>
+    <unit id="contact.field.message">
+      <segment state="translated">
+        <source>Mensaje</source>
+        <target>Message</target>
+      </segment>
+    </unit>
+    <unit id="contact.submit">
+      <segment state="translated">
+        <source>Enviar Mensaje</source>
+        <target>Send Message</target>
+      </segment>
+    </unit>
+    <unit id="contact.rows.phone">
+      <segment state="translated">
+        <source>Teléfono</source>
+        <target>Phone</target>
+      </segment>
+    </unit>
+    <unit id="contact.rows.email">
+      <segment state="translated">
+        <source>Email</source>
+        <target>Email</target>
+      </segment>
+    </unit>
+    <unit id="contact.rows.base">
+      <segment state="translated">
+        <source>Base</source>
+        <target>Based in</target>
+      </segment>
+    </unit>
+    <unit id="contact.rows.hours">
+      <segment state="translated">
+        <source>Horario</source>
+        <target>Hours</target>
+      </segment>
+    </unit>
+    <unit id="contact.hours.value">
+      <segment state="translated">
+        <source>Lun–Dom · 24/7 disponibilidad</source>
+        <target>Mon–Sun · available 24/7</target>
+      </segment>
+    </unit>
+    <unit id="contact.whatsapp">
+      <segment state="translated">
+        <source>Escríbenos por WhatsApp</source>
+        <target>Message us on WhatsApp</target>
+      </segment>
+    </unit>
+    <unit id="reviews.eyebrow">
+      <segment state="translated">
+        <source>Opiniones</source>
+        <target>Reviews</target>
+      </segment>
+    </unit>
+    <unit id="reviews.title">
+      <segment state="translated">
+        <source>Lo que dicen nuestros clientes</source>
+        <target>What our customers say</target>
+      </segment>
+    </unit>
+    <unit id="reviews.count.suffix">
+      <segment state="translated">
+        <source>opiniones en Google</source>
+        <target>reviews on Google</target>
+      </segment>
+    </unit>
+    <unit id="reviews.carousel.label">
+      <segment state="translated">
+        <source>Opiniones de clientes</source>
+        <target>Customer reviews</target>
+      </segment>
+    </unit>
+    <unit id="reviews.previous">
+      <segment state="translated">
+        <source>Opiniones anteriores</source>
+        <target>Previous reviews</target>
+      </segment>
+    </unit>
+    <unit id="reviews.next">
+      <segment state="translated">
+        <source>Siguientes opiniones</source>
+        <target>Next reviews</target>
+      </segment>
+    </unit>
+    <unit id="reviews.goto">
+      <segment state="translated">
+        <source>Ir a la opinión</source>
+        <target>Go to review</target>
+      </segment>
+    </unit>
+    <unit id="whatsapp.float.label">
+      <segment state="translated">
+        <source>Escríbenos por WhatsApp</source>
+        <target>Message us on WhatsApp</target>
+      </segment>
+    </unit>
+    <unit id="instagram.title">
+      <segment state="translated">
+        <source>Síguenos en Instagram</source>
+        <target>Follow us on Instagram</target>
+      </segment>
+    </unit>
+    <unit id="instagram.subtitle">
+      <segment state="translated">
+        <source>Las mejores vistas de Lanzarote, desde la ventanilla.</source>
+        <target>The best views of Lanzarote, straight from the window seat.</target>
+      </segment>
+    </unit>
+    <unit id="instagram.cta">
+      <segment state="translated">
+        <source>Seguir en Instagram →</source>
+        <target>Follow on Instagram →</target>
       </segment>
     </unit>
   </file>
