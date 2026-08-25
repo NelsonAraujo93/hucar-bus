@@ -451,5 +451,29 @@
         <target>Go to review</target>
       </segment>
     </unit>
+    <unit id="whatsapp.float.label">
+      <segment state="translated">
+        <source>Escríbenos por WhatsApp</source>
+        <target>Message us on WhatsApp</target>
+      </segment>
+    </unit>
+    <unit id="instagram.title">
+      <segment state="translated">
+        <source>Síguenos en Instagram</source>
+        <target>Follow us on Instagram</target>
+      </segment>
+    </unit>
+    <unit id="instagram.subtitle">
+      <segment state="translated">
+        <source>Las mejores vistas de Lanzarote, desde la ventanilla.</source>
+        <target>The best views of Lanzarote, straight from the window seat.</target>
+      </segment>
+    </unit>
+    <unit id="instagram.cta">
+      <segment state="translated">
+        <source>Seguir en Instagram →</source>
+        <target>Follow on Instagram →</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

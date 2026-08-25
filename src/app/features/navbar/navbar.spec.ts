@@ -1,6 +1,6 @@
 import { signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { NAV_IDS } from '../../core/navigation/nav-items';
+import { COMPOSED_NAV_IDS } from '../../core/navigation/nav-items';
 import { ScrollSpy } from '../../core/navigation/scroll-spy';
 import { Navbar } from './navbar';
 
@@ -35,7 +35,7 @@ describe('Navbar', () => {
   describe('links', () => {
     it('renders every section link', async () => {
       const { host } = await render();
-      for (const id of NAV_IDS) {
+      for (const id of COMPOSED_NAV_IDS) {
         expect(host.querySelector(`.nav__link[href="#${id}"]`)).toBeTruthy();
       }
     });

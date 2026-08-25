@@ -1,0 +1,10 @@
+<a
+  class="float"
+  [href]="config.whatsappUrl"
+  i18n-aria-label="Accessible name for the floating WhatsApp button|@@whatsapp.float.label"
+  aria-label="Escríbenos por WhatsApp"
+>
+  <!-- Runs twice on load to draw the eye, then stays invisible. -->
+  <span class="float__ring" aria-hidden="true"></span>
+  <hb-icon name="whatsapp" [size]="28" color="#fff" />
+</a>

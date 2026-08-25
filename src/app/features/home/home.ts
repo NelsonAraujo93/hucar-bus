@@ -6,6 +6,7 @@ import { Contact } from '../contact/contact';
 import { Footer } from '../footer/footer';
 import { Hero } from '../hero/hero';
 import { Navbar } from '../navbar/navbar';
+import { WhatsappFloat } from '../whatsapp-float/whatsapp-float';
 import { Services } from '../services/services';
 
 /**
@@ -17,7 +18,7 @@ import { Services } from '../services/services';
  */
 @Component({
   selector: 'hb-home',
-  imports: [About, Contact, Footer, Hero, Navbar, Services],
+  imports: [About, Contact, Footer, Hero, Navbar, Services, WhatsappFloat],
   templateUrl: './home.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

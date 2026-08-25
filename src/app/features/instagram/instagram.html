@@ -1,0 +1,38 @@
+@if (posts().length > 0) {
+  <section class="instagram" id="instagram">
+    <div class="instagram__inner">
+      <hb-section-header
+        [eyebrow]="handle()"
+        i18n-title="Section heading|@@instagram.title"
+        title="Síguenos en Instagram"
+        i18n-subtitle="Section supporting line|@@instagram.subtitle"
+        subtitle="Las mejores vistas de Lanzarote, desde la ventanilla."
+        [dark]="true"
+      />
+
+      <ul class="grid">
+        @for (post of posts(); track post.id) {
+          <li class="tile">
+            <hb-image-placeholder class="tile__image" [tone]="post.tone" />
+            <!-- The overlay carries no like count: the design's numbers are
+                 invented. It carries no caption either until someone confirms
+                 what each photograph actually shows. -->
+            <span class="tile__overlay" aria-hidden="true">
+              <hb-icon name="heart" [size]="28" color="#fff" />
+              @if (post.caption; as caption) {
+                <span class="tile__caption">{{ caption }}</span>
+              }
+            </span>
+          </li>
+        }
+      </ul>
+
+      <p class="instagram__cta">
+        <a hb-button variant="teal" [href]="config.instagramUrl">
+          <hb-icon hb-button-icon name="instagram" [size]="18" color="#fff" />
+          <span i18n="Instagram call to action|@@instagram.cta">Seguir en Instagram →</span>
+        </a>
+      </p>
+    </div>
+  </section>
+}
