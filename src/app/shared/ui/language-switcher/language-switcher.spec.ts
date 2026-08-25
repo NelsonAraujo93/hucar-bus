@@ -2,29 +2,45 @@ import { signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import type { SupportedLocale } from '../../../../shared/i18n/negotiate-locale';
 import { LocaleService } from '../../../core/i18n/locale.service';
-import { LanguageSwitcher } from './language-switcher';
+import { LanguageSwitcher, type LanguageSwitcherTone } from './language-switcher';
 
 class LocaleServiceStub {
   readonly currentLocale = signal<SupportedLocale>('es');
-  readonly switched: SupportedLocale[] = [];
+  readonly persisted: SupportedLocale[] = [];
 
-  switchTo(locale: SupportedLocale): void {
-    this.switched.push(locale);
+  pathFor(locale: SupportedLocale): string {
+    return `/${locale}/contacto`;
+  }
+
+  persist(locale: SupportedLocale): void {
+    this.persisted.push(locale);
   }
 }
 
-async function render(
-  active: SupportedLocale = 'es',
-): Promise<{ host: HTMLElement; locale: LocaleServiceStub }> {
+async function render(options?: {
+  active?: SupportedLocale;
+  tone?: LanguageSwitcherTone;
+  full?: boolean;
+}): Promise<{ host: HTMLElement; locale: LocaleServiceStub }> {
   const locale = new LocaleServiceStub();
-  locale.currentLocale.set(active);
+  locale.currentLocale.set(options?.active ?? 'es');
   TestBed.configureTestingModule({
     imports: [LanguageSwitcher],
     providers: [{ provide: LocaleService, useValue: locale }],
   });
   const fixture = TestBed.createComponent(LanguageSwitcher);
+  if (options?.tone !== undefined) {
+    fixture.componentRef.setInput('tone', options.tone);
+  }
+  if (options?.full !== undefined) {
+    fixture.componentRef.setInput('full', options.full);
+  }
   await fixture.whenStable();
   return { host: fixture.nativeElement as HTMLElement, locale };
+}
+
+function optionFor(host: HTMLElement, label: string): HTMLAnchorElement | undefined {
+  return Array.from(host.querySelectorAll('a')).find((a) => a.textContent?.trim() === label);
 }
 
 describe('LanguageSwitcher', () => {
@@ -32,53 +48,79 @@ describe('LanguageSwitcher', () => {
     TestBed.resetTestingModule();
   });
 
-  it('labels the trigger with its purpose rather than relying on the visible text', async () => {
-    const { host } = await render();
-    const trigger = host.querySelector('button[aria-label]');
-    expect(trigger).toBeTruthy();
-    expect(trigger?.getAttribute('aria-label')).toBeTruthy();
+  describe('semantics', () => {
+    it('renders real links, so both locales are crawlable', async () => {
+      const { host } = await render();
+      const links = host.querySelectorAll('a[href]');
+      expect(links).toHaveLength(2);
+      expect(optionFor(host, 'ES')?.getAttribute('href')).toBe('/es/contacto');
+      expect(optionFor(host, 'EN')?.getAttribute('href')).toBe('/en/contacto');
+    });
+
+    it('declares the target language on each link', async () => {
+      const { host } = await render();
+      expect(optionFor(host, 'EN')?.getAttribute('hreflang')).toBe('en');
+    });
+
+    it('groups the options with a translated label', async () => {
+      const { host } = await render();
+      const group = host.querySelector('[role="group"]');
+      expect(group).toBeTruthy();
+      expect(group?.getAttribute('aria-label')).toBeTruthy();
+    });
+
+    it('marks the active locale with aria-current, not aria-pressed', async () => {
+      // aria-pressed suits a toggle button; these are links to distinct URLs.
+      const { host } = await render({ active: 'es' });
+      expect(optionFor(host, 'ES')?.getAttribute('aria-current')).toBe('true');
+      expect(optionFor(host, 'EN')?.getAttribute('aria-current')).toBeNull();
+    });
+
+    it('follows the active locale when English is current', async () => {
+      const { host } = await render({ active: 'en' });
+      expect(optionFor(host, 'EN')?.getAttribute('aria-current')).toBe('true');
+      expect(optionFor(host, 'ES')?.getAttribute('aria-current')).toBeNull();
+    });
   });
 
-  it('shows the active language on the trigger', async () => {
-    const { host } = await render();
-    expect(host.querySelector('button')?.textContent?.trim()).toBe('Español');
+  describe('naming', () => {
+    it('shows each language in its own language and never a flag', async () => {
+      const { host } = await render();
+      expect(optionFor(host, 'ES')?.getAttribute('title')).toBe('Español');
+      expect(optionFor(host, 'EN')?.getAttribute('title')).toBe('English');
+      expect(host.innerHTML).not.toMatch(/[\u{1F1E6}-\u{1F1FF}]/u);
+    });
   });
 
-  it('shows the active language on the trigger when English is active', async () => {
-    const { host } = await render('en');
-    expect(host.querySelector('button')?.textContent?.trim()).toBe('English');
+  describe('persistence', () => {
+    it('records the choice on click without blocking navigation', async () => {
+      const { host, locale } = await render();
+      optionFor(host, 'EN')?.click();
+      expect(locale.persisted).toEqual(['en']);
+    });
+
+    it('still has a working href if scripting never runs', async () => {
+      const { host, locale } = await render();
+      expect(locale.persisted).toEqual([]);
+      expect(optionFor(host, 'EN')?.getAttribute('href')).toBe('/en/contacto');
+    });
   });
 
-  it('switches back to Spanish from an English page', async () => {
-    const { host, locale } = await render('en');
-    const spanish = Array.from(host.querySelectorAll('button')).find(
-      (button) => button.textContent?.trim() === 'Español',
-    );
-    spanish?.click();
-    expect(locale.switched).toEqual(['es']);
-  });
+  describe('presentation', () => {
+    it('is light toned by default', async () => {
+      const { host } = await render();
+      // fixture.nativeElement IS the host element here, not a wrapper.
+      expect(host.getAttribute('data-tone')).toBe('light');
+    });
 
-  it('offers every supported language, each named in its own language', async () => {
-    const { host } = await render();
-    const labels = Array.from(host.querySelectorAll('[ngMenuItem], [role="menuitem"]')).map(
-      (item) => item.textContent?.trim(),
-    );
-    expect(labels).toContain('Español');
-    expect(labels).toContain('English');
-  });
+    it('supports the dark tone for dark sections', async () => {
+      const { host } = await render({ tone: 'dark' });
+      expect(host.getAttribute('data-tone')).toBe('dark');
+    });
 
-  it('never uses flags, which represent countries rather than languages', async () => {
-    const { host } = await render();
-    expect(host.innerHTML).not.toMatch(/[\u{1F1E6}-\u{1F1FF}]/u);
-  });
-
-  it('delegates to the locale service when a language is chosen', async () => {
-    const { host, locale } = await render();
-    const english = Array.from(host.querySelectorAll('button')).find(
-      (button) => button.textContent?.trim() === 'English',
-    );
-    expect(english).toBeTruthy();
-    english?.click();
-    expect(locale.switched).toEqual(['en']);
+    it('stretches for the mobile drawer', async () => {
+      const { host } = await render({ full: true });
+      expect(host.classList.contains('is-full')).toBe(true);
+    });
   });
 });

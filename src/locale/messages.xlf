@@ -1,13 +1,628 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="es-ES">
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="es">
   <file id="ngi18n" original="ng.template">
-    <unit id="languageSwitcher.trigger">
+    <unit id="nav.servicios">
       <notes>
-        <note category="location">src/app/shared/ui/language-switcher/language-switcher.html:6,11</note>
-        <note category="meaning">Purpose of the language menu button</note>
+        <note category="location">src/app/core/navigation/nav-items.ts:44</note>
+        <note category="meaning">Navigation link</note>
       </notes>
       <segment>
-        <source>Cambiar idioma</source>
+        <source>Servicios</source>
+      </segment>
+    </unit>
+    <unit id="nav.nosotros">
+      <notes>
+        <note category="location">src/app/core/navigation/nav-items.ts:45</note>
+        <note category="meaning">Navigation link</note>
+      </notes>
+      <segment>
+        <source>Sobre Nosotros</source>
+      </segment>
+    </unit>
+    <unit id="nav.opiniones">
+      <notes>
+        <note category="location">src/app/core/navigation/nav-items.ts:46</note>
+        <note category="meaning">Navigation link</note>
+      </notes>
+      <segment>
+        <source>Opiniones</source>
+      </segment>
+    </unit>
+    <unit id="nav.instagram">
+      <notes>
+        <note category="location">src/app/core/navigation/nav-items.ts:47</note>
+        <note category="meaning">Navigation link</note>
+      </notes>
+      <segment>
+        <source>Instagram</source>
+      </segment>
+    </unit>
+    <unit id="nav.contacto">
+      <notes>
+        <note category="location">src/app/core/navigation/nav-items.ts:48</note>
+        <note category="meaning">Navigation link</note>
+      </notes>
+      <segment>
+        <source>Contacto</source>
+      </segment>
+    </unit>
+    <unit id="about.eyebrow">
+      <notes>
+        <note category="location">src/app/features/about/about.html:4,7</note>
+        <note category="meaning">Section eyebrow</note>
+      </notes>
+      <segment>
+        <source>Sobre Nosotros</source>
+      </segment>
+    </unit>
+    <unit id="about.title.first">
+      <notes>
+        <note category="location">src/app/features/about/about.html:8,10</note>
+        <note category="meaning">Heading, first line</note>
+      </notes>
+      <segment>
+        <source>Una familia al</source>
+      </segment>
+    </unit>
+    <unit id="about.title.second">
+      <notes>
+        <note category="location">src/app/features/about/about.html:11,13</note>
+        <note category="meaning">Heading, second line</note>
+      </notes>
+      <segment>
+        <source>volante desde <ph id="0" equiv="INTERPOLATION" disp="{{ config.foundedYear }}"/></source>
+      </segment>
+    </unit>
+    <unit id="about.paragraph.first">
+      <notes>
+        <note category="location">src/app/features/about/about.html:16,21</note>
+        <note category="meaning">About, first paragraph</note>
+      </notes>
+      <segment>
+        <source> En Hucar Bus somos una empresa familiar nacida en Lanzarote, con más de una década moviendo a vecinos y visitantes por toda la isla. Nuestra flota de minibuses es moderna, segura y cómoda, y cada viaje se conduce con el mismo cuidado que tendríamos con la familia. </source>
+      </segment>
+    </unit>
+    <unit id="about.paragraph.second">
+      <notes>
+        <note category="location">src/app/features/about/about.html:22,27</note>
+        <note category="meaning">About, second paragraph</note>
+      </notes>
+      <segment>
+        <source> Desde un traslado al aeropuerto a primera hora hasta una ruta privada por el Timanfaya, nos adaptamos a lo que necesites — siempre con trato personal y puntualidad canaria. </source>
+      </segment>
+    </unit>
+    <unit id="about.base.label">
+      <notes>
+        <note category="location">src/app/features/about/about.html:46,48</note>
+        <note category="meaning">Label above the base location</note>
+      </notes>
+      <segment>
+        <source>Base</source>
+      </segment>
+    </unit>
+    <unit id="about.stats.years">
+      <notes>
+        <note category="location">src/app/features/about/about.ts:37</note>
+        <note category="meaning">Stat label</note>
+      </notes>
+      <segment>
+        <source>años de experiencia</source>
+      </segment>
+    </unit>
+    <unit id="about.stats.availability">
+      <notes>
+        <note category="location">src/app/features/about/about.ts:41</note>
+        <note category="meaning">Stat label</note>
+      </notes>
+      <segment>
+        <source>disponibilidad</source>
+      </segment>
+    </unit>
+    <unit id="about.stats.rating">
+      <notes>
+        <note category="location">src/app/features/about/about.ts:45</note>
+        <note category="meaning">Stat label</note>
+      </notes>
+      <segment>
+        <source>valoración media</source>
+      </segment>
+    </unit>
+    <unit id="contact.eyebrow">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:5,6</note>
+        <note category="meaning">Section eyebrow</note>
+      </notes>
+      <segment>
+        <source>Contacto</source>
+      </segment>
+    </unit>
+    <unit id="contact.title">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:7,8</note>
+        <note category="meaning">Section heading</note>
+      </notes>
+      <segment>
+        <source>Contáctanos</source>
+      </segment>
+    </unit>
+    <unit id="contact.subtitle">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:9,13</note>
+        <note category="meaning">Section supporting line</note>
+      </notes>
+      <segment>
+        <source>Escríbenos y te respondemos en menos de 24 horas — normalmente en minutos.</source>
+      </segment>
+    </unit>
+    <unit id="contact.sent.title">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:19,21</note>
+        <note category="meaning">Success heading</note>
+      </notes>
+      <segment>
+        <source> ¡Mensaje enviado! </source>
+      </segment>
+    </unit>
+    <unit id="contact.sent.body">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:22,24</note>
+        <note category="meaning">Success body</note>
+      </notes>
+      <segment>
+        <source> Te responderemos en breve. </source>
+      </segment>
+    </unit>
+    <unit id="contact.sent.again">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:30,33</note>
+        <note category="meaning">Reset the form after sending</note>
+      </notes>
+      <segment>
+        <source> Enviar otro </source>
+      </segment>
+    </unit>
+    <unit id="contact.error.title">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:40,42</note>
+        <note category="meaning">Failure heading</note>
+      </notes>
+      <segment>
+        <source> No se pudo enviar </source>
+      </segment>
+    </unit>
+    <unit id="contact.error.body">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:43,45</note>
+        <note category="meaning">Failure body</note>
+      </notes>
+      <segment>
+        <source> Inténtalo de nuevo o escríbenos por WhatsApp. </source>
+      </segment>
+    </unit>
+    <unit id="contact.error.retry">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:51,54</note>
+        <note category="meaning">Retry after a failed send</note>
+      </notes>
+      <segment>
+        <source> Reintentar </source>
+      </segment>
+    </unit>
+    <unit id="contact.field.name">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:60,62</note>
+        <note category="meaning">Form field label</note>
+      </notes>
+      <segment>
+        <source>Nombre</source>
+      </segment>
+    </unit>
+    <unit id="contact.field.email">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:67,69</note>
+        <note category="meaning">Form field label</note>
+      </notes>
+      <segment>
+        <source>Email</source>
+      </segment>
+    </unit>
+    <unit id="contact.field.phone">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:82,84</note>
+        <note category="meaning">Form field label</note>
+      </notes>
+      <segment>
+        <source>Teléfono</source>
+      </segment>
+    </unit>
+    <unit id="contact.field.optional">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:86,89</note>
+        <note category="meaning">Marks a field as optional</note>
+      </notes>
+      <segment>
+        <source>· opcional</source>
+      </segment>
+    </unit>
+    <unit id="contact.field.subject">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:94,96</note>
+        <note category="meaning">Form field label</note>
+      </notes>
+      <segment>
+        <source>Asunto</source>
+      </segment>
+    </unit>
+    <unit id="contact.field.message">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:108,110</note>
+        <note category="meaning">Form field label</note>
+      </notes>
+      <segment>
+        <source>Mensaje</source>
+      </segment>
+    </unit>
+    <unit id="contact.submit">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:131,133</note>
+        <note category="meaning">Form submit button</note>
+      </notes>
+      <segment>
+        <source> Enviar Mensaje </source>
+      </segment>
+    </unit>
+    <unit id="contact.rows.phone">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:146,148</note>
+        <note category="meaning">Contact detail label</note>
+      </notes>
+      <segment>
+        <source>Teléfono</source>
+      </segment>
+    </unit>
+    <unit id="contact.rows.email">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:156,157</note>
+        <note category="meaning">Contact detail label</note>
+      </notes>
+      <segment>
+        <source>Email</source>
+      </segment>
+    </unit>
+    <unit id="contact.rows.base">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:165,166</note>
+        <note category="meaning">Contact detail label</note>
+      </notes>
+      <segment>
+        <source>Base</source>
+      </segment>
+    </unit>
+    <unit id="contact.rows.hours">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:175,177</note>
+        <note category="meaning">Contact detail label</note>
+      </notes>
+      <segment>
+        <source>Horario</source>
+      </segment>
+    </unit>
+    <unit id="contact.hours.value">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:178,181</note>
+        <note category="meaning">Opening hours</note>
+      </notes>
+      <segment>
+        <source>Lun–Dom · 24/7 disponibilidad</source>
+      </segment>
+    </unit>
+    <unit id="contact.whatsapp">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:186,189</note>
+        <note category="meaning">WhatsApp call to action</note>
+      </notes>
+      <segment>
+        <source>Escríbenos por WhatsApp</source>
+      </segment>
+    </unit>
+    <unit id="footer.tagline">
+      <notes>
+        <note category="location">src/app/features/footer/footer.html:8,12</note>
+        <note category="meaning">Footer strapline</note>
+      </notes>
+      <segment>
+        <source> Traslados, excursiones y servicio privado en Lanzarote. Familia al volante desde <ph id="0" equiv="INTERPOLATION" disp="{{ config.foundedYear }}"/>. </source>
+      </segment>
+    </unit>
+    <unit id="footer.social.instagram">
+      <notes>
+        <note category="location">src/app/features/footer/footer.html:17,20</note>
+        <note category="meaning">Link to the Instagram profile</note>
+      </notes>
+      <segment>
+        <source>Instagram</source>
+      </segment>
+    </unit>
+    <unit id="footer.nav.label">
+      <notes>
+        <note category="location">src/app/features/footer/footer.html:35,37</note>
+        <note category="meaning">Footer navigation</note>
+      </notes>
+      <segment>
+        <source>Navegación</source>
+      </segment>
+    </unit>
+    <unit id="footer.nav.heading">
+      <notes>
+        <note category="location">src/app/features/footer/footer.html:38,40</note>
+        <note category="meaning">Footer column heading</note>
+      </notes>
+      <segment>
+        <source> Navegación </source>
+      </segment>
+    </unit>
+    <unit id="footer.contact.heading">
+      <notes>
+        <note category="location">src/app/features/footer/footer.html:47,49</note>
+        <note category="meaning">Footer column heading</note>
+      </notes>
+      <segment>
+        <source> Contacto </source>
+      </segment>
+    </unit>
+    <unit id="footer.copyright">
+      <notes>
+        <note category="location">src/app/features/footer/footer.html:64,66</note>
+        <note category="meaning">Copyright notice</note>
+      </notes>
+      <segment>
+        <source>© <ph id="0" equiv="INTERPOLATION" disp="{{ year }}"/> Hucar Bus. Todos los derechos reservados.</source>
+      </segment>
+    </unit>
+    <unit id="hero.badge">
+      <notes>
+        <note category="location">src/app/features/hero/hero.html:25,29</note>
+        <note category="meaning">Location badge above the headline</note>
+      </notes>
+      <segment>
+        <source>Lanzarote · Islas Canarias</source>
+      </segment>
+    </unit>
+    <unit id="hero.title.first">
+      <notes>
+        <note category="location">src/app/features/hero/hero.html:30,32</note>
+        <note category="meaning">Headline, first line</note>
+      </notes>
+      <segment>
+        <source>Tu transporte de confianza</source>
+      </segment>
+    </unit>
+    <unit id="hero.title.second">
+      <notes>
+        <note category="location">src/app/features/hero/hero.html:33,37</note>
+        <note category="meaning">Headline, second line</note>
+      </notes>
+      <segment>
+        <source>en Lanzarote</source>
+      </segment>
+    </unit>
+    <unit id="hero.subtitle">
+      <notes>
+        <note category="location">src/app/features/hero/hero.html:38,42</note>
+        <note category="meaning">Supporting line under the headline</note>
+      </notes>
+      <segment>
+        <source> Traslados al aeropuerto, excursiones y servicios privados con la mejor atención. </source>
+      </segment>
+    </unit>
+    <unit id="cta.contact">
+      <notes>
+        <note category="location">src/app/features/hero/hero.html:43,46</note>
+        <note category="location">src/app/features/navbar/navbar.html:24,28</note>
+        <note category="location">src/app/features/navbar/navbar.html:38,42</note>
+        <note category="location">src/app/features/navbar/navbar.html:84,87</note>
+        <note category="meaning">Primary call to action</note>
+      </notes>
+      <segment>
+        <source>Contactar</source>
+      </segment>
+    </unit>
+    <unit id="hero.scroll">
+      <notes>
+        <note category="location">src/app/features/hero/hero.html:57,59</note>
+        <note category="meaning">Label for the scroll-down chevron</note>
+      </notes>
+      <segment>
+        <source>Bajar a servicios</source>
+      </segment>
+    </unit>
+    <unit id="nav.menu">
+      <notes>
+        <note category="location">src/app/features/navbar/navbar.html:48,50</note>
+        <note category="meaning">Label for the menu button</note>
+      </notes>
+      <segment>
+        <source>Menú</source>
+      </segment>
+    </unit>
+    <unit id="services.airport.title">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:24</note>
+        <note category="meaning">Service name</note>
+      </notes>
+      <segment>
+        <source>Traslados Aeropuerto</source>
+      </segment>
+    </unit>
+    <unit id="services.airport.body">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:25</note>
+        <note category="meaning">Service description</note>
+      </notes>
+      <segment>
+        <source>Servicio puerta a puerta desde y hacia el aeropuerto de Lanzarote, 24/7.</source>
+      </segment>
+    </unit>
+    <unit id="services.excursions.title">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:29</note>
+        <note category="meaning">Service name</note>
+      </notes>
+      <segment>
+        <source>Excursiones en Grupo</source>
+      </segment>
+    </unit>
+    <unit id="services.excursions.body">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:30</note>
+        <note category="meaning">Service description</note>
+      </notes>
+      <segment>
+        <source>Descubre los mejores rincones de la isla con nuestros guías locales.</source>
+      </segment>
+    </unit>
+    <unit id="services.private.title">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:34</note>
+        <note category="meaning">Service name</note>
+      </notes>
+      <segment>
+        <source>Alquiler Privado</source>
+      </segment>
+    </unit>
+    <unit id="services.private.body">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:35</note>
+        <note category="meaning">Service description</note>
+      </notes>
+      <segment>
+        <source>Vehículos con conductor para eventos, bodas y ocasiones especiales.</source>
+      </segment>
+    </unit>
+    <unit id="services.hotel.title">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:39</note>
+        <note category="meaning">Service name</note>
+      </notes>
+      <segment>
+        <source>Traslados Hotel</source>
+      </segment>
+    </unit>
+    <unit id="services.hotel.body">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:40</note>
+        <note category="meaning">Service description</note>
+      </notes>
+      <segment>
+        <source>Conexiones cómodas entre hoteles y puntos de interés de la isla.</source>
+      </segment>
+    </unit>
+    <unit id="services.tours.title">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:44</note>
+        <note category="meaning">Service name</note>
+      </notes>
+      <segment>
+        <source>Tours por la Isla</source>
+      </segment>
+    </unit>
+    <unit id="services.tours.body">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:45</note>
+        <note category="meaning">Service description</note>
+      </notes>
+      <segment>
+        <source>Rutas panorámicas por los paisajes volcánicos de Lanzarote.</source>
+      </segment>
+    </unit>
+    <unit id="services.custom.title">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:49</note>
+        <note category="meaning">Service name</note>
+      </notes>
+      <segment>
+        <source>Servicio a Medida</source>
+      </segment>
+    </unit>
+    <unit id="services.custom.body">
+      <notes>
+        <note category="location">src/app/features/services/services.data.ts:50</note>
+        <note category="meaning">Service description</note>
+      </notes>
+      <segment>
+        <source>¿Necesitas algo diferente? Diseñamos el trayecto a tu medida.</source>
+      </segment>
+    </unit>
+    <unit id="services.eyebrow">
+      <notes>
+        <note category="location">src/app/features/services/services.html:5,6</note>
+        <note category="meaning">Section eyebrow</note>
+      </notes>
+      <segment>
+        <source>Servicios</source>
+      </segment>
+    </unit>
+    <unit id="services.title">
+      <notes>
+        <note category="location">src/app/features/services/services.html:7,8</note>
+        <note category="meaning">Section heading</note>
+      </notes>
+      <segment>
+        <source>Nuestros Servicios</source>
+      </segment>
+    </unit>
+    <unit id="services.subtitle">
+      <notes>
+        <note category="location">src/app/features/services/services.html:9,13</note>
+        <note category="meaning">Section supporting line</note>
+      </notes>
+      <segment>
+        <source>Soluciones de transporte para cada necesidad, siempre con puntualidad y cuidado.</source>
+      </segment>
+    </unit>
+    <unit id="services.cta">
+      <notes>
+        <note category="location">src/app/features/services/services.html:28,29</note>
+        <note category="meaning">Call to action on a service card</note>
+      </notes>
+      <segment>
+        <source>Consultar</source>
+      </segment>
+    </unit>
+    <unit id="whatsapp.float.label">
+      <notes>
+        <note category="location">src/app/features/whatsapp-float/whatsapp-float.html:5,8</note>
+        <note category="meaning">Accessible name for the floating WhatsApp button</note>
+      </notes>
+      <segment>
+        <source>Escríbenos por WhatsApp</source>
+      </segment>
+    </unit>
+    <unit id="languageSwitcher.group">
+      <notes>
+        <note category="location">src/app/shared/ui/language-switcher/language-switcher.html:6,9</note>
+        <note category="meaning">Purpose of the language control</note>
+      </notes>
+      <segment>
+        <source>Idioma</source>
+      </segment>
+    </unit>
+    <unit id="logo.alt.footer">
+      <notes>
+        <note category="location">src/app/shared/ui/logo/logo.html:12,15</note>
+        <note category="meaning">Alt text for the brand logo</note>
+      </notes>
+      <segment>
+        <source>Hucar Bus Lanzarote Turismo</source>
+      </segment>
+    </unit>
+    <unit id="logo.alt.nav">
+      <notes>
+        <note category="location">src/app/shared/ui/logo/logo.html:21,23</note>
+        <note category="meaning">Alt text for the brand logo</note>
+      </notes>
+      <segment>
+        <source>Hucar Bus</source>
       </segment>
     </unit>
   </file>

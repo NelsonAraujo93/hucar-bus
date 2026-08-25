@@ -1,0 +1,230 @@
+.reviews {
+  padding: var(--section-pad) var(--container-pad);
+  background: #fff;
+}
+
+.reviews__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.rating {
+  display: flex;
+  width: fit-content;
+  margin: 32px auto 48px;
+  padding: 12px 24px;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  background: var(--color-sand-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+.rating__divider {
+  width: 1px;
+  height: 24px;
+  background: var(--color-border);
+}
+
+.rating__average {
+  font-family: var(--font-display);
+  font-size: 32px;
+  line-height: 1;
+  color: var(--color-ink);
+}
+
+.rating__stars {
+  display: flex;
+  gap: 2px;
+}
+
+.rating__count {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-ink-muted);
+}
+
+/* The carousel is focusable so arrow keys work, which the design omits. */
+.carousel {
+  position: relative;
+}
+
+.carousel__viewport {
+  overflow: hidden;
+}
+
+/*
+ * CSS owns both the card width and the offset arithmetic. --visible changes at
+ * each breakpoint and --index is set by the component, so the transform stays
+ * correct without JavaScript recomputing widths on resize.
+ */
+.carousel__track {
+  --visible: 3;
+  --gap: 24px;
+
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: var(--gap);
+  list-style: none;
+  transform: translateX(
+    calc(-1 * var(--index, 0) * (100% / var(--visible) + var(--gap) / var(--visible)))
+  );
+  transition: transform var(--duration-carousel) var(--ease-carousel);
+}
+
+.review {
+  display: flex;
+  padding: 28px;
+  flex: 0 0 calc(100% / var(--visible) - var(--gap) * (var(--visible) - 1) / var(--visible));
+  flex-direction: column;
+  background: var(--color-cream);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-16);
+}
+
+.review__stars {
+  display: flex;
+  margin-bottom: 16px;
+  gap: 2px;
+}
+
+.review__quote {
+  margin: 0 0 24px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--color-ink-muted);
+}
+
+.review__quote::before {
+  content: '“';
+}
+
+.review__quote::after {
+  content: '”';
+}
+
+.review__author {
+  display: flex;
+  margin-top: auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.review__avatar {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5c518 0%, #f0882a 100%);
+  border-radius: var(--radius-circle);
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: #fff;
+}
+
+.review__name {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.review__when {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--color-ink-muted);
+}
+
+.carousel__controls {
+  display: flex;
+  margin-top: 32px;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel__arrow {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-circle);
+  box-shadow: var(--shadow-arrow-btn);
+  cursor: pointer;
+  transition: all var(--duration-transform);
+}
+
+.carousel__arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.carousel__dots {
+  display: flex;
+  padding: 0 16px;
+  gap: 6px;
+}
+
+.carousel__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  background: var(--color-border);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.carousel__dot.is-active {
+  width: 24px;
+  background: var(--color-sun-yellow);
+}
+
+@media (width < 1024px) {
+  .carousel__track {
+    --visible: 2;
+  }
+}
+
+@media (width < 768px) {
+  .carousel__track {
+    --visible: 1;
+    --gap: 16px;
+  }
+
+  .rating {
+    margin: 24px auto 32px;
+    padding: 14px 18px;
+    gap: 10px;
+    border-radius: var(--radius-20);
+  }
+
+  .rating__divider {
+    display: none;
+  }
+
+  .rating__average {
+    font-size: 26px;
+  }
+
+  .review {
+    padding: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel__track {
+    transition: none;
+  }
+}

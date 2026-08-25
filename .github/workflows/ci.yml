@@ -50,6 +50,9 @@ jobs:
       - name: Lint styles
         run: npm run lint:styles
 
+      - name: Verify design tokens
+        run: npm run verify:tokens
+
       - name: Unit tests with coverage
         run: npm run test:ci
 
@@ -58,6 +61,9 @@ jobs:
 
       - name: Verify localized build output
         run: npm run verify:build
+
+      - name: Smoke test the dev server
+        run: npm run smoke:dev
 
       - name: Upload coverage artifact
         if: always()

@@ -10,7 +10,7 @@ import { join } from 'node:path';
 const BROWSER_DIR = join('dist', 'hucar-bus', 'browser');
 
 const EXPECTED = [
-  { subPath: 'es', tag: 'es-ES' },
+  { subPath: 'es', tag: 'es' },
   { subPath: 'en', tag: 'en-GB' },
 ];
 
@@ -19,7 +19,7 @@ const EXPECTED = [
  * everything under /es/ and /en/, so these only exist because public-root/ is
  * copied over the output root -- if that step is dropped they vanish silently.
  */
-const ROOT_FILES = ['robots.txt', 'favicon.ico'];
+const ROOT_FILES = ['robots.txt', 'favicon.ico', 'img/logo-256.webp'];
 
 const failures = [];
 

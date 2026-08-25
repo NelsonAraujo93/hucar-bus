@@ -1,0 +1,211 @@
+.contact {
+  padding: var(--section-pad) var(--container-pad);
+  background: var(--color-sand);
+}
+
+.contact__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.contact__grid {
+  display: grid;
+  margin-top: 56px;
+  gap: 40px;
+  grid-template-columns: 1.1fr 1fr;
+}
+
+.contact__card {
+  padding: 32px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-20);
+}
+
+.form__row {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.field {
+  margin: 0 0 16px;
+}
+
+.field__label {
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.field__optional {
+  font-weight: 400;
+  color: var(--color-ink-muted);
+}
+
+.field__input {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-10);
+  font-family: var(--font-body);
+  font-size: 15px;
+  outline: none;
+  transition: all var(--duration-micro);
+}
+
+.field__input--area {
+  resize: vertical;
+}
+
+.field__input:focus {
+  border-color: var(--color-sun-yellow);
+  box-shadow: 0 0 0 3px rgb(245 197 24 / 25%);
+}
+
+/* Invalid styling is not in the design. Lava red keeps it in palette, and the
+   ring mirrors the focus treatment so the two read as the same system.
+   Phase 4 adds the class when validation runs. */
+.field__input[aria-invalid='true'] {
+  border-color: var(--color-lava-red);
+}
+
+.field__input[aria-invalid='true']:focus {
+  box-shadow: 0 0 0 3px rgb(224 78 26 / 25%);
+}
+
+.field__error {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-lava-red);
+}
+
+.outcome {
+  padding: 60px 0;
+  font-family: var(--font-body);
+  text-align: center;
+}
+
+.outcome__mark {
+  display: flex;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-circle);
+  font-size: 32px;
+  color: #fff;
+}
+
+.outcome__mark--ok {
+  background: var(--color-whatsapp);
+}
+
+.outcome__mark--error {
+  background: var(--color-lava-red);
+}
+
+.outcome__title {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.outcome__body {
+  margin: 0;
+  color: var(--color-ink-muted);
+}
+
+.outcome__again {
+  margin-top: 20px;
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.rows {
+  display: flex;
+  margin: 0 0 24px;
+  padding: 0;
+  gap: 20px;
+  flex-direction: column;
+  list-style: none;
+}
+
+.row {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.row__icon {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #fff;
+  border: 1px solid rgb(43 188 212 / 30%);
+  border-radius: var(--radius-10);
+}
+
+.row__label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.row__value {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.contact__map {
+  margin-top: 20px;
+  aspect-ratio: 16 / 9;
+}
+
+@media (width < 1024px) {
+  .contact__grid {
+    margin-top: 48px;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (width < 768px) {
+  .contact__grid {
+    margin-top: 36px;
+    gap: 28px;
+  }
+
+  .contact__card {
+    padding: 20px;
+  }
+
+  .form__row {
+    grid-template-columns: 1fr;
+  }
+}

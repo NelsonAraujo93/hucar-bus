@@ -15,7 +15,7 @@
       "prefix": "hb",
       "i18n": {
         "sourceLocale": {
-          "code": "es-ES",
+          "code": "es",
           "subPath": "es"
         },
         "locales": {
@@ -64,12 +64,28 @@
                 }
               ],
               "outputHashing": "all",
-              "i18nMissingTranslation": "error"
+              "i18nMissingTranslation": "error",
+              "fileReplacements": [
+                {
+                  "replace": "src/app/app.routes.ts",
+                  "with": "src/app/app.routes.prod.ts"
+                }
+              ]
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "assets": [
+                {
+                  "glob": "**/*",
+                  "input": "public"
+                },
+                {
+                  "glob": "**/*",
+                  "input": "public-root"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"

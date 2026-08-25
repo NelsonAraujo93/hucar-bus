@@ -1,3 +1,172 @@
-/* You can add global styles to this file, and also import other style files */
-
+/* Self-hosted fonts. The design loads these from the Google CDN, which would
+   transmit visitor IPs to Google on every page load without consent -- not
+   acceptable for an EU client, and it would block font loading behind cookie
+   consent. Latin subsets only; the site ships es-ES and en-GB. */
+@import '@fontsource/anton/latin-400.css';
+@import '@fontsource/poppins/latin-400.css';
+@import '@fontsource/poppins/latin-500.css';
+@import '@fontsource/poppins/latin-600.css';
+@import '@fontsource/poppins/latin-700.css';
 @import 'tailwindcss';
+
+@theme {
+  /* Palette. Names follow the design handoff, which disagrees with
+     HUCAR_BUS_DESIGN.md on two labels for identical hexes. */
+  --color-sun-yellow: #f5c518;
+  --color-sunset-orange: #f0882a;
+  --color-lava-red: #e04e1a;
+  --color-ocean-teal: #2bbcd4;
+  --color-brand-blue: #073396;
+  --color-ink: #1a1a1a;
+  --color-ink-muted: #4a4a4a;
+  --color-sand: #f5e6c0;
+  --color-sand-light: #fdf4e3;
+  --color-sand-lighter: #fff4d9;
+  --color-cream: #fdf9ec;
+  --color-border: #e5e0d5;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-hover: #1fb357;
+  --color-teal-hover: #24a3b8;
+  --font-display: 'Anton', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+
+  /* Radius ladder, named by value so nothing semantic is invented. */
+  --radius-4: 4px;
+  --radius-8: 8px;
+  --radius-10: 10px;
+  --radius-12: 12px;
+  --radius-14: 14px;
+  --radius-16: 16px;
+  --radius-20: 20px;
+  --radius-full: 999px;
+  --radius-circle: 50%;
+
+  /* Motion. */
+  --duration-micro: 0.15s;
+  --duration-transform: 0.2s;
+  --duration-card: 0.25s;
+  --duration-image: 0.35s;
+  --duration-carousel: 0.5s;
+  --ease-carousel: cubic-bezier(0.22, 1, 0.36, 1);
+  --shadow-card-rest: 0 1px 2px rgb(0 0 0 / 2%);
+  --shadow-card-hover: 0 14px 32px rgb(240 136 42 / 12%);
+  --shadow-button-rest: 0 4px 14px rgb(0 0 0 / 12%);
+  --shadow-button-hover: 0 8px 24px rgb(0 0 0 / 18%);
+  --shadow-arrow-btn: 0 2px 8px rgb(0 0 0 / 5%);
+  --shadow-nav-scrolled: 0 4px 20px rgb(0 0 0 / 6%);
+  --shadow-float-card: 0 12px 28px rgb(0 0 0 / 12%);
+  --shadow-whatsapp-float: 0 12px 30px rgb(37 211 102 / 45%), 0 6px 14px rgb(0 0 0 / 18%);
+}
+
+@theme {
+  /* Layout. */
+  --section-pad: 96px;
+  --container-max: 1152px;
+  --container-pad: 32px;
+
+  /* The design specifies focus styling for inputs only. Every other
+     interactive element has hover styling and nothing else, which fails
+     WCAG 2.4.7 and makes the site unusable by keyboard. */
+  --ring-focus: 0 0 0 3px rgb(245 197 24 / 45%);
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+
+    /* Clears the fixed navbar so anchored headings are not hidden under it.
+       The design uses 72px; the handoff README says 64px, and the HTML wins. */
+    scroll-padding-top: 72px;
+  }
+
+  /* Section padding and gutters step down by breakpoint. Both ladders come
+     from the responsive preview, which supersedes the README's single
+     96/64 pair and fixed 32px gutter. Breakpoints match Tailwind's md and lg
+     exactly, so utilities and these tokens agree. */
+  @media (width < 1024px) {
+    :root {
+      --section-pad: 80px;
+      --container-pad: 24px;
+    }
+  }
+
+  @media (width < 768px) {
+    :root {
+      --section-pad: 64px;
+      --container-pad: 16px;
+    }
+  }
+
+  body {
+    margin: 0;
+    background-color: #fff;
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Visible to assistive tech, not to the eye. Used where a control's visible
+     label is shorter than the name it needs to be unambiguous out of context. */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* focus-visible rather than focus, so pointer users never see the ring. */
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--ring-focus);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@keyframes hucar-bounce {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+
+  50% {
+    transform: translate(-50%, 8px);
+  }
+}
+
+@keyframes hucar-pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}

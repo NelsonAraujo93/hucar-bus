@@ -1,0 +1,48 @@
+.float {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 50;
+  display: flex;
+  width: 60px;
+  height: 60px;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-whatsapp);
+  border-radius: var(--radius-circle);
+  box-shadow: var(--shadow-whatsapp-float);
+  color: #fff;
+  text-decoration: none;
+  transition: transform var(--duration-transform) ease;
+}
+
+.float:hover {
+  transform: scale(1.1);
+}
+
+.float__ring {
+  position: absolute;
+  inset: -6px;
+  border: 3px solid var(--color-whatsapp);
+  border-radius: var(--radius-circle);
+  opacity: 0;
+  pointer-events: none;
+  animation: hucar-pulse 2s ease-out 2;
+}
+
+@media (width < 768px) {
+  .float {
+    width: 54px;
+    height: 54px;
+    right: 16px;
+
+    /* Clear of the iOS home indicator, which otherwise sits under the button. */
+    bottom: calc(16px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float:hover {
+    transform: none;
+  }
+}

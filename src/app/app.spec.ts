@@ -13,10 +13,12 @@ describe('App', () => {
     expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it('should render the routed outlet inside the main landmark', async () => {
+  it('is only a routing shell; the page owns the layout landmarks', async () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('main router-outlet')).toBeTruthy();
+    expect(compiled.querySelector('router-outlet')).toBeTruthy();
+    // main, header and footer belong to Home, not here.
+    expect(compiled.querySelector('main')).toBeNull();
   });
 });

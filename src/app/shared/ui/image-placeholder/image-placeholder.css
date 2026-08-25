@@ -1,0 +1,25 @@
+:host {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-16);
+}
+
+:host([data-tone='sand']) {
+  background: linear-gradient(135deg, #f5e6c0 0%, #ebd9a8 100%);
+}
+
+:host([data-tone='sunset']) {
+  background: linear-gradient(160deg, #f5c518 0%, #f0882a 45%, #e04e1a 100%);
+}
+
+:host([data-tone='ocean']) {
+  background: linear-gradient(135deg, #2bbcd4 0%, #1a8fa3 100%);
+}
+
+:host([data-tone='night']) {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+}
+
+:host([data-tone='gray']) {
+  background: linear-gradient(135deg, #efebe0 0%, #e0dac8 100%);
+}

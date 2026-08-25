@@ -1,0 +1,15 @@
+<div
+  class="section-header"
+  [class.is-dark]="dark()"
+  [class.eyebrow-lava-red]="eyebrowTone() === 'lava-red'"
+>
+  @if (eyebrow(); as text) {
+    <p class="eyebrow">{{ text }}</p>
+  }
+
+  <h2 class="title">{{ title() }}</h2>
+
+  @if (subtitle(); as text) {
+    <p class="subtitle">{{ text }}</p>
+  }
+</div>

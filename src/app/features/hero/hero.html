@@ -1,0 +1,61 @@
+<section class="hero" id="top">
+  <!-- Ridge line. Path data is verbatim from the design; the shape is part of
+       the brand. Decorative, so it stays out of the accessibility tree. -->
+  <svg
+    class="hero__ridge"
+    viewBox="0 0 1440 400"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path
+      d="M0 400 L0 280 C 120 240 200 260 320 220 C 440 180 520 240 640 200 C 760 160 860 240 980 210 C 1100 180 1220 250 1340 220 L 1440 210 L 1440 400 Z"
+      fill="#1A1A1A"
+    />
+    <path
+      d="M0 400 L0 340 C 200 310 340 330 520 300 C 680 275 820 320 1000 295 C 1180 270 1320 310 1440 290 L 1440 400 Z"
+      fill="#1A1A1A"
+      opacity="0.6"
+    />
+  </svg>
+
+  <div class="hero__content">
+    <p class="hero__badge">
+      <span class="hero__badge-dot" aria-hidden="true"></span>
+      <span i18n="Location badge above the headline|@@hero.badge">Lanzarote · Islas Canarias</span>
+    </p>
+
+    <h1 class="hero__title">
+      <span class="hero__title-line" i18n="Headline, first line|@@hero.title.first"
+        >Tu transporte de confianza</span
+      >
+      <span class="hero__title-line" i18n="Headline, second line|@@hero.title.second"
+        >en Lanzarote</span
+      >
+    </h1>
+
+    <p class="hero__subtitle" i18n="Supporting line under the headline|@@hero.subtitle">
+      Traslados al aeropuerto, excursiones y servicios privados con la mejor atención.
+    </p>
+
+    <div class="hero__actions">
+      <a hb-button size="lg" href="#contacto" i18n="Primary call to action|@@cta.contact"
+        >Contactar</a
+      >
+
+      <a hb-button variant="whatsapp" size="lg" [href]="config.whatsappUrl">
+        <hb-icon hb-button-icon name="whatsapp" [size]="20" />
+        {{ brand.whatsapp }}
+      </a>
+    </div>
+  </div>
+
+  <a
+    class="hero__scroll"
+    href="#servicios"
+    i18n-aria-label="Label for the scroll-down chevron|@@hero.scroll"
+    aria-label="Bajar a servicios"
+  >
+    <hb-icon name="chevron-down" [size]="24" color="#fff" />
+  </a>
+</section>

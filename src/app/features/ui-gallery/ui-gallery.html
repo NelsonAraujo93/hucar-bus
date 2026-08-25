@@ -1,0 +1,165 @@
+<div class="gallery">
+  <header class="gallery__head">
+    <h1>Hucar Bus · UI</h1>
+    <p>Development-only. Every primitive, every variant. Not built for production.</p>
+  </header>
+
+  <section class="group">
+    <h2>Colours</h2>
+    <div class="swatches">
+      @for (swatch of colours; track swatch.token) {
+        <div class="swatch">
+          <div class="swatch__chip" [style.background]="'var(' + swatch.token + ')'"></div>
+          <code>{{ swatch.label }}</code>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>Shadows</h2>
+    <div class="swatches">
+      @for (swatch of shadows; track swatch.token) {
+        <div class="swatch">
+          <div class="swatch__box" [style.box-shadow]="'var(' + swatch.token + ')'"></div>
+          <code>{{ swatch.label }}</code>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>Radii</h2>
+    <div class="swatches">
+      @for (swatch of radii; track swatch.token) {
+        <div class="swatch">
+          <div class="swatch__radius" [style.border-radius]="'var(' + swatch.token + ')'"></div>
+          <code>{{ swatch.label }}</code>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>Type</h2>
+    <p class="type-display">Anton display · 52px</p>
+    <p class="type-body">Poppins body · 18px · the quick brown fox</p>
+  </section>
+
+  <section class="group">
+    <h2>Buttons</h2>
+    @for (size of buttonSizes; track size) {
+      <div class="row">
+        <code class="row__label">{{ size }}</code>
+        @for (variant of buttonVariants; track variant) {
+          <button hb-button [variant]="variant" [size]="size" type="button">{{ variant }}</button>
+        }
+      </div>
+    }
+
+    <div class="row">
+      <code class="row__label">icon</code>
+      <button hb-button variant="whatsapp" type="button">
+        <hb-icon hb-button-icon name="whatsapp" [size]="20" />
+        WhatsApp
+      </button>
+      <button hb-button variant="teal" type="button">
+        <hb-icon hb-button-icon name="instagram" [size]="18" color="#fff" />
+        Instagram
+      </button>
+    </div>
+
+    <div class="row">
+      <code class="row__label">state</code>
+      <button hb-button type="button" disabled>disabled</button>
+      <button hb-button type="button" [pending]="true">
+        <hb-icon hb-button-icon name="whatsapp" [size]="20" />
+        pending
+      </button>
+      <a hb-button variant="ghost" href="#top">anchor</a>
+    </div>
+
+    <div class="row row--stacked">
+      <code class="row__label">full</code>
+      <button hb-button [full]="true" type="button">full width</button>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>Icons</h2>
+    <div class="icons">
+      @for (icon of icons; track icon) {
+        <div class="icons__cell">
+          <hb-icon [name]="icon" [size]="28" color="#1A1A1A" />
+          <code>{{ icon }}</code>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>Section header</h2>
+    <hb-section-header
+      eyebrow="Servicios"
+      title="Nuestros Servicios"
+      subtitle="Soluciones de transporte para cada necesidad, siempre con puntualidad y cuidado."
+    />
+    <hr />
+    <hb-section-header
+      eyebrow="Sobre Nosotros"
+      eyebrowTone="lava-red"
+      title="Una familia al volante"
+    />
+    <hr />
+    <hb-section-header title="Sin eyebrow ni subtitle" />
+  </section>
+
+  <section class="group group--dark">
+    <h2>Section header · dark</h2>
+    <hb-section-header
+      eyebrow="@hucarbus"
+      title="Síguenos en Instagram"
+      subtitle="Las mejores vistas de Lanzarote, desde la ventanilla."
+      [dark]="true"
+    />
+  </section>
+
+  <section class="group">
+    <h2>Logo</h2>
+    <div class="row"><code class="row__label">nav</code><hb-logo /></div>
+  </section>
+
+  <section class="group group--dark">
+    <h2>Logo · footer</h2>
+    <hb-logo variant="footer" />
+  </section>
+
+  <section class="group">
+    <h2>Language switcher</h2>
+    <div class="row"><code class="row__label">light</code><hb-language-switcher /></div>
+    <div class="row row--stacked">
+      <code class="row__label">full</code>
+      <hb-language-switcher [full]="true" />
+    </div>
+  </section>
+
+  <section class="group group--dark">
+    <h2>Language switcher · dark</h2>
+    <hb-language-switcher tone="dark" />
+  </section>
+
+  <section class="group">
+    <h2>Reviews · fixture data, never shipped</h2>
+    <hb-reviews [reviews]="reviewFixture" [summary]="reviewSummaryFixture" />
+  </section>
+
+  <section class="group">
+    <h2>Reviews · empty, which is what the page gets</h2>
+    <hb-reviews />
+  </section>
+
+  <section class="group">
+    <h2>Instagram · fixture tiles, no captions or counts</h2>
+    <hb-instagram [posts]="instagramFixture" />
+  </section>
+</div>
