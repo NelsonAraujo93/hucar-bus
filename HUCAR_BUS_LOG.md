@@ -609,16 +609,83 @@ events on every CI run and burn the free quota.
 What remains of T9 is human: confirming in the Sentry UI that the events
 read well and that the scrubbing check shows `[redacted]`.
 
-### Still not done
+### T8: source maps, and the deletion is unconditional
 
-- **T8 source maps.** Without them a stack trace points at a minified
-  bundle and is close to worthless, so "readable stack traces" in the
-  definition of done is not yet met. Needs the org and project _slugs_
-  (the DSN carries only numeric ids) and an auth token with
-  `project:releases`.
-- The token belongs in **Vercel's** environment, not only a GitHub
-  secret as the plan says — Vercel performs the production build, so
-  that is where the upload has to happen.
+Production builds hidden source maps — no `sourceMappingURL` comment,
+so nothing follows one — with debug IDs injected into both bundle and
+map, which is what pairs them when there is no comment to follow.
+
+**The maps are deleted from the output even when the upload fails.**
+Making the deletion conditional on a successful upload gets it
+backwards: a build that cannot reach Sentry must still not publish the
+original source.
+
+An upload failure **fails the build, exit 1**. Shipping unresolvable
+stack traces while reporting success is invisible afterwards — the
+symptom is identical to never having uploaded anything.
+
+All configuration is environmental (`SENTRY_AUTH_TOKEN`, `SENTRY_ORG`,
+`SENTRY_PROJECT`), so no identifier or token is committed and none had
+to be handed over. Missing any of them skips the upload and continues,
+so local builds and a fork's CI still work.
+
+**The token goes in Vercel, not a GitHub secret as the plan says.**
+Vercel performs the production build; a GitHub-only token would upload
+maps for a bundle nobody deploys, against a release nobody runs.
+
+`scripts/release-id.mjs` is shared with `write-release.mjs` rather than
+duplicated. If the release baked into the bundle and the release the
+maps are uploaded against ever drift, nothing fails loudly — Sentry
+just serves minified frames forever.
+
+Verified: 14 maps produced and deleted, no `.map` and no
+`sourceMappingURL` in the output, and a deliberately wrong org fails the
+build with exit 1 while still deleting the maps. The successful-upload
+path is unverified until the three variables are set.
+
+### Session Replay was in the bundle, and it was our fault
+
+The built chunk contained the whole Session Replay implementation —
+rrweb, canvas snapshotting, cross-origin iframe messaging. Never
+initialised, so it could not record and the privacy claims held, but
+~150 kB of code whose only purpose is recording what visitors type had
+no business shipping from a site that has ruled Replay out.
+
+The cause was `this.client = Sentry`: holding the module namespace in a
+field lets it escape, and esbuild then has to keep every export alive.
+Destructuring the two functions actually used at the import site drops
+the rest. **129 kB → 80 kB transferred**, and Replay is now excluded
+structurally rather than by remembering not to configure it.
+
+Some rrweb survives, reachable from Sentry's own entry point rather
+than from anything here. Removing it would need a change to how Sentry
+packages the SDK.
+
+Dropping `browserTracingIntegration` was measured too — a further 13 kB
+— and **kept**: the plan specifies router instrumentation and a
+`tracesSampleRate`, and 13 kB on a chunk only consenting visitors
+download is not reason enough to drop a specified feature.
+
+### Copy review
+
+`hero.title.first` English changed from _"Your trusted ride"_ to
+**"Your trusted transport"**. "Ride" reads as a single car or taxi; the
+fleet is 15-seat minibuses running group excursions, and 4B established
+tour operators as a second audience. Spanish unchanged. This is the
+first English review of the provisional copy Phase 3 drafted.
+
+### hCaptcha stays in the necessary category
+
+Nelson's decision, raised by both 4B T7 and 4C T5. Neither the contact
+form nor the quote tool can operate safely without spam protection, so
+it is strictly necessary for a service the visitor has asked for.
+Behind an opt-in it would produce a form nobody can submit until they
+accept cookies.
+
+Recorded next to `OPTIONAL_CATEGORIES` rather than in a plan document,
+because that list is what someone would edit to get it wrong — and
+adding a category means bumping `CONSENT_VERSION`, which re-prompts
+everyone who has already decided.
 
 ### Traps set for later
 
@@ -631,9 +698,11 @@ read well and that the scrubbing check shows `[redacted]`.
 
 ### Still open
 
-1. Sentry — account done, EU region confirmed. Still outstanding: the
-   org/project slugs and a `project:releases` auth token for source
-   maps, and the Article 28 DPA signed in organisation settings
+1. Sentry — account and EU region done, source-map pipeline built.
+   Still outstanding: set `SENTRY_ORG`, `SENTRY_PROJECT` and
+   `SENTRY_AUTH_TOKEN` (scope `project:releases`) in **Vercel**; sign
+   the Article 28 DPA; and confirm in the Sentry UI that the T9
+   verification events read well and show `[redacted]`
 2. Privacy policy, terms and cookie policy text, professionally reviewed
 3. Registro Mercantil details (tomo, folio, hoja, inscripción)
 4. Transport authorisation number
