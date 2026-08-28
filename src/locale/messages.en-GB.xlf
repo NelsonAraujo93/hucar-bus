@@ -106,7 +106,7 @@
     <unit id="hero.title.first">
       <segment state="translated">
         <source>Tu transporte de confianza</source>
-        <target>Your trusted ride</target>
+        <target>Your trusted transport</target>
       </segment>
     </unit>
     <unit id="hero.title.second">
