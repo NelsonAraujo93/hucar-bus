@@ -590,9 +590,9 @@ later, and the same identifier source maps must be uploaded against.
 committed, so a local build rewrites the file identically and leaves the
 working tree clean.
 
-### T9: ingestion proven, readability not yet
+### T9: verified end to end
 
-Two independent checks:
+Three checks, in increasing order of what they prove:
 
 - A direct envelope POST to the region endpoint returned **200 with an
   event id**, proving the DSN, project and region are real and
@@ -603,11 +603,20 @@ Two independent checks:
   deliberately carrying contact-form values so the scrubbing could be
   confirmed in the real pipeline.
 
-**That spec was deleted, not kept.** Left in place it would send live
-events on every CI run and burn the free quota.
+- **A real browser on the deployed preview.** Nelson accepted the
+  monitoring category, threw an error from the console, and the event
+  arrived. That is the only check that exercises the whole chain the way
+  a visitor would: banner, consent record, gate, dynamic import, init,
+  `beforeSend`, transport.
 
-What remains of T9 is human: confirming in the Sentry UI that the events
-read well and that the scrubbing check shows `[redacted]`.
+**The temporary spec was deleted, not kept.** Left in place it would
+send live events on every CI run and burn the free quota.
+
+Worth restating, because it will look like a fault later: **an empty
+issue feed is the expected state of a working install.** Sentry receives
+nothing unless a visitor opts in _and_ an error occurs. That is exactly
+why ingestion was proven separately rather than by watching the feed —
+"no events" and "not working" are indistinguishable from the dashboard.
 
 ### T8: source maps, and the deletion is unconditional
 
@@ -638,10 +647,29 @@ duplicated. If the release baked into the bundle and the release the
 maps are uploaded against ever drift, nothing fails loudly — Sentry
 just serves minified frames forever.
 
-Verified: 14 maps produced and deleted, no `.map` and no
+Verified locally: 14 maps produced and deleted, no `.map` and no
 `sourceMappingURL` in the output, and a deliberately wrong org fails the
-build with exit 1 while still deleting the maps. The successful-upload
-path is unverified until the three variables are set.
+build with exit 1 while still deleting the maps.
+
+**Verified on Vercel** on the `dev` deployment: debug IDs injected into
+every bundle and map across both locales, then `Source maps: uploaded.`
+
+That build log also showed why debug IDs were the right mechanism and
+not merely the modern one. Angular hashes chunk filenames **before**
+localisation, so the two locales emit files with identical names and
+different contents:
+
+```
+~/en/chunk-D1XeOPa4.js.map  debug id e398f4ea-…
+~/es/chunk-D1XeOPa4.js.map  debug id 47a9acc1-…
+```
+
+Under the older filename/URL artifact matching, `chunk-D1XeOPa4.js`
+would have been genuinely ambiguous — Sentry could not have told which
+locale a frame belonged to. Debug IDs match on content, so it resolves.
+Anything that reverts to URL-based artifact matching on this project
+will break in a way that only shows up as occasional wrong-locale
+source in a stack trace.
 
 ### Session Replay was in the bundle, and it was our fault
 
@@ -698,11 +726,10 @@ everyone who has already decided.
 
 ### Still open
 
-1. Sentry — account and EU region done, source-map pipeline built.
-   Still outstanding: set `SENTRY_ORG`, `SENTRY_PROJECT` and
-   `SENTRY_AUTH_TOKEN` (scope `project:releases`) in **Vercel**; sign
-   the Article 28 DPA; and confirm in the Sentry UI that the T9
-   verification events read well and show `[redacted]`
+1. Sentry — **done and verified end to end.** Account, EU region,
+   consent gate, scrubbing, release tagging and source-map upload all
+   confirmed on a real deployment. Outstanding only: sign the Article 28
+   DPA in organisation settings, and delete the T9 verification issues
 2. Privacy policy, terms and cookie policy text, professionally reviewed
 3. Registro Mercantil details (tomo, folio, hoja, inscripción)
 4. Transport authorisation number
