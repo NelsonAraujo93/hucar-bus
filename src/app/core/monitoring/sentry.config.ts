@@ -1,4 +1,5 @@
 import { DOCUMENT, inject, InjectionToken } from '@angular/core';
+import { RELEASE } from './release';
 
 export interface SentryConfig {
   /**
@@ -20,11 +21,11 @@ export interface SentryConfig {
   readonly environment: string;
 
   /**
-   * The deployed version, so an error maps to a known deploy.
+   * The deployed commit, so an error maps to a known deploy.
    *
-   * Null until the release tag is threaded through from CI. package.json stays
-   * at 0.0.0 -- semantic-release writes no version back to the repository -- so
-   * this cannot simply be read from there.
+   * Null on a local build, where there is no deploy to name. Written by
+   * scripts/write-release.mjs, which explains why this is a commit SHA rather
+   * than the semantic-release version the phase plan asks for.
    */
   readonly release: string | null;
 
@@ -47,9 +48,9 @@ export const SENTRY_CONFIG = new InjectionToken<SentryConfig>('hb.sentryConfig',
       // in the browser, to the storage table -- which the addendum requires to
       // match what the banner actually permits. See legal.privacy.processors.*
       // and legal.privacy.storage.* in the message catalogue.
-      dsn: '',
+      dsn: 'https://d98dc4b97b75ee3b92c226acae8e24f2@o4511988001931264.ingest.de.sentry.io/4511988014317648',
       environment: LOCAL_HOSTS.has(hostname) ? 'development' : 'production',
-      release: null,
+      release: RELEASE,
       tracesSampleRate: 0.1,
     };
   },

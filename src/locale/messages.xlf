@@ -933,43 +933,61 @@
     </unit>
     <unit id="legal.privacy.processors.current">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:118,123</note>
+        <note category="location">src/app/features/legal/privacy.html:118,122</note>
         <note category="meaning">Current processors</note>
       </notes>
       <segment>
         <source> El sitio está alojado en Vercel, que actúa como encargado del tratamiento a efectos de alojamiento y entrega de las páginas. </source>
       </segment>
     </unit>
+    <unit id="legal.privacy.processors.monitoring">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:123,131</note>
+        <note category="meaning">Monitoring processor</note>
+      </notes>
+      <segment>
+        <source> Si aceptas la categoría «monitorización de errores», usamos Sentry para que nos avise cuando algo falla en la web. Sentry no recibe absolutamente nada si no nos das ese permiso: sin él, su código ni siquiera llega a descargarse en tu navegador. Los informes se procesan en su región de la Unión Europea, no guardan nada en tu navegador, no incluyen tu dirección IP, y se depuran de cualquier dato que hayas escrito en el formulario antes de salir de tu equipo. </source>
+      </segment>
+    </unit>
     <unit id="legal.privacy.processors.missing">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:124,129</note>
+        <note category="location">src/app/features/legal/privacy.html:132,138</note>
         <note category="meaning">Pending processors section</note>
       </notes>
       <segment>
-        <source> Falta el detalle contractual de cada encargado y la lista definitiva, que crecerá cuando se activen la monitorización de errores, la analítica, el envío de correo del formulario y la protección antispam. </source>
+        <source> Falta el detalle contractual de cada encargado y la lista definitiva, que crecerá cuando se activen la analítica, el envío de correo del formulario y la protección antispam. </source>
       </segment>
     </unit>
     <unit id="legal.privacy.transfers.heading">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:133,136</note>
+        <note category="location">src/app/features/legal/privacy.html:140,142</note>
         <note category="meaning">Privacy section heading</note>
       </notes>
       <segment>
         <source> Transferencias internacionales y conservación </source>
       </segment>
     </unit>
+    <unit id="legal.privacy.transfers.eu">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:143,148</note>
+        <note category="meaning">Sentry processes in the EU</note>
+      </notes>
+      <segment>
+        <source> Sentry trata los informes de error en su región de la Unión Europea, de modo que la monitorización no supone una transferencia internacional de datos. </source>
+      </segment>
+    </unit>
     <unit id="legal.privacy.transfers.missing">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:137,143</note>
+        <note category="location">src/app/features/legal/privacy.html:149,155</note>
         <note category="meaning">Pending transfers section</note>
       </notes>
       <segment>
-        <source> Queda por documentar qué tratamientos implican una transferencia fuera del Espacio Económico Europeo, con qué garantías, y durante cuánto tiempo se conserva cada dato. </source>
+        <source> Queda por documentar la situación del resto de proveedores, empezando por el alojamiento, las garantías aplicables en cada caso, y durante cuánto tiempo se conserva cada dato. </source>
       </segment>
     </unit>
     <unit id="legal.privacy.rights.heading">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:145,148</note>
+        <note category="location">src/app/features/legal/privacy.html:157,160</note>
         <note category="meaning">Privacy section heading</note>
       </notes>
       <segment>
@@ -978,7 +996,7 @@
     </unit>
     <unit id="legal.privacy.rights.intro">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:149,154</note>
+        <note category="location">src/app/features/legal/privacy.html:161,166</note>
         <note category="meaning">Rights introduction</note>
       </notes>
       <segment>
@@ -987,7 +1005,7 @@
     </unit>
     <unit id="legal.privacy.rights.access">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:155,157</note>
+        <note category="location">src/app/features/legal/privacy.html:167,169</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -996,7 +1014,7 @@
     </unit>
     <unit id="legal.privacy.rights.rectification">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:158,160</note>
+        <note category="location">src/app/features/legal/privacy.html:170,172</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1005,7 +1023,7 @@
     </unit>
     <unit id="legal.privacy.rights.erasure">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:161,163</note>
+        <note category="location">src/app/features/legal/privacy.html:173,175</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1014,7 +1032,7 @@
     </unit>
     <unit id="legal.privacy.rights.restriction">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:164,166</note>
+        <note category="location">src/app/features/legal/privacy.html:176,178</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1023,7 +1041,7 @@
     </unit>
     <unit id="legal.privacy.rights.objection">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:167,169</note>
+        <note category="location">src/app/features/legal/privacy.html:179,181</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1032,7 +1050,7 @@
     </unit>
     <unit id="legal.privacy.rights.portability">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:170,172</note>
+        <note category="location">src/app/features/legal/privacy.html:182,184</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1041,7 +1059,7 @@
     </unit>
     <unit id="legal.privacy.rights.withdraw">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:173,178</note>
+        <note category="location">src/app/features/legal/privacy.html:185,190</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1050,7 +1068,7 @@
     </unit>
     <unit id="legal.privacy.rights.how">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:181,190</note>
+        <note category="location">src/app/features/legal/privacy.html:193,202</note>
         <note category="meaning">How to exercise your rights</note>
       </notes>
       <segment>

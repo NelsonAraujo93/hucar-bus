@@ -807,8 +807,8 @@
     </unit>
     <unit id="legal.privacy.processors.missing">
       <segment state="translated">
-        <source> Falta el detalle contractual de cada encargado y la lista definitiva, que crecerá cuando se activen la monitorización de errores, la analítica, el envío de correo del formulario y la protección antispam. </source>
-        <target> The contractual detail for each processor is missing, as is the final list — which will grow once error monitoring, analytics, the contact form's email delivery and spam protection are switched on. </target>
+        <source> Falta el detalle contractual de cada encargado y la lista definitiva, que crecerá cuando se activen la analítica, el envío de correo del formulario y la protección antispam. </source>
+        <target> The contractual detail for each processor is missing, as is the final list — which will grow once analytics, the contact form’s email delivery and spam protection are switched on. </target>
       </segment>
     </unit>
     <unit id="legal.privacy.transfers.heading">
@@ -819,8 +819,8 @@
     </unit>
     <unit id="legal.privacy.transfers.missing">
       <segment state="translated">
-        <source> Queda por documentar qué tratamientos implican una transferencia fuera del Espacio Económico Europeo, con qué garantías, y durante cuánto tiempo se conserva cada dato. </source>
-        <target> It remains to be documented which processing involves a transfer outside the European Economic Area, under what safeguards, and how long each piece of data is kept. </target>
+        <source> Queda por documentar la situación del resto de proveedores, empezando por el alojamiento, las garantías aplicables en cada caso, y durante cuánto tiempo se conserva cada dato. </source>
+        <target> It remains to be documented where the remaining providers stand, starting with hosting, what safeguards apply in each case, and how long each piece of data is kept. </target>
       </segment>
     </unit>
     <unit id="legal.privacy.rights.heading">
@@ -941,6 +941,18 @@
       <segment state="translated">
         <source> Hasta que estas condiciones estén publicadas, cualquier duda sobre la contratación de un servicio puedes resolverla directamente con nosotros por teléfono o correo: <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;config.phoneHref&quot;&gt;" dispEnd="&lt;/a&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ config.phone }}"/></pc> · <pc id="2" equivStart="START_LINK_1" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;&apos;mailto:&apos; + config.email&quot;&gt;" dispEnd="&lt;/a&gt;"><ph id="3" equiv="INTERPOLATION_1" disp="{{ config.email }}"/></pc></source>
         <target> Until these conditions are published, you can settle any question about booking a service directly with us by telephone or email: <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;config.phoneHref&quot;&gt;" dispEnd="&lt;/a&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ config.phone }}"/></pc> · <pc id="2" equivStart="START_LINK_1" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;&apos;mailto:&apos; + config.email&quot;&gt;" dispEnd="&lt;/a&gt;"><ph id="3" equiv="INTERPOLATION_1" disp="{{ config.email }}"/></pc></target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.processors.monitoring">
+      <segment state="translated">
+        <source> Si aceptas la categoría «monitorización de errores», usamos Sentry para que nos avise cuando algo falla en la web. Sentry no recibe absolutamente nada si no nos das ese permiso: sin él, su código ni siquiera llega a descargarse en tu navegador. Los informes se procesan en su región de la Unión Europea, no guardan nada en tu navegador, no incluyen tu dirección IP, y se depuran de cualquier dato que hayas escrito en el formulario antes de salir de tu equipo. </source>
+        <target> If you accept the "error monitoring" category, we use Sentry to alert us when something breaks on the site. Sentry receives absolutely nothing without that permission: without it, its code is never even downloaded to your browser. Reports are processed in its European Union region, store nothing in your browser, do not include your IP address, and are stripped of anything you have typed into the form before they leave your device. </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.transfers.eu">
+      <segment state="translated">
+        <source> Sentry trata los informes de error en su región de la Unión Europea, de modo que la monitorización no supone una transferencia internacional de datos. </source>
+        <target> Sentry processes error reports in its European Union region, so monitoring involves no international transfer of data. </target>
       </segment>
     </unit>
   </file>
