@@ -363,11 +363,56 @@
     </unit>
     <unit id="footer.copyright">
       <notes>
-        <note category="location">src/app/features/footer/footer.html:64,66</note>
+        <note category="location">src/app/features/footer/footer.html:62,65</note>
         <note category="meaning">Copyright notice</note>
       </notes>
       <segment>
         <source>© <ph id="0" equiv="INTERPOLATION" disp="{{ year }}"/> Hucar Bus. Todos los derechos reservados.</source>
+      </segment>
+    </unit>
+    <unit id="footer.legal.label">
+      <notes>
+        <note category="location">src/app/features/footer/footer.html:68,71</note>
+        <note category="meaning">Legal navigation</note>
+      </notes>
+      <segment>
+        <source>Información legal</source>
+      </segment>
+    </unit>
+    <unit id="footer.legal.privacy">
+      <notes>
+        <note category="location">src/app/features/footer/footer.html:74,77</note>
+        <note category="meaning">Footer legal link</note>
+      </notes>
+      <segment>
+        <source>Política de privacidad</source>
+      </segment>
+    </unit>
+    <unit id="footer.legal.terms">
+      <notes>
+        <note category="location">src/app/features/footer/footer.html:80,83</note>
+        <note category="meaning">Footer legal link</note>
+      </notes>
+      <segment>
+        <source>Términos y condiciones</source>
+      </segment>
+    </unit>
+    <unit id="footer.legal.notice">
+      <notes>
+        <note category="location">src/app/features/footer/footer.html:86,89</note>
+        <note category="meaning">Footer legal link</note>
+      </notes>
+      <segment>
+        <source>Aviso legal</source>
+      </segment>
+    </unit>
+    <unit id="footer.legal.cookies">
+      <notes>
+        <note category="location">src/app/features/footer/footer.html:98,104</note>
+        <note category="meaning">Reopen the cookie preferences dialog</note>
+      </notes>
+      <segment>
+        <source> Preferencias de cookies </source>
       </segment>
     </unit>
     <unit id="hero.badge">
@@ -409,9 +454,9 @@
     <unit id="cta.contact">
       <notes>
         <note category="location">src/app/features/hero/hero.html:43,46</note>
-        <note category="location">src/app/features/navbar/navbar.html:24,28</note>
-        <note category="location">src/app/features/navbar/navbar.html:38,42</note>
-        <note category="location">src/app/features/navbar/navbar.html:84,87</note>
+        <note category="location">src/app/features/navbar/navbar.html:28,32</note>
+        <note category="location">src/app/features/navbar/navbar.html:42,46</note>
+        <note category="location">src/app/features/navbar/navbar.html:88,91</note>
         <note category="meaning">Primary call to action</note>
       </notes>
       <segment>
@@ -427,9 +472,526 @@
         <source>Bajar a servicios</source>
       </segment>
     </unit>
+    <unit id="legal.notice.heading">
+      <notes>
+        <note category="location">src/app/features/legal/legal-notice.html:3,6</note>
+        <note category="meaning">Legal notice page heading</note>
+      </notes>
+      <segment>
+        <source>Aviso legal</source>
+      </segment>
+    </unit>
+    <unit id="legal.notice.identity.heading">
+      <notes>
+        <note category="location">src/app/features/legal/legal-notice.html:7,10</note>
+        <note category="meaning">Legal notice section heading</note>
+      </notes>
+      <segment>
+        <source> Titular del sitio web </source>
+      </segment>
+    </unit>
+    <unit id="legal.field.legalName">
+      <notes>
+        <note category="location">src/app/features/legal/legal-notice.html:13,14</note>
+        <note category="location">src/app/features/legal/privacy.html:11,12</note>
+        <note category="location">src/app/features/legal/terms.html:11,12</note>
+        <note category="meaning">Identity field label</note>
+      </notes>
+      <segment>
+        <source>Razón social</source>
+      </segment>
+    </unit>
+    <unit id="legal.field.nif">
+      <notes>
+        <note category="location">src/app/features/legal/legal-notice.html:17</note>
+        <note category="location">src/app/features/legal/privacy.html:15</note>
+        <note category="location">src/app/features/legal/terms.html:15</note>
+        <note category="meaning">Identity field label</note>
+      </notes>
+      <segment>
+        <source>NIF</source>
+      </segment>
+    </unit>
+    <unit id="legal.field.address">
+      <notes>
+        <note category="location">src/app/features/legal/legal-notice.html:20,22</note>
+        <note category="location">src/app/features/legal/privacy.html:18,20</note>
+        <note category="meaning">Identity field label</note>
+      </notes>
+      <segment>
+        <source> Domicilio social y fiscal </source>
+      </segment>
+    </unit>
+    <unit id="legal.field.email">
+      <notes>
+        <note category="location">src/app/features/legal/legal-notice.html:24,26</note>
+        <note category="location">src/app/features/legal/privacy.html:22,24</note>
+        <note category="location">src/app/features/legal/terms.html:17,19</note>
+        <note category="meaning">Identity field label</note>
+      </notes>
+      <segment>
+        <source>Correo electrónico</source>
+      </segment>
+    </unit>
+    <unit id="legal.field.phone">
+      <notes>
+        <note category="location">src/app/features/legal/legal-notice.html:29,31</note>
+        <note category="meaning">Identity field label</note>
+      </notes>
+      <segment>
+        <source>Teléfono</source>
+      </segment>
+    </unit>
+    <unit id="legal.notice.registry.heading">
+      <notes>
+        <note category="location">src/app/features/legal/legal-notice.html:38,42</note>
+        <note category="meaning">Legal notice section heading</note>
+      </notes>
+      <segment>
+        <source> Datos registrales </source>
+      </segment>
+    </unit>
+    <unit id="legal.notice.registry.missing">
+      <notes>
+        <note category="location">src/app/features/legal/legal-notice.html:44,48</note>
+        <note category="meaning">Missing registry data</note>
+      </notes>
+      <segment>
+        <source> El artículo 10 de la LSSI-CE exige publicar los datos de inscripción en el Registro Mercantil (tomo, folio, hoja e inscripción). Aún no se nos han facilitado. </source>
+      </segment>
+    </unit>
+    <unit id="legal.notice.authorisation.heading">
+      <notes>
+        <note category="location">src/app/features/legal/legal-notice.html:58,62</note>
+        <note category="meaning">Legal notice section heading</note>
+      </notes>
+      <segment>
+        <source> Autorización de transporte </source>
+      </segment>
+    </unit>
+    <unit id="legal.notice.authorisation.missing">
+      <notes>
+        <note category="location">src/app/features/legal/legal-notice.html:64,69</note>
+        <note category="meaning">Missing transport authorisation</note>
+      </notes>
+      <segment>
+        <source> El transporte de viajeros es una actividad regulada en España y la autorización correspondiente debe constar aquí. Aún no se nos ha facilitado su número. </source>
+      </segment>
+    </unit>
+    <unit id="legal.notice.terms.heading">
+      <notes>
+        <note category="location">src/app/features/legal/legal-notice.html:75,78</note>
+        <note category="meaning">Legal notice section heading</note>
+      </notes>
+      <segment>
+        <source> Condiciones de uso, propiedad intelectual y ley aplicable </source>
+      </segment>
+    </unit>
+    <unit id="legal.notice.terms.missing">
+      <notes>
+        <note category="location">src/app/features/legal/legal-notice.html:79,84</note>
+        <note category="meaning">Pending legal notice sections</note>
+      </notes>
+      <segment>
+        <source> Las condiciones de uso del sitio, el régimen de propiedad intelectual de sus contenidos y la legislación aplicable están pendientes de redacción. </source>
+      </segment>
+    </unit>
+    <unit id="legal.draft.notice">
+      <notes>
+        <note category="location">src/app/features/legal/legal-page.ts:34,40</note>
+        <note category="meaning">Notice at the top of every legal page</note>
+      </notes>
+      <segment>
+        <source> Este documento está en preparación. Los datos identificativos son correctos y están verificados; el resto del texto está pendiente de redacción y de revisión profesional. Si necesitas información legal sobre nuestros servicios, escríbenos y te la damos. </source>
+      </segment>
+    </unit>
+    <unit id="legal.pending.label">
+      <notes>
+        <note category="location">src/app/features/legal/legal-pending.ts:18,23</note>
+        <note category="meaning">Marks unwritten legal text</note>
+      </notes>
+      <segment>
+        <source>Pendiente de redacción.</source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.heading">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:3,6</note>
+        <note category="meaning">Privacy policy page heading</note>
+      </notes>
+      <segment>
+        <source>Política de privacidad</source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.controller.heading">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:7,11</note>
+        <note category="meaning">Privacy section heading</note>
+      </notes>
+      <segment>
+        <source> Responsable del tratamiento </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.purposes.heading">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:31,34</note>
+        <note category="meaning">Privacy section heading</note>
+      </notes>
+      <segment>
+        <source> Finalidades y base jurídica </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.purposes.missing">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:35,41</note>
+        <note category="meaning">Pending purposes section</note>
+      </notes>
+      <segment>
+        <source> Queda por documentar cada finalidad del tratamiento con su base jurídica. El formulario de contacto todavía no está operativo: hoy no se recoge ni se envía ningún dato a través de él. </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.heading">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:43,46</note>
+        <note category="meaning">Privacy section heading</note>
+      </notes>
+      <segment>
+        <source> Cookies y almacenamiento local </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.intro">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:47,52</note>
+        <note category="meaning">Storage table introduction</note>
+      </notes>
+      <segment>
+        <source> Este sitio no utiliza cookies de terceros. Lo único que guarda en tu navegador es lo siguiente, y todo ello es de origen propio: </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.col.name">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:55,56</note>
+        <note category="meaning">Storage table column</note>
+      </notes>
+      <segment>
+        <source>Nombre</source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.col.type">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:56,57</note>
+        <note category="meaning">Storage table column</note>
+      </notes>
+      <segment>
+        <source>Tipo</source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.col.purpose">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:58,60</note>
+        <note category="meaning">Storage table column</note>
+      </notes>
+      <segment>
+        <source> Finalidad </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.col.duration">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:61,65</note>
+        <note category="meaning">Storage table column</note>
+      </notes>
+      <segment>
+        <source> Duración </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.cookie">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:70,71</note>
+        <note category="meaning">Storage mechanism</note>
+      </notes>
+      <segment>
+        <source>Cookie</source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.locale.purpose">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:72,74</note>
+        <note category="meaning">Purpose of the locale cookie</note>
+      </notes>
+      <segment>
+        <source> Recuerda el idioma que has elegido, para servirte la versión correcta del sitio. </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.locale.duration">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:75,80</note>
+        <note category="meaning">Duration of the locale cookie</note>
+      </notes>
+      <segment>
+        <source> 1 año </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.local">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:82,83</note>
+        <note category="meaning">Storage mechanism</note>
+      </notes>
+      <segment>
+        <source>Almacenamiento local</source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.consent.purpose">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:84,86</note>
+        <note category="meaning">Purpose of the consent record</note>
+      </notes>
+      <segment>
+        <source> Guarda tu decisión sobre estas mismas cookies, para no volver a preguntártelo. </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.consent.duration">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:87,92</note>
+        <note category="meaning">Duration of the consent record</note>
+      </notes>
+      <segment>
+        <source> Hasta que la cambies o borres los datos del navegador </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.none">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:98,104</note>
+        <note category="meaning">Note that no optional scripts load</note>
+      </notes>
+      <segment>
+        <source> No se carga ninguna herramienta de analítica ni de monitorización de errores mientras no nos des permiso expreso. Rechazar no tiene ninguna consecuencia sobre el funcionamiento del sitio. </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.manage">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:108,113</note>
+        <note category="meaning">Reopen the cookie preferences dialog</note>
+      </notes>
+      <segment>
+        <source> Cambiar mis preferencias de cookies </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.processors.heading">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:114,117</note>
+        <note category="meaning">Privacy section heading</note>
+      </notes>
+      <segment>
+        <source> Destinatarios y encargados del tratamiento </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.processors.current">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:118,123</note>
+        <note category="meaning">Current processors</note>
+      </notes>
+      <segment>
+        <source> El sitio está alojado en Vercel, que actúa como encargado del tratamiento a efectos de alojamiento y entrega de las páginas. </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.processors.missing">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:124,129</note>
+        <note category="meaning">Pending processors section</note>
+      </notes>
+      <segment>
+        <source> Falta el detalle contractual de cada encargado y la lista definitiva, que crecerá cuando se activen la monitorización de errores, la analítica, el envío de correo del formulario y la protección antispam. </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.transfers.heading">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:133,136</note>
+        <note category="meaning">Privacy section heading</note>
+      </notes>
+      <segment>
+        <source> Transferencias internacionales y conservación </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.transfers.missing">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:137,143</note>
+        <note category="meaning">Pending transfers section</note>
+      </notes>
+      <segment>
+        <source> Queda por documentar qué tratamientos implican una transferencia fuera del Espacio Económico Europeo, con qué garantías, y durante cuánto tiempo se conserva cada dato. </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.rights.heading">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:145,148</note>
+        <note category="meaning">Privacy section heading</note>
+      </notes>
+      <segment>
+        <source> Tus derechos </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.rights.intro">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:149,154</note>
+        <note category="meaning">Rights introduction</note>
+      </notes>
+      <segment>
+        <source> El Reglamento General de Protección de Datos te reconoce, en relación con tus datos personales, los derechos de: </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.rights.access">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:155,157</note>
+        <note category="meaning">Data subject right</note>
+      </notes>
+      <segment>
+        <source> Acceso: saber qué datos tuyos tratamos. </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.rights.rectification">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:158,160</note>
+        <note category="meaning">Data subject right</note>
+      </notes>
+      <segment>
+        <source> Rectificación: corregir los que sean inexactos. </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.rights.erasure">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:161,163</note>
+        <note category="meaning">Data subject right</note>
+      </notes>
+      <segment>
+        <source> Supresión: pedir que los borremos. </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.rights.restriction">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:164,166</note>
+        <note category="meaning">Data subject right</note>
+      </notes>
+      <segment>
+        <source> Limitación: pedir que dejemos de usarlos sin llegar a borrarlos. </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.rights.objection">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:167,169</note>
+        <note category="meaning">Data subject right</note>
+      </notes>
+      <segment>
+        <source> Oposición: oponerte a un tratamiento concreto. </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.rights.portability">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:170,172</note>
+        <note category="meaning">Data subject right</note>
+      </notes>
+      <segment>
+        <source> Portabilidad: recibirlos en un formato que puedas llevarte. </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.rights.withdraw">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:173,178</note>
+        <note category="meaning">Data subject right</note>
+      </notes>
+      <segment>
+        <source> Retirar tu consentimiento en cualquier momento, sin que ello afecte a la licitud del tratamiento anterior. </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.rights.how">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:181,190</note>
+        <note category="meaning">How to exercise your rights</note>
+      </notes>
+      <segment>
+        <source> Para ejercerlos, escríbenos a <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;&apos;mailto:&apos; + config.email&quot;&gt;" dispEnd="&lt;/a
+      &gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ config.email }}"/></pc>. Si consideras que no hemos atendido tu solicitud correctamente, puedes reclamar ante la Agencia Española de Protección de Datos (<pc id="2" equivStart="START_LINK_1" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a
+        href=&quot;https://www.aepd.es&quot;
+        rel=&quot;noopener noreferrer&quot;
+        target=&quot;_blank&quot;
+        &gt;" dispEnd="&lt;/a
+      &gt;">aepd.es</pc>). </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.heading">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:3,6</note>
+        <note category="meaning">Terms page heading</note>
+      </notes>
+      <segment>
+        <source>Términos y condiciones</source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.provider.heading">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:7,11</note>
+        <note category="meaning">Terms section heading</note>
+      </notes>
+      <segment>
+        <source> Prestador del servicio </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.conditions.heading">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:26,29</note>
+        <note category="meaning">Terms section heading</note>
+      </notes>
+      <segment>
+        <source> Condiciones del servicio </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.conditions.missing">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:30,35</note>
+        <note category="meaning">Pending service conditions</note>
+      </notes>
+      <segment>
+        <source> Quedan por redactar las condiciones de contratación, la política de cancelación y modificación, el régimen de responsabilidad, las obligaciones del pasajero y la ley aplicable. Nada de esto puede darse por supuesto: son decisiones comerciales de la empresa. </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.prices.heading">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:38,40</note>
+        <note category="meaning">Terms section heading</note>
+      </notes>
+      <segment>
+        <source>Precios</source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.prices.missing">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:41,46</note>
+        <note category="meaning">Pending pricing terms</note>
+      </notes>
+      <segment>
+        <source> Este sitio no publica tarifas. Si en el futuro se publican, deberán indicar expresamente si el IGIC está incluido — en Canarias se aplica IGIC y no IVA — junto con su fecha de entrada en vigor. </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.contact.heading">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:50,52</note>
+        <note category="meaning">Terms section heading</note>
+      </notes>
+      <segment>
+        <source> Cómo contactar mientras tanto </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.contact.body">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:53,58</note>
+        <note category="meaning">Interim contact instructions</note>
+      </notes>
+      <segment>
+        <source> Hasta que estas condiciones estén publicadas, cualquier duda sobre la contratación de un servicio puedes resolverla directamente con nosotros por teléfono o correo: <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;config.phoneHref&quot;&gt;" dispEnd="&lt;/a&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ config.phone }}"/></pc> · <pc id="2" equivStart="START_LINK_1" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;&apos;mailto:&apos; + config.email&quot;&gt;" dispEnd="&lt;/a&gt;"><ph id="3" equiv="INTERPOLATION_1" disp="{{ config.email }}"/></pc></source>
+      </segment>
+    </unit>
     <unit id="nav.menu">
       <notes>
-        <note category="location">src/app/features/navbar/navbar.html:48,50</note>
+        <note category="location">src/app/features/navbar/navbar.html:52,54</note>
         <note category="meaning">Label for the menu button</note>
       </notes>
       <segment>

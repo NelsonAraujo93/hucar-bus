@@ -1,0 +1,59 @@
+<hb-legal-page
+  i18n-heading="Terms page heading|@@legal.terms.heading"
+  heading="Términos y condiciones"
+>
+  <section class="doc__section">
+    <h2 class="doc__heading" i18n="Terms section heading|@@legal.terms.provider.heading">
+      Prestador del servicio
+    </h2>
+
+    <dl class="doc__facts">
+      <dt class="doc__term" i18n="Identity field label|@@legal.field.legalName">Razón social</dt>
+      <dd class="doc__value">{{ config.legalName }}</dd>
+
+      <dt class="doc__term" i18n="Identity field label|@@legal.field.nif">NIF</dt>
+      <dd class="doc__value">{{ config.nif }}</dd>
+
+      <dt class="doc__term" i18n="Identity field label|@@legal.field.email">Correo electrónico</dt>
+      <dd class="doc__value">
+        <a [href]="'mailto:' + config.email">{{ config.email }}</a>
+      </dd>
+    </dl>
+  </section>
+
+  <section class="doc__section">
+    <h2 class="doc__heading" i18n="Terms section heading|@@legal.terms.conditions.heading">
+      Condiciones del servicio
+    </h2>
+    <hb-legal-pending>
+      <span i18n="Pending service conditions|@@legal.terms.conditions.missing">
+        Quedan por redactar las condiciones de contratación, la política de cancelación y
+        modificación, el régimen de responsabilidad, las obligaciones del pasajero y la ley
+        aplicable. Nada de esto puede darse por supuesto: son decisiones comerciales de la empresa.
+      </span>
+    </hb-legal-pending>
+  </section>
+
+  <section class="doc__section">
+    <h2 class="doc__heading" i18n="Terms section heading|@@legal.terms.prices.heading">Precios</h2>
+    <hb-legal-pending>
+      <span i18n="Pending pricing terms|@@legal.terms.prices.missing">
+        Este sitio no publica tarifas. Si en el futuro se publican, deberán indicar expresamente si
+        el IGIC está incluido — en Canarias se aplica IGIC y no IVA — junto con su fecha de entrada
+        en vigor.
+      </span>
+    </hb-legal-pending>
+  </section>
+
+  <section class="doc__section">
+    <h2 class="doc__heading" i18n="Terms section heading|@@legal.terms.contact.heading">
+      Cómo contactar mientras tanto
+    </h2>
+    <p class="doc__paragraph" i18n="Interim contact instructions|@@legal.terms.contact.body">
+      Hasta que estas condiciones estén publicadas, cualquier duda sobre la contratación de un
+      servicio puedes resolverla directamente con nosotros por teléfono o correo:
+      <a [href]="config.phoneHref">{{ config.phone }}</a> ·
+      <a [href]="'mailto:' + config.email">{{ config.email }}</a>
+    </p>
+  </section>
+</hb-legal-page>

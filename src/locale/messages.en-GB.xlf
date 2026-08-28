@@ -469,5 +469,383 @@
         <target>Follow on Instagram →</target>
       </segment>
     </unit>
+    <unit id="footer.legal.label">
+      <segment state="translated">
+        <source>Información legal</source>
+        <target>Legal information</target>
+      </segment>
+    </unit>
+    <unit id="footer.legal.privacy">
+      <segment state="translated">
+        <source>Política de privacidad</source>
+        <target>Privacy policy</target>
+      </segment>
+    </unit>
+    <unit id="footer.legal.terms">
+      <segment state="translated">
+        <source>Términos y condiciones</source>
+        <target>Terms and conditions</target>
+      </segment>
+    </unit>
+    <unit id="footer.legal.notice">
+      <segment state="translated">
+        <source>Aviso legal</source>
+        <target>Legal notice</target>
+      </segment>
+    </unit>
+    <unit id="footer.legal.cookies">
+      <segment state="translated">
+        <source> Preferencias de cookies </source>
+        <target> Cookie preferences </target>
+      </segment>
+    </unit>
+    <unit id="legal.notice.heading">
+      <segment state="translated">
+        <source>Aviso legal</source>
+        <target>Legal notice</target>
+      </segment>
+    </unit>
+    <unit id="legal.notice.identity.heading">
+      <segment state="translated">
+        <source> Titular del sitio web </source>
+        <target> Owner of this website </target>
+      </segment>
+    </unit>
+    <unit id="legal.field.legalName">
+      <segment state="translated">
+        <source>Razón social</source>
+        <target>Registered name</target>
+      </segment>
+    </unit>
+    <unit id="legal.field.nif">
+      <segment state="translated">
+        <source>NIF</source>
+        <target>NIF (tax ID)</target>
+      </segment>
+    </unit>
+    <unit id="legal.field.address">
+      <segment state="translated">
+        <source> Domicilio social y fiscal </source>
+        <target> Registered and tax address </target>
+      </segment>
+    </unit>
+    <unit id="legal.field.email">
+      <segment state="translated">
+        <source> Correo electrónico </source>
+        <target> Email </target>
+      </segment>
+    </unit>
+    <unit id="legal.field.phone">
+      <segment state="translated">
+        <source>Teléfono</source>
+        <target>Telephone</target>
+      </segment>
+    </unit>
+    <unit id="legal.notice.registry.heading">
+      <segment state="translated">
+        <source> Datos registrales </source>
+        <target> Companies register details </target>
+      </segment>
+    </unit>
+    <unit id="legal.notice.registry.missing">
+      <segment state="translated">
+        <source> El artículo 10 de la LSSI-CE exige publicar los datos de inscripción en el Registro Mercantil (tomo, folio, hoja e inscripción). Aún no se nos han facilitado. </source>
+        <target> Article 10 of the LSSI-CE requires the Companies Register entry (volume, folio, sheet and inscription) to be published. It has not yet been provided to us. </target>
+      </segment>
+    </unit>
+    <unit id="legal.notice.authorisation.heading">
+      <segment state="translated">
+        <source> Autorización de transporte </source>
+        <target> Passenger transport authorisation </target>
+      </segment>
+    </unit>
+    <unit id="legal.notice.authorisation.missing">
+      <segment state="translated">
+        <source> El transporte de viajeros es una actividad regulada en España y la autorización correspondiente debe constar aquí. Aún no se nos ha facilitado su número. </source>
+        <target> Passenger transport is a regulated activity in Spain and the corresponding authorisation must appear here. Its number has not yet been provided to us. </target>
+      </segment>
+    </unit>
+    <unit id="legal.notice.terms.heading">
+      <segment state="translated">
+        <source> Condiciones de uso, propiedad intelectual y ley aplicable </source>
+        <target> Conditions of use, intellectual property and applicable law </target>
+      </segment>
+    </unit>
+    <unit id="legal.notice.terms.missing">
+      <segment state="translated">
+        <source> Las condiciones de uso del sitio, el régimen de propiedad intelectual de sus contenidos y la legislación aplicable están pendientes de redacción. </source>
+        <target> The site's conditions of use, the intellectual property regime covering its content, and the applicable law have still to be drafted. </target>
+      </segment>
+    </unit>
+    <unit id="legal.draft.notice">
+      <segment state="translated">
+        <source> Este documento está en preparación. Los datos identificativos son correctos y están verificados; el resto del texto está pendiente de redacción y de revisión profesional. Si necesitas información legal sobre nuestros servicios, escríbenos y te la damos. </source>
+        <target> This document is being prepared. The identifying details are correct and verified; the rest of the text is still to be drafted and professionally reviewed. If you need legal information about our services, write to us and we will give it to you. </target>
+      </segment>
+    </unit>
+    <unit id="legal.pending.label">
+      <segment state="translated">
+        <source>Pendiente de redacción.</source>
+        <target>Still to be drafted.</target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.heading">
+      <segment state="translated">
+        <source>Política de privacidad</source>
+        <target>Privacy policy</target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.controller.heading">
+      <segment state="translated">
+        <source> Responsable del tratamiento </source>
+        <target> Data controller </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.purposes.heading">
+      <segment state="translated">
+        <source> Finalidades y base jurídica </source>
+        <target> Purposes and legal basis </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.purposes.missing">
+      <segment state="translated">
+        <source> Queda por documentar cada finalidad del tratamiento con su base jurídica. El formulario de contacto todavía no está operativo: hoy no se recoge ni se envía ningún dato a través de él. </source>
+        <target> Each processing purpose and its legal basis have still to be documented. The contact form is not yet operational: nothing is collected or sent through it today. </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.heading">
+      <segment state="translated">
+        <source> Cookies y almacenamiento local </source>
+        <target> Cookies and local storage </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.intro">
+      <segment state="translated">
+        <source> Este sitio no utiliza cookies de terceros. Lo único que guarda en tu navegador es lo siguiente, y todo ello es de origen propio: </source>
+        <target> This site uses no third-party cookies. The only things it stores in your browser are the following, and all of them are first-party: </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.col.name">
+      <segment state="translated">
+        <source>Nombre</source>
+        <target>Name</target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.col.type">
+      <segment state="translated">
+        <source>Tipo</source>
+        <target>Type</target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.col.purpose">
+      <segment state="translated">
+        <source> Finalidad </source>
+        <target> Purpose </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.col.duration">
+      <segment state="translated">
+        <source> Duración </source>
+        <target> Duration </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.cookie">
+      <segment state="translated">
+        <source>Cookie</source>
+        <target>Cookie</target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.locale.purpose">
+      <segment state="translated">
+        <source> Recuerda el idioma que has elegido, para servirte la versión correcta del sitio. </source>
+        <target> Remembers the language you chose, so we serve you the right version of the site. </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.locale.duration">
+      <segment state="translated">
+        <source> 1 año </source>
+        <target> 1 year </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.local">
+      <segment state="translated">
+        <source>Almacenamiento local</source>
+        <target>Local storage</target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.consent.purpose">
+      <segment state="translated">
+        <source> Guarda tu decisión sobre estas mismas cookies, para no volver a preguntártelo. </source>
+        <target> Stores your decision about these very cookies, so we do not ask you again. </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.consent.duration">
+      <segment state="translated">
+        <source> Hasta que la cambies o borres los datos del navegador </source>
+        <target> Until you change it or clear your browser data </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.none">
+      <segment state="translated">
+        <source> No se carga ninguna herramienta de analítica ni de monitorización de errores mientras no nos des permiso expreso. Rechazar no tiene ninguna consecuencia sobre el funcionamiento del sitio. </source>
+        <target> No analytics or error-monitoring tool is loaded unless you give us express permission. Refusing has no effect at all on how the site works. </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.storage.manage">
+      <segment state="translated">
+        <source> Cambiar mis preferencias de cookies </source>
+        <target> Change my cookie preferences </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.processors.heading">
+      <segment state="translated">
+        <source> Destinatarios y encargados del tratamiento </source>
+        <target> Recipients and data processors </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.processors.current">
+      <segment state="translated">
+        <source> El sitio está alojado en Vercel, que actúa como encargado del tratamiento a efectos de alojamiento y entrega de las páginas. </source>
+        <target> The site is hosted on Vercel, which acts as a data processor for hosting and delivering the pages. </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.processors.missing">
+      <segment state="translated">
+        <source> Falta el detalle contractual de cada encargado y la lista definitiva, que crecerá cuando se activen la monitorización de errores, la analítica, el envío de correo del formulario y la protección antispam. </source>
+        <target> The contractual detail for each processor is missing, as is the final list — which will grow once error monitoring, analytics, the contact form's email delivery and spam protection are switched on. </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.transfers.heading">
+      <segment state="translated">
+        <source> Transferencias internacionales y conservación </source>
+        <target> International transfers and retention </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.transfers.missing">
+      <segment state="translated">
+        <source> Queda por documentar qué tratamientos implican una transferencia fuera del Espacio Económico Europeo, con qué garantías, y durante cuánto tiempo se conserva cada dato. </source>
+        <target> It remains to be documented which processing involves a transfer outside the European Economic Area, under what safeguards, and how long each piece of data is kept. </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.rights.heading">
+      <segment state="translated">
+        <source> Tus derechos </source>
+        <target> Your rights </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.rights.intro">
+      <segment state="translated">
+        <source> El Reglamento General de Protección de Datos te reconoce, en relación con tus datos personales, los derechos de: </source>
+        <target> The General Data Protection Regulation gives you the following rights over your personal data: </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.rights.access">
+      <segment state="translated">
+        <source> Acceso: saber qué datos tuyos tratamos. </source>
+        <target> Access: to know what data of yours we process. </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.rights.rectification">
+      <segment state="translated">
+        <source> Rectificación: corregir los que sean inexactos. </source>
+        <target> Rectification: to correct anything inaccurate. </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.rights.erasure">
+      <segment state="translated">
+        <source> Supresión: pedir que los borremos. </source>
+        <target> Erasure: to ask us to delete it. </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.rights.restriction">
+      <segment state="translated">
+        <source> Limitación: pedir que dejemos de usarlos sin llegar a borrarlos. </source>
+        <target> Restriction: to ask us to stop using it without deleting it. </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.rights.objection">
+      <segment state="translated">
+        <source> Oposición: oponerte a un tratamiento concreto. </source>
+        <target> Objection: to object to a particular processing. </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.rights.portability">
+      <segment state="translated">
+        <source> Portabilidad: recibirlos en un formato que puedas llevarte. </source>
+        <target> Portability: to receive it in a format you can take elsewhere. </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.rights.withdraw">
+      <segment state="translated">
+        <source> Retirar tu consentimiento en cualquier momento, sin que ello afecte a la licitud del tratamiento anterior. </source>
+        <target> To withdraw your consent at any time, without affecting the lawfulness of processing carried out beforehand. </target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.rights.how">
+      <segment state="translated">
+        <source> Para ejercerlos, escríbenos a <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;&apos;mailto:&apos; + config.email&quot;&gt;" dispEnd="&lt;/a
+      &gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ config.email }}"/></pc>. Si consideras que no hemos atendido tu solicitud correctamente, puedes reclamar ante la Agencia Española de Protección de Datos (<pc id="2" equivStart="START_LINK_1" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a
+        href=&quot;https://www.aepd.es&quot;
+        rel=&quot;noopener noreferrer&quot;
+        target=&quot;_blank&quot;
+        &gt;" dispEnd="&lt;/a
+      &gt;">aepd.es</pc>). </source>
+        <target> To exercise them, write to us at <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;&apos;mailto:&apos; + config.email&quot;&gt;" dispEnd="&lt;/a
+      &gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ config.email }}"/></pc>. If you believe we have not handled your request properly, you can complain to the Spanish Data Protection Agency (<pc id="2" equivStart="START_LINK_1" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a
+        href=&quot;https://www.aepd.es&quot;
+        rel=&quot;noopener noreferrer&quot;
+        target=&quot;_blank&quot;
+        &gt;" dispEnd="&lt;/a
+      &gt;">aepd.es</pc>). </target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.heading">
+      <segment state="translated">
+        <source>Términos y condiciones</source>
+        <target>Terms and conditions</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.provider.heading">
+      <segment state="translated">
+        <source> Prestador del servicio </source>
+        <target> Service provider </target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.conditions.heading">
+      <segment state="translated">
+        <source> Condiciones del servicio </source>
+        <target> Conditions of service </target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.conditions.missing">
+      <segment state="translated">
+        <source> Quedan por redactar las condiciones de contratación, la política de cancelación y modificación, el régimen de responsabilidad, las obligaciones del pasajero y la ley aplicable. Nada de esto puede darse por supuesto: son decisiones comerciales de la empresa. </source>
+        <target> The booking conditions, the cancellation and amendment policy, the liability regime, the passenger's obligations and the applicable law have still to be drafted. None of it can be assumed: these are commercial decisions for the company to make. </target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.prices.heading">
+      <segment state="translated">
+        <source> Precios </source>
+        <target> Prices </target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.prices.missing">
+      <segment state="translated">
+        <source> Este sitio no publica tarifas. Si en el futuro se publican, deberán indicar expresamente si el IGIC está incluido — en Canarias se aplica IGIC y no IVA — junto con su fecha de entrada en vigor. </source>
+        <target> This site publishes no fares. If any are published in future, they must state expressly whether IGIC is included — the Canary Islands charge IGIC rather than IVA — along with the date they take effect. </target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.contact.heading">
+      <segment state="translated">
+        <source> Cómo contactar mientras tanto </source>
+        <target> How to get in touch meanwhile </target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.contact.body">
+      <segment state="translated">
+        <source> Hasta que estas condiciones estén publicadas, cualquier duda sobre la contratación de un servicio puedes resolverla directamente con nosotros por teléfono o correo: <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;config.phoneHref&quot;&gt;" dispEnd="&lt;/a&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ config.phone }}"/></pc> · <pc id="2" equivStart="START_LINK_1" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;&apos;mailto:&apos; + config.email&quot;&gt;" dispEnd="&lt;/a&gt;"><ph id="3" equiv="INTERPOLATION_1" disp="{{ config.email }}"/></pc></source>
+        <target> Until these conditions are published, you can settle any question about booking a service directly with us by telephone or email: <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;config.phoneHref&quot;&gt;" dispEnd="&lt;/a&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ config.phone }}"/></pc> · <pc id="2" equivStart="START_LINK_1" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;&apos;mailto:&apos; + config.email&quot;&gt;" dispEnd="&lt;/a&gt;"><ph id="3" equiv="INTERPOLATION_1" disp="{{ config.email }}"/></pc></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

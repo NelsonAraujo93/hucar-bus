@@ -74,6 +74,10 @@ module.exports = defineConfig([
             'eyebrowTone',
             'name',
             'aria-controls',
+            'aria-labelledby',
+            'aria-describedby',
+            // Table header direction: col/row, not copy.
+            'scope',
           ],
         },
       ],

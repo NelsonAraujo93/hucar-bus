@@ -1,0 +1,191 @@
+<hb-legal-page
+  i18n-heading="Privacy policy page heading|@@legal.privacy.heading"
+  heading="Política de privacidad"
+>
+  <section class="doc__section">
+    <h2 class="doc__heading" i18n="Privacy section heading|@@legal.privacy.controller.heading">
+      Responsable del tratamiento
+    </h2>
+
+    <dl class="doc__facts">
+      <dt class="doc__term" i18n="Identity field label|@@legal.field.legalName">Razón social</dt>
+      <dd class="doc__value">{{ config.legalName }}</dd>
+
+      <dt class="doc__term" i18n="Identity field label|@@legal.field.nif">NIF</dt>
+      <dd class="doc__value">{{ config.nif }}</dd>
+
+      <dt class="doc__term" i18n="Identity field label|@@legal.field.address">
+        Domicilio social y fiscal
+      </dt>
+      <dd class="doc__value">{{ config.addressFull }}</dd>
+
+      <dt class="doc__term" i18n="Identity field label|@@legal.field.email">Correo electrónico</dt>
+      <dd class="doc__value">
+        <a [href]="'mailto:' + config.email">{{ config.email }}</a>
+      </dd>
+    </dl>
+  </section>
+
+  <section class="doc__section">
+    <h2 class="doc__heading" i18n="Privacy section heading|@@legal.privacy.purposes.heading">
+      Finalidades y base jurídica
+    </h2>
+    <hb-legal-pending>
+      <span i18n="Pending purposes section|@@legal.privacy.purposes.missing">
+        Queda por documentar cada finalidad del tratamiento con su base jurídica. El formulario de
+        contacto todavía no está operativo: hoy no se recoge ni se envía ningún dato a través de él.
+      </span>
+    </hb-legal-pending>
+  </section>
+
+  <section class="doc__section">
+    <h2 class="doc__heading" i18n="Privacy section heading|@@legal.privacy.storage.heading">
+      Cookies y almacenamiento local
+    </h2>
+
+    <p class="doc__paragraph" i18n="Storage table introduction|@@legal.privacy.storage.intro">
+      Este sitio no utiliza cookies de terceros. Lo único que guarda en tu navegador es lo
+      siguiente, y todo ello es de origen propio:
+    </p>
+
+    <div class="doc__table-scroll">
+      <table class="doc__table">
+        <thead>
+          <tr>
+            <th scope="col" i18n="Storage table column|@@legal.privacy.storage.col.name">Nombre</th>
+            <th scope="col" i18n="Storage table column|@@legal.privacy.storage.col.type">Tipo</th>
+            <th scope="col" i18n="Storage table column|@@legal.privacy.storage.col.purpose">
+              Finalidad
+            </th>
+            <th scope="col" i18n="Storage table column|@@legal.privacy.storage.col.duration">
+              Duración
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <code>{{ localeCookie }}</code>
+            </td>
+            <td i18n="Storage mechanism|@@legal.privacy.storage.cookie">Cookie</td>
+            <td i18n="Purpose of the locale cookie|@@legal.privacy.storage.locale.purpose">
+              Recuerda el idioma que has elegido, para servirte la versión correcta del sitio.
+            </td>
+            <td i18n="Duration of the locale cookie|@@legal.privacy.storage.locale.duration">
+              1 año
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>{{ consentKey }}</code>
+            </td>
+            <td i18n="Storage mechanism|@@legal.privacy.storage.local">Almacenamiento local</td>
+            <td i18n="Purpose of the consent record|@@legal.privacy.storage.consent.purpose">
+              Guarda tu decisión sobre estas mismas cookies, para no volver a preguntártelo.
+            </td>
+            <td i18n="Duration of the consent record|@@legal.privacy.storage.consent.duration">
+              Hasta que la cambies o borres los datos del navegador
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p
+      class="doc__paragraph"
+      i18n="Note that no optional scripts load|@@legal.privacy.storage.none"
+    >
+      No se carga ninguna herramienta de analítica ni de monitorización de errores mientras no nos
+      des permiso expreso. Rechazar no tiene ninguna consecuencia sobre el funcionamiento del sitio.
+    </p>
+
+    <button
+      class="doc__cookie-button"
+      type="button"
+      (click)="openPreferences()"
+      i18n="Reopen the cookie preferences dialog|@@legal.privacy.storage.manage"
+    >
+      Cambiar mis preferencias de cookies
+    </button>
+  </section>
+
+  <section class="doc__section">
+    <h2 class="doc__heading" i18n="Privacy section heading|@@legal.privacy.processors.heading">
+      Destinatarios y encargados del tratamiento
+    </h2>
+
+    <p class="doc__paragraph" i18n="Current processors|@@legal.privacy.processors.current">
+      El sitio está alojado en Vercel, que actúa como encargado del tratamiento a efectos de
+      alojamiento y entrega de las páginas.
+    </p>
+
+    <hb-legal-pending>
+      <span i18n="Pending processors section|@@legal.privacy.processors.missing">
+        Falta el detalle contractual de cada encargado y la lista definitiva, que crecerá cuando se
+        activen la monitorización de errores, la analítica, el envío de correo del formulario y la
+        protección antispam.
+      </span>
+    </hb-legal-pending>
+  </section>
+
+  <section class="doc__section">
+    <h2 class="doc__heading" i18n="Privacy section heading|@@legal.privacy.transfers.heading">
+      Transferencias internacionales y conservación
+    </h2>
+    <hb-legal-pending>
+      <span i18n="Pending transfers section|@@legal.privacy.transfers.missing">
+        Queda por documentar qué tratamientos implican una transferencia fuera del Espacio Económico
+        Europeo, con qué garantías, y durante cuánto tiempo se conserva cada dato.
+      </span>
+    </hb-legal-pending>
+  </section>
+
+  <section class="doc__section">
+    <h2 class="doc__heading" i18n="Privacy section heading|@@legal.privacy.rights.heading">
+      Tus derechos
+    </h2>
+
+    <p class="doc__paragraph" i18n="Rights introduction|@@legal.privacy.rights.intro">
+      El Reglamento General de Protección de Datos te reconoce, en relación con tus datos
+      personales, los derechos de:
+    </p>
+
+    <ul class="doc__list">
+      <li i18n="Data subject right|@@legal.privacy.rights.access">
+        Acceso: saber qué datos tuyos tratamos.
+      </li>
+      <li i18n="Data subject right|@@legal.privacy.rights.rectification">
+        Rectificación: corregir los que sean inexactos.
+      </li>
+      <li i18n="Data subject right|@@legal.privacy.rights.erasure">
+        Supresión: pedir que los borremos.
+      </li>
+      <li i18n="Data subject right|@@legal.privacy.rights.restriction">
+        Limitación: pedir que dejemos de usarlos sin llegar a borrarlos.
+      </li>
+      <li i18n="Data subject right|@@legal.privacy.rights.objection">
+        Oposición: oponerte a un tratamiento concreto.
+      </li>
+      <li i18n="Data subject right|@@legal.privacy.rights.portability">
+        Portabilidad: recibirlos en un formato que puedas llevarte.
+      </li>
+      <li i18n="Data subject right|@@legal.privacy.rights.withdraw">
+        Retirar tu consentimiento en cualquier momento, sin que ello afecte a la licitud del
+        tratamiento anterior.
+      </li>
+    </ul>
+
+    <!-- One unit, not three. Splitting a sentence around its links leaves a
+         translator unable to reorder them, which English and Spanish need. -->
+    <p class="doc__paragraph" i18n="How to exercise your rights|@@legal.privacy.rights.how">
+      Para ejercerlos, escríbenos a <a [href]="'mailto:' + config.email">{{ config.email }}</a
+      >. Si consideras que no hemos atendido tu solicitud correctamente, puedes reclamar ante la
+      Agencia Española de Protección de Datos (<a
+        href="https://www.aepd.es"
+        rel="noopener noreferrer"
+        target="_blank"
+        >aepd.es</a
+      >).
+    </p>
+  </section>
+</hb-legal-page>
