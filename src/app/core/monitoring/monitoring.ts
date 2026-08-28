@@ -38,12 +38,21 @@ export class Monitoring {
   private ready: Promise<void> | null = null;
 
   /**
-   * The loaded SDK, or null while it has not been consented to.
+   * Sentry's captureException, or null while monitoring has not been consented
+   * to.
    *
-   * Typed with `typeof import(...)`, which is erased at compile time, so naming
-   * the module here does not pull it into the initial bundle.
+   * Deliberately the one function rather than the module namespace. Holding
+   * `import * as Sentry` in a field lets the whole namespace escape, and esbuild
+   * must then keep every export alive -- which pulled the entire Session Replay
+   * implementation, rrweb included, into the bundle. Not initialised and so
+   * never running, but present, and roughly 150 kB of code whose sole purpose is
+   * recording what visitors type. Destructuring at the import keeps it out
+   * structurally rather than by configuration.
+   *
+   * Sentry's top-level functions are standalone and do not close over the
+   * module object, so pulling one out is safe.
    */
-  private client: typeof import('@sentry/angular') | null = null;
+  private capture: ((error: unknown) => string) | null = null;
 
   /**
    * Registers Sentry with the consent gate. Safe to call more than once, and a
@@ -72,14 +81,15 @@ export class Monitoring {
    * load, and it must stay cheap and quiet.
    */
   captureException(error: unknown): void {
-    this.client?.captureException(error);
+    this.capture?.(error);
   }
 
   private async initialise(config: SentryConfig): Promise<void> {
-    const Sentry = await import('@sentry/angular');
-    this.client = Sentry;
+    // Named, not a namespace: see the note on `capture`.
+    const { init, browserTracingIntegration, captureException } = await import('@sentry/angular');
+    this.capture = captureException;
 
-    Sentry.init({
+    init({
       dsn: config.dsn,
       environment: config.environment,
       ...(config.release === null ? {} : { release: config.release }),
@@ -92,7 +102,7 @@ export class Monitoring {
       // accident. It records the DOM including form fields, which for this
       // contact form means capturing names, emails and phone numbers. If it is
       // ever wanted it needs its own consent category and aggressive masking.
-      integrations: [Sentry.browserTracingIntegration()],
+      integrations: [browserTracingIntegration()],
 
       tracesSampleRate: config.tracesSampleRate,
       denyUrls: [...SENTRY_DENY_URLS],
