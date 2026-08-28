@@ -1,0 +1,84 @@
+<hb-legal-page
+  i18n-heading="Legal notice page heading|@@legal.notice.heading"
+  heading="Aviso legal"
+>
+  <section class="doc__section">
+    <h2 class="doc__heading" i18n="Legal notice section heading|@@legal.notice.identity.heading">
+      Titular del sitio web
+    </h2>
+
+    <!-- Verified against the AEAT Tarjeta de Identificación Fiscal. Every value
+         comes from SITE_CONFIG so a correction is a one-file change. -->
+    <dl class="doc__facts">
+      <dt class="doc__term" i18n="Identity field label|@@legal.field.legalName">Razón social</dt>
+      <dd class="doc__value">{{ config.legalName }}</dd>
+
+      <dt class="doc__term" i18n="Identity field label|@@legal.field.nif">NIF</dt>
+      <dd class="doc__value">{{ config.nif }}</dd>
+
+      <dt class="doc__term" i18n="Identity field label|@@legal.field.address">
+        Domicilio social y fiscal
+      </dt>
+      <dd class="doc__value">{{ config.addressFull }}</dd>
+
+      <dt class="doc__term" i18n="Identity field label|@@legal.field.email">Correo electrónico</dt>
+      <dd class="doc__value">
+        <a [href]="'mailto:' + config.email">{{ config.email }}</a>
+      </dd>
+
+      <dt class="doc__term" i18n="Identity field label|@@legal.field.phone">Teléfono</dt>
+      <dd class="doc__value">
+        <a [href]="config.phoneHref">{{ config.phone }}</a>
+      </dd>
+    </dl>
+  </section>
+
+  <section class="doc__section">
+    <h2 class="doc__heading" i18n="Legal notice section heading|@@legal.notice.registry.heading">
+      Datos registrales
+    </h2>
+
+    @if (config.mercantileRegistry === null) {
+      <hb-legal-pending>
+        <span i18n="Missing registry data|@@legal.notice.registry.missing">
+          El artículo 10 de la LSSI-CE exige publicar los datos de inscripción en el Registro
+          Mercantil (tomo, folio, hoja e inscripción). Aún no se nos han facilitado.
+        </span>
+      </hb-legal-pending>
+    } @else {
+      <p class="doc__paragraph">{{ config.mercantileRegistry }}</p>
+    }
+  </section>
+
+  <section class="doc__section">
+    <h2
+      class="doc__heading"
+      i18n="Legal notice section heading|@@legal.notice.authorisation.heading"
+    >
+      Autorización de transporte
+    </h2>
+
+    @if (config.transportAuthorisation === null) {
+      <hb-legal-pending>
+        <span i18n="Missing transport authorisation|@@legal.notice.authorisation.missing">
+          El transporte de viajeros es una actividad regulada en España y la autorización
+          correspondiente debe constar aquí. Aún no se nos ha facilitado su número.
+        </span>
+      </hb-legal-pending>
+    } @else {
+      <p class="doc__paragraph">{{ config.transportAuthorisation }}</p>
+    }
+  </section>
+
+  <section class="doc__section">
+    <h2 class="doc__heading" i18n="Legal notice section heading|@@legal.notice.terms.heading">
+      Condiciones de uso, propiedad intelectual y ley aplicable
+    </h2>
+    <hb-legal-pending>
+      <span i18n="Pending legal notice sections|@@legal.notice.terms.missing">
+        Las condiciones de uso del sitio, el régimen de propiedad intelectual de sus contenidos y la
+        legislación aplicable están pendientes de redacción.
+      </span>
+    </hb-legal-pending>
+  </section>
+</hb-legal-page>

@@ -1,9 +1,11 @@
+import { provideRouter } from '@angular/router';
 import { TestBed } from '@angular/core/testing';
+import { ConsentUi } from '../../core/consent/consent-ui';
 import { SITE_CONFIG } from '../../core/config/site.config';
 import { Footer } from './footer';
 
 async function render(): Promise<HTMLElement> {
-  TestBed.configureTestingModule({ imports: [Footer] });
+  TestBed.configureTestingModule({ imports: [Footer], providers: [provideRouter([])] });
   const fixture = TestBed.createComponent(Footer);
   await fixture.whenStable();
   return fixture.nativeElement as HTMLElement;
@@ -22,13 +24,38 @@ describe('Footer', () => {
     expect(dead).toEqual([]);
   });
 
-  it('omits the legal links until the pages exist', async () => {
-    // The design has Política de Privacidad and Términos as dead # links. An EU
-    // site needs both for real; a link to nowhere is worse than no link.
+  it('links every legal page, now that all three exist', async () => {
+    // Phase 3 omitted these because the design had them as dead # links. The
+    // routes are real now, and an EU site has to reach them from every page.
     const host = await render();
-    const text = host.textContent ?? '';
-    expect(text).not.toContain('Privacidad');
-    expect(text).not.toContain('Términos');
+    const hrefs = Array.from(host.querySelectorAll('.footer__legal-link')).map((a) =>
+      a.getAttribute('href'),
+    );
+    expect(hrefs).toContain('/privacidad');
+    expect(hrefs).toContain('/terminos');
+    expect(hrefs).toContain('/aviso-legal');
+  });
+
+  it('offers a way back to the cookie decision', async () => {
+    // Withdrawing consent has to be as reachable as giving it, and this is the
+    // only route back to that dialog once the banner has been dismissed.
+    const host = await render();
+    const button = host.querySelector<HTMLButtonElement>('.footer__legal-button');
+    expect(button).toBeTruthy();
+
+    const ui = TestBed.inject(ConsentUi);
+    expect(ui.isOpen()).toBe(false);
+    button?.click();
+    expect(ui.isOpen()).toBe(true);
+  });
+
+  it('qualifies the section anchors so they work from a legal page', async () => {
+    // A bare href="#servicios" resolves to /es/privacidad#servicios and
+    // scrolls to nothing.
+    const host = await render();
+    for (const link of Array.from(host.querySelectorAll('.footer__link[href*="#"]'))) {
+      expect(link.getAttribute('href')).not.toMatch(/^#/);
+    }
   });
 
   it('links social icons at real destinations', async () => {

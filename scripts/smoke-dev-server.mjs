@@ -23,6 +23,12 @@ const REQUEST_TIMEOUT_MS = 20_000;
 const CHECKS = [
   { path: '/', status: 200, type: 'text/html', body: '<hb-root' },
   { path: '/ui', status: 200, type: 'text/html', body: '<hb-root' },
+  // Every legal route must resolve. A route that is not prerendered 404s on
+  // direct navigation, and a privacy policy that 404s is worse than none --
+  // the contact form and the cookie banner both link straight at it.
+  { path: '/privacidad', status: 200, type: 'text/html', body: '<hb-root' },
+  { path: '/terminos', status: 200, type: 'text/html', body: '<hb-root' },
+  { path: '/aviso-legal', status: 200, type: 'text/html', body: '<hb-root' },
   { path: '/img/logo-256.webp', status: 200, type: 'image/webp' },
   { path: '/favicon.ico', status: 200 },
   { path: '/robots.txt', status: 200, type: 'text/plain', body: 'User-agent' },

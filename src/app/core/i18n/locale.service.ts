@@ -39,6 +39,16 @@ export class LocaleService {
   );
 
   /**
+   * The locale root, for links that must reach the home page from anywhere.
+   *
+   * The section anchors were bare fragments -- href="#servicios" -- which was
+   * correct while the site was a single page. From /es/privacidad the same
+   * fragment resolves to /es/privacidad#servicios and scrolls to nothing, so
+   * every anchor is now qualified with this.
+   */
+  readonly homePath = computed(() => `/${this.currentLocale()}/`);
+
+  /**
    * Persists the choice and navigates to the equivalent page in the other
    * locale.
    *

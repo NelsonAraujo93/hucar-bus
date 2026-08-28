@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { SITE_CONFIG } from '../../core/config/site.config';
+import { siteConfigWith } from '../../core/config/site.config.fixture';
 import { About } from './about';
 
 async function render(): Promise<HTMLElement> {
@@ -32,13 +33,22 @@ describe('About', () => {
   });
 
   describe('unverified claims', () => {
-    it('takes all three stats from config rather than the template', async () => {
+    it('takes both stats from config rather than the template', async () => {
       const host = await render();
       const config = TestBed.inject(SITE_CONFIG);
       const values = Array.from(host.querySelectorAll('.stat__value')).map((s) =>
         s.textContent?.trim(),
       );
-      expect(values).toEqual([config.yearsOfExperience, config.availability, config.rating]);
+      expect(values).toEqual([config.yearsOfExperience, config.availability]);
+    });
+
+    it('publishes no star rating anywhere', async () => {
+      // A 4.8 average reached the page through the About stats while the Reviews
+      // section was withheld for inventing exactly that figure. Nothing may show
+      // a rating until one comes from a verified source.
+      const host = await render();
+      expect(host.textContent).not.toContain('★');
+      expect(host.textContent).not.toContain('4.8');
     });
 
     it('takes the founding year from config, so it is corrected in one place', async () => {
@@ -61,19 +71,11 @@ describe('About', () => {
         providers: [
           {
             provide: SITE_CONFIG,
-            useValue: {
-              phone: '',
-              phoneHref: '',
-              email: '',
-              whatsappUrl: '',
-              instagramUrl: '',
-              address: '',
+            useValue: siteConfigWith({
               addressShort: 'Playa Blanca',
               foundedYear: 2011,
               yearsOfExperience: '13+',
-              availability: '24/7',
-              rating: '4.9★',
-            },
+            }),
           },
         ],
       });
@@ -85,7 +87,7 @@ describe('About', () => {
       const values = Array.from(host.querySelectorAll('.stat__value')).map((s) =>
         s.textContent?.trim(),
       );
-      expect(values).toEqual(['13+', '24/7', '4.9★']);
+      expect(values).toEqual(['13+', '24/7']);
     });
   });
 

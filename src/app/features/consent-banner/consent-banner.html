@@ -1,0 +1,174 @@
+@if (visible()) {
+  <!-- A labelled region, not a modal. The banner links to the privacy policy,
+       and a focus trap would stop a keyboard or screen-reader user reaching it
+       before being asked to decide. -->
+  <section class="consent" role="region" aria-labelledby="consent-title">
+    <div class="consent__inner">
+      <div class="consent__copy">
+        <h2 class="consent__title" id="consent-title" i18n="Consent banner heading|@@consent.title">
+          Tu privacidad
+        </h2>
+        <p class="consent__body" i18n="Consent banner explanation|@@consent.body">
+          Usamos cookies necesarias para que la web funcione. Con tu permiso, usaríamos también
+          cookies de analítica y de monitorización de errores. Puedes cambiar tu decisión cuando
+          quieras.
+        </p>
+        <a
+          class="consent__link"
+          routerLink="/privacidad"
+          i18n="Link to the privacy policy|@@consent.policy.link"
+        >
+          Política de privacidad
+        </a>
+      </div>
+
+      <!-- Accept and reject are the same control in the same variant at the
+           same size, one click each. A prominent Aceptar beside a muted
+           Rechazar is a documented AEPD infringement, not a style choice. -->
+      <div class="consent__actions">
+        <button
+          hb-button
+          variant="teal"
+          type="button"
+          class="consent__action"
+          (click)="acceptAll()"
+          i18n="Accept every cookie category|@@consent.accept"
+        >
+          Aceptar todo
+        </button>
+        <button
+          hb-button
+          variant="teal"
+          type="button"
+          class="consent__action"
+          (click)="rejectAll()"
+          i18n="Reject every optional cookie category|@@consent.reject"
+        >
+          Rechazar todo
+        </button>
+        <button
+          hb-button
+          variant="ghost"
+          type="button"
+          class="consent__action"
+          (click)="openPreferences()"
+          i18n="Open the per-category cookie settings|@@consent.configure"
+        >
+          Configurar
+        </button>
+      </div>
+    </div>
+  </section>
+}
+
+<!-- Rendered whether or not the banner is, so the footer link can reopen it
+     after a decision has been made. A closed dialog is inert and invisible.
+
+     Native <dialog> rather than a div: showModal() gives a real focus trap,
+     Escape-to-close, the top layer and inertness of the rest of the page from
+     the browser, instead of from a keydown handler that will be subtly wrong. -->
+<dialog
+  #preferencesDialog
+  class="prefs"
+  aria-labelledby="consent-prefs-title"
+  (close)="onDialogClose()"
+>
+  <div class="prefs__inner">
+    <div class="prefs__head">
+      <h2
+        class="prefs__title"
+        id="consent-prefs-title"
+        i18n="Cookie preferences dialog heading|@@consent.prefs.title"
+      >
+        Preferencias de cookies
+      </h2>
+      <button
+        class="prefs__close"
+        type="button"
+        (click)="onDialogClose()"
+        i18n-aria-label="Close the cookie preferences dialog|@@consent.prefs.close"
+        aria-label="Cerrar"
+      >
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+
+    <ul class="prefs__list">
+      <li class="prefs__item">
+        <div class="prefs__item-head">
+          <span class="prefs__name" i18n="Consent category name|@@consent.category.necessary.name"
+            >Necesarias</span
+          >
+          <!-- Shown as a state, not a disabled switch. A toggle that cannot
+               move invites the visitor to try to move it. -->
+          <span
+            class="prefs__always"
+            i18n="Marks a category that cannot be switched off|@@consent.category.necessary.always"
+            >Siempre activas</span
+          >
+        </div>
+        <p
+          class="prefs__description"
+          i18n="Consent category description|@@consent.category.necessary.description"
+        >
+          Imprescindibles para que la web funcione. Recuerdan tu idioma y esta misma decisión. No se
+          pueden desactivar.
+        </p>
+      </li>
+
+      @for (category of categories(); track category.id) {
+        <li class="prefs__item">
+          <div class="prefs__item-head">
+            <label class="prefs__name" [attr.for]="'consent-' + category.id">
+              {{ category.name }}
+            </label>
+            <input
+              class="prefs__toggle"
+              type="checkbox"
+              [id]="'consent-' + category.id"
+              [checked]="isDrafted(category.id)"
+              [attr.aria-describedby]="'consent-' + category.id + '-description'"
+              (change)="toggle(category.id, $event)"
+            />
+          </div>
+          <p class="prefs__description" [id]="'consent-' + category.id + '-description'">
+            {{ category.description }}
+          </p>
+        </li>
+      }
+    </ul>
+
+    <div class="prefs__actions">
+      <button
+        hb-button
+        variant="teal"
+        type="button"
+        class="prefs__action"
+        (click)="acceptAll()"
+        i18n="Accept every cookie category|@@consent.accept"
+      >
+        Aceptar todo
+      </button>
+      <button
+        hb-button
+        variant="teal"
+        type="button"
+        class="prefs__action"
+        (click)="rejectAll()"
+        i18n="Reject every optional cookie category|@@consent.reject"
+      >
+        Rechazar todo
+      </button>
+      <button
+        hb-button
+        variant="ghost"
+        type="button"
+        class="prefs__action"
+        (click)="saveDraft()"
+        i18n="Save the per-category cookie selection|@@consent.prefs.save"
+      >
+        Guardar preferencias
+      </button>
+    </div>
+  </div>
+</dialog>

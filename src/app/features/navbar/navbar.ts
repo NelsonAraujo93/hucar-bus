@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { BRAND } from '../../core/config/brand';
 import { SITE_CONFIG } from '../../core/config/site.config';
+import { LocaleService } from '../../core/i18n/locale.service';
 import { navItems } from '../../core/navigation/nav-items';
 import { ScrollSpy } from '../../core/navigation/scroll-spy';
 import { Button } from '../../shared/ui/button/button';
@@ -28,6 +29,10 @@ export class Navbar {
   protected readonly config = inject(SITE_CONFIG);
   protected readonly brand = BRAND;
   protected readonly items = navItems();
+
+  /** Qualifies the section anchors, which no longer resolve from a legal page. */
+  protected readonly homePath = inject(LocaleService).homePath;
+
   protected readonly activeId = this.scrollSpy.activeId;
   protected readonly scrolled = this.scrollSpy.scrolled;
 
