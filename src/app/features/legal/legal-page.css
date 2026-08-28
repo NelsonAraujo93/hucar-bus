@@ -1,0 +1,45 @@
+/* Clears the fixed navbar, which the single-page layout handled with
+   scroll-padding on an anchored section rather than with top padding. */
+.legal {
+  padding: calc(72px + 48px) 0 var(--section-pad);
+  background: var(--color-cream);
+}
+
+.legal__inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px var(--container-pad);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-16);
+}
+
+.legal__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 7vw, 44px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--color-ink);
+}
+
+.legal__draft {
+  margin: 24px 0 0;
+  padding: 16px 18px;
+  background: var(--color-sand-light);
+  border-left: 4px solid var(--color-lava-red);
+  border-radius: var(--radius-8);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-ink);
+}
+
+@media (width < 640px) {
+  .legal__inner {
+    padding: 28px var(--container-pad);
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+  }
+}

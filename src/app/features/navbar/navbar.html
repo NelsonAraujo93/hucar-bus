@@ -10,7 +10,7 @@
             <a
               class="nav__link"
               [class.is-active]="activeId() === item.id"
-              [href]="'#' + item.id"
+              [href]="homePath() + '#' + item.id"
               [attr.aria-current]="activeId() === item.id ? 'true' : null"
               >{{ item.label }}</a
             >
@@ -20,7 +20,11 @@
 
       <hb-language-switcher />
 
-      <a hb-button size="sm" href="#contacto" i18n="Primary call to action|@@cta.contact"
+      <a
+        hb-button
+        size="sm"
+        [href]="homePath() + '#contacto'"
+        i18n="Primary call to action|@@cta.contact"
         >Contactar</a
       >
     </div>
@@ -33,7 +37,7 @@
         class="nav__compact-cta"
         hb-button
         size="sm"
-        href="#contacto"
+        [href]="homePath() + '#contacto'"
         i18n="Primary call to action|@@cta.contact"
         >Contactar</a
       >
@@ -63,7 +67,7 @@
         <a
           class="nav__drawer-link"
           [class.is-active]="activeId() === item.id"
-          [href]="'#' + item.id"
+          [href]="homePath() + '#' + item.id"
           [attr.aria-current]="activeId() === item.id ? 'true' : null"
           (click)="close()"
         >
@@ -78,7 +82,7 @@
         <a
           hb-button
           [full]="true"
-          href="#contacto"
+          [href]="homePath() + '#contacto'"
           (click)="close()"
           i18n="Primary call to action|@@cta.contact"
           >Contactar</a

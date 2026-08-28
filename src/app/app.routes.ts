@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { Home } from './features/home/home';
+import { legalRoutes } from './features/legal/legal.routes';
 
 /**
  * Development routes.
@@ -14,6 +15,7 @@ export const routes: Routes = [
     path: '',
     component: Home,
   },
+  ...legalRoutes,
   {
     path: 'ui',
     loadComponent: () => import('./features/ui-gallery/ui-gallery').then((m) => m.UiGallery),

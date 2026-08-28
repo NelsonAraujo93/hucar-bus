@@ -117,7 +117,7 @@ describe('Contact', () => {
       const text = host.textContent ?? '';
       expect(text).toContain(config.phone);
       expect(text).toContain(config.email);
-      expect(text).toContain(config.address);
+      expect(text).toContain(config.addressFull);
     });
 
     it('makes the phone and email actionable', async () => {

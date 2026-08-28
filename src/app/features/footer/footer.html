@@ -38,7 +38,7 @@
           Navegación
         </h2>
         @for (item of items; track item.id) {
-          <a class="footer__link" [href]="'#' + item.id">{{ item.label }}</a>
+          <a class="footer__link" [href]="homePath() + '#' + item.id">{{ item.label }}</a>
         }
       </nav>
 
@@ -55,14 +55,49 @@
       </div>
     </div>
 
-    <!-- Legal links are deliberately absent. The design has "Política de
-         Privacidad" and "Términos" as dead # links; an EU site needs both pages
-         for real, and a link that goes nowhere is worse than no link. They
-         return once the pages exist. -->
+    <!-- Phase 3 omitted these because the design had them as dead # links and
+         a link to nowhere is worse than no link. The pages exist now. -->
     <div class="footer__legal">
       <span i18n="Copyright notice|@@footer.copyright"
         >© {{ year }} Hucar Bus. Todos los derechos reservados.</span
       >
+
+      <nav
+        class="footer__legal-links"
+        i18n-aria-label="Legal navigation|@@footer.legal.label"
+        aria-label="Información legal"
+      >
+        <a
+          class="footer__legal-link"
+          routerLink="/privacidad"
+          i18n="Footer legal link|@@footer.legal.privacy"
+          >Política de privacidad</a
+        >
+        <a
+          class="footer__legal-link"
+          routerLink="/terminos"
+          i18n="Footer legal link|@@footer.legal.terms"
+          >Términos y condiciones</a
+        >
+        <a
+          class="footer__legal-link"
+          routerLink="/aviso-legal"
+          i18n="Footer legal link|@@footer.legal.notice"
+          >Aviso legal</a
+        >
+
+        <!-- A button, not a link: it opens the preferences dialog rather than
+             navigating. Withdrawing consent has to be as reachable as giving
+             it, and this is the only route back to that decision. -->
+        <button
+          class="footer__legal-link footer__legal-button"
+          type="button"
+          (click)="openCookiePreferences()"
+          i18n="Reopen the cookie preferences dialog|@@footer.legal.cookies"
+        >
+          Preferencias de cookies
+        </button>
+      </nav>
     </div>
   </div>
 </footer>

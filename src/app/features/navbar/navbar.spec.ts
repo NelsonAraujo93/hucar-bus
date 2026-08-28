@@ -36,7 +36,9 @@ describe('Navbar', () => {
     it('renders every section link', async () => {
       const { host } = await render();
       for (const id of COMPOSED_NAV_IDS) {
-        expect(host.querySelector(`.nav__link[href="#${id}"]`)).toBeTruthy();
+        // Suffix match: the href is qualified with the locale root now, and
+        // the locale under test is whatever LOCALE_ID defaults to.
+        expect(host.querySelector(`.nav__link[href$="#${id}"]`)).toBeTruthy();
       }
     });
 
@@ -44,10 +46,10 @@ describe('Navbar', () => {
       const { host, spy, detect } = await render();
       spy.activeId.set('nosotros');
       detect();
-      const active = host.querySelector('.nav__link[href="#nosotros"]');
+      const active = host.querySelector('.nav__link[href$="#nosotros"]');
       expect(active?.getAttribute('aria-current')).toBe('true');
       expect(
-        host.querySelector('.nav__link[href="#servicios"]')?.getAttribute('aria-current'),
+        host.querySelector('.nav__link[href$="#servicios"]')?.getAttribute('aria-current'),
       ).toBeNull();
     });
 

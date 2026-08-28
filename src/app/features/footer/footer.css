@@ -93,6 +93,35 @@
   color: rgb(255 255 255 / 55%);
 }
 
+.footer__legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+/* rgb(255 255 255 / 55%) on the footer's dark ground is 4.1:1 -- fine for the
+   copyright line at 13px, but these are interactive, and WCAG 2.4.7 plus the
+   AA contrast minimum both apply. 78% clears 4.5:1. */
+.footer__legal-link {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgb(255 255 255 / 78%);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--duration-micro) ease;
+}
+
+.footer__legal-link:hover {
+  color: #fff;
+}
+
+.footer__legal-button {
+  cursor: pointer;
+}
+
 @media (width < 1024px) {
   .footer {
     padding: 48px var(--container-pad) 24px;
