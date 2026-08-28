@@ -15,14 +15,28 @@
  * Configuration comes entirely from the environment, so no Sentry identifier or
  * token is committed:
  *
- *   SENTRY_AUTH_TOKEN  secret, scope project:releases. Set it in Vercel, which
- *                      performs the production build. A GitHub secret alone
- *                      would upload maps for a bundle nobody deploys.
- *   SENTRY_ORG         organisation slug
- *   SENTRY_PROJECT     project slug
+ *   SENTRY_AUTH_TOKEN  secret. Set it in Vercel, which performs the production
+ *                      build. A GitHub secret alone would upload maps for a
+ *                      bundle nobody deploys.
+ *   SENTRY_ORG         organisation slug -- the bare slug, not a URL
+ *   SENTRY_PROJECT     project slug -- likewise
  *
  * With any of them missing the upload is skipped and the build continues. That
  * is deliberate: a local build and a fork's CI must both still work.
+ *
+ * **Use an Organization token (`sntrys_…`), not a personal one.** This project
+ * lives in Sentry's EU region, and sentry-cli defaults to the US one. An
+ * organization token is a signed blob carrying its own region URL, so the CLI
+ * routes itself correctly. A personal token carries no region, silently talks
+ * to the US instance, and fails with "organization not found" -- which reads
+ * like a wrong slug and sends you looking in the wrong place entirely. If a
+ * personal token is ever used here, `SENTRY_URL=https://de.sentry.io/` has to
+ * be set alongside it. Any variable set in the environment reaches the CLI, so
+ * that works without a change here.
+ *
+ * An organization token is also not tied to a person: a personal one stops
+ * working the day its owner leaves or rotates it, and the build breaks with no
+ * obvious connection to the cause.
  */
 import { execFileSync } from 'node:child_process';
 import { readdirSync, rmSync, statSync } from 'node:fs';
