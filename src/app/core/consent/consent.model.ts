@@ -19,6 +19,17 @@ export type ConsentCategory = (typeof CONSENT_CATEGORIES)[number];
  * The categories a visitor actually decides about. Everything the banner
  * renders as a toggle comes from this list, so adding a purpose here is the
  * single edit that puts it in front of the user.
+ *
+ * **hCaptcha is not going here.** Nelson's decision, and 4B T7 and 4C T5 both
+ * raise it: neither the contact form nor the quote tool can operate safely
+ * without spam protection, so it counts as strictly necessary for a service the
+ * visitor has themselves asked for. Behind an opt-in it would produce a form
+ * that cannot be submitted until cookies are accepted, which serves nobody --
+ * least of all the visitor who declines and then cannot make an enquiry.
+ *
+ * Note what adding a category costs, before anyone adds one: CONSENT_VERSION
+ * has to be bumped with it, and that re-prompts every visitor who has already
+ * decided. Consent to three purposes is not consent to a fourth.
  */
 export const OPTIONAL_CATEGORIES = ['analytics', 'monitoring'] as const;
 
