@@ -31,6 +31,12 @@ const CHECKS = [
   { path: '/aviso-legal', status: 200, type: 'text/html', body: '<hb-root' },
   { path: '/img/logo-256.webp', status: 200, type: 'image/webp' },
   { path: '/favicon.ico', status: 200 },
+  // public-root/ reaches production through a post-build copy that ng serve
+  // never runs, and is served in development by a separate assets entry. That
+  // divergence already broke the dev server once, when favicon.ico moved there.
+  { path: '/apple-touch-icon.png', status: 200, type: 'image/png' },
+  { path: '/icon-192.png', status: 200, type: 'image/png' },
+  { path: '/site.webmanifest', status: 200, body: 'Hucar Bus' },
   { path: '/robots.txt', status: 200, type: 'text/plain', body: 'User-agent' },
 ];
 

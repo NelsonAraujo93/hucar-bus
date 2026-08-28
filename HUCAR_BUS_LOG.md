@@ -740,3 +740,49 @@ everyone who has already decided.
    `instagram.com/hucarbus`
 8. Real Google reviews, before Reviews or any rating returns
 9. Vector logo — `logo_hucar_bus.pdf` is a ZIP with a `.pdf` extension
+
+## 2026-08-28 — Favicons
+
+The client supplied a six-file favicon set. Two problems, only one of them
+the format question that was asked.
+
+### The 16px icon cannot be made legible
+
+The artwork is an illustrated scene — palm tree, volcano, sunset, birds and
+a minibus. At 16×16 that is 256 pixels in total, and it renders as an
+orange-yellow blur no matter how it is resampled. Verified by regenerating
+it several ways and comparing at 8× magnification.
+
+At **32px** resampling does help: Lanczos with a light unsharp pass keeps the
+bus outline, the palm fronds and the sun edge distinct where the supplied
+plain downscale smears them together. Everything is therefore generated from
+the single 512px source rather than using the per-size exports.
+
+At **16px** nothing helps. It ships anyway — it is still better than the
+Angular default it replaces, which is simply the wrong brand — but a legible
+small mark needs simplified artwork, a bold bus silhouette or a monogram, and
+that is a design task rather than a conversion one. **Flagged, not solved.**
+
+### The set was 615 KB
+
+462 kB of it was the 512px PNG alone. The illustration is flat fills with a
+single sky gradient, so 256-colour quantisation is visually indistinguishable
+from the original and cuts the set to **165 KB**. These render at 192px at
+the largest, so gradient banding is invisible where they are actually seen.
+
+### Details worth keeping
+
+- The icons have an opaque off-white background, not transparency — same
+  source as the logo, which Phase 2 found is an opaque JPEG on #FBFBFB. That
+  is _correct_ for `apple-touch-icon`, where transparency renders as a black
+  square on the iOS home screen, and merely unremarkable elsewhere.
+- `theme_color` matches the navbar white, not the brand yellow. It tints the
+  Android address bar, which sits directly above the header — a yellow bar
+  over a white header reads as a rendering fault, not as branding.
+- The manifest is not localized and cannot be: it is served from the domain
+  root, shared by both locale builds. The brand name reads identically in
+  both, which is why it is kept out of the message catalogue anyway.
+- The build assertion and the dev-server smoke test both cover the new root
+  files. `public-root/` reaches production through a post-build copy that
+  `ng serve` never runs, and that divergence already broke the dev server
+  once, in Phase 2, when `favicon.ico` first moved there.
