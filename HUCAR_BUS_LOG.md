@@ -400,3 +400,193 @@ regardless, so the translations are in place the day those sections join.
 8. Vector or transparent logo — the current one is an opaque JPEG
 9. Privacy policy and terms copy, plus the cookie banner an EU site needs
 10. Confirm "desde 2014", "10+", "24/7"
+
+## 2026-08-28 — Phase 4A: consent layer, legal pages and Sentry
+
+Consent model, service and script gate; the banner and its preferences
+dialog; three legal routes; Sentry wired behind consent. Also 4B's T0,
+which had to come first. 355 tests.
+
+### The placeholder contact details are gone
+
+`hucarbus.com` was serving `+34 600 000 000` as a live `tel:` link, an
+`info@hucarbus.com` that does not exist, and `wa.me/34600000000`. All
+three are replaced from the AEAT Tarjeta de Identificación Fiscal and
+the client's contact card.
+
+**There are two phone numbers, one per language**, which the design did
+not anticipate. `SITE_CONFIG` resolves from `LOCALE_ID`, so the Spanish
+build serves `+34 677 87 18 61` and the English build
+`+34 677 87 35 89` — display value, `tel:` href and `wa.me` link alike.
+Verified in both prerendered outputs.
+
+**The displayed email is `hucarbus@gmail.com`, not `info@hucarbus.com`.**
+4B lists this as an open question and calls it cosmetic, but its own
+decision table settles it: the form delivers to that inbox because
+there is "no new mailbox to manage", so `info@` is not going to exist,
+and publishing it would publish an address that bounces. One-line change
+if that is wrong.
+
+The address is now structured rather than one string — the aviso legal,
+the privacy policy's responsable block and the eventual `LocalBusiness`
+JSON-LD each want different parts of it.
+
+`mercantileRegistry` and `transportAuthorisation` are typed as nullable
+and left null. LSSI-CE art. 10 requires both of a registered company and
+neither has been supplied; `null` makes that a state the templates must
+handle, where an empty string renders as nothing and reads as a page
+that simply omits them.
+
+**`4.8★` is gone from the About stats.** Nelson's call. It was the same
+fabricated figure the Reviews section is withheld for, reaching
+production through a different door. Confirmed absent from both built
+locales — the only remaining `4.8` in the output is a coordinate in the
+plane icon's SVG path.
+
+### The two accessibility rules in the plan are not in conflict
+
+T2 asks for a focus-trapped `role="dialog"` with `aria-modal`, and also
+that the banner must not block the page for screen readers. Those read
+as contradictory. They are not, because they describe two different
+things:
+
+- **The banner is not a modal.** A labelled region, no focus trap, page
+  still reachable. A visitor has to be able to read the privacy policy
+  the banner links to _before_ deciding, and a focus trap prevents
+  exactly that.
+- **The preferences dialog is a modal**, via native `<dialog>` and
+  `showModal()`. The trap, Escape, the top layer and inertness all come
+  from the browser rather than from a keydown handler that would be
+  subtly wrong.
+
+`@angular/aria` offers no focus trap — it is accordion, combobox,
+listbox, menu, tabs and tree. Native `<dialog>` was the better answer
+anyway.
+
+### Rejecting is recorded, not just honoured
+
+Without storing it, the banner would return on every page load for
+anyone who declined. Nagging is itself a documented dark pattern, so a
+rejection is a decision and is persisted.
+
+The consent version is part of the storage key, so a bump makes an old
+record _unread_ rather than merely ignored. Anything read back is
+validated against the current shape and rejected wholesale if it does
+not match — wrong version, missing category, non-boolean value, or a
+`necessary` claiming to be off. localStorage is writable by the user, by
+another script and by an older build of this site.
+
+Storage access **throws** in some privacy modes rather than returning
+empty, so reads and writes are both wrapped. A visitor with storage
+blocked is treated as undecided, which denies everything optional.
+
+### Hydration forced the banner's shape
+
+The prerendered HTML must contain no banner: it is one static document
+served to every visitor and cannot know what any browser has stored. But
+rendering nothing on the server and something on the client is a
+hydration mismatch, so the banner appears only after the first client
+render. The explicit `isPlatformBrowser` check alongside that is not
+redundant — without it, "never prerendered" would be a consequence of
+`afterNextRender`'s behaviour rather than something the component
+states, and it is a legal guarantee. Verified against the built output:
+the consent region appears in neither locale's static HTML.
+
+### Legal pages: three, not two
+
+The plan lists `/privacidad` and `/terminos`. The **aviso legal** is
+required of a Spanish commercial site by LSSI-CE art. 10, and its
+identity block is the one part of any of these documents that can be
+written for real today. Nelson's call: all three.
+
+Real: the responsable and titular blocks, and the privacy page's storage
+table. That table is not a description of what we believe the site
+stores — `LOCALE_COOKIE` and `CONSENT_STORAGE_KEY` are imported from the
+modules that write them, so a rename cannot leave the policy describing
+something that no longer exists.
+
+Marked as gaps: purposes and legal bases, retention, transfers, the full
+processor list, every service condition, and the two registry fields.
+Those are judgements about how the business operates, not facts
+derivable from a codebase.
+
+Paths stay Spanish in both locales, like the section anchors. The
+English build serves `/en/privacidad`.
+
+### A latent bug composing the second page
+
+The navbar and footer anchored to bare fragments — `href="#servicios"`.
+Correct for a single-page site. From `/es/privacidad` the same fragment
+resolves to `/es/privacidad#servicios` and scrolls to nothing. Every
+anchor is now qualified with the locale root via `LocaleService.homePath`.
+
+This is the second time composition has exposed something invisible in
+isolation; Phase 3 found the same class of defect with `COMPOSED_NAV_IDS`.
+
+### Sentry: consent, and a lazy chunk
+
+Nelson's call was consent over legitimate interest. The cost, stated
+rather than glossed: errors before the decision are never reported, and
+errors from anyone who declines are never reported at all. The issue
+feed is a sample of consenting visitors, so an empty feed is not
+evidence of an error-free site.
+
+**The plan says initialise in `main.ts` before `bootstrapApplication`.
+Under a consent regime that is wrong**, and the deviation is worth more
+than compliance. A static import would put 459 kB of vendor code in the
+initial bundle of every visitor, including everyone who declines and
+everyone never asked. Loaded by dynamic import inside the gate instead:
+initial bundle 381 kB raw / **104 kB transferred**, and a visitor who
+has not opted in never fetches a byte of Sentry.
+
+That also rules out Sentry's own `createErrorHandler`, which would bring
+the static import back. A thin handler forwards when the SDK exists and
+always delegates to the base handler, so errors still reach the console.
+
+`beforeBreadcrumb` scrubs as well as `beforeSend`. Breadcrumbs are the
+other route by which form content escapes — a logged payload or a fetch
+body recorded minutes before the error that ships it.
+
+The scrubber works from an **allowlist** of containers rather than
+walking the whole event: stack frames must survive intact, and their
+line and column offsets match the phone-number pattern.
+
+**The DSN is committed and empty.** A DSN is public by design — it is in
+the client bundle of every site using Sentry and grants only the ability
+to send events — so it needs no build-time injection, and this project
+has no `environments/` plumbing to add. Empty means not configured, and
+nothing registers with the gate at all.
+
+### Not done, and not claimable
+
+- **T7 release tagging, T8 source maps, T9 end-to-end verification.**
+  All three need the Sentry account, which does not exist yet. An
+  unverified Sentry install produces false confidence, so it is reported
+  as unverified rather than as done.
+- `package.json` stays at `0.0.0` — semantic-release writes no version
+  back — so the release tag cannot simply be read from there when T7
+  arrives.
+
+### Traps set for later
+
+- `sentry.config.ts` carries a comment at the DSN line: filling it in
+  makes two sentences in `/privacidad` false. The page states that no
+  monitoring tool loads and lists Vercel as the only processor.
+- The smoke test now covers all three legal routes. A route that is not
+  prerendered 404s on direct navigation, and 4B's contact form links
+  straight at `/privacidad`.
+
+### Still open
+
+1. Sentry account — org, project, DSN, **EU data region**, and the
+   Article 28 DPA
+2. Privacy policy, terms and cookie policy text, professionally reviewed
+3. Registro Mercantil details (tomo, folio, hoja, inscripción)
+4. Transport authorisation number
+5. Confirm the "desde 2014" history — the S.L. took its NIF in 2026, so
+   only the _family_ claim is defensible, and the copy is phrased that way
+6. Displayed email: `hucarbus@gmail.com` as shipped, or a real `info@`
+7. Instagram and Facebook handles — the footer still links a guessed
+   `instagram.com/hucarbus`
+8. Real Google reviews, before Reviews or any rating returns
+9. Vector logo — `logo_hucar_bus.pdf` is a ZIP with a `.pdf` extension
