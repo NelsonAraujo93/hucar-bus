@@ -118,6 +118,152 @@
         <source>disponibilidad</source>
       </segment>
     </unit>
+    <unit id="consent.title">
+      <notes>
+        <note category="location">src/app/features/consent-banner/consent-banner.html:9,11</note>
+        <note category="meaning">Consent banner heading</note>
+      </notes>
+      <segment>
+        <source> Tu privacidad </source>
+      </segment>
+    </unit>
+    <unit id="consent.body">
+      <notes>
+        <note category="location">src/app/features/consent-banner/consent-banner.html:12,17</note>
+        <note category="meaning">Consent banner explanation</note>
+      </notes>
+      <segment>
+        <source> Usamos cookies necesarias para que la web funcione. Con tu permiso, usaríamos también cookies de analítica y de monitorización de errores. Puedes cambiar tu decisión cuando quieras. </source>
+      </segment>
+    </unit>
+    <unit id="consent.policy.link">
+      <notes>
+        <note category="location">src/app/features/consent-banner/consent-banner.html:21,25</note>
+        <note category="meaning">Link to the privacy policy</note>
+      </notes>
+      <segment>
+        <source> Política de privacidad </source>
+      </segment>
+    </unit>
+    <unit id="consent.accept">
+      <notes>
+        <note category="location">src/app/features/consent-banner/consent-banner.html:37,40</note>
+        <note category="location">src/app/features/consent-banner/consent-banner.html:150,154</note>
+        <note category="meaning">Accept every cookie category</note>
+      </notes>
+      <segment>
+        <source> Aceptar todo </source>
+      </segment>
+    </unit>
+    <unit id="consent.reject">
+      <notes>
+        <note category="location">src/app/features/consent-banner/consent-banner.html:47,51</note>
+        <note category="location">src/app/features/consent-banner/consent-banner.html:160,164</note>
+        <note category="meaning">Reject every optional cookie category</note>
+      </notes>
+      <segment>
+        <source> Rechazar todo </source>
+      </segment>
+    </unit>
+    <unit id="consent.configure">
+      <notes>
+        <note category="location">src/app/features/consent-banner/consent-banner.html:57,64</note>
+        <note category="meaning">Open the per-category cookie settings</note>
+      </notes>
+      <segment>
+        <source> Configurar </source>
+      </segment>
+    </unit>
+    <unit id="consent.prefs.title">
+      <notes>
+        <note category="location">src/app/features/consent-banner/consent-banner.html:83,87</note>
+        <note category="meaning">Cookie preferences dialog heading</note>
+      </notes>
+      <segment>
+        <source> Preferencias de cookies </source>
+      </segment>
+    </unit>
+    <unit id="consent.prefs.close">
+      <notes>
+        <note category="location">src/app/features/consent-banner/consent-banner.html:91,94</note>
+        <note category="meaning">Close the cookie preferences dialog</note>
+      </notes>
+      <segment>
+        <source>Cerrar</source>
+      </segment>
+    </unit>
+    <unit id="consent.category.necessary.name">
+      <notes>
+        <note category="location">src/app/features/consent-banner/consent-banner.html:100,102</note>
+        <note category="meaning">Consent category name</note>
+      </notes>
+      <segment>
+        <source>Necesarias</source>
+      </segment>
+    </unit>
+    <unit id="consent.category.necessary.always">
+      <notes>
+        <note category="location">src/app/features/consent-banner/consent-banner.html:107,112</note>
+        <note category="meaning">Marks a category that cannot be switched off</note>
+      </notes>
+      <segment>
+        <source>Siempre activas</source>
+      </segment>
+    </unit>
+    <unit id="consent.category.necessary.description">
+      <notes>
+        <note category="location">src/app/features/consent-banner/consent-banner.html:114,119</note>
+        <note category="meaning">Consent category description</note>
+      </notes>
+      <segment>
+        <source> Imprescindibles para que la web funcione. Recuerdan tu idioma y esta misma decisión. No se pueden desactivar. </source>
+      </segment>
+    </unit>
+    <unit id="consent.prefs.save">
+      <notes>
+        <note category="location">src/app/features/consent-banner/consent-banner.html:170,175</note>
+        <note category="meaning">Save the per-category cookie selection</note>
+      </notes>
+      <segment>
+        <source> Guardar preferencias </source>
+      </segment>
+    </unit>
+    <unit id="consent.category.analytics.name">
+      <notes>
+        <note category="location">src/app/features/consent-banner/consent-banner.ts:92</note>
+        <note category="meaning">Consent category name</note>
+      </notes>
+      <segment>
+        <source>Analítica</source>
+      </segment>
+    </unit>
+    <unit id="consent.category.analytics.description">
+      <notes>
+        <note category="location">src/app/features/consent-banner/consent-banner.ts:93</note>
+        <note category="meaning">Consent category description</note>
+      </notes>
+      <segment>
+        <source>Nos dicen de forma agregada qué páginas se visitan y cómo llega la gente al sitio, para poder mejorarlo.</source>
+      </segment>
+    </unit>
+    <unit id="consent.category.monitoring.name">
+      <notes>
+        <note category="location">src/app/features/consent-banner/consent-banner.ts:97</note>
+        <note category="meaning">Consent category name</note>
+      </notes>
+      <segment>
+        <source>Monitorización de errores</source>
+      </segment>
+    </unit>
+    <unit id="consent.category.monitoring.description">
+      <notes>
+        <note category="location">src/app/features/consent-banner/consent-banner.ts:98</note>
+        <note category="meaning">Consent category description</note>
+      </notes>
+      <segment>
+        <source>Nos avisan cuando algo falla, con los detalles técnicos del fallo. Nunca incluyen lo que escribes en el formulario.</source>
+      </segment>
+    </unit>
     <unit id="contact.eyebrow">
       <notes>
         <note category="location">src/app/features/contact/contact.html:5,6</note>

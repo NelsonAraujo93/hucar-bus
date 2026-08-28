@@ -271,6 +271,102 @@
         <target>availability</target>
       </segment>
     </unit>
+    <unit id="consent.title">
+      <segment state="translated">
+        <source> Tu privacidad </source>
+        <target> Your privacy </target>
+      </segment>
+    </unit>
+    <unit id="consent.body">
+      <segment state="translated">
+        <source> Usamos cookies necesarias para que la web funcione. Con tu permiso, usaríamos también cookies de analítica y de monitorización de errores. Puedes cambiar tu decisión cuando quieras. </source>
+        <target> We use necessary cookies to make the site work. With your permission, we would also use analytics and error-monitoring cookies. You can change your decision at any time. </target>
+      </segment>
+    </unit>
+    <unit id="consent.policy.link">
+      <segment state="translated">
+        <source> Política de privacidad </source>
+        <target> Privacy policy </target>
+      </segment>
+    </unit>
+    <unit id="consent.accept">
+      <segment state="translated">
+        <source> Aceptar todo </source>
+        <target> Accept all </target>
+      </segment>
+    </unit>
+    <unit id="consent.reject">
+      <segment state="translated">
+        <source> Rechazar todo </source>
+        <target> Reject all </target>
+      </segment>
+    </unit>
+    <unit id="consent.configure">
+      <segment state="translated">
+        <source> Configurar </source>
+        <target> Configure </target>
+      </segment>
+    </unit>
+    <unit id="consent.prefs.title">
+      <segment state="translated">
+        <source> Preferencias de cookies </source>
+        <target> Cookie preferences </target>
+      </segment>
+    </unit>
+    <unit id="consent.prefs.close">
+      <segment state="translated">
+        <source>Cerrar</source>
+        <target>Close</target>
+      </segment>
+    </unit>
+    <unit id="consent.category.necessary.name">
+      <segment state="translated">
+        <source>Necesarias</source>
+        <target>Necessary</target>
+      </segment>
+    </unit>
+    <unit id="consent.category.necessary.always">
+      <segment state="translated">
+        <source>Siempre activas</source>
+        <target>Always on</target>
+      </segment>
+    </unit>
+    <unit id="consent.category.necessary.description">
+      <segment state="translated">
+        <source> Imprescindibles para que la web funcione. Recuerdan tu idioma y esta misma decisión. No se pueden desactivar. </source>
+        <target> Essential for the site to work. They remember your language and this decision itself. They cannot be switched off. </target>
+      </segment>
+    </unit>
+    <unit id="consent.prefs.save">
+      <segment state="translated">
+        <source> Guardar preferencias </source>
+        <target> Save preferences </target>
+      </segment>
+    </unit>
+    <unit id="consent.category.analytics.name">
+      <segment state="translated">
+        <source>Analítica</source>
+        <target>Analytics</target>
+      </segment>
+    </unit>
+    <unit id="consent.category.analytics.description">
+      <segment state="translated">
+        <source>Nos dicen de forma agregada qué páginas se visitan y cómo llega la gente al sitio, para poder mejorarlo.</source>
+        <target>They tell us in aggregate which pages are visited and how people reach the site, so we can improve it.</target>
+      </segment>
+    </unit>
+    <unit id="consent.category.monitoring.name">
+      <segment state="translated">
+        <source>Monitorización de errores</source>
+        <target>Error monitoring</target>
+      </segment>
+    </unit>
+    <unit id="consent.category.monitoring.description">
+      <segment state="translated">
+        <source>Nos avisan cuando algo falla, con los detalles técnicos del fallo. Nunca incluyen lo que escribes en el formulario.</source>
+        <target>They alert us when something breaks, with the technical detail of the failure. They never include what you type into the form.</target>
+      </segment>
+    </unit>
     <unit id="contact.eyebrow">
       <segment state="translated">
         <source>Contacto</source>

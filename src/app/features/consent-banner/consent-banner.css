@@ -1,0 +1,223 @@
+/* Above the WhatsApp float (50) and the navbar (40), which would otherwise
+   overlap the action row on a narrow screen. */
+.consent {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 80;
+  background: #fff;
+  border-top: 1px solid var(--color-border);
+  box-shadow: var(--shadow-float-card);
+}
+
+.consent__inner {
+  display: flex;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 20px var(--container-pad);
+  gap: 32px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.consent__copy {
+  max-width: 62ch;
+}
+
+.consent__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-ink);
+}
+
+.consent__body {
+  margin: 8px 0 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-ink-muted);
+}
+
+.consent__link {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-brand-blue);
+  text-underline-offset: 3px;
+}
+
+.consent__actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Accept and reject are laid out identically and share a minimum width, so
+   neither reads as the expected answer. */
+.consent__action {
+  min-width: 132px;
+}
+
+@media (width < 900px) {
+  .consent__inner {
+    flex-direction: column;
+    padding: 16px var(--container-pad);
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .consent__actions {
+    flex-wrap: wrap;
+  }
+
+  .consent__action {
+    flex: 1 1 132px;
+  }
+}
+
+.prefs {
+  width: min(560px, calc(100vw - 32px));
+  max-height: min(80vh, 720px);
+  padding: 0;
+  background: #fff;
+  border: 0;
+  border-radius: var(--radius-16);
+  box-shadow: var(--shadow-float-card);
+}
+
+.prefs::backdrop {
+  background: rgb(26 26 26 / 55%);
+}
+
+.prefs__inner {
+  display: flex;
+  flex-direction: column;
+  max-height: inherit;
+  padding: 24px;
+  gap: 20px;
+}
+
+.prefs__head {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.prefs__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-ink);
+}
+
+.prefs__close {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: var(--radius-circle);
+  font-size: 24px;
+  line-height: 1;
+  color: var(--color-ink-muted);
+  cursor: pointer;
+  transition: background var(--duration-micro) ease;
+}
+
+.prefs__close:hover {
+  background: var(--color-cream);
+}
+
+.prefs__list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  gap: 16px;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.prefs__item {
+  padding: 16px;
+  background: var(--color-cream);
+  border-radius: var(--radius-12);
+}
+
+.prefs__item-head {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prefs__name {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+label.prefs__name {
+  cursor: pointer;
+}
+
+.prefs__always {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  background: var(--color-sand-light);
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+
+  /* Deliberately not --color-ink-muted on --color-sand-light: that pairing is
+     4.2:1, under the 4.5:1 WCAG AA minimum for text this size. */
+  color: var(--color-ink);
+}
+
+.prefs__toggle {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  accent-color: var(--color-ocean-teal);
+  cursor: pointer;
+}
+
+.prefs__description {
+  margin: 8px 0 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-ink-muted);
+}
+
+.prefs__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.prefs__action {
+  flex: 1 1 150px;
+}
+
+@media (width < 560px) {
+  .prefs__inner {
+    padding: 20px;
+  }
+}

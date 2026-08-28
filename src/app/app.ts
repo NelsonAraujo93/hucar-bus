@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ConsentBanner } from './features/consent-banner/consent-banner';
 import { SeoService } from './core/seo/seo.service';
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [ConsentBanner, RouterOutlet],
   selector: 'hb-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
