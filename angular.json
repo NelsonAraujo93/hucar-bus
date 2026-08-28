@@ -65,6 +65,12 @@
               ],
               "outputHashing": "all",
               "i18nMissingTranslation": "error",
+              "sourceMap": {
+                "scripts": true,
+                "styles": false,
+                "hidden": true,
+                "vendor": false
+              },
               "fileReplacements": [
                 {
                   "replace": "src/app/app.routes.ts",

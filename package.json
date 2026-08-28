@@ -20,7 +20,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "node scripts/write-release.mjs && ng build && node scripts/copy-root-assets.mjs",
+    "build": "node scripts/write-release.mjs && ng build && node scripts/copy-root-assets.mjs && node scripts/upload-sourcemaps.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:hucar-bus": "node dist/hucar-bus/server/server.mjs",
