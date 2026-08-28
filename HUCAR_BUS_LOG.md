@@ -557,15 +557,68 @@ to send events — so it needs no build-time injection, and this project
 has no `environments/` plumbing to add. Empty means not configured, and
 nothing registers with the gate at all.
 
-### Not done, and not claimable
+### The account arrived mid-phase, on the EU region
 
-- **T7 release tagging, T8 source maps, T9 end-to-end verification.**
-  All three need the Sentry account, which does not exist yet. An
-  unverified Sentry install produces false confidence, so it is reported
-  as unverified rather than as done.
-- `package.json` stays at `0.0.0` — semantic-release writes no version
-  back — so the release tag cannot simply be read from there when T7
-  arrives.
+Nelson created the project on **`ingest.de.sentry.io`**. The region is
+chosen at organisation creation and cannot be changed afterwards, so
+this was the one setup decision with no second chance — and it means
+error monitoring involves **no international transfer**. The privacy
+policy states that as fact rather than carrying a gap where the transfer
+analysis would go.
+
+A live DSN immediately made part of `/privacidad` false: it named Vercel
+as the sole processor. It now names Sentry, and states what is true and
+tested — nothing received without consent, code not even _downloaded_
+without consent, EU processing, nothing stored in the browser, no IP,
+contact-form content stripped before leaving the device. The sentence
+saying no monitoring tool loads without express permission was already
+accurate and did not change.
+
+### T7: the plan's release identifier could not work
+
+The plan asks for the semantic-release version. The deployment topology
+rules it out: **Vercel builds production from a branch push**, and
+semantic-release runs afterwards in Actions, tagging a commit that has
+already been built and deployed. At build time the version does not
+exist, and `package.json` stays at `0.0.0` because nothing is written
+back.
+
+The commit SHA is used instead — available at build time, unambiguous
+later, and the same identifier source maps must be uploaded against.
+`scripts/write-release.mjs` reads `VERCEL_GIT_COMMIT_SHA` or
+`GITHUB_SHA`. Outside CI it writes `null`, which is exactly what is
+committed, so a local build rewrites the file identically and leaves the
+working tree clean.
+
+### T9: ingestion proven, readability not yet
+
+Two independent checks:
+
+- A direct envelope POST to the region endpoint returned **200 with an
+  event id**, proving the DSN, project and region are real and
+  accepting. `Sentry.flush()` alone would not have proved this — it
+  reports that the client's buffer drained, not what the server did.
+- The full SDK path was exercised through a temporary spec using the
+  real config, real `init` and real `beforeSend`, including an event
+  deliberately carrying contact-form values so the scrubbing could be
+  confirmed in the real pipeline.
+
+**That spec was deleted, not kept.** Left in place it would send live
+events on every CI run and burn the free quota.
+
+What remains of T9 is human: confirming in the Sentry UI that the events
+read well and that the scrubbing check shows `[redacted]`.
+
+### Still not done
+
+- **T8 source maps.** Without them a stack trace points at a minified
+  bundle and is close to worthless, so "readable stack traces" in the
+  definition of done is not yet met. Needs the org and project _slugs_
+  (the DSN carries only numeric ids) and an auth token with
+  `project:releases`.
+- The token belongs in **Vercel's** environment, not only a GitHub
+  secret as the plan says — Vercel performs the production build, so
+  that is where the upload has to happen.
 
 ### Traps set for later
 
@@ -578,8 +631,9 @@ nothing registers with the gate at all.
 
 ### Still open
 
-1. Sentry account — org, project, DSN, **EU data region**, and the
-   Article 28 DPA
+1. Sentry — account done, EU region confirmed. Still outstanding: the
+   org/project slugs and a `project:releases` auth token for source
+   maps, and the Article 28 DPA signed in organisation settings
 2. Privacy policy, terms and cookie policy text, professionally reviewed
 3. Registro Mercantil details (tomo, folio, hoja, inscripción)
 4. Transport authorisation number
