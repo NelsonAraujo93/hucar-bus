@@ -26,10 +26,14 @@ export class About {
   protected readonly config = inject(SITE_CONFIG);
 
   /**
-   * All three are unverified client claims, which is why they come from config
-   * rather than the template. The rating in particular is derived from review
-   * content that cannot ship, so it must be confirmed or dropped before this
-   * reaches production.
+   * Both are unverified client claims, which is why they come from config rather
+   * than the template.
+   *
+   * There was a third: a 4.8-star average rating. It was the same fabricated
+   * figure the Reviews section is withheld for, reaching production through a
+   * different door, and it is gone rather than confirmed -- the client has not
+   * supplied a real rating, and the Google Places integration that would produce
+   * one is still blocked. It returns when Reviews does, from the same source.
    */
   protected readonly stats = computed<readonly Stat[]>(() => [
     {
@@ -39,10 +43,6 @@ export class About {
     {
       value: this.config.availability,
       label: $localize`:Stat label|@@about.stats.availability:disponibilidad`,
-    },
-    {
-      value: this.config.rating,
-      label: $localize`:Stat label|@@about.stats.rating:valoración media`,
     },
   ]);
 }

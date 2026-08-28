@@ -271,12 +271,6 @@
         <target>availability</target>
       </segment>
     </unit>
-    <unit id="about.stats.rating">
-      <segment state="translated">
-        <source>valoración media</source>
-        <target>average rating</target>
-      </segment>
-    </unit>
     <unit id="contact.eyebrow">
       <segment state="translated">
         <source>Contacto</source>
