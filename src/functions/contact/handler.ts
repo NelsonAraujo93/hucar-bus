@@ -1,5 +1,9 @@
 import { validateEnquiry } from '../../app/domain/contact/enquiry.js';
-import { SUPPORTED_LOCALES, type SupportedLocale } from '../../shared/i18n/negotiate-locale.js';
+import {
+  FALLBACK_LOCALE,
+  SUPPORTED_LOCALES,
+  type SupportedLocale,
+} from '../../shared/i18n/negotiate-locale.js';
 import {
   HONEYPOT_FIELD,
   MIN_FILL_MS,
@@ -52,8 +56,12 @@ function clientKey(request: Request): string {
   return forwarded || request.headers.get('x-real-ip') || 'unknown';
 }
 
+/**
+ * The site's own fallback, not the source language: most customers are
+ * English speakers, so an unknown locale gets the English acknowledgement.
+ */
 function toLocale(value: unknown): SupportedLocale {
-  return SUPPORTED_LOCALES.find((locale) => locale === value) ?? 'es';
+  return SUPPORTED_LOCALES.find((locale) => locale === value) ?? FALLBACK_LOCALE;
 }
 
 export async function handleContact(request: Request, deps: ContactDeps): Promise<Response> {

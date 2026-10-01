@@ -296,10 +296,14 @@ describe('handleContact', () => {
       expect(sent[1].subject).toContain("We've received");
     });
 
-    it('treats an unknown locale as Spanish, the source language', async () => {
+    it.each([
+      ['an unknown locale', 'fr'],
+      ['a missing locale', undefined],
+    ])('answers %s in English, the site fallback', async (_label, locale) => {
       const { deps, sent } = harness();
-      await handleContact(post(body({ locale: 'fr' })), deps);
-      expect(sent[1].subject).toContain('Hemos recibido');
+      await handleContact(post(body({ locale })), deps);
+      expect(sent[1].subject).toContain("We've received");
+      expect(sent[1].text).toContain('+34 677 87 35 89');
     });
   });
 });
