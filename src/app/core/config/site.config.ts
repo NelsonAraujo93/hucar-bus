@@ -1,9 +1,6 @@
 import { inject, InjectionToken, LOCALE_ID } from '@angular/core';
-import {
-  FALLBACK_LOCALE,
-  toSupportedLocale,
-  type SupportedLocale,
-} from '../../../shared/i18n/negotiate-locale';
+import { FALLBACK_LOCALE, toSupportedLocale } from '../../../shared/i18n/negotiate-locale';
+import { PHONE_DIGITS, PHONE_DISPLAY, whatsappUrl } from '../../../shared/contact/channels';
 
 /**
  * The registered address, kept structured rather than as one string.
@@ -97,18 +94,6 @@ export interface SiteConfig {
   readonly transportAuthorisation: string | null;
 }
 
-/** The client's WhatsApp numbers, one per language, digits only. */
-const PHONE_DIGITS: Record<SupportedLocale, string> = {
-  es: '+34677871861',
-  en: '+34677873589',
-};
-
-/** The same numbers grouped for display, as the client writes them. */
-const PHONE_DISPLAY: Record<SupportedLocale, string> = {
-  es: '+34 677 87 18 61',
-  en: '+34 677 87 35 89',
-};
-
 const ADDRESS: PostalAddress = {
   street: 'Calle Veracruz, 27',
   postcode: '35500',
@@ -133,9 +118,9 @@ export const SITE_CONFIG = new InjectionToken<SiteConfig>('hb.siteConfig', {
       addressFull: `${ADDRESS.street}, ${ADDRESS.postcode} ${ADDRESS.city}, ${ADDRESS.province}`,
       addressShort: `${ADDRESS.city}, Lanzarote`,
       phone: PHONE_DISPLAY[locale],
-      // wa.me rejects the leading +, tel: requires it.
+      // tel: requires the leading +, which whatsappUrl drops for wa.me.
       phoneHref: `tel:${digits}`,
-      whatsappUrl: `https://wa.me/${digits.replace('+', '')}`,
+      whatsappUrl: whatsappUrl(locale),
       email: 'hucarbus@gmail.com',
       instagramUrl: 'https://instagram.com/hucarbus',
       foundedYear: 2014,
