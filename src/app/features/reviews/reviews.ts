@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
+import { Component, computed, inject, input, signal } from '@angular/core';
 import { BreakpointObserver } from '../../core/layout/breakpoint';
 import { Icon } from '../../shared/ui/icon/icon';
 import { SectionHeader } from '../../shared/ui/section-header/section-header';
@@ -23,7 +23,6 @@ const SWIPE_THRESHOLD_PX = 40;
   imports: [Icon, SectionHeader],
   templateUrl: './reviews.html',
   styleUrl: './reviews.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Reviews {
   private readonly breakpoint = inject(BreakpointObserver);

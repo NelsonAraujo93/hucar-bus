@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { DOCUMENT, effect, inject, Injectable, Injector, PLATFORM_ID } from '@angular/core';
+import { DOCUMENT, effect, inject, Injector, PLATFORM_ID, Service } from '@angular/core';
 import { ConsentService } from './consent.service';
 import { type ConsentCategory } from './consent.model';
 
@@ -21,7 +21,7 @@ export interface GatedScript {
  * one of five integrations ends up loading unconditionally, and nobody notices
  * until an audit.
  */
-@Injectable({ providedIn: 'root' })
+@Service()
 export class ScriptGate {
   private readonly consent = inject(ConsentService);
   private readonly document = inject(DOCUMENT);

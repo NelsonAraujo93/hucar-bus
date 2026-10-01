@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { DestroyRef, DOCUMENT, inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
+import { DestroyRef, DOCUMENT, inject, PLATFORM_ID, Service, signal } from '@angular/core';
 
 export type Breakpoint = 'mobile' | 'tablet' | 'desktop';
 
@@ -17,7 +17,7 @@ const DESKTOP_MIN = 1024;
  * Defaults to desktop during prerendering. The prerendered HTML is laid out by
  * CSS regardless, so the value only affects behaviour after hydration.
  */
-@Injectable({ providedIn: 'root' })
+@Service()
 export class BreakpointObserver {
   private readonly document = inject(DOCUMENT);
   private readonly platformId = inject(PLATFORM_ID);

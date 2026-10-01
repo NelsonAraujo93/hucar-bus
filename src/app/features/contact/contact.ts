@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { BRAND } from '../../core/config/brand';
 import { SITE_CONFIG } from '../../core/config/site.config';
 import { Button } from '../../shared/ui/button/button';
@@ -21,7 +21,6 @@ export type ContactStatus = 'idle' | 'pending' | 'sent' | 'error';
   imports: [Button, Icon, ImagePlaceholder, SectionHeader],
   templateUrl: './contact.html',
   styleUrl: './contact.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Contact {
   protected readonly config = inject(SITE_CONFIG);
