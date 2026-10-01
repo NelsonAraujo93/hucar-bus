@@ -79,8 +79,11 @@ export default defineConfig([
             'aria-controls',
             'aria-labelledby',
             'aria-describedby',
+            'aria-live',
             // Table header direction: col/row, not copy.
             'scope',
+            // Form plumbing: an HTTP method, not copy.
+            'method',
           ],
         },
       ],

@@ -391,12 +391,6 @@
         <target>Message sent!</target>
       </segment>
     </unit>
-    <unit id="contact.sent.body">
-      <segment state="translated">
-        <source>Te responderemos en breve.</source>
-        <target>We’ll get back to you shortly.</target>
-      </segment>
-    </unit>
     <unit id="contact.sent.again">
       <segment state="translated">
         <source>Enviar otro</source>
@@ -419,6 +413,150 @@
       <segment state="translated">
         <source>Reintentar</source>
         <target>Try again</target>
+      </segment>
+    </unit>
+    <unit id="contact.type.legend">
+      <segment state="translated">
+        <source> ¿Quién nos escribe? </source>
+        <target>Who is writing?</target>
+      </segment>
+    </unit>
+    <unit id="contact.type.customer">
+      <segment state="translated">
+        <source>Cliente particular</source>
+        <target>Private customer</target>
+      </segment>
+    </unit>
+    <unit id="contact.type.operator">
+      <segment state="translated">
+        <source>Operador turístico</source>
+        <target>Tour operator</target>
+      </segment>
+    </unit>
+    <unit id="contact.type.other">
+      <segment state="translated">
+        <source>Otro</source>
+        <target>Other</target>
+      </segment>
+    </unit>
+    <unit id="contact.field.company">
+      <segment state="translated">
+        <source>Empresa</source>
+        <target>Company</target>
+      </segment>
+    </unit>
+    <unit id="contact.privacy.accept">
+      <segment state="translated">
+        <source>He leído y acepto la</source>
+        <target>I have read and accept the</target>
+      </segment>
+    </unit>
+    <unit id="contact.privacy.link">
+      <segment state="translated">
+        <source>política de privacidad</source>
+        <target>privacy policy</target>
+      </segment>
+    </unit>
+    <unit id="contact.trap.label">
+      <segment state="translated">
+        <source>Deja este campo vacío</source>
+        <target>Leave this field empty</target>
+      </segment>
+    </unit>
+    <unit id="contact.live.pending">
+      <segment state="translated">
+        <source>Enviando tu mensaje…</source>
+        <target>Sending your message…</target>
+      </segment>
+    </unit>
+    <unit id="contact.live.sent">
+      <segment state="translated">
+        <source>Mensaje enviado.</source>
+        <target>Message sent.</target>
+      </segment>
+    </unit>
+    <unit id="contact.sent.next">
+      <segment state="translated">
+        <source> Te responderemos en menos de 24 horas con la fecha, el precio y un enlace de pago seguro. Revisa tu correo: te hemos enviado una confirmación. </source>
+        <target>We will reply within 24 hours with the date, the price and a secure payment link. Check your inbox: we have sent you a confirmation.</target>
+      </segment>
+    </unit>
+    <unit id="contact.error.rateLimited">
+      <segment state="translated">
+        <source> Has enviado varios mensajes seguidos. Espera unos minutos o escríbenos por WhatsApp. </source>
+        <target>You have sent several messages in a row. Please wait a few minutes, or message us on WhatsApp.</target>
+      </segment>
+    </unit>
+    <unit id="contact.error.whatsapp">
+      <segment state="translated">
+        <source>Escribir por WhatsApp</source>
+        <target>Message us on WhatsApp</target>
+      </segment>
+    </unit>
+    <unit id="contact.error.kept">
+      <segment state="translated">
+        <source> Tu mensaje sigue guardado en el formulario. </source>
+        <target>Your message is still saved in the form.</target>
+      </segment>
+    </unit>
+    <unit id="contact.error.email.invalid">
+      <segment state="translated">
+        <source>Revisa el formato del email.</source>
+        <target>Check the email address format.</target>
+      </segment>
+    </unit>
+    <unit id="contact.error.tooLong">
+      <segment state="translated">
+        <source>Es demasiado largo.</source>
+        <target>This is too long.</target>
+      </segment>
+    </unit>
+    <unit id="contact.error.name.required">
+      <segment state="translated">
+        <source>Indica tu nombre.</source>
+        <target>Please enter your name.</target>
+      </segment>
+    </unit>
+    <unit id="contact.error.email.required">
+      <segment state="translated">
+        <source>Indica tu email.</source>
+        <target>Please enter your email.</target>
+      </segment>
+    </unit>
+    <unit id="contact.error.type.required">
+      <segment state="translated">
+        <source>Elige el tipo de consulta.</source>
+        <target>Please choose who is writing.</target>
+      </segment>
+    </unit>
+    <unit id="contact.error.company.required">
+      <segment state="translated">
+        <source>Indica el nombre de tu empresa.</source>
+        <target>Please enter your company name.</target>
+      </segment>
+    </unit>
+    <unit id="contact.error.subject.required">
+      <segment state="translated">
+        <source>Indica el asunto.</source>
+        <target>Please enter a subject.</target>
+      </segment>
+    </unit>
+    <unit id="contact.error.message.required">
+      <segment state="translated">
+        <source>Escribe tu mensaje.</source>
+        <target>Please write your message.</target>
+      </segment>
+    </unit>
+    <unit id="contact.error.privacy.required">
+      <segment state="translated">
+        <source>Debes aceptar la política de privacidad.</source>
+        <target>You need to accept the privacy policy.</target>
+      </segment>
+    </unit>
+    <unit id="contact.error.generic">
+      <segment state="translated">
+        <source>Revisa este campo.</source>
+        <target>Please check this field.</target>
       </segment>
     </unit>
     <unit id="contact.field.name">
