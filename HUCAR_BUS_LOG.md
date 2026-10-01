@@ -590,9 +590,9 @@ later, and the same identifier source maps must be uploaded against.
 committed, so a local build rewrites the file identically and leaves the
 working tree clean.
 
-### T9: ingestion proven, readability not yet
+### T9: verified end to end
 
-Two independent checks:
+Three checks, in increasing order of what they prove:
 
 - A direct envelope POST to the region endpoint returned **200 with an
   event id**, proving the DSN, project and region are real and
@@ -603,11 +603,20 @@ Two independent checks:
   deliberately carrying contact-form values so the scrubbing could be
   confirmed in the real pipeline.
 
-**That spec was deleted, not kept.** Left in place it would send live
-events on every CI run and burn the free quota.
+- **A real browser on the deployed preview.** Nelson accepted the
+  monitoring category, threw an error from the console, and the event
+  arrived. That is the only check that exercises the whole chain the way
+  a visitor would: banner, consent record, gate, dynamic import, init,
+  `beforeSend`, transport.
 
-What remains of T9 is human: confirming in the Sentry UI that the events
-read well and that the scrubbing check shows `[redacted]`.
+**The temporary spec was deleted, not kept.** Left in place it would
+send live events on every CI run and burn the free quota.
+
+Worth restating, because it will look like a fault later: **an empty
+issue feed is the expected state of a working install.** Sentry receives
+nothing unless a visitor opts in _and_ an error occurs. That is exactly
+why ingestion was proven separately rather than by watching the feed —
+"no events" and "not working" are indistinguishable from the dashboard.
 
 ### T8: source maps, and the deletion is unconditional
 
@@ -638,10 +647,29 @@ duplicated. If the release baked into the bundle and the release the
 maps are uploaded against ever drift, nothing fails loudly — Sentry
 just serves minified frames forever.
 
-Verified: 14 maps produced and deleted, no `.map` and no
+Verified locally: 14 maps produced and deleted, no `.map` and no
 `sourceMappingURL` in the output, and a deliberately wrong org fails the
-build with exit 1 while still deleting the maps. The successful-upload
-path is unverified until the three variables are set.
+build with exit 1 while still deleting the maps.
+
+**Verified on Vercel** on the `dev` deployment: debug IDs injected into
+every bundle and map across both locales, then `Source maps: uploaded.`
+
+That build log also showed why debug IDs were the right mechanism and
+not merely the modern one. Angular hashes chunk filenames **before**
+localisation, so the two locales emit files with identical names and
+different contents:
+
+```
+~/en/chunk-D1XeOPa4.js.map  debug id e398f4ea-…
+~/es/chunk-D1XeOPa4.js.map  debug id 47a9acc1-…
+```
+
+Under the older filename/URL artifact matching, `chunk-D1XeOPa4.js`
+would have been genuinely ambiguous — Sentry could not have told which
+locale a frame belonged to. Debug IDs match on content, so it resolves.
+Anything that reverts to URL-based artifact matching on this project
+will break in a way that only shows up as occasional wrong-locale
+source in a stack trace.
 
 ### Session Replay was in the bundle, and it was our fault
 
@@ -698,11 +726,10 @@ everyone who has already decided.
 
 ### Still open
 
-1. Sentry — account and EU region done, source-map pipeline built.
-   Still outstanding: set `SENTRY_ORG`, `SENTRY_PROJECT` and
-   `SENTRY_AUTH_TOKEN` (scope `project:releases`) in **Vercel**; sign
-   the Article 28 DPA; and confirm in the Sentry UI that the T9
-   verification events read well and show `[redacted]`
+1. Sentry — **done and verified end to end.** Account, EU region,
+   consent gate, scrubbing, release tagging and source-map upload all
+   confirmed on a real deployment. Outstanding only: sign the Article 28
+   DPA in organisation settings, and delete the T9 verification issues
 2. Privacy policy, terms and cookie policy text, professionally reviewed
 3. Registro Mercantil details (tomo, folio, hoja, inscripción)
 4. Transport authorisation number
@@ -713,6 +740,52 @@ everyone who has already decided.
    `instagram.com/hucarbus`
 8. Real Google reviews, before Reviews or any rating returns
 9. Vector logo — `logo_hucar_bus.pdf` is a ZIP with a `.pdf` extension
+
+## 2026-08-28 — Favicons
+
+The client supplied a six-file favicon set. Two problems, only one of them
+the format question that was asked.
+
+### The 16px icon cannot be made legible
+
+The artwork is an illustrated scene — palm tree, volcano, sunset, birds and
+a minibus. At 16×16 that is 256 pixels in total, and it renders as an
+orange-yellow blur no matter how it is resampled. Verified by regenerating
+it several ways and comparing at 8× magnification.
+
+At **32px** resampling does help: Lanczos with a light unsharp pass keeps the
+bus outline, the palm fronds and the sun edge distinct where the supplied
+plain downscale smears them together. Everything is therefore generated from
+the single 512px source rather than using the per-size exports.
+
+At **16px** nothing helps. It ships anyway — it is still better than the
+Angular default it replaces, which is simply the wrong brand — but a legible
+small mark needs simplified artwork, a bold bus silhouette or a monogram, and
+that is a design task rather than a conversion one. **Flagged, not solved.**
+
+### The set was 615 KB
+
+462 kB of it was the 512px PNG alone. The illustration is flat fills with a
+single sky gradient, so 256-colour quantisation is visually indistinguishable
+from the original and cuts the set to **165 KB**. These render at 192px at
+the largest, so gradient banding is invisible where they are actually seen.
+
+### Details worth keeping
+
+- The icons have an opaque off-white background, not transparency — same
+  source as the logo, which Phase 2 found is an opaque JPEG on #FBFBFB. That
+  is _correct_ for `apple-touch-icon`, where transparency renders as a black
+  square on the iOS home screen, and merely unremarkable elsewhere.
+- `theme_color` matches the navbar white, not the brand yellow. It tints the
+  Android address bar, which sits directly above the header — a yellow bar
+  over a white header reads as a rendering fault, not as branding.
+- The manifest is not localized and cannot be: it is served from the domain
+  root, shared by both locale builds. The brand name reads identically in
+  both, which is why it is kept out of the message catalogue anyway.
+- The build assertion and the dev-server smoke test both cover the new root
+  files. `public-root/` reaches production through a post-build copy that
+  `ng serve` never runs, and that divergence already broke the dev server
+  once, in Phase 2, when `favicon.ico` first moved there.
 
 ## 2026-10-01 — Angular 22.2 and the v22 idioms
 
