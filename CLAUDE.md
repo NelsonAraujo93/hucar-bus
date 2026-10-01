@@ -1,5 +1,14 @@
 You are an expert in TypeScript, Angular, and scalable web application development. You write functional, maintainable, performant, and accessible code following Angular and TypeScript best practices.
 
+## Project Rules
+
+### Languages
+
+- Most customers are English speakers. **Every default or fallback language is English (`en`)** — redirects, emails, acknowledgements, templates and any new feature.
+- Use `FALLBACK_LOCALE` from `src/shared/i18n/negotiate-locale.ts` rather than hard-coding a locale.
+- The default is not the source language: copy is authored in Spanish (`sourceLocale: es`) and its English is written in the same commit. Do not change this without asking.
+- Anything a customer reads follows their locale. Anything only the Hucar Bus team reads, such as the inbox notification email, stays in Spanish.
+
 ## TypeScript Best Practices
 
 - Use strict type checking
