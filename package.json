@@ -38,6 +38,7 @@
     "prepare": "husky"
   },
   "private": true,
+  "type": "module",
   "packageManager": "npm@11.17.0",
   "dependencies": {
     "@angular/aria": "^22.2.1",

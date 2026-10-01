@@ -1,11 +1,11 @@
 // @ts-check
-const eslint = require('@eslint/js');
-const { defineConfig } = require('eslint/config');
-const tseslint = require('typescript-eslint');
-const angular = require('angular-eslint');
-const eslintConfigPrettier = require('eslint-config-prettier/flat');
+import eslint from '@eslint/js';
+import { defineConfig } from 'eslint/config';
+import tseslint from 'typescript-eslint';
+import angular from 'angular-eslint';
+import eslintConfigPrettier from 'eslint-config-prettier/flat';
 
-module.exports = defineConfig([
+export default defineConfig([
   {
     files: ['**/*.ts'],
     extends: [
