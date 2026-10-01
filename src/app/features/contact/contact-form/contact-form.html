@@ -1,0 +1,272 @@
+<!-- Announces the outcome to screen readers. It exists before the
+     outcome does, which is what makes the announcement reliable. -->
+<p class="visually-hidden" aria-live="polite">
+  @switch (status()) {
+    @case ('pending') {
+      <span i18n="Screen reader: sending in progress|@@contact.live.pending"
+        >Enviando tu mensaje…</span
+      >
+    }
+    @case ('sent') {
+      <span i18n="Screen reader: message sent|@@contact.live.sent">Mensaje enviado.</span>
+    }
+  }
+</p>
+
+@switch (status()) {
+  @case ('sent') {
+    <div class="outcome">
+      <span class="outcome__mark outcome__mark--ok" aria-hidden="true">✓</span>
+      <h3 class="outcome__title" i18n="Success heading|@@contact.sent.title">¡Mensaje enviado!</h3>
+      <p class="outcome__body" i18n="Success body|@@contact.sent.next">
+        Te responderemos en menos de 24 horas con la fecha, el precio y un enlace de pago seguro.
+        Revisa tu correo: te hemos enviado una confirmación.
+      </p>
+      <button
+        class="outcome__again"
+        type="button"
+        (click)="sendAnother()"
+        i18n="Reset the form after sending|@@contact.sent.again"
+      >
+        Enviar otro
+      </button>
+    </div>
+  }
+  @case ('error') {
+    <!-- Not in the design. A form that can fail needs somewhere to say
+         so, and WhatsApp is the obvious fallback for this business. -->
+    <div class="outcome" role="alert">
+      <span class="outcome__mark outcome__mark--error" aria-hidden="true">!</span>
+      <h3 class="outcome__title" i18n="Failure heading|@@contact.error.title">No se pudo enviar</h3>
+      @if (failure() === 'rate_limited') {
+        <p class="outcome__body" i18n="Too many attempts|@@contact.error.rateLimited">
+          Has enviado varios mensajes seguidos. Espera unos minutos o escríbenos por WhatsApp.
+        </p>
+      } @else {
+        <p class="outcome__body" i18n="Failure body|@@contact.error.body">
+          Inténtalo de nuevo o escríbenos por WhatsApp.
+        </p>
+      }
+      <div class="outcome__actions">
+        <a hb-button variant="whatsapp" [href]="config.whatsappUrl">
+          <hb-icon hb-button-icon name="whatsapp" [size]="18" />
+          <span i18n="WhatsApp fallback after a failed send|@@contact.error.whatsapp"
+            >Escribir por WhatsApp</span
+          >
+        </a>
+        <button
+          class="outcome__again"
+          type="button"
+          (click)="reset()"
+          i18n="Retry after a failed send|@@contact.error.retry"
+        >
+          Reintentar
+        </button>
+      </div>
+      <p class="outcome__kept" i18n="Reassurance that text is kept|@@contact.error.kept">
+        Tu mensaje sigue guardado en el formulario.
+      </p>
+    </div>
+  }
+  @default {
+    <!-- method="post" matters only if JavaScript has not run: a browser's native
+       submit then sends the fields in the body, never in the URL, where they
+       would land in history and access logs. -->
+    <form class="form" method="post" [formRoot]="contactForm">
+      <fieldset
+        class="choice"
+        [attr.aria-describedby]="errorFor('enquiryType') ? 'contact-type-error' : null"
+      >
+        <legend class="field__label" i18n="Enquiry type question|@@contact.type.legend">
+          ¿Quién nos escribe?
+        </legend>
+        <div class="choice__options">
+          @for (type of enquiryTypes; track type) {
+            <label class="choice__option">
+              <input type="radio" [attr.value]="type" [formField]="contactForm.enquiryType" />
+              @switch (type) {
+                @case ('customer') {
+                  <span i18n="Enquiry type option|@@contact.type.customer">Cliente particular</span>
+                }
+                @case ('operator') {
+                  <span i18n="Enquiry type option|@@contact.type.operator">Operador turístico</span>
+                }
+                @default {
+                  <span i18n="Enquiry type option|@@contact.type.other">Otro</span>
+                }
+              }
+            </label>
+          }
+        </div>
+        @if (errorFor('enquiryType'); as error) {
+          <span class="field__error" id="contact-type-error">{{ error }}</span>
+        }
+      </fieldset>
+
+      @if (model().enquiryType === 'operator') {
+        <p class="field">
+          <label class="field__label" for="contact-company"
+            ><span i18n="Form field label|@@contact.field.company">Empresa</span></label
+          >
+          <input
+            class="field__input"
+            id="contact-company"
+            type="text"
+            autocomplete="organization"
+            [formField]="contactForm.company"
+            [attr.aria-invalid]="errorFor('company') ? true : null"
+            [attr.aria-describedby]="errorFor('company') ? 'contact-company-error' : null"
+          />
+          @if (errorFor('company'); as error) {
+            <span class="field__error" id="contact-company-error">{{ error }}</span>
+          }
+        </p>
+      }
+
+      <div class="form__row">
+        <p class="field">
+          <label class="field__label" for="contact-name"
+            ><span i18n="Form field label|@@contact.field.name">Nombre</span></label
+          >
+          <input
+            class="field__input"
+            id="contact-name"
+            type="text"
+            autocomplete="name"
+            [formField]="contactForm.name"
+            [attr.aria-invalid]="errorFor('name') ? true : null"
+            [attr.aria-describedby]="errorFor('name') ? 'contact-name-error' : null"
+          />
+          @if (errorFor('name'); as error) {
+            <span class="field__error" id="contact-name-error">{{ error }}</span>
+          }
+        </p>
+
+        <p class="field">
+          <label class="field__label" for="contact-email"
+            ><span i18n="Form field label|@@contact.field.email">Email</span></label
+          >
+          <input
+            class="field__input"
+            id="contact-email"
+            type="email"
+            autocomplete="email"
+            [formField]="contactForm.email"
+            [attr.aria-invalid]="errorFor('email') ? true : null"
+            [attr.aria-describedby]="errorFor('email') ? 'contact-email-error' : null"
+          />
+          @if (errorFor('email'); as error) {
+            <span class="field__error" id="contact-email-error">{{ error }}</span>
+          }
+        </p>
+      </div>
+
+      <div class="form__row">
+        <p class="field">
+          <label class="field__label" for="contact-phone">
+            <span i18n="Form field label|@@contact.field.phone">Teléfono</span>
+            <span class="field__optional" i18n="Marks a field as optional|@@contact.field.optional"
+              >· opcional</span
+            >
+          </label>
+          <input
+            class="field__input"
+            id="contact-phone"
+            type="tel"
+            autocomplete="tel"
+            [formField]="contactForm.phone"
+            [attr.aria-invalid]="errorFor('phone') ? true : null"
+            [attr.aria-describedby]="errorFor('phone') ? 'contact-phone-error' : null"
+          />
+          @if (errorFor('phone'); as error) {
+            <span class="field__error" id="contact-phone-error">{{ error }}</span>
+          }
+        </p>
+
+        <p class="field">
+          <label class="field__label" for="contact-subject"
+            ><span i18n="Form field label|@@contact.field.subject">Asunto</span></label
+          >
+          <input
+            class="field__input"
+            id="contact-subject"
+            type="text"
+            [formField]="contactForm.subject"
+            [attr.aria-invalid]="errorFor('subject') ? true : null"
+            [attr.aria-describedby]="errorFor('subject') ? 'contact-subject-error' : null"
+          />
+          @if (errorFor('subject'); as error) {
+            <span class="field__error" id="contact-subject-error">{{ error }}</span>
+          }
+        </p>
+      </div>
+
+      <p class="field">
+        <label class="field__label" for="contact-message"
+          ><span i18n="Form field label|@@contact.field.message">Mensaje</span></label
+        >
+        <textarea
+          class="field__input field__input--area"
+          id="contact-message"
+          rows="4"
+          [formField]="contactForm.message"
+          [attr.aria-invalid]="errorFor('message') ? true : null"
+          [attr.aria-describedby]="errorFor('message') ? 'contact-message-error' : null"
+        ></textarea>
+        @if (errorFor('message'); as error) {
+          <span class="field__error" id="contact-message-error">{{ error }}</span>
+        }
+      </p>
+
+      <!-- Unticked and required, and only about the privacy policy. Any
+           future marketing opt-in must be its own optional box: merged,
+           both consents would be invalid. -->
+      <p class="field consent">
+        <input
+          class="consent__box"
+          id="contact-privacy"
+          type="checkbox"
+          [formField]="contactForm.privacy"
+          [attr.aria-invalid]="errorFor('privacy') ? true : null"
+          [attr.aria-describedby]="errorFor('privacy') ? 'contact-privacy-error' : null"
+        />
+        <label class="consent__label" for="contact-privacy">
+          <span i18n="Privacy acceptance, before the link|@@contact.privacy.accept"
+            >He leído y acepto la</span
+          >
+          <a routerLink="/privacidad" i18n="Link to the privacy policy|@@contact.privacy.link"
+            >política de privacidad</a
+          >
+        </label>
+        @if (errorFor('privacy'); as error) {
+          <span class="field__error" id="contact-privacy-error">{{ error }}</span>
+        }
+      </p>
+
+      <!-- The honeypot. Off-screen, out of the tab order and hidden from
+           assistive technology, so no person fills it in. -->
+      <div class="trap" aria-hidden="true">
+        <label for="contact-website" i18n="Honeypot label|@@contact.trap.label"
+          >Deja este campo vacío</label
+        >
+        <input
+          id="contact-website"
+          type="text"
+          tabindex="-1"
+          autocomplete="off"
+          [formField]="contactForm.website"
+        />
+      </div>
+
+      <button
+        hb-button
+        type="submit"
+        [full]="true"
+        [pending]="status() === 'pending'"
+        i18n="Form submit button|@@contact.submit"
+      >
+        Enviar Mensaje
+      </button>
+    </form>
+  }
+}
