@@ -1,13 +1,16 @@
 <a class="logo__link" href="#top">
   <picture>
     <!-- Ordered smallest first: the browser takes the first type it supports.
-         The original is 1383px wide and 148KB for a mark rendered at 68px. -->
+         The original is 1383px wide and 148KB for a mark rendered at 68px.
+         NgOptimizedImage manages only the <img> fallback. The nav logo is above
+         the fold, so it loads eagerly; `priority` is not used because it would
+         preload the JPEG, which any browser taking a <source> never requests. -->
     <source type="image/avif" srcset="/img/logo-256.avif" />
     <source type="image/webp" srcset="/img/logo-256.webp" />
     @if (variant() === 'footer') {
       <img
         class="logo__image"
-        src="/img/logo-256.jpg"
+        ngSrc="/img/logo-256.jpg"
         i18n-alt="Alt text for the brand logo|@@logo.alt.footer"
         alt="Hucar Bus Lanzarote Turismo"
         [width]="width()"
@@ -16,7 +19,8 @@
     } @else {
       <img
         class="logo__image"
-        src="/img/logo-256.jpg"
+        ngSrc="/img/logo-256.jpg"
+        loading="eager"
         i18n-alt="Alt text for the brand logo|@@logo.alt.nav"
         alt="Hucar Bus"
         [width]="width()"

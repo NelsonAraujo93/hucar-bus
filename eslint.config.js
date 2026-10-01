@@ -65,6 +65,9 @@ module.exports = defineConfig([
             'focusable',
             'srcset',
             'sizes',
+            // NgOptimizedImage inputs: an asset path and a loading strategy.
+            'ngSrc',
+            'loading',
             // Test hooks.
             'data-testid',
             // Component inputs and ARIA plumbing, which are never prose.
