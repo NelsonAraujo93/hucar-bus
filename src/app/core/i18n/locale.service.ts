@@ -1,13 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import {
-  computed,
-  DOCUMENT,
-  inject,
-  Injectable,
-  LOCALE_ID,
-  PLATFORM_ID,
-  signal,
-} from '@angular/core';
+import { computed, DOCUMENT, inject, LOCALE_ID, PLATFORM_ID, Service, signal } from '@angular/core';
 import { localizedPath } from '../../../shared/i18n/localized-path';
 import {
   FALLBACK_LOCALE,
@@ -19,7 +11,7 @@ import { SUPPORTED_LOCALES } from './locale.tokens';
 
 const ONE_YEAR_IN_SECONDS = 60 * 60 * 24 * 365;
 
-@Injectable({ providedIn: 'root' })
+@Service()
 export class LocaleService {
   private readonly document = inject(DOCUMENT);
   private readonly platformId = inject(PLATFORM_ID);

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 
 /**
  * Chevron direction and the two menu states are encoded in the name rather than
@@ -73,7 +73,6 @@ const ROTATION: Partial<Record<IconName, number>> = {
   selector: 'hb-icon',
   templateUrl: './icon.html',
   styleUrl: './icon.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'hb-icon',
     '[style.width.px]': 'resolvedSize()',

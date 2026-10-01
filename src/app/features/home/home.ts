@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { SPY_IDS } from '../../core/navigation/nav-items';
 import { ScrollSpy } from '../../core/navigation/scroll-spy';
 import { About } from '../about/about';
@@ -20,7 +20,6 @@ import { Services } from '../services/services';
   selector: 'hb-home',
   imports: [About, Contact, Footer, Hero, Navbar, Services, WhatsappFloat],
   templateUrl: './home.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Home implements OnInit {
   private readonly scrollSpy = inject(ScrollSpy);

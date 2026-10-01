@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 export type ButtonVariant = 'yellow' | 'whatsapp' | 'teal' | 'ghost';
 export type ButtonSize = 'sm' | 'md' | 'lg';
@@ -16,7 +16,6 @@ export type ButtonSize = 'sm' | 'md' | 'lg';
   selector: 'button[hb-button], a[hb-button]',
   templateUrl: './button.html',
   styleUrl: './button.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'hb-button',
     '[attr.data-variant]': 'variant()',

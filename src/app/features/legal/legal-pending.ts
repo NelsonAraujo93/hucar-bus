@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 /**
  * Marks a section of a legal document whose text has not been written.
@@ -11,7 +11,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
  */
 @Component({
   selector: 'hb-legal-pending',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <p class="pending">
       <strong class="pending__label" i18n="Marks unwritten legal text|@@legal.pending.label"

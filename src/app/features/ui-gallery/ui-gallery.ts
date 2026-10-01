@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { Instagram } from '../instagram/instagram';
 import { INSTAGRAM_FIXTURE } from '../instagram/instagram.fixture';
 import { Reviews } from '../reviews/reviews';
@@ -27,7 +27,6 @@ interface Swatch {
   imports: [Button, Icon, Instagram, LanguageSwitcher, Logo, Reviews, SectionHeader],
   templateUrl: './ui-gallery.html',
   styleUrl: './ui-gallery.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UiGallery {
   /**

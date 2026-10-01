@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { SITE_CONFIG } from '../../core/config/site.config';
 import { Icon } from '../../shared/ui/icon/icon';
 import { ImagePlaceholder } from '../../shared/ui/image-placeholder/image-placeholder';
@@ -20,7 +20,6 @@ interface Stat {
   imports: [Icon, ImagePlaceholder],
   templateUrl: './about.html',
   styleUrl: './about.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class About {
   protected readonly config = inject(SITE_CONFIG);

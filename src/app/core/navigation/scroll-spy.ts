@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { DestroyRef, DOCUMENT, inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
+import { DestroyRef, DOCUMENT, inject, PLATFORM_ID, Service, signal } from '@angular/core';
 
 /**
  * The design activates the last section whose top has passed 120px. Expressed
@@ -18,7 +18,7 @@ const ELEVATION_THRESHOLD_PX = 8;
  * elevation flag does use a scroll listener, but it only compares a number and
  * writes the signal when the value actually changes.
  */
-@Injectable({ providedIn: 'root' })
+@Service()
 export class ScrollSpy {
   private readonly document = inject(DOCUMENT);
   private readonly platformId = inject(PLATFORM_ID);
