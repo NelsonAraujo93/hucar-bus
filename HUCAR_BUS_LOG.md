@@ -713,3 +713,58 @@ everyone who has already decided.
    `instagram.com/hucarbus`
 8. Real Google reviews, before Reviews or any rating returns
 9. Vector logo — `logo_hucar_bus.pdf` is a ZIP with a `.pdf` extension
+
+## 2026-10-01 — Angular 22.2 and the v22 idioms
+
+The project was scaffolded on Angular 22, so there was no major upgrade to do.
+This brings it to the current minor and makes the code match the v22 rules
+`CLAUDE.md` already stated but the code predated.
+
+### Updated
+
+- **Angular 22.1.3 → 22.2.1** (`@angular/build`, `cli` and `ssr` 22.2.0) via
+  `ng update`. A minor: no migrations ran.
+- **Tooling within its current major**: `angular-eslint` 22.5.0 and
+  `typescript-eslint` 8.71.0 (both still exact-pinned), eslint, stylelint,
+  prettier, lint-staged, commitlint, postcss, `@semantic-release/github`,
+  `@sentry/cli` 3.8.0 and `@sentry/angular` 10.75.3.
+- **`@types/node` 20 → 24.** `engines` and `.nvmrc` say Node 24, so the types
+  described a runtime this project never runs on.
+
+### Held back, deliberately
+
+- **TypeScript 7.** `@angular/compiler-cli` 22.2 accepts `>=6.0 <6.1` only.
+- **Vitest 5, `@vitest/coverage-v8` 5, jsdom 30.** `@angular/build` already
+  accepts Vitest 5, but a test-runner major deserves its own branch.
+- **`@sentry/angular` 11.** Phase 4A tuned the lazy chunk by hand; a major
+  needs that measurement redone.
+- **`conventional-changelog-conventionalcommits` 10.** Still incompatible with
+  the release-notes generator's writer — see the release pipeline fix.
+
+### Code
+
+- **Explicit `OnPush` removed from 23 components.** It is the default in v22;
+  stating it is noise and teaches the next reader that it is still opt-in.
+- **Eight root services moved from `@Injectable({ providedIn: 'root' })` to
+  `@Service()`.** Same scope and lifetime. `MonitoringErrorHandler` keeps
+  `@Injectable()`: it is provided as `ErrorHandler`, not a root singleton. The
+  `InjectionToken`s keep `providedIn: 'root'` — that is the token API.
+- **The logo now uses `NgOptimizedImage`**, the only static `<img>` in the
+  app. It manages the `<img>` fallback inside `<picture>`; the AVIF and WebP
+  sources are untouched. The nav logo is `loading="eager"` rather than
+  `priority`, because `priority` would preload the JPEG that no browser taking
+  a `<source>` requests. **The footer logo is now lazy**, which it was not.
+  `ngSrc` and `loading` join the i18n lint rule's ignore list.
+
+### Measured, same method on both sides (Brotli, `/es/`)
+
+|                   | `dev`    | this branch |
+| ----------------- | -------- | ----------- |
+| Sentry lazy chunk | 80.1 kB  | 80.7 kB     |
+| Initial JS        | 100.0 kB | 101.3 kB    |
+
+The Sentry chunk is unchanged in substance: Replay did not return. The initial
+bundle grew 1.3 kB, from the framework minor and `NgOptimizedImage`.
+
+Full CI sequence green locally on Node 24.19.0: lint, format, styles, tokens,
+355 tests, build, localized-build assertion and dev-server smoke test.
