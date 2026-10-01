@@ -20,6 +20,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:en": "ng serve --configuration development-en",
     "build": "node scripts/write-release.mjs && ng build && node scripts/copy-root-assets.mjs && node scripts/upload-sourcemaps.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
