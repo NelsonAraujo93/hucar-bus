@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { SITE_CONFIG } from '../../core/config/site.config';
 import { Button } from '../../shared/ui/button/button';
 import { Icon } from '../../shared/ui/icon/icon';
@@ -18,7 +18,6 @@ import type { InstagramPost } from './instagram.model';
   imports: [Button, Icon, ImagePlaceholder, SectionHeader],
   templateUrl: './instagram.html',
   styleUrl: './instagram.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Instagram {
   protected readonly config = inject(SITE_CONFIG);

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SITE_CONFIG } from '../../core/config/site.config';
 import { ConsentUi } from '../../core/consent/consent-ui';
 import { CONSENT_STORAGE_KEY } from '../../core/consent/consent.model';
@@ -26,7 +26,6 @@ import { LegalPending } from './legal-pending';
   imports: [LegalPage, LegalPending],
   templateUrl: './privacy.html',
   styleUrl: './legal-document.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Privacy {
   private readonly ui = inject(ConsentUi);

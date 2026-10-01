@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 /**
  * Tones from the design, which assigns one per image slot: sunset for the fleet
@@ -24,7 +24,6 @@ export type PlaceholderTone = 'sand' | 'sunset' | 'ocean' | 'night' | 'gray';
   selector: 'hb-image-placeholder',
   templateUrl: './image-placeholder.html',
   styleUrl: './image-placeholder.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     '[attr.data-tone]': 'tone()',
     '[attr.aria-hidden]': '"true"',

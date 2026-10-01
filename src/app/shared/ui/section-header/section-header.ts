@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 /** Which token paints the eyebrow. About uses lava-red; everything else orange. */
 export type EyebrowTone = 'sunset-orange' | 'lava-red';
@@ -14,7 +14,6 @@ export type EyebrowTone = 'sunset-orange' | 'lava-red';
   selector: 'hb-section-header',
   templateUrl: './section-header.html',
   styleUrl: './section-header.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SectionHeader {
   readonly eyebrow = input<string>();

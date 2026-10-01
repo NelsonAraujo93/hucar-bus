@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SITE_CONFIG } from '../../core/config/site.config';
 import { Icon } from '../../shared/ui/icon/icon';
 
@@ -14,7 +14,6 @@ import { Icon } from '../../shared/ui/icon/icon';
   imports: [Icon],
   templateUrl: './whatsapp-float.html',
   styleUrl: './whatsapp-float.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WhatsappFloat {
   protected readonly config = inject(SITE_CONFIG);
