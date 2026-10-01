@@ -92,6 +92,9 @@
                   "input": "public-root"
                 }
               ]
+            },
+            "en": {
+              "localize": ["en-GB"]
             }
           },
           "defaultConfiguration": "production"
@@ -104,6 +107,9 @@
             },
             "development": {
               "buildTarget": "hucar-bus:build:development"
+            },
+            "development-en": {
+              "buildTarget": "hucar-bus:build:development,en"
             }
           },
           "defaultConfiguration": "development"
@@ -132,7 +138,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["*.ts", "src/**/*.ts", "src/**/*.html"]
+            "lintFilePatterns": ["*.ts", "api/**/*.ts", "src/**/*.ts", "src/**/*.html"]
           }
         }
       }

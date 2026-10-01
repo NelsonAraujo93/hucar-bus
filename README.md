@@ -12,6 +12,12 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
+`ng serve` builds one locale at a time, and that is the Spanish source. To see the English site, run it alongside on a second port:
+
+```bash
+npm run start:en -- --port 4201
+```
+
 ## Code scaffolding
 
 Angular CLI includes powerful code scaffolding tools. To generate a new component, run:

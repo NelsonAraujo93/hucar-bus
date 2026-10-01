@@ -841,3 +841,105 @@ bundle grew 1.3 kB, from the framework minor and `NgOptimizedImage`.
 
 Full CI sequence green locally on Node 24.19.0: lint, format, styles, tokens,
 355 tests, build, localized-build assertion and dev-server smoke test.
+
+## 2026-10-01 — Phase 4B: contact form and email delivery
+
+The form sends. A visitor in either locale chooses who is writing, fills it
+in, and the enquiry reaches `hucarbus@gmail.com` with Reply-To set to them,
+while they receive an acknowledgement in their language. Verified end to end
+on a preview deployment: one POST, `contact.delivered`, both emails received.
+
+### Scope changed before building — Nelson, 2026-10-01
+
+- **The 4C quote calculator is dropped.** Prices are quoted per customer.
+- **Customers come in by the form or WhatsApp**, and staff reply with the
+  date, the amount, the driver and a **Stripe Payment Link**.
+- **The acknowledgement email is in**, and says exactly that: a reply within
+  24 hours with the date, the price and a secure payment link.
+- **One inbox for every enquiry type.** The subject prefix (`[Cliente]`,
+  `[Operador]`, `[Otro]`) is enough to sort them; routing is a one-line change.
+- **Instagram is the only social integration**; Reviews will be removed.
+
+### T1: Functions do run — once the module format is declared
+
+The spike's first real request crashed with `FUNCTION_INVOCATION_FAILED`.
+The runtime log said why: TypeScript emitted `export` under the Angular
+tsconfig (`module: preserve`), and with no `"type"` in package.json Vercel
+loaded the compiled file as CommonJS — `SyntaxError: Unexpected token
+'export'`. **It worked locally** because Node 24 retries such a file as an ES
+module and Vercel's loader does not. `"type": "module"` fixed it;
+`eslint.config.js` was the only CommonJS file and was converted.
+
+The first diagnosis was right and the first local test was wrong, for that
+same reason. The log settled it; the reproduction did not.
+
+**Every relative import reachable from `api/` carries a `.js` extension.**
+Vercel runs functions unbundled as native ES modules, and Node resolves no
+extensionless relative import. Type-only imports are exempt because they are
+erased. Verified by compiling the function graph file by file and importing
+it with Node before deploying.
+
+### T2: Resend on the root domain, EU region
+
+Resend region **eu-west-1**, matching Sentry's EU region: no transfer to
+declare. Auto-configure wrote three records through a Vercel grant scoped to
+exactly those records: MX and SPF on `send` (bounces only — the root domain
+still receives no mail), DKIM on `resend._domainkey`. **DMARC was added by
+hand** (`p=none`); Resend lists it as optional and does not create it.
+
+The SPF record lives on `send.hucarbus.com`, not the root, so a future Google
+Workspace SPF on the root cannot collide with it.
+
+`RESEND_API_KEY` and `CONTACT_TO_EMAIL` are set for Production and Preview.
+
+### Architecture
+
+- `domain/contact/enquiry.ts` — the rules, pure, shared by form and server
+- `application/contact/` — `SendEnquiry` and the `CONTACT_GATEWAY` port
+- `infrastructure/contact/` — the fetch adapter, bound in `app.config.ts`
+- `shared/contact/protocol.ts` — the wire contract both ends import
+- `functions/contact/` — the handler, emails, Resend client, rate limiter
+- `api/contact.ts` — wiring only
+
+The form is its own component (`ContactForm`). Splitting it also brought both
+stylesheets back under the 4 kB component budget.
+
+Plain `fetch`, not HttpClient: one request on the whole site does not justify
+HttpClient's weight in every visitor's initial bundle.
+
+### Spam, cheapest first
+
+1. **Rate limit before parsing**: 5 per IP per 10 minutes, in instance
+   memory. Best effort — instances do not share counts. A shared store is the
+   upgrade if the inbox shows it is needed.
+2. **Honeypot and minimum fill time (3 s)**, both answered with a silent 200:
+   a rejection would teach a bot which check caught it.
+3. **Privacy acceptance and the domain validation**, re-run server-side.
+4. **hCaptcha** — not yet. Last, not first, per 4C T5.
+
+**The acknowledgement contains no visitor input at all, not even the name.**
+It goes to whatever address was typed. Echoing anything would let anyone make
+this domain send their text to any inbox under its DKIM signature.
+
+### Found while building
+
+- **`.vercel/` and `.env*` were not gitignored** in a public repository. One
+  `vercel env pull` and `git add .` would have published the API key. Fixed,
+  with `.env.example` listing names only.
+- **Without JavaScript the form submitted as a GET**, putting every field in
+  the URL — history, access logs, referrers. Found when the dev server's
+  JavaScript failed to start. `method="post"` closes it.
+- **Two dev servers sharing `.angular/cache`** broke the Spanish one after a
+  reinstall: both re-optimised dependencies at once, and every page load then
+  failed with `$localize is not defined`. Start them one after the other.
+
+### Still open
+
+1. hCaptcha — Nelson to create the account; `HCAPTCHA_SECRET` in Vercel
+2. `api/health` — keep as an uptime probe or delete. It reports which
+   variables exist, never their values
+3. Errors from the function go to Vercel logs, not Sentry; the plan's Sentry
+   logging needs `@sentry/node` and its own consent analysis (server-side,
+   no visitor consent involved)
+4. Hero CTA weighting (4B T9) — proposal only
+5. DMARC from `p=none` to `quarantine` once reports come back clean
