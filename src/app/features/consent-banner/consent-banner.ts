@@ -1,7 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import {
   afterNextRender,
-  ChangeDetectionStrategy,
   Component,
   computed,
   effect,
@@ -44,7 +43,6 @@ interface CategoryCopy {
   imports: [Button, RouterLink],
   templateUrl: './consent-banner.html',
   styleUrl: './consent-banner.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ConsentBanner {
   private readonly consent = inject(ConsentService);

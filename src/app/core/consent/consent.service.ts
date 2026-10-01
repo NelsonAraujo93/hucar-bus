@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { computed, DOCUMENT, inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
+import { computed, DOCUMENT, inject, PLATFORM_ID, Service, signal } from '@angular/core';
 import {
   ALLOW_ALL,
   CONSENT_STORAGE_KEY,
@@ -20,7 +20,7 @@ import {
  * wants analytics asks the gate rather than reading this state and reimplementing
  * the check slightly differently.
  */
-@Injectable({ providedIn: 'root' })
+@Service()
 export class ConsentService {
   private readonly document = inject(DOCUMENT);
   private readonly platformId = inject(PLATFORM_ID);

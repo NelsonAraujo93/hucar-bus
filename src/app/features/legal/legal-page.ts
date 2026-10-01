@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, input, OnInit } from '@angular/core';
+import { Component, inject, input, OnInit } from '@angular/core';
 import { SITE_CONFIG } from '../../core/config/site.config';
 import { SeoService } from '../../core/seo/seo.service';
 import { Footer } from '../footer/footer';
@@ -15,7 +15,6 @@ import { Navbar } from '../navbar/navbar';
 @Component({
   selector: 'hb-legal-page',
   imports: [Footer, Navbar],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <hb-navbar />
 

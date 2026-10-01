@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Service } from '@angular/core';
 import { ScriptGate } from '../consent/script-gate';
 import { scrubEvent, type ScrubbableEvent } from './scrub';
 import {
@@ -29,7 +29,7 @@ export const SENTRY_GATE_ID = 'sentry';
  * consented does not merely avoid running Sentry -- their browser never fetches
  * a byte of it.
  */
-@Injectable({ providedIn: 'root' })
+@Service()
 export class Monitoring {
   private readonly gate = inject(ScriptGate);
   private readonly config = inject(SENTRY_CONFIG);

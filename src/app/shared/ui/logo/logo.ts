@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
+import { Component, computed, input } from '@angular/core';
 
 export type LogoVariant = 'nav' | 'footer';
 
@@ -19,9 +20,9 @@ const HEIGHTS: Record<LogoVariant, number> = {
  */
 @Component({
   selector: 'hb-logo',
+  imports: [NgOptimizedImage],
   templateUrl: './logo.html',
   styleUrl: './logo.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     '[attr.data-variant]': 'variant()',
   },

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { BRAND } from '../../core/config/brand';
 import { SITE_CONFIG } from '../../core/config/site.config';
 import { Button } from '../../shared/ui/button/button';
@@ -17,7 +17,6 @@ import { Icon } from '../../shared/ui/icon/icon';
   imports: [Button, Icon],
   templateUrl: './hero.html',
   styleUrl: './hero.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Hero {
   protected readonly config = inject(SITE_CONFIG);

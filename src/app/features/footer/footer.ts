@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { BRAND } from '../../core/config/brand';
 import { SITE_CONFIG } from '../../core/config/site.config';
@@ -14,7 +14,6 @@ import { Logo } from '../../shared/ui/logo/logo';
   imports: [Icon, LanguageSwitcher, Logo, RouterLink],
   templateUrl: './footer.html',
   styleUrl: './footer.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Footer {
   protected readonly config = inject(SITE_CONFIG);
