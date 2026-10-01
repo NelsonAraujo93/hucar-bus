@@ -1,5 +1,5 @@
 import { Meta, Title } from '@angular/platform-browser';
-import { DOCUMENT, inject, Injectable } from '@angular/core';
+import { DOCUMENT, inject, Service } from '@angular/core';
 import { localizedPath } from '../../../shared/i18n/localized-path';
 import { LOCALE_TAGS, type SupportedLocale } from '../../../shared/i18n/negotiate-locale';
 import { LocaleService } from '../i18n/locale.service';
@@ -19,7 +19,7 @@ function toOpenGraphLocale(locale: SupportedLocale): string {
   return OPEN_GRAPH_LOCALES[locale];
 }
 
-@Injectable({ providedIn: 'root' })
+@Service()
 export class SeoService {
   private readonly document = inject(DOCUMENT);
   private readonly title = inject(Title);

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import type { SupportedLocale } from '../../../../shared/i18n/negotiate-locale';
 import { LocaleService } from '../../../core/i18n/locale.service';
 import { SUPPORTED_LOCALES } from '../../../core/i18n/locale.tokens';
@@ -38,7 +38,6 @@ const LOCALE_NAMES: Record<SupportedLocale, { label: string; name: string }> = {
   selector: 'hb-language-switcher',
   templateUrl: './language-switcher.html',
   styleUrl: './language-switcher.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     '[attr.data-tone]': 'tone()',
     '[class.is-full]': 'full()',

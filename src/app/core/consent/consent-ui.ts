@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { Service, signal } from '@angular/core';
 
 /**
  * Whether the consent preferences dialog is open.
@@ -9,7 +9,7 @@ import { Injectable, signal } from '@angular/core';
  * record -- the alternative was to have the link erase the decision to make the
  * banner reappear, which loses the visitor's current settings just to show them.
  */
-@Injectable({ providedIn: 'root' })
+@Service()
 export class ConsentUi {
   private readonly open = signal(false);
 

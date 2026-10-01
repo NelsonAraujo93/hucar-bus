@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SITE_CONFIG } from '../../core/config/site.config';
 import { LegalPage } from './legal-page';
 import { LegalPending } from './legal-pending';
@@ -18,7 +18,6 @@ import { LegalPending } from './legal-pending';
   imports: [LegalPage, LegalPending],
   templateUrl: './legal-notice.html',
   styleUrl: './legal-document.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LegalNotice {
   protected readonly config = inject(SITE_CONFIG);

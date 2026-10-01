@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { BRAND } from '../../core/config/brand';
 import { SITE_CONFIG } from '../../core/config/site.config';
 import { LocaleService } from '../../core/i18n/locale.service';
@@ -21,7 +21,6 @@ import { Logo } from '../../shared/ui/logo/logo';
   imports: [Button, Icon, LanguageSwitcher, Logo],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Navbar {
   private readonly scrollSpy = inject(ScrollSpy);
