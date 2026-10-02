@@ -1,5 +1,5 @@
 import { handleContact } from '../src/functions/contact/handler.js';
-import { createRateLimiter } from '../src/functions/contact/rate-limit.js';
+import { createRateLimiter } from '../src/functions/shared/rate-limit.js';
 import { createResendSender } from '../src/functions/contact/resend.js';
 
 /**
