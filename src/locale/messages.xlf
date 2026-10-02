@@ -687,6 +687,15 @@
         <source>Escríbenos por WhatsApp</source>
       </segment>
     </unit>
+    <unit id="contact.map.title">
+      <notes>
+        <note category="location">src/app/features/contact/contact.html:78,81</note>
+        <note category="meaning">Title of the map frame</note>
+      </notes>
+      <segment>
+        <source>Mapa de la base de Hucar Bus en Arrecife</source>
+      </segment>
+    </unit>
     <unit id="footer.tagline">
       <notes>
         <note category="location">src/app/features/footer/footer.html:8,12</note>
@@ -1488,7 +1497,7 @@
     </unit>
     <unit id="reviews.average.label">
       <notes>
-        <note category="location">src/app/features/reviews/reviews.ts:45</note>
+        <note category="location">src/app/features/reviews/reviews.ts:51</note>
         <note category="meaning">Average Google rating</note>
       </notes>
       <segment>
