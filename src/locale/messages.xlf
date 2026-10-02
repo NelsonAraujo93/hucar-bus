@@ -1387,6 +1387,114 @@
         <source>Menú</source>
       </segment>
     </unit>
+    <unit id="reviews.card.translated">
+      <notes>
+        <note category="location">src/app/features/reviews/review-card/review-card.html:11,16</note>
+        <note category="meaning">Marks a review Google translated</note>
+      </notes>
+      <segment>
+        <source> Traducido por Google </source>
+      </segment>
+    </unit>
+    <unit id="reviews.card.rating">
+      <notes>
+        <note category="location">src/app/features/reviews/review-card/review-card.ts:29</note>
+        <note category="meaning">Star rating of one review</note>
+      </notes>
+      <segment>
+        <source><ph id="0" equiv="rating" disp="this.review().rating"/> de 5 estrellas</source>
+      </segment>
+    </unit>
+    <unit id="reviews.eyebrow">
+      <notes>
+        <note category="location">src/app/features/reviews/reviews.html:6,7</note>
+        <note category="meaning">Section eyebrow</note>
+      </notes>
+      <segment>
+        <source>Opiniones</source>
+      </segment>
+    </unit>
+    <unit id="reviews.title">
+      <notes>
+        <note category="location">src/app/features/reviews/reviews.html:8,11</note>
+        <note category="meaning">Section heading</note>
+      </notes>
+      <segment>
+        <source>Lo que dicen nuestros clientes</source>
+      </segment>
+    </unit>
+    <unit id="reviews.count">
+      <notes>
+        <note category="location">src/app/features/reviews/reviews.html:29,33</note>
+        <note category="meaning">Number of Google reviews</note>
+      </notes>
+      <segment>
+        <source>{VAR_PLURAL, plural, =1 {1 opinión} other {<ph id="0" equiv="INTERPOLATION"/> opiniones}}</source>
+      </segment>
+    </unit>
+    <unit id="reviews.source">
+      <notes>
+        <note category="location">src/app/features/reviews/reviews.html:37,39</note>
+        <note category="meaning">Where the reviews come from</note>
+      </notes>
+      <segment>
+        <source>Opiniones publicadas en Google por sus usuarios. Hucar Bus no las verifica.</source>
+      </segment>
+    </unit>
+    <unit id="reviews.seeAll">
+      <notes>
+        <note category="location">src/app/features/reviews/reviews.html:45,51</note>
+        <note category="meaning">Link to every review on Google</note>
+      </notes>
+      <segment>
+        <source>Ver todas las opiniones en Google</source>
+      </segment>
+    </unit>
+    <unit id="reviews.carousel.label">
+      <notes>
+        <note category="location">src/app/features/reviews/reviews.html:56,58</note>
+        <note category="meaning">Label for the reviews carousel</note>
+      </notes>
+      <segment>
+        <source>Opiniones de clientes</source>
+      </segment>
+    </unit>
+    <unit id="reviews.previous">
+      <notes>
+        <note category="location">src/app/features/reviews/reviews.html:76,78</note>
+        <note category="meaning">Previous reviews</note>
+      </notes>
+      <segment>
+        <source>Opiniones anteriores</source>
+      </segment>
+    </unit>
+    <unit id="reviews.goto">
+      <notes>
+        <note category="location">src/app/features/reviews/reviews.html:90,93</note>
+        <note category="meaning">Jump to a review</note>
+      </notes>
+      <segment>
+        <source>Ir a la opinión</source>
+      </segment>
+    </unit>
+    <unit id="reviews.next">
+      <notes>
+        <note category="location">src/app/features/reviews/reviews.html:101,103</note>
+        <note category="meaning">Next reviews</note>
+      </notes>
+      <segment>
+        <source>Siguientes opiniones</source>
+      </segment>
+    </unit>
+    <unit id="reviews.average.label">
+      <notes>
+        <note category="location">src/app/features/reviews/reviews.ts:45</note>
+        <note category="meaning">Average Google rating</note>
+      </notes>
+      <segment>
+        <source>Valoración media: <ph id="0" equiv="rating" disp="formatNumber(this.summary()?.rating ?? 0, this.locale, &apos;1.1-1&apos;)"/> de 5</source>
+      </segment>
+    </unit>
     <unit id="services.airport.title">
       <notes>
         <note category="location">src/app/features/services/services.data.ts:24</note>
