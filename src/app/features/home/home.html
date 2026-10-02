@@ -5,11 +5,19 @@
 
   <hb-services />
   <hb-about />
+
+  <!-- Live Google reviews, requested only when the visitor scrolls near them:
+       Google bills each request and forbids caching the content. The
+       placeholder is what the viewport trigger watches. -->
+  @defer (on viewport) {
+    <hb-reviews-section />
+  } @placeholder {
+    <div style="height: 1px" aria-hidden="true"></div>
+  }
+
   <hb-contact />
 
-  <!-- Reviews and Instagram are built but not composed: their content is
-       either invented or unverified, and this site deploys automatically. They
-       join the page when real data exists. -->
+  <!-- Instagram is built but not composed until the real feed is wired. -->
 </main>
 
 <hb-footer />

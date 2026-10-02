@@ -1,7 +1,9 @@
-import { Component, computed, inject, input, signal } from '@angular/core';
+import { DecimalPipe, formatNumber } from '@angular/common';
+import { Component, computed, inject, input, LOCALE_ID, signal } from '@angular/core';
 import { BreakpointObserver } from '../../core/layout/breakpoint';
 import { Icon } from '../../shared/ui/icon/icon';
 import { SectionHeader } from '../../shared/ui/section-header/section-header';
+import { ReviewCard } from './review-card/review-card';
 import type { Review, ReviewSummary } from './reviews.model';
 
 const VISIBLE_BY_BREAKPOINT = { desktop: 3, tablet: 2, mobile: 1 } as const;
@@ -10,26 +12,44 @@ const VISIBLE_BY_BREAKPOINT = { desktop: 3, tablet: 2, mobile: 1 } as const;
 const SWIPE_THRESHOLD_PX = 40;
 
 /**
- * Customer reviews carousel.
+ * Google reviews carousel.
  *
  * Purely presentational: it takes reviews as an input and renders nothing when
- * given none. That is deliberate. The only review content that exists is
- * invented, and this repository deploys automatically, so the component must be
- * incapable of publishing anything on its own. The page does not compose it at
- * all yet; the development gallery feeds it a fixture.
+ * given none, so it can never publish anything on its own. ReviewsSection
+ * feeds it the live Google snapshot; the development gallery feeds it a
+ * fixture.
  */
 @Component({
   selector: 'hb-reviews',
-  imports: [Icon, SectionHeader],
+  imports: [DecimalPipe, Icon, ReviewCard, SectionHeader],
   templateUrl: './reviews.html',
   styleUrl: './reviews.css',
 })
 export class Reviews {
   private readonly breakpoint = inject(BreakpointObserver);
+  private readonly locale = inject(LOCALE_ID);
 
   readonly reviews = input<readonly Review[]>([]);
   /** Omitted when there is no verified rating to show. */
   readonly summary = input<ReviewSummary | undefined>(undefined);
+
+  /**
+   * Google's required attribution, the same words in every language: it names
+   * the source, so it is never translated.
+   */
+  protected readonly attribution = 'Google Maps';
+
+  protected readonly stars = [1, 2, 3, 4, 5] as const;
+
+  /** Whole stars for the average: 4.7 shows five, 4.2 shows four. */
+  protected readonly roundedAverage = computed(() => Math.round(this.summary()?.rating ?? 0));
+
+  protected readonly averageLabel = computed(
+    () =>
+      // Formatted like the visible number, so a screen reader hears "4,4" on
+      // the Spanish site where the page shows 4,4.
+      $localize`:Average Google rating|@@reviews.average.label:Valoración media: ${formatNumber(this.summary()?.rating ?? 0, this.locale, '1.1-1')}:rating: de 5`,
+  );
 
   protected readonly index = signal(0);
 

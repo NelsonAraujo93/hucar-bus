@@ -1,13 +1,13 @@
-export interface Review {
-  readonly name: string;
-  /** Relative date as supplied by the source, e.g. "hace 2 meses". */
-  readonly when: string;
-  readonly text: string;
-}
+import type { PublicReview } from '../../../shared/reviews/protocol';
 
+/** One review, exactly as Google returned it: author, rating, text. */
+export type Review = PublicReview;
+
+/** The place's overall standing, shown above the reviews. */
 export interface ReviewSummary {
-  /** Average rating as displayed, e.g. "4.8". */
-  readonly average: string;
-  /** Count as displayed, e.g. "120+". */
-  readonly count: string;
+  /** Google's average, e.g. 4.7. Null when Google has none yet. */
+  readonly rating: number | null;
+  readonly count: number;
+  /** Every review on Google Maps; required context when only a few are shown. */
+  readonly mapsUri: string | null;
 }

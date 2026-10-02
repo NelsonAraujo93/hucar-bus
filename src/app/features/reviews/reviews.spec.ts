@@ -174,16 +174,14 @@ describe('Reviews', () => {
       expect(carousel?.getAttribute('aria-label')).toBeTruthy();
     });
 
-    it('hides the decorative star rows', async () => {
+    it('renders one card per review', async () => {
       const { host } = await render();
-      for (const stars of Array.from(host.querySelectorAll('.review__stars'))) {
-        expect(stars.getAttribute('aria-hidden')).toBe('true');
-      }
+      expect(host.querySelectorAll('.review hb-review-card')).toHaveLength(REVIEW_FIXTURE.length);
     });
   });
 
   describe('summary', () => {
-    it('is omitted when no verified rating is supplied', async () => {
+    it('is omitted when no summary is supplied', async () => {
       TestBed.configureTestingModule({
         imports: [Reviews],
         providers: [{ provide: BreakpointObserver, useValue: new BreakpointStub() }],
@@ -193,6 +191,41 @@ describe('Reviews', () => {
       await fixture.whenStable();
       const host = fixture.nativeElement as HTMLElement;
       expect(host.querySelector('.rating')).toBeNull();
+      expect(host.querySelector('.reviews__source')).toBeNull();
+    });
+
+    it('credits Google Maps, as Google requires without a map', async () => {
+      const { host } = await render();
+      expect(host.querySelector('.rating__attribution')?.textContent).toBe('Google Maps');
+    });
+
+    it('shows the average as stars that match it, announced as a rating', async () => {
+      const { host } = await render();
+      const stars = host.querySelector('.rating__stars');
+      expect(stars?.getAttribute('role')).toBe('img');
+      expect(stars?.getAttribute('aria-label')).toContain('4,4');
+      expect(stars?.querySelectorAll('hb-icon')).toHaveLength(5);
+      // Tests run in the Spanish source locale, hence the decimal comma.
+      expect(host.querySelector('.rating__average')?.textContent?.trim()).toBe('4,4');
+    });
+
+    it('states the total count, so a handful of reviews is seen in context', async () => {
+      const { host } = await render();
+      expect(host.querySelector('.rating__count')?.textContent).toContain('5 opiniones');
+    });
+
+    it('says where the reviews come from and that they are not verified', async () => {
+      const { host } = await render();
+      const source = host.querySelector('.reviews__source');
+      expect(source?.textContent).toContain('Google');
+      expect(source?.textContent).toContain('no las verifica');
+    });
+
+    it('links to every review on Google', async () => {
+      const { host } = await render();
+      const link = host.querySelector<HTMLAnchorElement>('.reviews__source a');
+      expect(link?.getAttribute('href')).toBe('https://maps.google.com/');
+      expect(link?.getAttribute('rel')).toContain('noopener');
     });
   });
 });
