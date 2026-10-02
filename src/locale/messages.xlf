@@ -46,6 +46,15 @@
         <source>Contacto</source>
       </segment>
     </unit>
+    <unit id="seo.shareImage.alt">
+      <notes>
+        <note category="location">src/app/core/seo/seo.service.ts:102</note>
+        <note category="meaning">Alt text for the link preview image</note>
+      </notes>
+      <segment>
+        <source>Minibús amarillo de Hucar Bus en un paisaje volcánico de Lanzarote</source>
+      </segment>
+    </unit>
     <unit id="about.eyebrow">
       <notes>
         <note category="location">src/app/features/about/about.html:4,7</note>
@@ -91,9 +100,18 @@
         <source> Desde un traslado al aeropuerto a primera hora hasta una ruta privada por el Timanfaya, nos adaptamos a lo que necesites — siempre con trato personal y puntualidad canaria. </source>
       </segment>
     </unit>
+    <unit id="about.photo.alt">
+      <notes>
+        <note category="location">src/app/features/about/about.html:64,68</note>
+        <note category="meaning">Alt text for the About photo</note>
+      </notes>
+      <segment>
+        <source>Un conductor de Hucar Bus junto a uno de sus minibuses en Lanzarote</source>
+      </segment>
+    </unit>
     <unit id="about.base.label">
       <notes>
-        <note category="location">src/app/features/about/about.html:46,48</note>
+        <note category="location">src/app/features/about/about.html:74,76</note>
         <note category="meaning">Label above the base location</note>
       </notes>
       <segment>
@@ -102,7 +120,7 @@
     </unit>
     <unit id="about.stats.years">
       <notes>
-        <note category="location">src/app/features/about/about.ts:40</note>
+        <note category="location">src/app/features/about/about.ts:43</note>
         <note category="meaning">Stat label</note>
       </notes>
       <segment>
@@ -111,7 +129,7 @@
     </unit>
     <unit id="about.stats.availability">
       <notes>
-        <note category="location">src/app/features/about/about.ts:44</note>
+        <note category="location">src/app/features/about/about.ts:47</note>
         <note category="meaning">Stat label</note>
       </notes>
       <segment>
@@ -365,7 +383,7 @@
     </unit>
     <unit id="contact.type.legend">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.html:78,80</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.html:81,83</note>
         <note category="meaning">Enquiry type question</note>
       </notes>
       <segment>
@@ -374,7 +392,7 @@
     </unit>
     <unit id="contact.type.customer">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.html:86,88</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.html:89,91</note>
         <note category="meaning">Enquiry type option</note>
       </notes>
       <segment>
@@ -383,7 +401,7 @@
     </unit>
     <unit id="contact.type.operator">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.html:89,92</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.html:92,95</note>
         <note category="meaning">Enquiry type option</note>
       </notes>
       <segment>
@@ -392,7 +410,7 @@
     </unit>
     <unit id="contact.type.other">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.html:92,95</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.html:95,98</note>
         <note category="meaning">Enquiry type option</note>
       </notes>
       <segment>
@@ -401,7 +419,7 @@
     </unit>
     <unit id="contact.field.company">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.html:106,109</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.html:109,112</note>
         <note category="meaning">Form field label</note>
       </notes>
       <segment>
@@ -410,7 +428,7 @@
     </unit>
     <unit id="contact.field.name">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.html:126,129</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.html:129,132</note>
         <note category="meaning">Form field label</note>
       </notes>
       <segment>
@@ -419,7 +437,7 @@
     </unit>
     <unit id="contact.field.email">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.html:144,147</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.html:147,150</note>
         <note category="meaning">Form field label</note>
       </notes>
       <segment>
@@ -428,7 +446,7 @@
     </unit>
     <unit id="contact.field.phone">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.html:164,165</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.html:167,168</note>
         <note category="meaning">Form field label</note>
       </notes>
       <segment>
@@ -437,7 +455,7 @@
     </unit>
     <unit id="contact.field.optional">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.html:166,170</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.html:169,173</note>
         <note category="meaning">Marks a field as optional</note>
       </notes>
       <segment>
@@ -446,7 +464,7 @@
     </unit>
     <unit id="contact.field.subject">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.html:185,188</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.html:188,191</note>
         <note category="meaning">Form field label</note>
       </notes>
       <segment>
@@ -455,7 +473,7 @@
     </unit>
     <unit id="contact.field.message">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.html:203,206</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.html:206,209</note>
         <note category="meaning">Form field label</note>
       </notes>
       <segment>
@@ -464,7 +482,7 @@
     </unit>
     <unit id="contact.privacy.accept">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.html:232,234</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.html:235,237</note>
         <note category="meaning">Privacy acceptance, before the link</note>
       </notes>
       <segment>
@@ -473,7 +491,7 @@
     </unit>
     <unit id="contact.privacy.link">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.html:235,238</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.html:238,241</note>
         <note category="meaning">Link to the privacy policy</note>
       </notes>
       <segment>
@@ -482,7 +500,7 @@
     </unit>
     <unit id="contact.trap.label">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.html:247,250</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.html:250,253</note>
         <note category="meaning">Honeypot label</note>
       </notes>
       <segment>
@@ -491,7 +509,7 @@
     </unit>
     <unit id="contact.submit">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.html:265,270</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.html:268,273</note>
         <note category="meaning">Form submit button</note>
       </notes>
       <segment>
