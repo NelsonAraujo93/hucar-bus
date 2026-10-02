@@ -101,8 +101,21 @@
   position: relative;
 }
 
+/* Positioned and sized here because NgOptimizedImage's fill mode stretches
+   the image over its nearest positioned ancestor. */
 .about__photo {
+  display: block;
+  position: relative;
+  overflow: hidden;
   aspect-ratio: 4 / 5;
+  border-radius: var(--radius-16);
+}
+
+/* The photo is portrait and the frame turns landscape on smaller screens;
+   keeping the upper third in view keeps the driver's face in frame. */
+.about__photo-image {
+  object-fit: cover;
+  object-position: center 35%;
 }
 
 .about__badge {

@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import type { ContactSubmission } from '../../application/contact/contact-gateway';
-import { FETCH, HttpContactGateway } from './http-contact-gateway';
+import { FETCH } from '../http/fetch';
+import { HttpContactGateway } from './http-contact-gateway';
 
 const SUBMISSION: ContactSubmission = {
   enquiry: {

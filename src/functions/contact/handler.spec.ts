@@ -1,5 +1,5 @@
 import { handleContact, type ContactDeps } from './handler';
-import { createRateLimiter } from './rate-limit';
+import { createRateLimiter } from '../shared/rate-limit';
 import type { OutgoingEmail, SendResult } from './resend';
 
 const NOW = 1_800_000_000_000;

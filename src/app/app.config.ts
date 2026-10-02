@@ -1,10 +1,17 @@
-import { ApplicationConfig, ErrorHandler, provideBrowserGlobalErrorListeners } from '@angular/core';
+import {
+  ApplicationConfig,
+  ErrorHandler,
+  inject,
+  provideBrowserGlobalErrorListeners,
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { MonitoringErrorHandler } from './core/monitoring/monitoring-error-handler';
 import { CONTACT_GATEWAY } from './application/contact/contact-gateway';
 import { HttpContactGateway } from './infrastructure/contact/http-contact-gateway';
+import { REVIEWS_GATEWAY } from './application/reviews/reviews-gateway';
+import { HttpReviewsGateway } from './infrastructure/reviews/http-reviews-gateway';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,5 +23,18 @@ export const appConfig: ApplicationConfig = {
     { provide: ErrorHandler, useClass: MonitoringErrorHandler },
     // The composition root: the only place the contact use case meets HTTP.
     { provide: CONTACT_GATEWAY, useExisting: HttpContactGateway },
+    // Sample reviews in development and previews (TEMPORARY). In production
+    // HB_MOCKS is false, so the dynamic import -- and with it the invented
+    // reviews -- is removed from the bundle; a static import would not be.
+    {
+      provide: REVIEWS_GATEWAY,
+      useFactory: () =>
+        HB_MOCKS
+          ? {
+              load: async () =>
+                (await import('./mocks/mock-reviews-gateway')).mockReviewsGateway.load('en'),
+            }
+          : inject(HttpReviewsGateway),
+    },
   ],
 };

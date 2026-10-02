@@ -1,0 +1,33 @@
+<p class="card__stars" role="img" [attr.aria-label]="ratingLabel()">
+  @for (star of stars; track star) {
+    <hb-icon [name]="star <= review().rating ? 'star' : 'star-outline'" [size]="16" />
+  }
+</p>
+
+<blockquote class="card__quote">{{ review().text }}</blockquote>
+
+@if (review().translated) {
+  <p class="card__translated" i18n="Marks a review Google translated|@@reviews.card.translated">
+    Traducido por Google
+  </p>
+}
+
+<div class="card__author">
+  <!-- The photo arrives inlined from our own function, so the browser never
+       contacts Google; NgOptimizedImage does not apply to data URIs. -->
+  @if (review().avatar; as avatar) {
+    <img class="card__avatar" [src]="avatar" alt="" width="40" height="40" />
+  } @else {
+    <span class="card__avatar card__avatar--initial" aria-hidden="true">{{ initial() }}</span>
+  }
+  <span class="card__meta">
+    @if (review().authorUri; as uri) {
+      <a class="card__name" [href]="uri" target="_blank" rel="noopener noreferrer nofollow">{{
+        review().author
+      }}</a>
+    } @else {
+      <span class="card__name">{{ review().author }}</span>
+    }
+    <span class="card__when">{{ review().when }}</span>
+  </span>
+</div>

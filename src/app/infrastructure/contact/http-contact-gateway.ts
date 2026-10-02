@@ -1,4 +1,4 @@
-import { InjectionToken, inject, Service } from '@angular/core';
+import { inject, Service } from '@angular/core';
 import type {
   ContactGateway,
   ContactSubmission,
@@ -10,18 +10,7 @@ import {
   type ContactRequestBody,
   type ContactResponseBody,
 } from '../../../shared/contact/protocol';
-
-/**
- * `fetch`, injectable so tests can answer for the network.
- *
- * Plain fetch rather than HttpClient: this is the app's only request, and
- * HttpClient would add its weight to the initial bundle of every visitor to
- * serve one form most of them never send.
- */
-export const FETCH = new InjectionToken<typeof fetch>('hb.fetch', {
-  providedIn: 'root',
-  factory: () => globalThis.fetch.bind(globalThis),
-});
+import { FETCH } from '../http/fetch';
 
 /** Posts an enquiry to `/api/contact` and turns the answer into an outcome. */
 @Service()

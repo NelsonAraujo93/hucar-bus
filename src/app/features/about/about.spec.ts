@@ -91,14 +91,30 @@ describe('About', () => {
     });
   });
 
-  it('keeps the photo placeholder out of the accessibility tree', async () => {
-    // It conveys nothing until a real photograph with real alt text lands.
-    // Announcing "photograph pending" would expose a build detail to visitors.
+  it('shows the real photo, described for screen readers', async () => {
     const host = await render();
-    const photo = host.querySelector('.about__photo');
-    expect(photo).toBeTruthy();
-    expect(photo?.getAttribute('aria-hidden')).toBe('true');
-    expect(photo?.getAttribute('role')).toBeNull();
+    const image = host.querySelector<HTMLImageElement>('.about__photo img');
+    expect(image?.getAttribute('alt')).toContain('Hucar Bus');
+    expect(image?.getAttribute('src')).toBe('/img/about-driver-800.jpg');
+  });
+
+  it('offers AVIF and WebP before the JPEG fallback, in every size', async () => {
+    const host = await render();
+    const sources = Array.from(host.querySelectorAll('.about__photo source'));
+    expect(sources.map((source) => source.getAttribute('type'))).toEqual([
+      'image/avif',
+      'image/webp',
+    ]);
+    for (const source of sources) {
+      expect(source.getAttribute('srcset')).toContain('480w');
+      expect(source.getAttribute('srcset')).toContain('1200w');
+      expect(source.getAttribute('sizes')).toBeTruthy();
+    }
+  });
+
+  it('loads the photo lazily, since it is below the fold', async () => {
+    const host = await render();
+    expect(host.querySelector('.about__photo img')?.getAttribute('loading')).toBe('lazy');
   });
 
   it('hides the badge icon, which the adjacent text already names', async () => {
