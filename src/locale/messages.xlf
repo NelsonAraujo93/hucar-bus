@@ -687,15 +687,6 @@
         <source>Escríbenos por WhatsApp</source>
       </segment>
     </unit>
-    <unit id="contact.map.title">
-      <notes>
-        <note category="location">src/app/features/contact/contact.html:78,81</note>
-        <note category="meaning">Title of the map frame</note>
-      </notes>
-      <segment>
-        <source>Mapa de la base de Hucar Bus en Arrecife</source>
-      </segment>
-    </unit>
     <unit id="footer.tagline">
       <notes>
         <note category="location">src/app/features/footer/footer.html:8,12</note>
@@ -850,6 +841,42 @@
       </notes>
       <segment>
         <source>Bajar a servicios</source>
+      </segment>
+    </unit>
+    <unit id="instagram.title">
+      <notes>
+        <note category="location">src/app/features/instagram/instagram.html:7,8</note>
+        <note category="meaning">Section heading</note>
+      </notes>
+      <segment>
+        <source>Síguenos en Instagram</source>
+      </segment>
+    </unit>
+    <unit id="instagram.subtitle">
+      <notes>
+        <note category="location">src/app/features/instagram/instagram.html:9,13</note>
+        <note category="meaning">Section supporting line</note>
+      </notes>
+      <segment>
+        <source>Las mejores vistas de Lanzarote, desde la ventanilla.</source>
+      </segment>
+    </unit>
+    <unit id="instagram.cta">
+      <notes>
+        <note category="location">src/app/features/instagram/instagram.html:45,49</note>
+        <note category="meaning">Instagram call to action</note>
+      </notes>
+      <segment>
+        <source>Seguir en Instagram →</source>
+      </segment>
+    </unit>
+    <unit id="instagram.post.alt">
+      <notes>
+        <note category="location">src/app/features/instagram/instagram.ts:26</note>
+        <note category="meaning">Alt text for an Instagram post without caption</note>
+      </notes>
+      <segment>
+        <source>Publicación de Hucar Bus en Instagram</source>
       </segment>
     </unit>
     <unit id="legal.notice.heading">

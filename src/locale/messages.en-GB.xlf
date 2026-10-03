@@ -1141,5 +1141,11 @@
         <target>Map of the Hucar Bus base in Arrecife</target>
       </segment>
     </unit>
+    <unit id="instagram.post.alt">
+      <segment state="translated">
+        <source>Publicación de Hucar Bus en Instagram</source>
+        <target>Hucar Bus post on Instagram</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

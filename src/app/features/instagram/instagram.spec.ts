@@ -28,36 +28,61 @@ describe('Instagram', () => {
     TestBed.resetTestingModule();
   });
 
-  it('renders nothing without posts, since the section scope is undecided', async () => {
+  it('renders nothing without posts', async () => {
     const host = await render([]);
     expect(host.querySelector('section')).toBeNull();
   });
 
-  it('renders a tile per post', async () => {
+  it('renders a tile per post, the three the grid holds', async () => {
     const host = await render();
-    expect(host.querySelectorAll('.tile')).toHaveLength(INSTAGRAM_FIXTURE.length);
+    expect(INSTAGRAM_FIXTURE).toHaveLength(3);
+    expect(host.querySelectorAll('.tile')).toHaveLength(3);
   });
 
-  it('fills the nine-tile grid the design specifies', async () => {
-    expect(INSTAGRAM_FIXTURE).toHaveLength(9);
+  it('links each tile to its post on Instagram, in a new tab', async () => {
+    const host = await render();
+    const link = host.querySelector<HTMLAnchorElement>('.tile__link');
+    expect(link?.getAttribute('href')).toBe('https://www.instagram.com/hucarbus/');
+    expect(link?.getAttribute('target')).toBe('_blank');
+    expect(link?.getAttribute('rel')).toContain('noopener');
   });
 
-  it('shows no like counts, which are invented in the design', async () => {
+  it('serves the image from this site, WebP first, lazily', async () => {
     const host = await render();
-    const text = host.textContent ?? '';
-    for (const count of ['284', '412', '198', '321', '567']) {
-      expect(text).not.toContain(count);
+    const tile = host.querySelector('.tile');
+    expect(tile?.querySelector('source')?.getAttribute('srcset')).toBe(
+      '/img/about-driver-480.webp',
+    );
+    const img = tile?.querySelector('img');
+    expect(img?.getAttribute('src')).toBe('/img/about-driver-480.jpg');
+    expect(img?.getAttribute('loading')).toBe('lazy');
+  });
+
+  it('describes each image with its caption, or a generic text without one', async () => {
+    const host = await render();
+    const alts = Array.from(host.querySelectorAll('.tile img')).map((img) =>
+      img.getAttribute('alt'),
+    );
+    expect(alts).toEqual([
+      'Pie de foto de ejemplo',
+      'Publicación de Hucar Bus en Instagram',
+      'Otro pie de foto',
+    ]);
+  });
+
+  it('shows the caption in the overlay only when there is one', async () => {
+    const host = await render();
+    const captions = Array.from(host.querySelectorAll('.tile__caption')).map((c) =>
+      c.textContent?.trim(),
+    );
+    expect(captions).toEqual(['Pie de foto de ejemplo', 'Otro pie de foto']);
+  });
+
+  it('shows no like counts, which would go stale between builds', async () => {
+    const host = await render();
+    for (const count of ['284', '412', '198']) {
+      expect(host.textContent).not.toContain(count);
     }
-  });
-
-  it('shows no captions until someone confirms what the photographs depict', async () => {
-    const host = await render();
-    expect(host.querySelector('.tile__caption')).toBeNull();
-  });
-
-  it('renders a caption once one is supplied', async () => {
-    const host = await render([{ id: '1', tone: 'ocean', caption: 'Playa de Papagayo' }]);
-    expect(host.querySelector('.tile__caption')?.textContent?.trim()).toBe('Playa de Papagayo');
   });
 
   it('keeps the hover overlay out of the accessibility tree', async () => {

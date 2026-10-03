@@ -15,9 +15,14 @@
     <div style="height: 1px" aria-hidden="true"></div>
   }
 
-  <hb-contact />
+  <!-- The latest Instagram posts, copied into the site at build time. -->
+  @defer (on viewport) {
+    <hb-instagram-section />
+  } @placeholder {
+    <div style="height: 1px" aria-hidden="true"></div>
+  }
 
-  <!-- Instagram is built but not composed until the real feed is wired. -->
+  <hb-contact />
 </main>
 
 <hb-footer />
