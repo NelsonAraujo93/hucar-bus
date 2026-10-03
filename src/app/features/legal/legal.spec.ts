@@ -184,14 +184,52 @@ describe('legal pages', () => {
   });
 
   describe('Terms', () => {
-    it('claims no conditions it has not been given', async () => {
-      // Cancellation windows and liability limits are commercial decisions, not
-      // anything derivable from the codebase.
-      const host = await render(Terms);
-      expect(host.querySelectorAll('hb-legal-pending').length).toBeGreaterThanOrEqual(2);
+    // The business's own decisions (2026-10-03). A test per rule, so a
+    // careless edit cannot quietly change what customers are promised.
+    async function text(): Promise<string> {
+      return ((await render(Terms)).textContent ?? '').replace(/\s+/g, ' ');
+    }
+
+    it('confirms a booking on payment, with quotes valid for 7 days', async () => {
+      const page = await text();
+      expect(page).toContain('válido durante 7 días');
+      expect(page).toContain('queda confirmada en el momento en que se completa el pago');
     });
 
-    it('offers a real way to ask in the meantime', async () => {
+    it('states final prices including IGIC, paid in full in advance', async () => {
+      const page = await text();
+      expect(page).toContain('incluyen el IGIC');
+      expect(page).toContain('por adelantado en su totalidad');
+    });
+
+    it('sets out the cancellation scale: 48 h full, 24 to 48 h half, under 24 h none', async () => {
+      const host = await render(Terms);
+      const items = Array.from(host.querySelectorAll('.doc__list li')).map((li) =>
+        li.textContent?.replace(/\s+/g, ' ').trim(),
+      );
+      expect(items).toContain('el 100 %, si cancelas con 48 horas o más de antelación;');
+      expect(items).toContain('el 50 %, si cancelas entre 48 y 24 horas antes;');
+      expect(items).toContain('nada, si cancelas con menos de 24 horas de antelación.');
+    });
+
+    it('waits 30 minutes at a pickup and tracks delayed flights', async () => {
+      const page = await text();
+      expect(page).toContain('esperará 30 minutos');
+      expect(page).toContain('seguimos tu vuelo');
+    });
+
+    it('keeps what needs legal advice visibly pending', async () => {
+      const host = await render(Terms);
+      expect(host.querySelectorAll('hb-legal-pending')).toHaveLength(2);
+    });
+
+    it('does not link the EU online dispute platform, closed in July 2025', async () => {
+      const host = await render(Terms);
+      const hrefs = Array.from(host.querySelectorAll('a')).map((a) => a.getAttribute('href') ?? '');
+      expect(hrefs.some((href) => href.includes('ec.europa.eu/consumers/odr'))).toBe(false);
+    });
+
+    it('gives a real phone and email for complaints', async () => {
       const host = await render(Terms);
       const config = TestBed.inject(SITE_CONFIG);
       const hrefs = Array.from(host.querySelectorAll('a')).map((a) => a.getAttribute('href'));

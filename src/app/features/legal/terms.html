@@ -22,38 +22,142 @@
   </section>
 
   <section class="doc__section">
-    <h2 class="doc__heading" i18n="Terms section heading|@@legal.terms.conditions.heading">
-      Condiciones del servicio
+    <h2 class="doc__heading" i18n="Terms section heading|@@legal.terms.booking.heading">
+      Presupuestos y reservas
     </h2>
-    <hb-legal-pending>
-      <span i18n="Pending service conditions|@@legal.terms.conditions.missing">
-        Quedan por redactar las condiciones de contratación, la política de cancelación y
-        modificación, el régimen de responsabilidad, las obligaciones del pasajero y la ley
-        aplicable. Nada de esto puede darse por supuesto: son decisiones comerciales de la empresa.
-      </span>
-    </hb-legal-pending>
-  </section>
-
-  <section class="doc__section">
-    <h2 class="doc__heading" i18n="Terms section heading|@@legal.terms.prices.heading">Precios</h2>
-    <hb-legal-pending>
-      <span i18n="Pending pricing terms|@@legal.terms.prices.missing">
-        Este sitio no publica tarifas. Si en el futuro se publican, deberán indicar expresamente si
-        el IGIC está incluido — en Canarias se aplica IGIC y no IVA — junto con su fecha de entrada
-        en vigor.
-      </span>
-    </hb-legal-pending>
-  </section>
-
-  <section class="doc__section">
-    <h2 class="doc__heading" i18n="Terms section heading|@@legal.terms.contact.heading">
-      Cómo contactar mientras tanto
-    </h2>
-    <p class="doc__paragraph" i18n="Interim contact instructions|@@legal.terms.contact.body">
-      Hasta que estas condiciones estén publicadas, cualquier duda sobre la contratación de un
-      servicio puedes resolverla directamente con nosotros por teléfono o correo:
-      <a [href]="config.phoneHref">{{ config.phone }}</a> ·
-      <a [href]="'mailto:' + config.email">{{ config.email }}</a>
+    <p class="doc__paragraph" i18n="How quotes work|@@legal.terms.booking.quote">
+      Puedes pedirnos presupuesto a través del formulario de contacto, por WhatsApp o por correo.
+      Cada presupuesto es válido durante 7 días desde que te lo enviamos.
     </p>
+    <p class="doc__paragraph" i18n="When a booking is confirmed|@@legal.terms.booking.confirmation">
+      Si lo aceptas, te enviamos un enlace de pago seguro. La reserva queda confirmada en el momento
+      en que se completa el pago, y entonces te enviamos un mensaje con la fecha, la hora, el punto
+      de recogida y los datos del conductor.
+    </p>
+  </section>
+
+  <section class="doc__section">
+    <h2 class="doc__heading" i18n="Terms section heading|@@legal.terms.prices.heading">
+      Precios y pago
+    </h2>
+    <p class="doc__paragraph" i18n="Prices include IGIC|@@legal.terms.prices.final">
+      Todos nuestros precios son finales e incluyen el IGIC, el impuesto que se aplica en Canarias
+      en lugar del IVA.
+    </p>
+    <p class="doc__paragraph" i18n="Payment in advance|@@legal.terms.prices.payment">
+      El servicio se paga por adelantado en su totalidad mediante el enlace de pago, gestionado por
+      Stripe. Hucar Bus no ve ni guarda los datos de tu tarjeta.
+    </p>
+  </section>
+
+  <section class="doc__section">
+    <h2 class="doc__heading" i18n="Terms section heading|@@legal.terms.changes.heading">
+      Cambios y cancelaciones
+    </h2>
+    <p class="doc__paragraph" i18n="Changes to a booking|@@legal.terms.changes.body">
+      Puedes cambiar la fecha o la hora sin coste hasta 24 horas antes del servicio, siempre que
+      haya un vehículo disponible. Un cambio con menos antelación se trata como una cancelación.
+    </p>
+    <p class="doc__paragraph" i18n="Cancellation scale intro|@@legal.terms.cancel.intro">
+      Si cancelas un servicio ya pagado, te devolvemos:
+    </p>
+    <ul class="doc__list">
+      <li i18n="Cancellation scale|@@legal.terms.cancel.full">
+        el 100 %, si cancelas con 48 horas o más de antelación;
+      </li>
+      <li i18n="Cancellation scale|@@legal.terms.cancel.half">
+        el 50 %, si cancelas entre 48 y 24 horas antes;
+      </li>
+      <li i18n="Cancellation scale|@@legal.terms.cancel.none">
+        nada, si cancelas con menos de 24 horas de antelación.
+      </li>
+    </ul>
+    <p class="doc__paragraph" i18n="How refunds are paid|@@legal.terms.cancel.refund">
+      Las devoluciones se hacen por el mismo medio con el que pagaste.
+    </p>
+    <p class="doc__paragraph" i18n="When Hucar Bus cancels|@@legal.terms.cancel.ours">
+      Si somos nosotros quienes no podemos prestar el servicio —por una avería, el tiempo o
+      cualquier otra causa—, te ofreceremos otro vehículo y, si no es posible, te devolveremos el
+      importe íntegro.
+    </p>
+  </section>
+
+  <section class="doc__section">
+    <h2 class="doc__heading" i18n="Terms section heading|@@legal.terms.pickup.heading">
+      Recogida y esperas
+    </h2>
+    <p class="doc__paragraph" i18n="Waiting at a pickup|@@legal.terms.pickup.wait">
+      El conductor te esperará 30 minutos en el punto de recogida e intentará llamarte. Si
+      transcurrido ese tiempo no te presentas, el servicio se considera prestado y no se devuelve el
+      importe.
+    </p>
+    <p class="doc__paragraph" i18n="Airport pickups and delays|@@legal.terms.pickup.airport">
+      En las recogidas en el aeropuerto seguimos tu vuelo con el número que nos indiques: si llega
+      con retraso, adaptamos la recogida a la hora real de llegada sin coste, y te esperamos además
+      hasta 60 minutos después del aterrizaje.
+    </p>
+  </section>
+
+  <section class="doc__section">
+    <h2 class="doc__heading" i18n="Terms section heading|@@legal.terms.luggage.heading">
+      Equipaje y objetos especiales
+    </h2>
+    <ul class="doc__list">
+      <li i18n="Luggage allowance|@@legal.terms.luggage.standard">
+        Cada pasajero puede llevar una maleta y un bulto de mano. El equipaje adicional o de gran
+        tamaño debe indicarse al reservar.
+      </li>
+      <li i18n="Bicycles and surfboards|@@legal.terms.luggage.sports">
+        Bicicletas y tablas de surf, bajo petición al reservar. Pueden tener un suplemento, que te
+        indicaremos en el presupuesto.
+      </li>
+      <li i18n="Pets|@@legal.terms.luggage.pets">
+        Animales de compañía en transportín, bajo petición al reservar. Los perros guía viajan
+        siempre.
+      </li>
+      <li i18n="Wheelchairs and pushchairs|@@legal.terms.luggage.wheelchairs">
+        Sillas de ruedas y cochecitos plegables, sin coste, indicándolo al reservar.
+      </li>
+    </ul>
+  </section>
+
+  <section class="doc__section">
+    <h2 class="doc__heading" i18n="Terms section heading|@@legal.terms.passengers.heading">
+      Pasajeros
+    </h2>
+    <p class="doc__paragraph" i18n="Child seats|@@legal.terms.passengers.children">
+      No disponemos de sillas infantiles: si viajas con niños que las necesiten, trae tu propio
+      sistema de retención homologado.
+    </p>
+    <p class="doc__paragraph" i18n="Seat belts and smoking|@@legal.terms.passengers.rules">
+      Es obligatorio llevar el cinturón de seguridad abrochado durante todo el trayecto, y no está
+      permitido fumar a bordo.
+    </p>
+    <hb-legal-pending>
+      <span i18n="Pending passenger terms|@@legal.terms.passengers.pending">
+        Quedan por concretar las normas sobre sistemas de retención infantil en minibuses, la
+        responsabilidad por daños en el vehículo y la disponibilidad de un vehículo adaptado para
+        sillas de ruedas.
+      </span>
+    </hb-legal-pending>
+  </section>
+
+  <section class="doc__section">
+    <h2 class="doc__heading" i18n="Terms section heading|@@legal.terms.legal.heading">
+      Responsabilidad, desistimiento y reclamaciones
+    </h2>
+    <p class="doc__paragraph" i18n="Complaint forms|@@legal.terms.legal.complaints">
+      Tienes a tu disposición hojas de reclamaciones. También puedes escribirnos a
+      <a [href]="'mailto:' + config.email">{{ config.email }}</a> o llamarnos al
+      <a [href]="config.phoneHref">{{ config.phone }}</a
+      >.
+    </p>
+    <hb-legal-pending>
+      <span i18n="Pending legal terms|@@legal.terms.legal.pending">
+        Quedan por redactar, con asesoramiento profesional, el régimen de responsabilidad, la
+        aplicación o no del derecho de desistimiento a los servicios de transporte con fecha
+        determinada, y la legislación y los tribunales aplicables.
+      </span>
+    </hb-legal-pending>
   </section>
 </hb-legal-page>
