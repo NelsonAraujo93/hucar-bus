@@ -164,6 +164,17 @@ describe('legal pages', () => {
       expect(hrefs).toContain('https://www.aepd.es');
     });
 
+    it('describes the live contact form and the services that carry its messages', async () => {
+      // Regression: the form went live in v1.4.0 while this page still said it
+      // collected nothing. The policy has to describe what the form does.
+      const host = await render(Privacy);
+      const text = host.textContent ?? '';
+      expect(text).toContain('formulario de contacto');
+      expect(text).toContain('Resend');
+      expect(text).toContain('Gmail');
+      expect(text).not.toContain('no está operativo');
+    });
+
     it('gives an address for exercising rights', async () => {
       const host = await render(Privacy);
       const config = TestBed.inject(SITE_CONFIG);

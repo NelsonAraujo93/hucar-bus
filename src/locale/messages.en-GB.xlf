@@ -831,14 +831,8 @@
     </unit>
     <unit id="legal.privacy.purposes.heading">
       <segment state="translated">
-        <source> Finalidades y base jurídica </source>
-        <target> Purposes and legal basis </target>
-      </segment>
-    </unit>
-    <unit id="legal.privacy.purposes.missing">
-      <segment state="translated">
-        <source> Queda por documentar cada finalidad del tratamiento con su base jurídica. El formulario de contacto todavía no está operativo: hoy no se recoge ni se envía ningún dato a través de él. </source>
-        <target> Each processing purpose and its legal basis have still to be documented. The contact form is not yet operational: nothing is collected or sent through it today. </target>
+        <source> Finalidades, base jurídica y conservación </source>
+        <target>Purposes, legal basis and retention</target>
       </segment>
     </unit>
     <unit id="legal.privacy.storage.heading">
@@ -937,22 +931,10 @@
         <target> The site is hosted on Vercel, which acts as a data processor for hosting and delivering the pages. </target>
       </segment>
     </unit>
-    <unit id="legal.privacy.processors.missing">
-      <segment state="translated">
-        <source> Falta el detalle contractual de cada encargado y la lista definitiva, que crecerá cuando se activen la analítica, el envío de correo del formulario y la protección antispam. </source>
-        <target> The contractual detail for each processor is missing, as is the final list — which will grow once analytics, the contact form’s email delivery and spam protection are switched on. </target>
-      </segment>
-    </unit>
     <unit id="legal.privacy.transfers.heading">
       <segment state="translated">
         <source> Transferencias internacionales y conservación </source>
         <target> International transfers and retention </target>
-      </segment>
-    </unit>
-    <unit id="legal.privacy.transfers.missing">
-      <segment state="translated">
-        <source> Queda por documentar la situación del resto de proveedores, empezando por el alojamiento, las garantías aplicables en cada caso, y durante cuánto tiempo se conserva cada dato. </source>
-        <target> It remains to be documented where the remaining providers stand, starting with hosting, what safeguards apply in each case, and how long each piece of data is kept. </target>
       </segment>
     </unit>
     <unit id="legal.privacy.rights.heading">
@@ -1139,6 +1121,139 @@
       <segment state="translated">
         <source>Publicación de Hucar Bus en Instagram</source>
         <target>Hucar Bus post on Instagram</target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.purposes.contact">
+      <segment state="translated">
+        <source> Si nos escribes a través del formulario de contacto, tratamos los datos que nos facilitas —nombre, email, teléfono si lo indicas, tipo de consulta, empresa si escribes como operador turístico, asunto y mensaje— para responder a tu consulta y, si lo solicitas, preparar y confirmar tu servicio. Al enviarlo te mandamos un email automático confirmando que la hemos recibido. </source>
+        <target>If you write to us through the contact form, we process the details you give us —name, email, phone if you include it, type of enquiry, company if you write as a tour operator, subject and message— to answer your enquiry and, if you ask us to, to prepare and confirm your service. When you send it, we email you an automatic confirmation that we have received it.</target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.purposes.whatsapp">
+      <segment state="translated">
+        <source> Si prefieres escribirnos por WhatsApp, la conversación tiene lugar en WhatsApp, un servicio de Meta, y se rige también por sus propias condiciones y su política de privacidad. </source>
+        <target>If you would rather write to us on WhatsApp, the conversation takes place on WhatsApp, a Meta service, and is also governed by its own terms and privacy policy.</target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.processors.email">
+      <segment state="translated">
+        <source> Para entregar los mensajes del formulario usamos Resend, que envía los correos desde su región de la Unión Europea (Irlanda), y los recibimos en una cuenta de Gmail, un servicio de Google. </source>
+        <target>To deliver the messages sent through the form we use Resend, which sends the emails from its European Union region (Ireland), and we receive them in a Gmail account, a Google service.</target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.processors.pending">
+      <segment state="translated">
+        <source> Falta el detalle contractual de cada encargado. La lista crecerá si se activan la analítica o la protección antispam. </source>
+        <target>The contractual details of each processor are still missing. The list will grow if analytics or spam protection are switched on.</target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.transfers.pending">
+      <segment state="translated">
+        <source> Queda por documentar la situación del resto de proveedores —el alojamiento, el envío de correo y Gmail, que puede tratar datos fuera del Espacio Económico Europeo— y las garantías aplicables en cada caso. </source>
+        <target>The position of the other providers —hosting, email delivery and Gmail, which may process data outside the European Economic Area— and the safeguards that apply in each case are still to be documented.</target>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.title">
+      <segment state="translated">
+        <source> Información básica sobre protección de datos
+</source>
+        <target>Basic data protection information</target>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.controller.label">
+      <segment state="translated">
+        <source>Responsable</source>
+        <target>Controller</target>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.purpose.label">
+      <segment state="translated">
+        <source>Finalidad</source>
+        <target>Purpose</target>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.purpose">
+      <segment state="translated">
+        <source> Responder a tu consulta y, si lo solicitas, preparar y confirmar tu servicio. No la usamos para enviarte publicidad. </source>
+        <target>To answer your enquiry and, if you ask us to, to prepare and confirm your service. We do not use it to send you advertising.</target>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.basis.label">
+      <segment state="translated">
+        <source>Legitimación</source>
+        <target>Legal basis</target>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.basis">
+      <segment state="translated">
+        <source> Aplicación de medidas precontractuales a petición tuya. </source>
+        <target>Steps taken at your request before entering into a contract.</target>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.recipients.label">
+      <segment state="translated">
+        <source>Destinatarios</source>
+        <target>Recipients</target>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.recipients">
+      <segment state="translated">
+        <source> No se ceden a terceros, salvo obligación legal. Nos prestan servicio el alojamiento de la web y el envío y la recepción de correo. </source>
+        <target>Not shared with third parties, unless required by law. Our service providers are website hosting and sending and receiving email.</target>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.retention.label">
+      <segment state="translated">
+        <source>Conservación</source>
+        <target>Retention</target>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.retention">
+      <segment state="translated">
+        <source> Un año desde tu consulta, si no llega a contratarse el servicio. </source>
+        <target>One year from your enquiry, if no service is booked.</target>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.rights.label">
+      <segment state="translated">
+        <source>Derechos</source>
+        <target>Rights</target>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.rights">
+      <segment state="translated">
+        <source>Acceso, rectificación, supresión, oposición, limitación y portabilidad, escribiendo a</source>
+        <target>Access, rectification, erasure, objection, restriction and portability, by writing to</target>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.health">
+      <segment state="translated">
+        <source>Por favor, no incluyas datos de salud en el mensaje: si necesitas asistencia especial, coméntanoslo por teléfono.</source>
+        <target>Please do not include health information in your message: if you need special assistance, tell us by phone.</target>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.more">
+      <segment state="translated">
+        <source>Más información en la política de privacidad</source>
+        <target>More information in the privacy policy</target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.purposes.basis">
+      <segment state="translated">
+        <source> Tratamos los datos de las consultas para aplicar medidas precontractuales a petición tuya, y los de los clientes para prestar el servicio contratado y cumplir las obligaciones legales de facturación. </source>
+        <target>We process enquiry data to take steps at your request before entering into a contract, and customer data to provide the service booked and to meet our legal invoicing obligations.</target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.purposes.retention">
+      <segment state="translated">
+        <source> Conservamos las consultas que no llegan a convertirse en un servicio durante un año desde el primer contacto. Los datos de los clientes se conservan mientras dura la relación comercial y, después, durante los plazos que exige la legislación fiscal. </source>
+        <target>We keep enquiries that do not become a booking for one year from the first contact. Customer data is kept for as long as the business relationship lasts and, after that, for the periods required by tax law.</target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.purposes.marketing">
+      <segment state="translated">
+        <source> No usamos tus datos para enviarte publicidad. </source>
+        <target>We do not use your data to send you advertising.</target>
       </segment>
     </unit>
   </file>
