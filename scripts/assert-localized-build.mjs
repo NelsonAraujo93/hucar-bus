@@ -4,7 +4,7 @@
  * A localization misconfiguration produces a green build and a half-broken
  * site, so these are checked explicitly rather than trusted.
  */
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const BROWSER_DIR = join('dist', 'hucar-bus', 'browser');
@@ -68,6 +68,36 @@ for (const { subPath, tag } of EXPECTED) {
   }
 }
 
+/**
+ * Sample data that must never reach a deployed bundle: invented reviews are
+ * an unfair commercial practice under EU law. The review fixture still exists
+ * for the /ui gallery, which the production build excludes; this proves it on
+ * the output itself. It caught two real leaks while sample data was shown in
+ * previews (2026-10-02).
+ */
+// ASCII names on purpose: the bundler may escape "María" as "Mar\xEDa", and a
+// marker that can be escaped is a marker that can be missed.
+const MOCK_MARKERS = ['Thomas Becker', 'Jan Vermeer', 'openstreetmap.org/export'];
+
+function filesUnder(directory) {
+  return readdirSync(directory, { withFileTypes: true }).flatMap((entry) =>
+    entry.isDirectory()
+      ? filesUnder(join(directory, entry.name))
+      : /\.(js|mjs|html)$/.test(entry.name)
+        ? [join(directory, entry.name)]
+        : [],
+  );
+}
+
+for (const file of filesUnder(BROWSER_DIR)) {
+  const content = readFileSync(file, 'utf8');
+  for (const marker of MOCK_MARKERS) {
+    if (content.includes(marker)) {
+      failures.push(`${file} contains mock data ("${marker}") -- production must build without it`);
+    }
+  }
+}
+
 if (failures.length > 0) {
   console.error('Localized build assertion failed:\n');
   for (const failure of failures) {
@@ -78,5 +108,5 @@ if (failures.length > 0) {
 
 console.log(
   `Localized build OK: ${EXPECTED.map((e) => e.subPath).join(', ')} prerendered with canonical ` +
-    `and hreflang tags; root files present (${ROOT_FILES.join(', ')}).`,
+    `and hreflang tags; root files present (${ROOT_FILES.join(', ')}); no mock data.`,
 );

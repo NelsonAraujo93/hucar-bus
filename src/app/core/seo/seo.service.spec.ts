@@ -22,7 +22,11 @@ describe('SeoService', () => {
     for (const el of Array.from(document.head.querySelectorAll('[id^="hb-"]'))) {
       el.remove();
     }
-    for (const el of Array.from(document.head.querySelectorAll('meta[property^="og:"]'))) {
+    for (const el of Array.from(
+      document.head.querySelectorAll(
+        'meta[property^="og:"], meta[name="twitter:card"], meta[name="description"]',
+      ),
+    )) {
       el.remove();
     }
     TestBed.resetTestingModule();
@@ -75,6 +79,24 @@ describe('SeoService', () => {
     expect(
       doc.head.querySelector('meta[property="og:locale:alternate"]')?.getAttribute('content'),
     ).toBe('en_GB');
+  });
+
+  it('gives link previews a title, description and the 1200x630 share image', () => {
+    const { seo, doc } = setup('en-GB');
+    seo.setPage({ title: 'Transfers', description: 'Airport transfers', path: '/en/' });
+    const og = (property: string): string | null =>
+      doc.head.querySelector(`meta[property="${property}"]`)?.getAttribute('content') ?? null;
+
+    expect(og('og:title')).toBe('Transfers');
+    expect(og('og:description')).toBe('Airport transfers');
+    expect(og('og:site_name')).toBe('Hucar Bus');
+    expect(og('og:image')).toBe('https://example.test/img/og-minibus-1200.jpg');
+    expect(og('og:image:width')).toBe('1200');
+    expect(og('og:image:height')).toBe('630');
+    expect(og('og:image:alt')).toBeTruthy();
+    expect(doc.head.querySelector('meta[name="twitter:card"]')?.getAttribute('content')).toBe(
+      'summary_large_image',
+    );
   });
 
   it('sets a description only when one is supplied', () => {

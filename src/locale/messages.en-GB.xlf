@@ -649,12 +649,6 @@
         <target>What our customers say</target>
       </segment>
     </unit>
-    <unit id="reviews.count.suffix">
-      <segment state="translated">
-        <source>opiniones en Google</source>
-        <target>reviews on Google</target>
-      </segment>
-    </unit>
     <unit id="reviews.carousel.label">
       <segment state="translated">
         <source>Opiniones de clientes</source>
@@ -1091,6 +1085,60 @@
       <segment state="translated">
         <source> Sentry trata los informes de error en su región de la Unión Europea, de modo que la monitorización no supone una transferencia internacional de datos. </source>
         <target> Sentry processes error reports in its European Union region, so monitoring involves no international transfer of data. </target>
+      </segment>
+    </unit>
+    <unit id="about.photo.alt">
+      <segment state="translated">
+        <source>Un conductor de Hucar Bus junto a uno de sus minibuses en Lanzarote</source>
+        <target>A Hucar Bus driver beside one of the company minibuses in Lanzarote</target>
+      </segment>
+    </unit>
+    <unit id="seo.shareImage.alt">
+      <segment state="translated">
+        <source>Minibús amarillo de Hucar Bus en un paisaje volcánico de Lanzarote</source>
+        <target>Yellow Hucar Bus minibus in a volcanic Lanzarote landscape</target>
+      </segment>
+    </unit>
+    <unit id="reviews.card.rating">
+      <segment state="translated">
+        <source><ph id="0" equiv="rating" disp="this.review().rating"/> de 5 estrellas</source>
+        <target><ph id="0" equiv="rating" disp="this.review().rating"/> out of 5 stars</target>
+      </segment>
+    </unit>
+    <unit id="reviews.average.label">
+      <segment state="translated">
+        <source>Valoración media: <ph id="0" equiv="rating" disp="formatNumber(this.summary()?.rating ?? 0, this.locale, &apos;1.1-1&apos;)"/> de 5</source>
+        <target>Average rating: <ph id="0" equiv="rating" disp="formatNumber(this.summary()?.rating ?? 0, this.locale, &apos;1.1-1&apos;)"/> out of 5</target>
+      </segment>
+    </unit>
+    <unit id="reviews.count">
+      <segment state="translated">
+        <source>{VAR_PLURAL, plural, =1 {1 opinión} other {<ph id="0" equiv="INTERPOLATION"/> opiniones}}</source>
+        <target>{VAR_PLURAL, plural, =1 {1 review} other {<ph id="0" equiv="INTERPOLATION"/> reviews}}</target>
+      </segment>
+    </unit>
+    <unit id="reviews.card.translated">
+      <segment state="translated">
+        <source> Traducido por Google </source>
+        <target>Translated by Google</target>
+      </segment>
+    </unit>
+    <unit id="reviews.source">
+      <segment state="translated">
+        <source>Opiniones publicadas en Google por sus usuarios. Hucar Bus no las verifica.</source>
+        <target>Reviews posted on Google by its users. Hucar Bus does not verify them.</target>
+      </segment>
+    </unit>
+    <unit id="reviews.seeAll">
+      <segment state="translated">
+        <source>Ver todas las opiniones en Google</source>
+        <target>See all reviews on Google</target>
+      </segment>
+    </unit>
+    <unit id="instagram.post.alt">
+      <segment state="translated">
+        <source>Publicación de Hucar Bus en Instagram</source>
+        <target>Hucar Bus post on Instagram</target>
       </segment>
     </unit>
   </file>

@@ -1,7 +1,7 @@
+import { NgOptimizedImage } from '@angular/common';
 import { Component, computed, inject } from '@angular/core';
 import { SITE_CONFIG } from '../../core/config/site.config';
 import { Icon } from '../../shared/ui/icon/icon';
-import { ImagePlaceholder } from '../../shared/ui/image-placeholder/image-placeholder';
 
 interface Stat {
   readonly value: string;
@@ -17,12 +17,15 @@ interface Stat {
  */
 @Component({
   selector: 'hb-about',
-  imports: [Icon, ImagePlaceholder],
+  imports: [Icon, NgOptimizedImage],
   templateUrl: './about.html',
   styleUrl: './about.css',
 })
 export class About {
   protected readonly config = inject(SITE_CONFIG);
+
+  /** Rendered width: full width once the columns stack, half the container above. */
+  protected readonly photoSizes = '(width < 1024px) calc(100vw - 48px), 540px';
 
   /**
    * Both are unverified client claims, which is why they come from config rather

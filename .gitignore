@@ -56,3 +56,6 @@ design_handoff_hucar_bus_site/
 .env
 .env.*
 !.env.example
+
+# Written at build time by scripts/fetch-instagram.mjs; never committed.
+public-root/instagram/

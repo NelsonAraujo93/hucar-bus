@@ -97,6 +97,26 @@ describe('Monitoring', () => {
     });
   });
 
+  describe('in development', () => {
+    it('never registers with the gate, even with consent', () => {
+      const { monitoring, consent, gate, flush } = harness({ environment: 'development' });
+      monitoring.start();
+      consent.acceptAll();
+      flush();
+      expect(gate.hasActivated(SENTRY_GATE_ID)).toBe(false);
+    });
+  });
+
+  describe('in a preview', () => {
+    it('reports like production, once consent is given', () => {
+      const { monitoring, consent, gate, flush } = harness({ environment: 'preview' });
+      monitoring.start();
+      consent.acceptAll();
+      flush();
+      expect(gate.hasActivated(SENTRY_GATE_ID)).toBe(true);
+    });
+  });
+
   describe('captureException', () => {
     it('is silent while Sentry has not loaded', () => {
       const { monitoring } = harness();

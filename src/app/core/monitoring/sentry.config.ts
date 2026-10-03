@@ -17,8 +17,11 @@ export interface SentryConfig {
    */
   readonly dsn: string;
 
-  /** Separates real traffic from a developer's own errors in the issue feed. */
-  readonly environment: string;
+  /**
+   * Which deployment the event came from. Development never reports: see
+   * Monitoring.start().
+   */
+  readonly environment: SentryEnvironment;
 
   /**
    * The deployed commit, so an error maps to a known deploy.
@@ -33,8 +36,28 @@ export interface SentryConfig {
   readonly tracesSampleRate: number;
 }
 
-/** Hosts that are a developer's machine rather than the live site. */
-const LOCAL_HOSTS = new Set(['localhost', '127.0.0.1', '[::1]', '']);
+export type SentryEnvironment = 'production' | 'preview' | 'development';
+
+/** The live site's hosts. www redirects, but an event can still start there. */
+const PRODUCTION_HOSTS = new Set(['hucarbus.com', 'www.hucarbus.com']);
+
+/**
+ * Names the deployment from the address the page was served from.
+ *
+ * Allowlists production rather than denylisting local hosts. The previous rule
+ * -- "anything that is not localhost is production" -- reported a dev server
+ * opened from a phone on the home network (192.168.x.x:4300) as a production
+ * error, and Vercel previews the same way.
+ */
+export function environmentFor(hostname: string): SentryEnvironment {
+  if (PRODUCTION_HOSTS.has(hostname)) {
+    return 'production';
+  }
+  if (hostname.endsWith('.vercel.app')) {
+    return 'preview';
+  }
+  return 'development';
+}
 
 export const SENTRY_CONFIG = new InjectionToken<SentryConfig>('hb.sentryConfig', {
   providedIn: 'root',
@@ -49,7 +72,7 @@ export const SENTRY_CONFIG = new InjectionToken<SentryConfig>('hb.sentryConfig',
       // match what the banner actually permits. See legal.privacy.processors.*
       // and legal.privacy.storage.* in the message catalogue.
       dsn: 'https://d98dc4b97b75ee3b92c226acae8e24f2@o4511988001931264.ingest.de.sentry.io/4511988014317648',
-      environment: LOCAL_HOSTS.has(hostname) ? 'development' : 'production',
+      environment: environmentFor(hostname),
       release: RELEASE,
       tracesSampleRate: 0.1,
     };

@@ -3,19 +3,29 @@ import type { InstagramPost } from './instagram.model';
 /**
  * Development-only tiles, reachable solely from the /ui gallery.
  *
- * Carries no captions and no like counts. The design's counts (284, 412, 198…)
- * are invented and the README says to drop them; the captions are unverified.
- * What remains is nine tone blocks, which is exactly what the grid needs to be
- * reviewed for layout.
+ * Reuses the About photo as a stand-in image: what the gallery needs to review
+ * is the grid's layout, not the content. No like counts -- the design's are
+ * invented.
  */
+const STAND_IN = {
+  webp: '/img/about-driver-480.webp',
+  jpg: '/img/about-driver-480.jpg',
+  width: 480,
+  height: 640,
+};
+
 export const INSTAGRAM_FIXTURE: readonly InstagramPost[] = [
-  { id: '1', tone: 'sunset' },
-  { id: '2', tone: 'ocean' },
-  { id: '3', tone: 'night' },
-  { id: '4', tone: 'sand' },
-  { id: '5', tone: 'sunset' },
-  { id: '6', tone: 'ocean' },
-  { id: '7', tone: 'night' },
-  { id: '8', tone: 'sand' },
-  { id: '9', tone: 'sunset' },
+  {
+    id: '1',
+    permalink: 'https://www.instagram.com/hucarbus/',
+    caption: 'Pie de foto de ejemplo',
+    image: STAND_IN,
+  },
+  { id: '2', permalink: 'https://www.instagram.com/hucarbus/', caption: '', image: STAND_IN },
+  {
+    id: '3',
+    permalink: 'https://www.instagram.com/hucarbus/',
+    caption: 'Otro pie de foto',
+    image: STAND_IN,
+  },
 ];

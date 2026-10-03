@@ -13,16 +13,28 @@
       <ul class="grid">
         @for (post of posts(); track post.id) {
           <li class="tile">
-            <hb-image-placeholder class="tile__image" [tone]="post.tone" />
-            <!-- The overlay carries no like count: the design's numbers are
-                 invented. It carries no caption either until someone confirms
-                 what each photograph actually shows. -->
-            <span class="tile__overlay" aria-hidden="true">
-              <hb-icon name="heart" [size]="28" color="#fff" />
-              @if (post.caption; as caption) {
-                <span class="tile__caption">{{ caption }}</span>
-              }
-            </span>
+            <a class="tile__link" [href]="post.permalink" target="_blank" rel="noopener noreferrer">
+              <!-- Copied into this site at build time, so the browser never
+                   contacts Meta. Below the fold, so NgOptimizedImage lazy-loads it. -->
+              <picture>
+                <source type="image/webp" [srcset]="post.image.webp" />
+                <img
+                  class="tile__image"
+                  [ngSrc]="post.image.jpg"
+                  [width]="post.image.width"
+                  [height]="post.image.height"
+                  [alt]="post.caption || genericAlt"
+                />
+              </picture>
+              <!-- No like count: it would go stale between builds. The caption
+                   is the owner's own, from Instagram. -->
+              <span class="tile__overlay" aria-hidden="true">
+                <hb-icon name="instagram" [size]="28" color="#fff" />
+                @if (post.caption; as caption) {
+                  <span class="tile__caption">{{ caption }}</span>
+                }
+              </span>
+            </a>
           </li>
         }
       </ul>

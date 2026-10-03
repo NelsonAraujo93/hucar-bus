@@ -10,7 +10,7 @@ import {
   type ContactResponseBody,
 } from '../../shared/contact/protocol.js';
 import { acknowledgementEmail, notificationEmail, type Addresses } from './messages.js';
-import type { RateLimiter } from './rate-limit.js';
+import type { RateLimiter } from '../shared/rate-limit.js';
 import type { EmailSender } from './resend.js';
 
 /**

@@ -11,7 +11,7 @@
 .rating {
   display: flex;
   width: fit-content;
-  margin: 32px auto 48px;
+  margin: 32px auto 16px;
   padding: 12px 24px;
   gap: 16px;
   align-items: center;
@@ -37,6 +37,12 @@
 .rating__stars {
   display: flex;
   gap: 2px;
+}
+
+.rating__attribution {
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 13px;
+  color: #5e5e5e;
 }
 
 .rating__count {
@@ -74,72 +80,9 @@
   transition: transform var(--duration-carousel) var(--ease-carousel);
 }
 
+/* A slide: the card itself is ReviewCard. */
 .review {
-  display: flex;
-  padding: 28px;
   flex: 0 0 calc(100% / var(--visible) - var(--gap) * (var(--visible) - 1) / var(--visible));
-  flex-direction: column;
-  background: var(--color-cream);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-16);
-}
-
-.review__stars {
-  display: flex;
-  margin-bottom: 16px;
-  gap: 2px;
-}
-
-.review__quote {
-  margin: 0 0 24px;
-  font-family: var(--font-body);
-  font-size: 15px;
-  font-style: italic;
-  line-height: 1.65;
-  color: var(--color-ink-muted);
-}
-
-.review__quote::before {
-  content: '“';
-}
-
-.review__quote::after {
-  content: '”';
-}
-
-.review__author {
-  display: flex;
-  margin-top: auto;
-  gap: 12px;
-  align-items: center;
-}
-
-.review__avatar {
-  display: flex;
-  width: 40px;
-  height: 40px;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #f5c518 0%, #f0882a 100%);
-  border-radius: var(--radius-circle);
-  font-family: var(--font-display);
-  font-size: 16px;
-  color: #fff;
-}
-
-.review__name {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--color-ink);
-}
-
-.review__when {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 12px;
-  color: var(--color-ink-muted);
 }
 
 .carousel__controls {
@@ -227,4 +170,18 @@
   .carousel__track {
     transition: none;
   }
+}
+
+.reviews__source {
+  margin: 0 auto 32px;
+  max-width: 560px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--color-ink-muted);
+}
+
+.reviews__source a {
+  color: var(--color-brand-blue);
 }

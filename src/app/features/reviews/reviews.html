@@ -8,22 +8,43 @@
         title="Lo que dicen nuestros clientes"
       />
 
-      @if (summary(); as rating) {
+      @if (summary(); as summary) {
         <p class="rating">
           <hb-icon name="google" [size]="24" />
+          <!-- Google requires this attribution wherever Places content appears
+               without a Google map. -->
+          <span class="rating__attribution">{{ attribution }}</span>
           <span class="rating__divider" aria-hidden="true"></span>
-          <span class="rating__average">{{ rating.average }}</span>
-          <span class="rating__stars" aria-hidden="true">
-            @for (star of [1, 2, 3, 4, 5]; track star) {
-              <hb-icon name="star" [size]="18" />
-            }
-          </span>
-          <span class="rating__count"
-            >{{ rating.count }}
-            <span i18n="Suffix after the review count|@@reviews.count.suffix"
-              >opiniones en Google</span
-            ></span
+          @if (summary.rating !== null) {
+            <span class="rating__average">{{ summary.rating | number: '1.1-1' }}</span>
+            <span class="rating__stars" role="img" [attr.aria-label]="averageLabel()">
+              @for (star of stars; track star) {
+                <hb-icon [name]="star <= roundedAverage() ? 'star' : 'star-outline'" [size]="18" />
+              }
+            </span>
+          }
+          <span
+            class="rating__count"
+            i18n="Number of Google reviews|@@reviews.count"
+            >{summary.count, plural, =1 {1 opinión} other {{{ summary.count }} opiniones}}</span
           >
+        </p>
+
+        <!-- Required context under EU consumer law: where the reviews come from,
+             that they are not checked, and where to read every one of them. -->
+        <p class="reviews__source">
+          <span i18n="Where the reviews come from|@@reviews.source"
+            >Opiniones publicadas en Google por sus usuarios. Hucar Bus no las verifica.</span
+          >
+          @if (summary.mapsUri; as mapsUri) {
+            <a
+              [href]="mapsUri"
+              target="_blank"
+              rel="noopener noreferrer"
+              i18n="Link to every review on Google|@@reviews.seeAll"
+              >Ver todas las opiniones en Google</a
+            >
+          }
         </p>
       }
 
@@ -39,22 +60,8 @@
       >
         <div class="carousel__viewport">
           <ul class="carousel__track" [style.--index]="offset()">
-            @for (review of reviews(); track review.name) {
-              <li class="review">
-                <span class="review__stars" aria-hidden="true">
-                  @for (star of [1, 2, 3, 4, 5]; track star) {
-                    <hb-icon name="star" [size]="16" />
-                  }
-                </span>
-                <blockquote class="review__quote">{{ review.text }}</blockquote>
-                <div class="review__author">
-                  <span class="review__avatar" aria-hidden="true">{{ review.name.charAt(0) }}</span>
-                  <span class="review__meta">
-                    <span class="review__name">{{ review.name }}</span>
-                    <span class="review__when">{{ review.when }}</span>
-                  </span>
-                </div>
-              </li>
+            @for (review of reviews(); track $index) {
+              <li class="review"><hb-review-card [review]="review" /></li>
             }
           </ul>
         </div>
@@ -72,7 +79,7 @@
           </button>
 
           <span class="carousel__dots">
-            @for (review of reviews(); track review.name; let i = $index) {
+            @for (review of reviews(); track $index; let i = $index) {
               <button
                 class="carousel__dot"
                 type="button"
