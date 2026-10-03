@@ -1021,42 +1021,6 @@
         <target> Service provider </target>
       </segment>
     </unit>
-    <unit id="legal.terms.conditions.heading">
-      <segment state="translated">
-        <source> Condiciones del servicio </source>
-        <target> Conditions of service </target>
-      </segment>
-    </unit>
-    <unit id="legal.terms.conditions.missing">
-      <segment state="translated">
-        <source> Quedan por redactar las condiciones de contratación, la política de cancelación y modificación, el régimen de responsabilidad, las obligaciones del pasajero y la ley aplicable. Nada de esto puede darse por supuesto: son decisiones comerciales de la empresa. </source>
-        <target> The booking conditions, the cancellation and amendment policy, the liability regime, the passenger's obligations and the applicable law have still to be drafted. None of it can be assumed: these are commercial decisions for the company to make. </target>
-      </segment>
-    </unit>
-    <unit id="legal.terms.prices.heading">
-      <segment state="translated">
-        <source> Precios </source>
-        <target> Prices </target>
-      </segment>
-    </unit>
-    <unit id="legal.terms.prices.missing">
-      <segment state="translated">
-        <source> Este sitio no publica tarifas. Si en el futuro se publican, deberán indicar expresamente si el IGIC está incluido — en Canarias se aplica IGIC y no IVA — junto con su fecha de entrada en vigor. </source>
-        <target> This site publishes no fares. If any are published in future, they must state expressly whether IGIC is included — the Canary Islands charge IGIC rather than IVA — along with the date they take effect. </target>
-      </segment>
-    </unit>
-    <unit id="legal.terms.contact.heading">
-      <segment state="translated">
-        <source> Cómo contactar mientras tanto </source>
-        <target> How to get in touch meanwhile </target>
-      </segment>
-    </unit>
-    <unit id="legal.terms.contact.body">
-      <segment state="translated">
-        <source> Hasta que estas condiciones estén publicadas, cualquier duda sobre la contratación de un servicio puedes resolverla directamente con nosotros por teléfono o correo: <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;config.phoneHref&quot;&gt;" dispEnd="&lt;/a&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ config.phone }}"/></pc> · <pc id="2" equivStart="START_LINK_1" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;&apos;mailto:&apos; + config.email&quot;&gt;" dispEnd="&lt;/a&gt;"><ph id="3" equiv="INTERPOLATION_1" disp="{{ config.email }}"/></pc></source>
-        <target> Until these conditions are published, you can settle any question about booking a service directly with us by telephone or email: <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;config.phoneHref&quot;&gt;" dispEnd="&lt;/a&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ config.phone }}"/></pc> · <pc id="2" equivStart="START_LINK_1" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;&apos;mailto:&apos; + config.email&quot;&gt;" dispEnd="&lt;/a&gt;"><ph id="3" equiv="INTERPOLATION_1" disp="{{ config.email }}"/></pc></target>
-      </segment>
-    </unit>
     <unit id="legal.privacy.processors.monitoring">
       <segment state="translated">
         <source> Si aceptas la categoría «monitorización de errores», usamos Sentry para que nos avise cuando algo falla en la web. Sentry no recibe absolutamente nada si no nos das ese permiso: sin él, su código ni siquiera llega a descargarse en tu navegador. Los informes se procesan en su región de la Unión Europea, no guardan nada en tu navegador, no incluyen tu dirección IP, y se depuran de cualquier dato que hayas escrito en el formulario antes de salir de tu equipo. </source>
@@ -1254,6 +1218,190 @@
       <segment state="translated">
         <source> No usamos tus datos para enviarte publicidad. </source>
         <target>We do not use your data to send you advertising.</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.booking.heading">
+      <segment state="translated">
+        <source> Presupuestos y reservas </source>
+        <target>Quotes and bookings</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.booking.quote">
+      <segment state="translated">
+        <source> Puedes pedirnos presupuesto a través del formulario de contacto, por WhatsApp o por correo. Cada presupuesto es válido durante 7 días desde que te lo enviamos. </source>
+        <target>You can ask us for a quote through the contact form, on WhatsApp or by email. Each quote is valid for 7 days from when we send it.</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.booking.confirmation">
+      <segment state="translated">
+        <source> Si lo aceptas, te enviamos un enlace de pago seguro. La reserva queda confirmada en el momento en que se completa el pago, y entonces te enviamos un mensaje con la fecha, la hora, el punto de recogida y los datos del conductor. </source>
+        <target>If you accept it, we send you a secure payment link. The booking is confirmed as soon as the payment is completed, and we then send you a message with the date, time, pickup point and driver details.</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.prices.heading">
+      <segment state="translated">
+        <source> Precios y pago </source>
+        <target>Prices and payment</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.prices.final">
+      <segment state="translated">
+        <source> Todos nuestros precios son finales e incluyen el IGIC, el impuesto que se aplica en Canarias en lugar del IVA. </source>
+        <target>All our prices are final and include IGIC, the tax that applies in the Canary Islands instead of VAT.</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.prices.payment">
+      <segment state="translated">
+        <source> El servicio se paga por adelantado en su totalidad mediante el enlace de pago, gestionado por Stripe. Hucar Bus no ve ni guarda los datos de tu tarjeta. </source>
+        <target>The service is paid in full in advance through the payment link, handled by Stripe. Hucar Bus never sees or stores your card details.</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.changes.heading">
+      <segment state="translated">
+        <source> Cambios y cancelaciones </source>
+        <target>Changes and cancellations</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.changes.body">
+      <segment state="translated">
+        <source> Puedes cambiar la fecha o la hora sin coste hasta 24 horas antes del servicio, siempre que haya un vehículo disponible. Un cambio con menos antelación se trata como una cancelación. </source>
+        <target>You can change the date or time free of charge up to 24 hours before the service, as long as a vehicle is available. A change with less notice is treated as a cancellation.</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.cancel.intro">
+      <segment state="translated">
+        <source> Si cancelas un servicio ya pagado, te devolvemos: </source>
+        <target>If you cancel a service you have already paid for, we refund:</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.cancel.full">
+      <segment state="translated">
+        <source> el 100 %, si cancelas con 48 horas o más de antelación; </source>
+        <target>100%, if you cancel 48 hours or more in advance;</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.cancel.half">
+      <segment state="translated">
+        <source> el 50 %, si cancelas entre 48 y 24 horas antes; </source>
+        <target>50%, if you cancel between 48 and 24 hours before;</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.cancel.none">
+      <segment state="translated">
+        <source> nada, si cancelas con menos de 24 horas de antelación. </source>
+        <target>nothing, if you cancel less than 24 hours in advance.</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.cancel.refund">
+      <segment state="translated">
+        <source> Las devoluciones se hacen por el mismo medio con el que pagaste. </source>
+        <target>Refunds are made to the same payment method you used.</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.cancel.ours">
+      <segment state="translated">
+        <source> Si somos nosotros quienes no podemos prestar el servicio —por una avería, el tiempo o cualquier otra causa—, te ofreceremos otro vehículo y, si no es posible, te devolveremos el importe íntegro. </source>
+        <target>If we are the ones unable to provide the service —because of a breakdown, the weather or any other cause— we will offer you another vehicle and, if that is not possible, refund the full amount.</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.pickup.heading">
+      <segment state="translated">
+        <source> Recogida y esperas </source>
+        <target>Pickups and waiting</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.pickup.wait">
+      <segment state="translated">
+        <source> El conductor te esperará 30 minutos en el punto de recogida e intentará llamarte. Si transcurrido ese tiempo no te presentas, el servicio se considera prestado y no se devuelve el importe. </source>
+        <target>The driver will wait 30 minutes at the pickup point and will try to call you. If you have not arrived after that time, the service is considered provided and the amount is not refunded.</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.pickup.airport">
+      <segment state="translated">
+        <source> En las recogidas en el aeropuerto seguimos tu vuelo con el número que nos indiques: si llega con retraso, adaptamos la recogida a la hora real de llegada sin coste, y te esperamos además hasta 60 minutos después del aterrizaje. </source>
+        <target>For airport pickups we track your flight using the number you give us: if it is delayed, we adjust the pickup to the actual arrival time at no cost, and we also wait for you up to 60 minutes after landing.</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.luggage.heading">
+      <segment state="translated">
+        <source> Equipaje y objetos especiales </source>
+        <target>Luggage and special items</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.luggage.standard">
+      <segment state="translated">
+        <source> Cada pasajero puede llevar una maleta y un bulto de mano. El equipaje adicional o de gran tamaño debe indicarse al reservar. </source>
+        <target>Each passenger may bring one suitcase and one item of hand luggage. Extra or oversized luggage must be stated when booking.</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.luggage.sports">
+      <segment state="translated">
+        <source> Bicicletas y tablas de surf, bajo petición al reservar. Pueden tener un suplemento, que te indicaremos en el presupuesto. </source>
+        <target>Bicycles and surfboards, on request when booking. They may carry a supplement, which we will show in the quote.</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.luggage.pets">
+      <segment state="translated">
+        <source> Animales de compañía en transportín, bajo petición al reservar. Los perros guía viajan siempre. </source>
+        <target>Pets in a carrier, on request when booking. Guide dogs always travel.</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.luggage.wheelchairs">
+      <segment state="translated">
+        <source> Sillas de ruedas y cochecitos plegables, sin coste, indicándolo al reservar. </source>
+        <target>Folding wheelchairs and pushchairs, free of charge, stated when booking.</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.passengers.heading">
+      <segment state="translated">
+        <source> Pasajeros </source>
+        <target>Passengers</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.passengers.children">
+      <segment state="translated">
+        <source> No disponemos de sillas infantiles: si viajas con niños que las necesiten, trae tu propio sistema de retención homologado. </source>
+        <target>We do not provide child seats: if you are travelling with children who need one, please bring your own approved child restraint.</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.passengers.rules">
+      <segment state="translated">
+        <source> Es obligatorio llevar el cinturón de seguridad abrochado durante todo el trayecto, y no está permitido fumar a bordo. </source>
+        <target>Seat belts must be worn for the whole journey, and smoking is not allowed on board.</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.passengers.pending">
+      <segment state="translated">
+        <source> Quedan por concretar las normas sobre sistemas de retención infantil en minibuses, la responsabilidad por daños en el vehículo y la disponibilidad de un vehículo adaptado para sillas de ruedas. </source>
+        <target>The rules on child restraints in minibuses, liability for damage to the vehicle, and the availability of a wheelchair-accessible vehicle are still to be set out.</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.legal.heading">
+      <segment state="translated">
+        <source> Responsabilidad, desistimiento y reclamaciones </source>
+        <target>Liability, withdrawal and complaints</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.legal.complaints">
+      <segment state="translated">
+        <source> Tienes a tu disposición hojas de reclamaciones. También puedes escribirnos a <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;&apos;mailto:&apos; + config.email&quot;&gt;" dispEnd="&lt;/a
+      &gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ config.email }}"/></pc> o llamarnos al <pc id="2" equivStart="START_LINK_1" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;config.phoneHref&quot;&gt;" dispEnd="&lt;/a
+      &gt;"><ph id="3" equiv="INTERPOLATION_1" disp="{{ config.phone }}"/></pc>. </source>
+        <target> Complaint forms are available on request. You can also write to us at <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;&apos;mailto:&apos; + config.email&quot;&gt;" dispEnd="&lt;/a
+      &gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ config.email }}"/></pc> or call us on <pc id="2" equivStart="START_LINK_1" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;config.phoneHref&quot;&gt;" dispEnd="&lt;/a
+      &gt;"><ph id="3" equiv="INTERPOLATION_1" disp="{{ config.phone }}"/></pc>. </target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.legal.pending">
+      <segment state="translated">
+        <source> Quedan por redactar, con asesoramiento profesional, el régimen de responsabilidad, la aplicación o no del derecho de desistimiento a los servicios de transporte con fecha determinada, y la legislación y los tribunales aplicables. </source>
+        <target>Liability, whether the right of withdrawal applies to transport services on a set date, and the applicable law and courts are still to be drafted, with professional advice.</target>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.processors.payments">
+      <segment state="translated">
+        <source> Los pagos se realizan mediante enlaces de pago de Stripe, que trata los datos de tu tarjeta directamente: Hucar Bus no los ve ni los guarda. </source>
+        <target>Payments are made through Stripe payment links. Stripe processes your card details directly: Hucar Bus never sees or stores them.</target>
       </segment>
     </unit>
   </file>

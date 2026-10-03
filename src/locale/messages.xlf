@@ -1248,16 +1248,25 @@
     </unit>
     <unit id="legal.privacy.processors.email">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:156,161</note>
+        <note category="location">src/app/features/legal/privacy.html:156,160</note>
         <note category="meaning">Email processors</note>
       </notes>
       <segment>
         <source> Para entregar los mensajes del formulario usamos Resend, que envía los correos desde su región de la Unión Europea (Irlanda), y los recibimos en una cuenta de Gmail, un servicio de Google. </source>
       </segment>
     </unit>
+    <unit id="legal.privacy.processors.payments">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:161,166</note>
+        <note category="meaning">Payment processor</note>
+      </notes>
+      <segment>
+        <source> Los pagos se realizan mediante enlaces de pago de Stripe, que trata los datos de tu tarjeta directamente: Hucar Bus no los ve ni los guarda. </source>
+      </segment>
+    </unit>
     <unit id="legal.privacy.processors.pending">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:162,168</note>
+        <note category="location">src/app/features/legal/privacy.html:167,173</note>
         <note category="meaning">Pending processors section</note>
       </notes>
       <segment>
@@ -1266,7 +1275,7 @@
     </unit>
     <unit id="legal.privacy.transfers.heading">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:170,172</note>
+        <note category="location">src/app/features/legal/privacy.html:175,177</note>
         <note category="meaning">Privacy section heading</note>
       </notes>
       <segment>
@@ -1275,7 +1284,7 @@
     </unit>
     <unit id="legal.privacy.transfers.eu">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:173,178</note>
+        <note category="location">src/app/features/legal/privacy.html:178,183</note>
         <note category="meaning">Sentry processes in the EU</note>
       </notes>
       <segment>
@@ -1284,7 +1293,7 @@
     </unit>
     <unit id="legal.privacy.transfers.pending">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:179,184</note>
+        <note category="location">src/app/features/legal/privacy.html:184,189</note>
         <note category="meaning">Pending transfers section</note>
       </notes>
       <segment>
@@ -1293,7 +1302,7 @@
     </unit>
     <unit id="legal.privacy.rights.heading">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:188,191</note>
+        <note category="location">src/app/features/legal/privacy.html:193,196</note>
         <note category="meaning">Privacy section heading</note>
       </notes>
       <segment>
@@ -1302,7 +1311,7 @@
     </unit>
     <unit id="legal.privacy.rights.intro">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:192,197</note>
+        <note category="location">src/app/features/legal/privacy.html:197,202</note>
         <note category="meaning">Rights introduction</note>
       </notes>
       <segment>
@@ -1311,7 +1320,7 @@
     </unit>
     <unit id="legal.privacy.rights.access">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:198,200</note>
+        <note category="location">src/app/features/legal/privacy.html:203,205</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1320,7 +1329,7 @@
     </unit>
     <unit id="legal.privacy.rights.rectification">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:201,203</note>
+        <note category="location">src/app/features/legal/privacy.html:206,208</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1329,7 +1338,7 @@
     </unit>
     <unit id="legal.privacy.rights.erasure">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:204,206</note>
+        <note category="location">src/app/features/legal/privacy.html:209,211</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1338,7 +1347,7 @@
     </unit>
     <unit id="legal.privacy.rights.restriction">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:207,209</note>
+        <note category="location">src/app/features/legal/privacy.html:212,214</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1347,7 +1356,7 @@
     </unit>
     <unit id="legal.privacy.rights.objection">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:210,212</note>
+        <note category="location">src/app/features/legal/privacy.html:215,217</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1356,7 +1365,7 @@
     </unit>
     <unit id="legal.privacy.rights.portability">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:213,215</note>
+        <note category="location">src/app/features/legal/privacy.html:218,220</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1365,7 +1374,7 @@
     </unit>
     <unit id="legal.privacy.rights.withdraw">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:216,221</note>
+        <note category="location">src/app/features/legal/privacy.html:221,226</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1374,7 +1383,7 @@
     </unit>
     <unit id="legal.privacy.rights.how">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:224,233</note>
+        <note category="location">src/app/features/legal/privacy.html:229,238</note>
         <note category="meaning">How to exercise your rights</note>
       </notes>
       <segment>
@@ -1405,58 +1414,267 @@
         <source> Prestador del servicio </source>
       </segment>
     </unit>
-    <unit id="legal.terms.conditions.heading">
+    <unit id="legal.terms.booking.heading">
       <notes>
-        <note category="location">src/app/features/legal/terms.html:26,29</note>
+        <note category="location">src/app/features/legal/terms.html:26,28</note>
         <note category="meaning">Terms section heading</note>
       </notes>
       <segment>
-        <source> Condiciones del servicio </source>
+        <source> Presupuestos y reservas </source>
       </segment>
     </unit>
-    <unit id="legal.terms.conditions.missing">
+    <unit id="legal.terms.booking.quote">
       <notes>
-        <note category="location">src/app/features/legal/terms.html:30,35</note>
-        <note category="meaning">Pending service conditions</note>
+        <note category="location">src/app/features/legal/terms.html:29,32</note>
+        <note category="meaning">How quotes work</note>
       </notes>
       <segment>
-        <source> Quedan por redactar las condiciones de contratación, la política de cancelación y modificación, el régimen de responsabilidad, las obligaciones del pasajero y la ley aplicable. Nada de esto puede darse por supuesto: son decisiones comerciales de la empresa. </source>
+        <source> Puedes pedirnos presupuesto a través del formulario de contacto, por WhatsApp o por correo. Cada presupuesto es válido durante 7 días desde que te lo enviamos. </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.booking.confirmation">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:33,40</note>
+        <note category="meaning">When a booking is confirmed</note>
+      </notes>
+      <segment>
+        <source> Si lo aceptas, te enviamos un enlace de pago seguro. La reserva queda confirmada en el momento en que se completa el pago, y entonces te enviamos un mensaje con la fecha, la hora, el punto de recogida y los datos del conductor. </source>
       </segment>
     </unit>
     <unit id="legal.terms.prices.heading">
       <notes>
-        <note category="location">src/app/features/legal/terms.html:38,40</note>
+        <note category="location">src/app/features/legal/terms.html:41,43</note>
         <note category="meaning">Terms section heading</note>
       </notes>
       <segment>
-        <source>Precios</source>
+        <source> Precios y pago </source>
       </segment>
     </unit>
-    <unit id="legal.terms.prices.missing">
+    <unit id="legal.terms.prices.final">
       <notes>
-        <note category="location">src/app/features/legal/terms.html:41,46</note>
-        <note category="meaning">Pending pricing terms</note>
+        <note category="location">src/app/features/legal/terms.html:44,47</note>
+        <note category="meaning">Prices include IGIC</note>
       </notes>
       <segment>
-        <source> Este sitio no publica tarifas. Si en el futuro se publican, deberán indicar expresamente si el IGIC está incluido — en Canarias se aplica IGIC y no IVA — junto con su fecha de entrada en vigor. </source>
+        <source> Todos nuestros precios son finales e incluyen el IGIC, el impuesto que se aplica en Canarias en lugar del IVA. </source>
       </segment>
     </unit>
-    <unit id="legal.terms.contact.heading">
+    <unit id="legal.terms.prices.payment">
       <notes>
-        <note category="location">src/app/features/legal/terms.html:50,52</note>
+        <note category="location">src/app/features/legal/terms.html:48,53</note>
+        <note category="meaning">Payment in advance</note>
+      </notes>
+      <segment>
+        <source> El servicio se paga por adelantado en su totalidad mediante el enlace de pago, gestionado por Stripe. Hucar Bus no ve ni guarda los datos de tu tarjeta. </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.changes.heading">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:55,57</note>
         <note category="meaning">Terms section heading</note>
       </notes>
       <segment>
-        <source> Cómo contactar mientras tanto </source>
+        <source> Cambios y cancelaciones </source>
       </segment>
     </unit>
-    <unit id="legal.terms.contact.body">
+    <unit id="legal.terms.changes.body">
       <notes>
-        <note category="location">src/app/features/legal/terms.html:53,58</note>
-        <note category="meaning">Interim contact instructions</note>
+        <note category="location">src/app/features/legal/terms.html:58,61</note>
+        <note category="meaning">Changes to a booking</note>
       </notes>
       <segment>
-        <source> Hasta que estas condiciones estén publicadas, cualquier duda sobre la contratación de un servicio puedes resolverla directamente con nosotros por teléfono o correo: <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;config.phoneHref&quot;&gt;" dispEnd="&lt;/a&gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ config.phone }}"/></pc> · <pc id="2" equivStart="START_LINK_1" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;&apos;mailto:&apos; + config.email&quot;&gt;" dispEnd="&lt;/a&gt;"><ph id="3" equiv="INTERPOLATION_1" disp="{{ config.email }}"/></pc></source>
+        <source> Puedes cambiar la fecha o la hora sin coste hasta 24 horas antes del servicio, siempre que haya un vehículo disponible. Un cambio con menos antelación se trata como una cancelación. </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.cancel.intro">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:62,65</note>
+        <note category="meaning">Cancellation scale intro</note>
+      </notes>
+      <segment>
+        <source> Si cancelas un servicio ya pagado, te devolvemos: </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.cancel.full">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:66,68</note>
+        <note category="meaning">Cancellation scale</note>
+      </notes>
+      <segment>
+        <source> el 100 %, si cancelas con 48 horas o más de antelación; </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.cancel.half">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:69,71</note>
+        <note category="meaning">Cancellation scale</note>
+      </notes>
+      <segment>
+        <source> el 50 %, si cancelas entre 48 y 24 horas antes; </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.cancel.none">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:72,75</note>
+        <note category="meaning">Cancellation scale</note>
+      </notes>
+      <segment>
+        <source> nada, si cancelas con menos de 24 horas de antelación. </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.cancel.refund">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:76,78</note>
+        <note category="meaning">How refunds are paid</note>
+      </notes>
+      <segment>
+        <source> Las devoluciones se hacen por el mismo medio con el que pagaste. </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.cancel.ours">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:79,85</note>
+        <note category="meaning">When Hucar Bus cancels</note>
+      </notes>
+      <segment>
+        <source> Si somos nosotros quienes no podemos prestar el servicio —por una avería, el tiempo o cualquier otra causa—, te ofreceremos otro vehículo y, si no es posible, te devolveremos el importe íntegro. </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.pickup.heading">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:87,89</note>
+        <note category="meaning">Terms section heading</note>
+      </notes>
+      <segment>
+        <source> Recogida y esperas </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.pickup.wait">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:90,94</note>
+        <note category="meaning">Waiting at a pickup</note>
+      </notes>
+      <segment>
+        <source> El conductor te esperará 30 minutos en el punto de recogida e intentará llamarte. Si transcurrido ese tiempo no te presentas, el servicio se considera prestado y no se devuelve el importe. </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.pickup.airport">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:95,101</note>
+        <note category="meaning">Airport pickups and delays</note>
+      </notes>
+      <segment>
+        <source> En las recogidas en el aeropuerto seguimos tu vuelo con el número que nos indiques: si llega con retraso, adaptamos la recogida a la hora real de llegada sin coste, y te esperamos además hasta 60 minutos después del aterrizaje. </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.luggage.heading">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:103,106</note>
+        <note category="meaning">Terms section heading</note>
+      </notes>
+      <segment>
+        <source> Equipaje y objetos especiales </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.luggage.standard">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:107,110</note>
+        <note category="meaning">Luggage allowance</note>
+      </notes>
+      <segment>
+        <source> Cada pasajero puede llevar una maleta y un bulto de mano. El equipaje adicional o de gran tamaño debe indicarse al reservar. </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.luggage.sports">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:111,114</note>
+        <note category="meaning">Bicycles and surfboards</note>
+      </notes>
+      <segment>
+        <source> Bicicletas y tablas de surf, bajo petición al reservar. Pueden tener un suplemento, que te indicaremos en el presupuesto. </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.luggage.pets">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:115,118</note>
+        <note category="meaning">Pets</note>
+      </notes>
+      <segment>
+        <source> Animales de compañía en transportín, bajo petición al reservar. Los perros guía viajan siempre. </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.luggage.wheelchairs">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:119,124</note>
+        <note category="meaning">Wheelchairs and pushchairs</note>
+      </notes>
+      <segment>
+        <source> Sillas de ruedas y cochecitos plegables, sin coste, indicándolo al reservar. </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.passengers.heading">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:126,128</note>
+        <note category="meaning">Terms section heading</note>
+      </notes>
+      <segment>
+        <source> Pasajeros </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.passengers.children">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:129,132</note>
+        <note category="meaning">Child seats</note>
+      </notes>
+      <segment>
+        <source> No disponemos de sillas infantiles: si viajas con niños que las necesiten, trae tu propio sistema de retención homologado. </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.passengers.rules">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:133,137</note>
+        <note category="meaning">Seat belts and smoking</note>
+      </notes>
+      <segment>
+        <source> Es obligatorio llevar el cinturón de seguridad abrochado durante todo el trayecto, y no está permitido fumar a bordo. </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.passengers.pending">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:138,143</note>
+        <note category="meaning">Pending passenger terms</note>
+      </notes>
+      <segment>
+        <source> Quedan por concretar las normas sobre sistemas de retención infantil en minibuses, la responsabilidad por daños en el vehículo y la disponibilidad de un vehículo adaptado para sillas de ruedas. </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.legal.heading">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:147,149</note>
+        <note category="meaning">Terms section heading</note>
+      </notes>
+      <segment>
+        <source> Responsabilidad, desistimiento y reclamaciones </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.legal.complaints">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:150,155</note>
+        <note category="meaning">Complaint forms</note>
+      </notes>
+      <segment>
+        <source> Tienes a tu disposición hojas de reclamaciones. También puedes escribirnos a <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;&apos;mailto:&apos; + config.email&quot;&gt;" dispEnd="&lt;/a
+      &gt;"><ph id="1" equiv="INTERPOLATION" disp="{{ config.email }}"/></pc> o llamarnos al <pc id="2" equivStart="START_LINK_1" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a [href]=&quot;config.phoneHref&quot;&gt;" dispEnd="&lt;/a
+      &gt;"><ph id="3" equiv="INTERPOLATION_1" disp="{{ config.phone }}"/></pc>. </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.legal.pending">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:157,161</note>
+        <note category="meaning">Pending legal terms</note>
+      </notes>
+      <segment>
+        <source> Quedan por redactar, con asesoramiento profesional, el régimen de responsabilidad, la aplicación o no del derecho de desistimiento a los servicios de transporte con fecha determinada, y la legislación y los tribunales aplicables. </source>
       </segment>
     </unit>
     <unit id="nav.menu">
