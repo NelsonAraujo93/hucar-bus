@@ -69,10 +69,11 @@ for (const { subPath, tag } of EXPECTED) {
 }
 
 /**
- * Sample data that must never reach a production bundle: invented reviews are
- * an unfair commercial practice under EU law. Production builds compile the
- * mocks out (HB_MOCKS is false); this proves it on the output itself.
- * Vercel previews build with mocks on purpose and do not run this script.
+ * Sample data that must never reach a deployed bundle: invented reviews are
+ * an unfair commercial practice under EU law. The review fixture still exists
+ * for the /ui gallery, which the production build excludes; this proves it on
+ * the output itself. It caught two real leaks while sample data was shown in
+ * previews (2026-10-02).
  */
 // ASCII names on purpose: the bundler may escape "María" as "Mar\xEDa", and a
 // marker that can be escaped is a marker that can be missed.

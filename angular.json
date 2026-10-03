@@ -47,10 +47,7 @@
               "entry": "src/server.ts"
             },
             "polyfills": ["@angular/localize/init"],
-            "localize": true,
-            "define": {
-              "HB_MOCKS": "false"
-            }
+            "localize": true
           },
           "configurations": {
             "production": {
@@ -94,18 +91,10 @@
                   "glob": "**/*",
                   "input": "public-root"
                 }
-              ],
-              "define": {
-                "HB_MOCKS": "true"
-              }
+              ]
             },
             "en": {
               "localize": ["en-GB"]
-            },
-            "mocks": {
-              "define": {
-                "HB_MOCKS": "true"
-              }
             }
           },
           "defaultConfiguration": "production"

@@ -84,8 +84,6 @@ export default defineConfig([
             'scope',
             // Form plumbing: an HTTP method, not copy.
             'method',
-            // Browser policy values, not copy.
-            'referrerpolicy',
           ],
         },
       ],
