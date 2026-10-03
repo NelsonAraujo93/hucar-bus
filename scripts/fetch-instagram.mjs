@@ -12,11 +12,10 @@
  * Writes public-root/instagram/ (gitignored), which reaches the domain root
  * through the post-build copy, and the dev server through its assets config.
  *
- * Does not refresh the token. Measured on the first preview build: a refresh
- * returns a new token string, so refreshing here and discarding the result
- * extends nothing. Rotation needs somewhere to keep the new token -- a
- * separate job, still to build; the token set on 2026-10-03 expires around
- * 2026-12-02.
+ * Does not refresh the token: a refresh returns a new token string, so it
+ * must be stored, which is the daily job's work (api/cron/instagram). This
+ * script reads the token that job keeps current, falling back to
+ * INSTAGRAM_ACCESS_TOKEN until the job has run once.
  */
 import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -44,13 +43,47 @@ function shortCaption(caption) {
     : firstLine;
 }
 
+/**
+ * The current token, as kept up to date by the daily job (api/cron/instagram).
+ * Read with the database's read-only key. The key name matches TOKEN_KEY in
+ * src/functions/instagram/token-store.ts, which this script cannot import.
+ * Null when the store is not configured or empty: the caller then falls back
+ * to INSTAGRAM_ACCESS_TOKEN.
+ */
+async function storedToken() {
+  const url = process.env['KV_REST_API_URL'];
+  const key = process.env['KV_REST_API_READ_ONLY_TOKEN'];
+  if (!url || !key) {
+    return null;
+  }
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { authorization: `Bearer ${key}`, 'content-type': 'application/json' },
+      body: JSON.stringify(['GET', 'instagram:token']),
+      signal: AbortSignal.timeout(5_000),
+    });
+    const { result } = await response.json();
+    const token = typeof result === 'string' ? JSON.parse(result).token : null;
+    if (typeof token === 'string') {
+      console.log('Instagram: using the token from the store.');
+      return token;
+    }
+  } catch {
+    // Fall through to the environment variable.
+  }
+  return null;
+}
+
 async function main() {
   rmSync(OUT_DIR, { recursive: true, force: true });
   mkdirSync(OUT_DIR, { recursive: true });
 
-  const token = process.env['INSTAGRAM_ACCESS_TOKEN'];
+  const token = (await storedToken()) ?? process.env['INSTAGRAM_ACCESS_TOKEN'];
   if (!token) {
-    console.log('Instagram: INSTAGRAM_ACCESS_TOKEN not set; writing an empty feed.');
+    console.log(
+      'Instagram: no token in the store or INSTAGRAM_ACCESS_TOKEN; writing an empty feed.',
+    );
     writeFeed([]);
     return;
   }
