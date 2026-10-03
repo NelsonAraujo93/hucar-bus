@@ -19,6 +19,7 @@ import {
 } from '../../../domain/contact/enquiry';
 import { Button } from '../../../shared/ui/button/button';
 import { Icon } from '../../../shared/ui/icon/icon';
+import { PrivacyNotice } from '../../../shared/ui/privacy-notice/privacy-notice';
 import { FALLBACK_LOCALE, toSupportedLocale } from '../../../../shared/i18n/negotiate-locale';
 
 /**
@@ -63,7 +64,7 @@ type FormFieldName = EnquiryField | 'privacy';
 
 @Component({
   selector: 'hb-contact-form',
-  imports: [Button, FormField, FormRoot, Icon, RouterLink],
+  imports: [Button, FormField, FormRoot, Icon, PrivacyNotice, RouterLink],
   templateUrl: './contact-form.html',
   styleUrl: './contact-form.css',
 })

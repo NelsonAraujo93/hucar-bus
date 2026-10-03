@@ -1,0 +1,50 @@
+<p
+  class="notice__title"
+  i18n="Heading of the basic data-protection information|@@privacy.notice.title"
+>
+  Información básica sobre protección de datos
+</p>
+<dl class="notice__list">
+  <dt i18n="Data-protection label|@@privacy.notice.controller.label">Responsable</dt>
+  <dd>{{ config.legalName }}</dd>
+
+  <dt i18n="Data-protection label|@@privacy.notice.purpose.label">Finalidad</dt>
+  <dd i18n="Why the form data is processed|@@privacy.notice.purpose">
+    Responder a tu consulta y, si lo solicitas, preparar y confirmar tu servicio. No la usamos para
+    enviarte publicidad.
+  </dd>
+
+  <dt i18n="Data-protection label|@@privacy.notice.basis.label">Legitimación</dt>
+  <dd i18n="Legal basis for the form|@@privacy.notice.basis">
+    Aplicación de medidas precontractuales a petición tuya.
+  </dd>
+
+  <dt i18n="Data-protection label|@@privacy.notice.recipients.label">Destinatarios</dt>
+  <dd i18n="Who receives the form data|@@privacy.notice.recipients">
+    No se ceden a terceros, salvo obligación legal. Nos prestan servicio el alojamiento de la web y
+    el envío y la recepción de correo.
+  </dd>
+
+  <dt i18n="Data-protection label|@@privacy.notice.retention.label">Conservación</dt>
+  <dd i18n="How long enquiries are kept|@@privacy.notice.retention">
+    Un año desde tu consulta, si no llega a contratarse el servicio.
+  </dd>
+
+  <dt i18n="Data-protection label|@@privacy.notice.rights.label">Derechos</dt>
+  <dd>
+    <span i18n="Rights summary, before the email|@@privacy.notice.rights"
+      >Acceso, rectificación, supresión, oposición, limitación y portabilidad, escribiendo a</span
+    >
+    <a [href]="'mailto:' + config.email">{{ config.email }}</a
+    >.
+  </dd>
+</dl>
+<p class="notice__more">
+  <span i18n="Ask not to send health data|@@privacy.notice.health"
+    >Por favor, no incluyas datos de salud en el mensaje: si necesitas asistencia especial,
+    coméntanoslo por teléfono.</span
+  >
+  <a routerLink="/privacidad" i18n="Link to the full privacy policy|@@privacy.notice.more"
+    >Más información en la política de privacidad</a
+  >.
+</p>

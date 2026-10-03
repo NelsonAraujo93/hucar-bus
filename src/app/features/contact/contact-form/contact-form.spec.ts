@@ -146,6 +146,16 @@ describe('ContactForm', () => {
       expect(link?.getAttribute('href')).toBe('/privacidad');
     });
 
+    it('shows the basic data-protection information before the privacy box', async () => {
+      const { host } = await render();
+      const notice = host.querySelector('hb-privacy-notice');
+      const box = host.querySelector('#contact-privacy');
+      expect(notice).toBeTruthy();
+      expect(
+        notice && box && notice.compareDocumentPosition(box) & Node.DOCUMENT_POSITION_FOLLOWING,
+      ).toBeTruthy();
+    });
+
     it('starts with the privacy box unticked', async () => {
       const { host } = await render();
       expect(host.querySelector<HTMLInputElement>('#contact-privacy')?.checked).toBe(false);
