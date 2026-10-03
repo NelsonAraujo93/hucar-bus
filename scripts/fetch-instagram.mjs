@@ -11,6 +11,12 @@
  *
  * Writes public-root/instagram/ (gitignored), which reaches the domain root
  * through the post-build copy, and the dev server through its assets config.
+ *
+ * Does not refresh the token. Measured on the first preview build: a refresh
+ * returns a new token string, so refreshing here and discarding the result
+ * extends nothing. Rotation needs somewhere to keep the new token -- a
+ * separate job, still to build; the token set on 2026-10-03 expires around
+ * 2026-12-02.
  */
 import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -38,31 +44,6 @@ function shortCaption(caption) {
     : firstLine;
 }
 
-/**
- * Extends the token's life by 60 days. Logged as facts only -- never the
- * token. Fails harmlessly when the token is under 24 hours old.
- */
-async function refreshToken(token) {
-  try {
-    const url = new URL(`${API}/refresh_access_token`);
-    url.searchParams.set('grant_type', 'ig_refresh_token');
-    url.searchParams.set('access_token', token);
-    const response = await fetch(url, { signal: AbortSignal.timeout(10_000) });
-    const body = await response.json().catch(() => ({}));
-    if (!response.ok) {
-      console.log(`Instagram: token refresh skipped (status ${response.status}).`);
-      return;
-    }
-    const days = Math.round((body.expires_in ?? 0) / 86_400);
-    console.log(
-      `Instagram: token refreshed, valid ${days} more days; ` +
-        `same token string: ${body.access_token === token}.`,
-    );
-  } catch {
-    console.log('Instagram: token refresh failed (network).');
-  }
-}
-
 async function main() {
   rmSync(OUT_DIR, { recursive: true, force: true });
   mkdirSync(OUT_DIR, { recursive: true });
@@ -73,8 +54,6 @@ async function main() {
     writeFeed([]);
     return;
   }
-
-  await refreshToken(token);
 
   const url = new URL(`${API}/me/media`);
   url.searchParams.set(
