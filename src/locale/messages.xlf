@@ -482,7 +482,7 @@
     </unit>
     <unit id="contact.privacy.accept">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.html:235,237</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.html:239,241</note>
         <note category="meaning">Privacy acceptance, before the link</note>
       </notes>
       <segment>
@@ -491,7 +491,7 @@
     </unit>
     <unit id="contact.privacy.link">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.html:238,241</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.html:242,245</note>
         <note category="meaning">Link to the privacy policy</note>
       </notes>
       <segment>
@@ -500,7 +500,7 @@
     </unit>
     <unit id="contact.trap.label">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.html:250,253</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.html:254,257</note>
         <note category="meaning">Honeypot label</note>
       </notes>
       <segment>
@@ -509,7 +509,7 @@
     </unit>
     <unit id="contact.submit">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.html:268,273</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.html:272,277</note>
         <note category="meaning">Form submit button</note>
       </notes>
       <segment>
@@ -518,7 +518,7 @@
     </unit>
     <unit id="contact.error.email.invalid">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.ts:179</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.ts:180</note>
         <note category="meaning">Field error</note>
       </notes>
       <segment>
@@ -527,7 +527,7 @@
     </unit>
     <unit id="contact.error.tooLong">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.ts:182</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.ts:183</note>
         <note category="meaning">Field error</note>
       </notes>
       <segment>
@@ -536,7 +536,7 @@
     </unit>
     <unit id="contact.error.name.required">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.ts:186</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.ts:187</note>
         <note category="meaning">Field error</note>
       </notes>
       <segment>
@@ -545,7 +545,7 @@
     </unit>
     <unit id="contact.error.email.required">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.ts:188</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.ts:189</note>
         <note category="meaning">Field error</note>
       </notes>
       <segment>
@@ -554,7 +554,7 @@
     </unit>
     <unit id="contact.error.type.required">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.ts:190</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.ts:191</note>
         <note category="meaning">Field error</note>
       </notes>
       <segment>
@@ -563,7 +563,7 @@
     </unit>
     <unit id="contact.error.company.required">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.ts:192</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.ts:193</note>
         <note category="meaning">Field error</note>
       </notes>
       <segment>
@@ -572,7 +572,7 @@
     </unit>
     <unit id="contact.error.subject.required">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.ts:194</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.ts:195</note>
         <note category="meaning">Field error</note>
       </notes>
       <segment>
@@ -581,7 +581,7 @@
     </unit>
     <unit id="contact.error.message.required">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.ts:196</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.ts:197</note>
         <note category="meaning">Field error</note>
       </notes>
       <segment>
@@ -590,7 +590,7 @@
     </unit>
     <unit id="contact.error.privacy.required">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.ts:198</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.ts:199</note>
         <note category="meaning">Field error</note>
       </notes>
       <segment>
@@ -599,7 +599,7 @@
     </unit>
     <unit id="contact.error.generic">
       <notes>
-        <note category="location">src/app/features/contact/contact-form/contact-form.ts:200</note>
+        <note category="location">src/app/features/contact/contact-form/contact-form.ts:201</note>
         <note category="meaning">Field error</note>
       </notes>
       <segment>
@@ -1041,25 +1041,61 @@
     </unit>
     <unit id="legal.privacy.purposes.heading">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:31,34</note>
+        <note category="location">src/app/features/legal/privacy.html:31,35</note>
         <note category="meaning">Privacy section heading</note>
       </notes>
       <segment>
-        <source> Finalidades y base jurídica </source>
+        <source> Finalidades, base jurídica y conservación </source>
       </segment>
     </unit>
-    <unit id="legal.privacy.purposes.missing">
+    <unit id="legal.privacy.purposes.contact">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:35,41</note>
-        <note category="meaning">Pending purposes section</note>
+        <note category="location">src/app/features/legal/privacy.html:37,44</note>
+        <note category="meaning">What the contact form collects and why</note>
       </notes>
       <segment>
-        <source> Queda por documentar cada finalidad del tratamiento con su base jurídica. El formulario de contacto todavía no está operativo: hoy no se recoge ni se envía ningún dato a través de él. </source>
+        <source> Si nos escribes a través del formulario de contacto, tratamos los datos que nos facilitas —nombre, email, teléfono si lo indicas, tipo de consulta, empresa si escribes como operador turístico, asunto y mensaje— para responder a tu consulta y, si lo solicitas, preparar y confirmar tu servicio. Al enviarlo te mandamos un email automático confirmando que la hemos recibido. </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.purposes.whatsapp">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:45,49</note>
+        <note category="meaning">WhatsApp conversations</note>
+      </notes>
+      <segment>
+        <source> Si prefieres escribirnos por WhatsApp, la conversación tiene lugar en WhatsApp, un servicio de Meta, y se rige también por sus propias condiciones y su política de privacidad. </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.purposes.basis">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:50,55</note>
+        <note category="meaning">Legal basis</note>
+      </notes>
+      <segment>
+        <source> Tratamos los datos de las consultas para aplicar medidas precontractuales a petición tuya, y los de los clientes para prestar el servicio contratado y cumplir las obligaciones legales de facturación. </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.purposes.retention">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:56,61</note>
+        <note category="meaning">Retention</note>
+      </notes>
+      <segment>
+        <source> Conservamos las consultas que no llegan a convertirse en un servicio durante un año desde el primer contacto. Los datos de los clientes se conservan mientras dura la relación comercial y, después, durante los plazos que exige la legislación fiscal. </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.purposes.marketing">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:62,66</note>
+        <note category="meaning">No marketing</note>
+      </notes>
+      <segment>
+        <source> No usamos tus datos para enviarte publicidad. </source>
       </segment>
     </unit>
     <unit id="legal.privacy.storage.heading">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:43,46</note>
+        <note category="location">src/app/features/legal/privacy.html:68,71</note>
         <note category="meaning">Privacy section heading</note>
       </notes>
       <segment>
@@ -1068,7 +1104,7 @@
     </unit>
     <unit id="legal.privacy.storage.intro">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:47,52</note>
+        <note category="location">src/app/features/legal/privacy.html:72,77</note>
         <note category="meaning">Storage table introduction</note>
       </notes>
       <segment>
@@ -1077,7 +1113,7 @@
     </unit>
     <unit id="legal.privacy.storage.col.name">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:55,56</note>
+        <note category="location">src/app/features/legal/privacy.html:80,81</note>
         <note category="meaning">Storage table column</note>
       </notes>
       <segment>
@@ -1086,7 +1122,7 @@
     </unit>
     <unit id="legal.privacy.storage.col.type">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:56,57</note>
+        <note category="location">src/app/features/legal/privacy.html:81,82</note>
         <note category="meaning">Storage table column</note>
       </notes>
       <segment>
@@ -1095,7 +1131,7 @@
     </unit>
     <unit id="legal.privacy.storage.col.purpose">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:58,60</note>
+        <note category="location">src/app/features/legal/privacy.html:83,85</note>
         <note category="meaning">Storage table column</note>
       </notes>
       <segment>
@@ -1104,7 +1140,7 @@
     </unit>
     <unit id="legal.privacy.storage.col.duration">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:61,65</note>
+        <note category="location">src/app/features/legal/privacy.html:86,90</note>
         <note category="meaning">Storage table column</note>
       </notes>
       <segment>
@@ -1113,7 +1149,7 @@
     </unit>
     <unit id="legal.privacy.storage.cookie">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:70,71</note>
+        <note category="location">src/app/features/legal/privacy.html:95,96</note>
         <note category="meaning">Storage mechanism</note>
       </notes>
       <segment>
@@ -1122,7 +1158,7 @@
     </unit>
     <unit id="legal.privacy.storage.locale.purpose">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:72,74</note>
+        <note category="location">src/app/features/legal/privacy.html:97,99</note>
         <note category="meaning">Purpose of the locale cookie</note>
       </notes>
       <segment>
@@ -1131,7 +1167,7 @@
     </unit>
     <unit id="legal.privacy.storage.locale.duration">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:75,80</note>
+        <note category="location">src/app/features/legal/privacy.html:100,105</note>
         <note category="meaning">Duration of the locale cookie</note>
       </notes>
       <segment>
@@ -1140,7 +1176,7 @@
     </unit>
     <unit id="legal.privacy.storage.local">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:82,83</note>
+        <note category="location">src/app/features/legal/privacy.html:107,108</note>
         <note category="meaning">Storage mechanism</note>
       </notes>
       <segment>
@@ -1149,7 +1185,7 @@
     </unit>
     <unit id="legal.privacy.storage.consent.purpose">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:84,86</note>
+        <note category="location">src/app/features/legal/privacy.html:109,111</note>
         <note category="meaning">Purpose of the consent record</note>
       </notes>
       <segment>
@@ -1158,7 +1194,7 @@
     </unit>
     <unit id="legal.privacy.storage.consent.duration">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:87,92</note>
+        <note category="location">src/app/features/legal/privacy.html:112,117</note>
         <note category="meaning">Duration of the consent record</note>
       </notes>
       <segment>
@@ -1167,7 +1203,7 @@
     </unit>
     <unit id="legal.privacy.storage.none">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:98,104</note>
+        <note category="location">src/app/features/legal/privacy.html:123,129</note>
         <note category="meaning">Note that no optional scripts load</note>
       </notes>
       <segment>
@@ -1176,7 +1212,7 @@
     </unit>
     <unit id="legal.privacy.storage.manage">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:108,113</note>
+        <note category="location">src/app/features/legal/privacy.html:133,138</note>
         <note category="meaning">Reopen the cookie preferences dialog</note>
       </notes>
       <segment>
@@ -1185,7 +1221,7 @@
     </unit>
     <unit id="legal.privacy.processors.heading">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:114,117</note>
+        <note category="location">src/app/features/legal/privacy.html:139,142</note>
         <note category="meaning">Privacy section heading</note>
       </notes>
       <segment>
@@ -1194,7 +1230,7 @@
     </unit>
     <unit id="legal.privacy.processors.current">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:118,122</note>
+        <note category="location">src/app/features/legal/privacy.html:143,147</note>
         <note category="meaning">Current processors</note>
       </notes>
       <segment>
@@ -1203,25 +1239,34 @@
     </unit>
     <unit id="legal.privacy.processors.monitoring">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:123,131</note>
+        <note category="location">src/app/features/legal/privacy.html:148,155</note>
         <note category="meaning">Monitoring processor</note>
       </notes>
       <segment>
         <source> Si aceptas la categoría «monitorización de errores», usamos Sentry para que nos avise cuando algo falla en la web. Sentry no recibe absolutamente nada si no nos das ese permiso: sin él, su código ni siquiera llega a descargarse en tu navegador. Los informes se procesan en su región de la Unión Europea, no guardan nada en tu navegador, no incluyen tu dirección IP, y se depuran de cualquier dato que hayas escrito en el formulario antes de salir de tu equipo. </source>
       </segment>
     </unit>
-    <unit id="legal.privacy.processors.missing">
+    <unit id="legal.privacy.processors.email">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:132,138</note>
+        <note category="location">src/app/features/legal/privacy.html:156,161</note>
+        <note category="meaning">Email processors</note>
+      </notes>
+      <segment>
+        <source> Para entregar los mensajes del formulario usamos Resend, que envía los correos desde su región de la Unión Europea (Irlanda), y los recibimos en una cuenta de Gmail, un servicio de Google. </source>
+      </segment>
+    </unit>
+    <unit id="legal.privacy.processors.pending">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:162,168</note>
         <note category="meaning">Pending processors section</note>
       </notes>
       <segment>
-        <source> Falta el detalle contractual de cada encargado y la lista definitiva, que crecerá cuando se activen la analítica, el envío de correo del formulario y la protección antispam. </source>
+        <source> Falta el detalle contractual de cada encargado. La lista crecerá si se activan la analítica o la protección antispam. </source>
       </segment>
     </unit>
     <unit id="legal.privacy.transfers.heading">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:140,142</note>
+        <note category="location">src/app/features/legal/privacy.html:170,172</note>
         <note category="meaning">Privacy section heading</note>
       </notes>
       <segment>
@@ -1230,25 +1275,25 @@
     </unit>
     <unit id="legal.privacy.transfers.eu">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:143,148</note>
+        <note category="location">src/app/features/legal/privacy.html:173,178</note>
         <note category="meaning">Sentry processes in the EU</note>
       </notes>
       <segment>
         <source> Sentry trata los informes de error en su región de la Unión Europea, de modo que la monitorización no supone una transferencia internacional de datos. </source>
       </segment>
     </unit>
-    <unit id="legal.privacy.transfers.missing">
+    <unit id="legal.privacy.transfers.pending">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:149,155</note>
+        <note category="location">src/app/features/legal/privacy.html:179,184</note>
         <note category="meaning">Pending transfers section</note>
       </notes>
       <segment>
-        <source> Queda por documentar la situación del resto de proveedores, empezando por el alojamiento, las garantías aplicables en cada caso, y durante cuánto tiempo se conserva cada dato. </source>
+        <source> Queda por documentar la situación del resto de proveedores —el alojamiento, el envío de correo y Gmail, que puede tratar datos fuera del Espacio Económico Europeo— y las garantías aplicables en cada caso. </source>
       </segment>
     </unit>
     <unit id="legal.privacy.rights.heading">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:157,160</note>
+        <note category="location">src/app/features/legal/privacy.html:188,191</note>
         <note category="meaning">Privacy section heading</note>
       </notes>
       <segment>
@@ -1257,7 +1302,7 @@
     </unit>
     <unit id="legal.privacy.rights.intro">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:161,166</note>
+        <note category="location">src/app/features/legal/privacy.html:192,197</note>
         <note category="meaning">Rights introduction</note>
       </notes>
       <segment>
@@ -1266,7 +1311,7 @@
     </unit>
     <unit id="legal.privacy.rights.access">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:167,169</note>
+        <note category="location">src/app/features/legal/privacy.html:198,200</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1275,7 +1320,7 @@
     </unit>
     <unit id="legal.privacy.rights.rectification">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:170,172</note>
+        <note category="location">src/app/features/legal/privacy.html:201,203</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1284,7 +1329,7 @@
     </unit>
     <unit id="legal.privacy.rights.erasure">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:173,175</note>
+        <note category="location">src/app/features/legal/privacy.html:204,206</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1293,7 +1338,7 @@
     </unit>
     <unit id="legal.privacy.rights.restriction">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:176,178</note>
+        <note category="location">src/app/features/legal/privacy.html:207,209</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1302,7 +1347,7 @@
     </unit>
     <unit id="legal.privacy.rights.objection">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:179,181</note>
+        <note category="location">src/app/features/legal/privacy.html:210,212</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1311,7 +1356,7 @@
     </unit>
     <unit id="legal.privacy.rights.portability">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:182,184</note>
+        <note category="location">src/app/features/legal/privacy.html:213,215</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1320,7 +1365,7 @@
     </unit>
     <unit id="legal.privacy.rights.withdraw">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:185,190</note>
+        <note category="location">src/app/features/legal/privacy.html:216,221</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1329,7 +1374,7 @@
     </unit>
     <unit id="legal.privacy.rights.how">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:193,202</note>
+        <note category="location">src/app/features/legal/privacy.html:224,233</note>
         <note category="meaning">How to exercise your rights</note>
       </notes>
       <segment>
@@ -1709,6 +1754,133 @@
       </notes>
       <segment>
         <source>Hucar Bus</source>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.title">
+      <notes>
+        <note category="location">src/app/shared/ui/privacy-notice/privacy-notice.html:5,8</note>
+        <note category="meaning">Heading of the basic data-protection information</note>
+      </notes>
+      <segment>
+        <source> Información básica sobre protección de datos
+</source>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.controller.label">
+      <notes>
+        <note category="location">src/app/shared/ui/privacy-notice/privacy-notice.html:8,11</note>
+        <note category="meaning">Data-protection label</note>
+      </notes>
+      <segment>
+        <source>Responsable</source>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.purpose.label">
+      <notes>
+        <note category="location">src/app/shared/ui/privacy-notice/privacy-notice.html:11,12</note>
+        <note category="meaning">Data-protection label</note>
+      </notes>
+      <segment>
+        <source>Finalidad</source>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.purpose">
+      <notes>
+        <note category="location">src/app/shared/ui/privacy-notice/privacy-notice.html:13,17</note>
+        <note category="meaning">Why the form data is processed</note>
+      </notes>
+      <segment>
+        <source> Responder a tu consulta y, si lo solicitas, preparar y confirmar tu servicio. No la usamos para enviarte publicidad. </source>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.basis.label">
+      <notes>
+        <note category="location">src/app/shared/ui/privacy-notice/privacy-notice.html:17,18</note>
+        <note category="meaning">Data-protection label</note>
+      </notes>
+      <segment>
+        <source>Legitimación</source>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.basis">
+      <notes>
+        <note category="location">src/app/shared/ui/privacy-notice/privacy-notice.html:19,22</note>
+        <note category="meaning">Legal basis for the form</note>
+      </notes>
+      <segment>
+        <source> Aplicación de medidas precontractuales a petición tuya. </source>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.recipients.label">
+      <notes>
+        <note category="location">src/app/shared/ui/privacy-notice/privacy-notice.html:22,23</note>
+        <note category="meaning">Data-protection label</note>
+      </notes>
+      <segment>
+        <source>Destinatarios</source>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.recipients">
+      <notes>
+        <note category="location">src/app/shared/ui/privacy-notice/privacy-notice.html:24,28</note>
+        <note category="meaning">Who receives the form data</note>
+      </notes>
+      <segment>
+        <source> No se ceden a terceros, salvo obligación legal. Nos prestan servicio el alojamiento de la web y el envío y la recepción de correo. </source>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.retention.label">
+      <notes>
+        <note category="location">src/app/shared/ui/privacy-notice/privacy-notice.html:28,29</note>
+        <note category="meaning">Data-protection label</note>
+      </notes>
+      <segment>
+        <source>Conservación</source>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.retention">
+      <notes>
+        <note category="location">src/app/shared/ui/privacy-notice/privacy-notice.html:30,33</note>
+        <note category="meaning">How long enquiries are kept</note>
+      </notes>
+      <segment>
+        <source> Un año desde tu consulta, si no llega a contratarse el servicio. </source>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.rights.label">
+      <notes>
+        <note category="location">src/app/shared/ui/privacy-notice/privacy-notice.html:33,35</note>
+        <note category="meaning">Data-protection label</note>
+      </notes>
+      <segment>
+        <source>Derechos</source>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.rights">
+      <notes>
+        <note category="location">src/app/shared/ui/privacy-notice/privacy-notice.html:36,38</note>
+        <note category="meaning">Rights summary, before the email</note>
+      </notes>
+      <segment>
+        <source>Acceso, rectificación, supresión, oposición, limitación y portabilidad, escribiendo a</source>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.health">
+      <notes>
+        <note category="location">src/app/shared/ui/privacy-notice/privacy-notice.html:44,47</note>
+        <note category="meaning">Ask not to send health data</note>
+      </notes>
+      <segment>
+        <source>Por favor, no incluyas datos de salud en el mensaje: si necesitas asistencia especial, coméntanoslo por teléfono.</source>
+      </segment>
+    </unit>
+    <unit id="privacy.notice.more">
+      <notes>
+        <note category="location">src/app/shared/ui/privacy-notice/privacy-notice.html:48,51</note>
+        <note category="meaning">Link to the full privacy policy</note>
+      </notes>
+      <segment>
+        <source>Más información en la política de privacidad</source>
       </segment>
     </unit>
   </file>
