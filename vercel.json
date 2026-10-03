@@ -3,5 +3,11 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist/hucar-bus/browser",
   "trailingSlash": true,
-  "cleanUrls": true
+  "cleanUrls": true,
+  "crons": [
+    {
+      "path": "/api/cron/instagram/",
+      "schedule": "0 5 * * *"
+    }
+  ]
 }
