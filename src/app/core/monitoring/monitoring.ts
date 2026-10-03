@@ -57,9 +57,13 @@ export class Monitoring {
   /**
    * Registers Sentry with the consent gate. Safe to call more than once, and a
    * no-op until the project DSN is filled in.
+   *
+   * Development never reports. A dev server's errors are a developer's own --
+   * a stale tab, a restart mid-load -- and sending them only spends the free
+   * quota and puts noise in the issue feed.
    */
   start(): void {
-    if (this.config.dsn === '') {
+    if (this.config.dsn === '' || this.config.environment === 'development') {
       return;
     }
 
