@@ -19,6 +19,7 @@ export default {
         'services',
         'about',
         'reviews',
+        'instagram',
         'map',
         'contact',
         'footer',

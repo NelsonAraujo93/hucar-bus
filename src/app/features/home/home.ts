@@ -5,6 +5,7 @@ import { About } from '../about/about';
 import { Contact } from '../contact/contact';
 import { Footer } from '../footer/footer';
 import { Hero } from '../hero/hero';
+import { InstagramSection } from '../instagram/instagram-section';
 import { Navbar } from '../navbar/navbar';
 import { ReviewsSection } from '../reviews/reviews-section';
 import { WhatsappFloat } from '../whatsapp-float/whatsapp-float';
@@ -14,12 +15,22 @@ import { Services } from '../services/services';
  * The single page.
  *
  * Composes the sections and owns the scroll spy, which the navbar reads.
- * ReviewsSection is deferred, so it ships in its own chunk and loads only when
- * the visitor scrolls near it.
+ * ReviewsSection and InstagramSection are deferred, so each ships in its own
+ * chunk and loads only when the visitor scrolls near it.
  */
 @Component({
   selector: 'hb-home',
-  imports: [About, Contact, Footer, Hero, Navbar, ReviewsSection, Services, WhatsappFloat],
+  imports: [
+    About,
+    Contact,
+    Footer,
+    Hero,
+    InstagramSection,
+    Navbar,
+    ReviewsSection,
+    Services,
+    WhatsappFloat,
+  ],
   templateUrl: './home.html',
 })
 export class Home implements OnInit {
