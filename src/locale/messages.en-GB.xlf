@@ -1135,12 +1135,6 @@
         <target>See all reviews on Google</target>
       </segment>
     </unit>
-    <unit id="contact.map.title">
-      <segment state="translated">
-        <source>Mapa de la base de Hucar Bus en Arrecife</source>
-        <target>Map of the Hucar Bus base in Arrecife</target>
-      </segment>
-    </unit>
     <unit id="instagram.post.alt">
       <segment state="translated">
         <source>Publicación de Hucar Bus en Instagram</source>
