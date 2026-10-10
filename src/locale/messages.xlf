@@ -1257,16 +1257,27 @@
     </unit>
     <unit id="legal.privacy.processors.payments">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:161,166</note>
+        <note category="location">src/app/features/legal/privacy.html:161,167</note>
         <note category="meaning">Payment processor</note>
       </notes>
       <segment>
         <source> Los pagos se realizan mediante enlaces de pago de Stripe, que trata los datos de tu tarjeta directamente: Hucar Bus no los ve ni los guarda. </source>
       </segment>
     </unit>
+    <unit id="legal.privacy.processors.reviews">
+      <notes>
+        <note category="location">src/app/features/legal/privacy.html:169,178</note>
+        <note category="meaning">Google reviews shown on the site</note>
+      </notes>
+      <segment>
+        <source> La web muestra opiniones publicadas en Google Maps sobre Hucar Bus. Para obtenerlas, nuestro servidor consulta a Google: tu navegador no se conecta a Google y no le enviamos ningún dato tuyo. Junto a cada opinión se muestran el nombre y la foto de perfil de su autor, tal y como los publicó en Google. Google trata esos datos conforme a su <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a href=&quot;https://policies.google.com/privacy&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;
+        &gt;" dispEnd="&lt;/a
+      &gt;">Política de privacidad</pc>. </source>
+      </segment>
+    </unit>
     <unit id="legal.privacy.processors.pending">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:167,173</note>
+        <note category="location">src/app/features/legal/privacy.html:180,186</note>
         <note category="meaning">Pending processors section</note>
       </notes>
       <segment>
@@ -1275,7 +1286,7 @@
     </unit>
     <unit id="legal.privacy.transfers.heading">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:175,177</note>
+        <note category="location">src/app/features/legal/privacy.html:188,190</note>
         <note category="meaning">Privacy section heading</note>
       </notes>
       <segment>
@@ -1284,7 +1295,7 @@
     </unit>
     <unit id="legal.privacy.transfers.eu">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:178,183</note>
+        <note category="location">src/app/features/legal/privacy.html:191,196</note>
         <note category="meaning">Sentry processes in the EU</note>
       </notes>
       <segment>
@@ -1293,7 +1304,7 @@
     </unit>
     <unit id="legal.privacy.transfers.pending">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:184,189</note>
+        <note category="location">src/app/features/legal/privacy.html:197,202</note>
         <note category="meaning">Pending transfers section</note>
       </notes>
       <segment>
@@ -1302,7 +1313,7 @@
     </unit>
     <unit id="legal.privacy.rights.heading">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:193,196</note>
+        <note category="location">src/app/features/legal/privacy.html:206,209</note>
         <note category="meaning">Privacy section heading</note>
       </notes>
       <segment>
@@ -1311,7 +1322,7 @@
     </unit>
     <unit id="legal.privacy.rights.intro">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:197,202</note>
+        <note category="location">src/app/features/legal/privacy.html:210,215</note>
         <note category="meaning">Rights introduction</note>
       </notes>
       <segment>
@@ -1320,7 +1331,7 @@
     </unit>
     <unit id="legal.privacy.rights.access">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:203,205</note>
+        <note category="location">src/app/features/legal/privacy.html:216,218</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1329,7 +1340,7 @@
     </unit>
     <unit id="legal.privacy.rights.rectification">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:206,208</note>
+        <note category="location">src/app/features/legal/privacy.html:219,221</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1338,7 +1349,7 @@
     </unit>
     <unit id="legal.privacy.rights.erasure">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:209,211</note>
+        <note category="location">src/app/features/legal/privacy.html:222,224</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1347,7 +1358,7 @@
     </unit>
     <unit id="legal.privacy.rights.restriction">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:212,214</note>
+        <note category="location">src/app/features/legal/privacy.html:225,227</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1356,7 +1367,7 @@
     </unit>
     <unit id="legal.privacy.rights.objection">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:215,217</note>
+        <note category="location">src/app/features/legal/privacy.html:228,230</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1365,7 +1376,7 @@
     </unit>
     <unit id="legal.privacy.rights.portability">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:218,220</note>
+        <note category="location">src/app/features/legal/privacy.html:231,233</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1374,7 +1385,7 @@
     </unit>
     <unit id="legal.privacy.rights.withdraw">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:221,226</note>
+        <note category="location">src/app/features/legal/privacy.html:234,239</note>
         <note category="meaning">Data subject right</note>
       </notes>
       <segment>
@@ -1383,7 +1394,7 @@
     </unit>
     <unit id="legal.privacy.rights.how">
       <notes>
-        <note category="location">src/app/features/legal/privacy.html:229,238</note>
+        <note category="location">src/app/features/legal/privacy.html:242,251</note>
         <note category="meaning">How to exercise your rights</note>
       </notes>
       <segment>
@@ -1648,9 +1659,31 @@
         <source> Quedan por concretar las normas sobre sistemas de retención infantil en minibuses, la responsabilidad por daños en el vehículo y la disponibilidad de un vehículo adaptado para sillas de ruedas. </source>
       </segment>
     </unit>
-    <unit id="legal.terms.legal.heading">
+    <unit id="legal.terms.google.heading">
       <notes>
         <note category="location">src/app/features/legal/terms.html:147,149</note>
+        <note category="meaning">Terms section heading</note>
+      </notes>
+      <segment>
+        <source> Opiniones de Google </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.google.body">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:150,159</note>
+        <note category="meaning">Google Maps terms for the reviews</note>
+      </notes>
+      <segment>
+        <source> Las opiniones que mostramos proceden de Google Maps. Su uso se rige también por las <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a href=&quot;https://maps.google.com/help/terms_maps/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;
+        &gt;" dispEnd="&lt;/a
+      &gt;">Condiciones de servicio adicionales de Google Maps</pc> y la <pc id="1" equivStart="START_LINK_1" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a href=&quot;https://policies.google.com/privacy&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;
+        &gt;" dispEnd="&lt;/a
+      &gt;">Política de privacidad de Google</pc>. </source>
+      </segment>
+    </unit>
+    <unit id="legal.terms.legal.heading">
+      <notes>
+        <note category="location">src/app/features/legal/terms.html:163,165</note>
         <note category="meaning">Terms section heading</note>
       </notes>
       <segment>
@@ -1659,7 +1692,7 @@
     </unit>
     <unit id="legal.terms.legal.complaints">
       <notes>
-        <note category="location">src/app/features/legal/terms.html:150,155</note>
+        <note category="location">src/app/features/legal/terms.html:166,171</note>
         <note category="meaning">Complaint forms</note>
       </notes>
       <segment>
@@ -1670,7 +1703,7 @@
     </unit>
     <unit id="legal.terms.legal.pending">
       <notes>
-        <note category="location">src/app/features/legal/terms.html:157,161</note>
+        <note category="location">src/app/features/legal/terms.html:173,177</note>
         <note category="meaning">Pending legal terms</note>
       </notes>
       <segment>
