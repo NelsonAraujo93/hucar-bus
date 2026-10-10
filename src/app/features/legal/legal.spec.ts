@@ -175,6 +175,13 @@ describe('legal pages', () => {
       expect(text).not.toContain('no está operativo');
     });
 
+    it("references Google's Privacy Policy for the reviews, as the Places API requires", async () => {
+      const host = await render(Privacy);
+      const hrefs = Array.from(host.querySelectorAll('a')).map((a) => a.getAttribute('href'));
+      expect(hrefs).toContain('https://policies.google.com/privacy');
+      expect(host.textContent).toContain('tu navegador no se conecta a Google');
+    });
+
     it('gives an address for exercising rights', async () => {
       const host = await render(Privacy);
       const config = TestBed.inject(SITE_CONFIG);
@@ -197,6 +204,13 @@ describe('legal pages', () => {
       const hrefs = Array.from(host.querySelectorAll('a')).map((a) => a.getAttribute('href'));
       expect(hrefs).toContain(config.phoneHref);
       expect(hrefs).toContain(`mailto:${config.email}`);
+    });
+
+    it('references the Google Maps terms and privacy policy for the reviews', async () => {
+      const host = await render(Terms);
+      const hrefs = Array.from(host.querySelectorAll('a')).map((a) => a.getAttribute('href'));
+      expect(hrefs).toContain('https://maps.google.com/help/terms_maps/');
+      expect(hrefs).toContain('https://policies.google.com/privacy');
     });
   });
 });
