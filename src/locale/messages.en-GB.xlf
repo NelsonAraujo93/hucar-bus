@@ -1256,5 +1256,35 @@
         <target>We do not use your data to send you advertising.</target>
       </segment>
     </unit>
+    <unit id="legal.privacy.processors.reviews">
+      <segment state="translated">
+        <source> La web muestra opiniones publicadas en Google Maps sobre Hucar Bus. Para obtenerlas, nuestro servidor consulta a Google: tu navegador no se conecta a Google y no le enviamos ningún dato tuyo. Junto a cada opinión se muestran el nombre y la foto de perfil de su autor, tal y como los publicó en Google. Google trata esos datos conforme a su <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a href=&quot;https://policies.google.com/privacy&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;
+        &gt;" dispEnd="&lt;/a
+      &gt;">Política de privacidad</pc>. </source>
+        <target>The site shows reviews of Hucar Bus published on Google Maps. To fetch them, our server asks Google: your browser does not connect to Google and we send it none of your data. Each review shows its author's name and profile photo, as they published them on Google. Google processes that data under its <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a href=&quot;https://policies.google.com/privacy&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;
+        &gt;" dispEnd="&lt;/a
+      &gt;">Privacy Policy</pc>.</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.google.heading">
+      <segment state="translated">
+        <source> Opiniones de Google </source>
+        <target>Google reviews</target>
+      </segment>
+    </unit>
+    <unit id="legal.terms.google.body">
+      <segment state="translated">
+        <source> Las opiniones que mostramos proceden de Google Maps. Su uso se rige también por las <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a href=&quot;https://maps.google.com/help/terms_maps/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;
+        &gt;" dispEnd="&lt;/a
+      &gt;">Condiciones de servicio adicionales de Google Maps</pc> y la <pc id="1" equivStart="START_LINK_1" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a href=&quot;https://policies.google.com/privacy&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;
+        &gt;" dispEnd="&lt;/a
+      &gt;">Política de privacidad de Google</pc>. </source>
+        <target>The reviews we show come from Google Maps. Their use is also governed by the <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a href=&quot;https://maps.google.com/help/terms_maps/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;
+        &gt;" dispEnd="&lt;/a
+      &gt;">Google Maps Additional Terms of Service</pc> and the <pc id="1" equivStart="START_LINK_1" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a href=&quot;https://policies.google.com/privacy&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;
+        &gt;" dispEnd="&lt;/a
+      &gt;">Google Privacy Policy</pc>.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
